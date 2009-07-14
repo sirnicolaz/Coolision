@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+        <Coolision_Layer_Filter_Attribute>
+            <version>0.1.0</version>
+        </Coolision_Layer_Filter_Attribute>
+        <Coolision_Layer_Filter_Item>
+            <version>0.1.0</version>
+        </Coolision_Layer_Filter_Item>
+    </modules>
+    <global>
+        <models>
+            <catalog>
+                <rewrite>
+                    <layer_filter_attribute>Coolision_Catalog_Model_Layer_Filter_Attribute</layer_filter_attribute>
+                </rewrite>
+            </catalog>
+			<catalog>
+                <rewrite>
+                    <layer_filter_item>Coolision_Catalog_Model_Layer_Filter_Item</layer_filter_item>
+                </rewrite>
+            </catalog>
+        </models>
+    </global>
+</config>

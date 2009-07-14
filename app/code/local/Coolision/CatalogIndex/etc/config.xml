@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+        <Coolision_Mysql4_Attribute>
+            <version>0.1.0</version>
+        </Coolision_Mysql4_Attribute>
+    </modules>
+    <global>
+        <models>
+            <catalogindex>
+                <rewrite>
+                    <mysql4_attribute>Coolision_CatalogIndex_Model_Mysql4_Attribute</mysql4_attribute>
+                </rewrite>
+            </catalogindex>
+        </models>
+    </global>
+</config>
