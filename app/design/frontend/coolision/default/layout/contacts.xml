@@ -28,7 +28,49 @@
 <layout version="0.1.0">
     <default>
         <reference name="footer_links">
-            <action method="addLink" translate="label title" module="contacts" ifconfig="contacts/contacts/enabled"><label>Contact Us</label><url>contacts</url><title>Contact Us</title><prepare>true</prepare></action>
+            <action method="addLink" translate="label title" module="contacts" ifconfig="contacts/contacts/enabled">
+		<label>contact us</label>
+		<url>contacts</url>
+		<title>contact us</title>
+		<prepare>true</prepare>
+	    </action>
+	    <!-- Ayeye mess -->
+	    <!-- TODO Da creare e collegare le pagine statiche ai link -->
+	    <action method="addLink" translate="label title" module="contacts">
+                <label>termini d'uso</label>
+                <url>termini d'uso</url>
+                <title>termini d'uso</title>
+            </action>
+	    <action method="addLink" translate="label title" module="contacts">
+                <label>privacy</label>
+                <url>privacy</url>
+                <title>privacy</title>
+            </action>
+	    <action method="addLink" translate="label title" module="contacts">
+                <label>careers</label>
+                <url>careers</url>
+                <title>careers</title>
+            </action>
+	    <action method="addLink" translate="label title" module="contacts">
+                <label>delivery</label>
+                <url>delivery</url>
+                <title>delivery</title>
+            </action>
+	    <action method="addLink" translate="label title" module="contacts">
+                <label>returns</label>
+                <url>returns</url>
+                <title>returns</title>
+            </action>
+	    <action method="addLink" translate="label title" module="contacts">
+                <label>how to shop</label>
+                <url>how to shop</url>
+                <title>how to shop</title>
+            </action>
+	    <action method="addLink" translate="label title" module="contacts">
+                <label>accessibility</label>
+                <url>accessibility</url>
+                <title>accessibility</title>
+            </action>
         </reference>
     </default>
 
