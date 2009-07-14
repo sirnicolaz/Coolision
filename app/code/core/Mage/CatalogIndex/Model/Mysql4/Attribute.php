@@ -114,7 +114,6 @@ class Mage_CatalogIndex_Model_Mysql4_Attribute extends Mage_CatalogIndex_Model_M
 //            $collection->getSelect()->where("e.{$attribute->getAttributeCode()}=?", $value);
 //            return $this;
 //        }
-		echo "applyFilterold";
         $alias = 'attr_index_'.$attribute->getId();
         $collection->getSelect()->join(
             array($alias => $this->getMainTable()),
