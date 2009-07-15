@@ -406,13 +406,13 @@ h1#logo {
 .language-switcher label { color:#A7C6DD; padding-right:5px; }
 .language-switcher .flag option { background-repeat:no-repeat; background-position:left center; padding-left:20px; margin-left:2px; }
 
-/* Breadcrumbs */
-.breadcrumbs {  margin-bottom:13px; font-size:.95em; line-height:1.25em; }
+/* Breadcrumbs */ /*Modified*/
+.breadcrumbs {  margin-bottom:13px; font-size:.95em; line-height:1.25em; float:left;}
 .breadcrumbs li { display:inline; }
 
 
-/* Mini search */
-.mini-search { position:absolute; top:0; right:0; width:300px; height:30px; padding:1px 20px 0 40px; background:url(../images/mini_search_bg.gif) 0 0 no-repeat; }
+/* Mini search */ /*Modified*/
+.mini-search { position:relative; float:right; top:0; right:0; width:300px; height:30px; padding:1px 20px 0 40px; background:url(../images/mini_search_bg.gif) 0 0 no-repeat; }
 .mini-search .input-text { width:212px; margin-right:4px; }
 .search-autocomplete { z-index:999; }
 .search-autocomplete ul { border:1px solid #5c7989; background-color:#f9f5f0; }

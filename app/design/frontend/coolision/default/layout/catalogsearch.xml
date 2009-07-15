@@ -29,7 +29,7 @@
 <layout version="0.1.0">
 
     <default>
-        <reference name="header">
+        <reference name="breadcrumbs">
             <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
         </reference>
         <reference name="footer_links">
