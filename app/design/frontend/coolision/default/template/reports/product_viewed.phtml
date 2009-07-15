@@ -31,7 +31,7 @@
     </div>
     <ol id="recently-viewed-items">
     <?php foreach ($_products as $_item): ?>
-        <li<li<?php if($_item->isComposite() || !$_item->isSaleable()): ?> class="super-products"<?php endif; ?>>
+        <li <?php if($_item->isComposite() || !$_item->isSaleable()): ?> class="super-products"<?php endif; ?>>
             <div class="product-images">
             <?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
                 <span class="checkbox-container">
@@ -45,7 +45,11 @@
                 <a href="<?php echo $_item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" width="50" height="50" /></a>
             </div>
 			<div class="product-manufacturer">
-				<h3>Manufacturer <?php echo ": ".$_item->getAttributeById(66);?></h3>
+				<h3><?php echo "Manufacturer: ".$_item->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($_item); ?></h3>
+				<br/>
+				<span><?php echo "Color: ".$_item->getResource()->getAttribute('color')->getFrontend()->getValue($_item); ?></span>
+				<br/>
+				<span><?php echo "Price: ".$_item->getFormatedPrice();?></span>
 			</div>
 		</li>
     <?php endforeach; ?>
