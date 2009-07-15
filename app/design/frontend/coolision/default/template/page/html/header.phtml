@@ -29,12 +29,29 @@
     <div class="header-top">
         <h1 id="logo"><a href="<?php echo $this->getUrl('') ?>"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
         <p class="no-display"><a href="#main"><strong><?php echo $this->__('Skip to Main Content') ?> &raquo;</strong></a></p>
-        <?php echo $this->getChildHtml('topSearch') ?>
+        <?php //echo $this->getChildHtml('topSearch') ?>
         <div class="quick-access">
-           <?php echo $this->getWelcome() ?><br />
-            <div class="shop-access">
-                <?php echo $this->getChildHtml('topLinks') ?>
-            </div>
+			<!-- Un giorno, molto lontano, forse, chissà, ci andrà il messaggio di benvenuto. Se l'uomo del monte dice si. -->
+           <!--<?php //echo $this->getWelcome() ?><br />-->
+            <!--div class="shop-access">
+					<?php //echo $this->getChildHtml('topLinks') ?>
+			</div-->
+			
+			<!--  Div con le aree di accesso stile "bottoni" -->
+			<div class="header-cblock">
+				<!-- login -->
+			</div>
+			<div class="header-cblock">
+				<!-- amministrazione -->
+				<?php echo $this->getLayout()->getBlock("top.links.user")->toHtml(); ?>
+			</div>
+			<div class="header-cblock">
+				<!-- Guida all'acquisto -->
+			</div>
+			<div class="header-cblock">
+				<?php echo $this->getLayout()->getBlock("top.links.cart")->toHtml(); ?>
+			</div>
+			
             <?php echo $this->getChildHtml('store_language') ?>
         </div>
     </div>

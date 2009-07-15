@@ -62,12 +62,20 @@ Default layout, loads most of the pages
             </block>
 
             <block type="page/html_header" name="header" as="header">
-                <block type="page/template_links" name="top.links" as="topLinks"/>
+                <block type="page/template_links" name="top.links" as="topLinks">
+					<!-- Smars blocks of ecommerce shit -->
+					<block type="page/template_links" name="top.links.login" as="loginArea"/>
+					<block type="page/template_links" name="top.links.user" as="userArea"/>
+					<block type="page/template_links" name="top.links.misc" as="miscArea"/>
+					<block type="page/template_links" name="top.links.cart" as="cartArea"/>
+				</block>
                 <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
                 <block type="core/text_list" name="top.menu" as="topMenu"/>
             </block>
 
-            <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+            <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs">
+				<block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+			</block>
 
             <block type="core/text_list" name="left" as="left"/>
 

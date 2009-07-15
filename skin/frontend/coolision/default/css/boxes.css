@@ -392,7 +392,7 @@ h1#logo {
     }
 .quick-access p { margin-bottom:4px; }
 .quick-access li {
-    display:inline;
+    //display:inline;
     background:url(../images/shop_access_pipe.gif) no-repeat 100% .35em;
     padding-right:7px;
     padding-left:3px;
@@ -1554,3 +1554,10 @@ table.print .price-incl-tax .price { display:inline; }
 .order-info ul { display:inline; }
 .order-info li { display:inline; padding-right:7px; padding-left:3px; }
 .order-info li.selected {font-weight:bold; background:url(../images/point-con.gif) no-repeat fixed center bottom; }
+
+/* Content-block nell'header (bottoni e login) */
+.header-cblock {
+text-align: left;
+min-width: 20%;
+float: right;
+}

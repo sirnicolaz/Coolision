@@ -43,6 +43,7 @@
     <?php endforeach; ?>
 </ul>
 <span>
-	<?php echo $this->getLayout()->getBlock("top.search")->toHtml(); ?> 
+	<?php //echo $this->getLayout()->getBlock("top.search")->toHtml(); ?> 
+	<?php echo $this->getChildHtml('topSearch') ?> 
 </span>
 <?php endif; ?>
