@@ -31,12 +31,12 @@
 #nav span { display:block; cursor:pointer; white-space:nowrap; }
 #nav li ul span {white-space:normal; }
 
-/************ 0 LEVEL  ***************/
+/************ 0 LEVEL  ***************/ /*Modified*/
 #nav li { float:left; }
 #nav li.active a { color:#d96708; }
-#nav a { float:left; padding:5px 12px 6px 8px; color:#a7c6dd; font-weight:bold; }
+#nav a { float:left; padding:5px 12px 6px 8px; color:black; font-weight:bold; }
 #nav li.over a,
-#nav a:hover { color:#d96708; }
+#nav a:hover { color:yellow; background:black;}
 
 /************ 1ST LEVEL ************/
 #nav ul li,

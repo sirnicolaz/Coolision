@@ -365,7 +365,7 @@ table.view-by td {
 .header { }
 .header-top-container { border-bottom:1px solid #415966; background-color:black; background-image:url(../images/header_lines.png); padding-top:5em; background-position: left;}
 .header-top { padding:10px; }
-.header-nav-container { background:url(../images/nav_bg.jpg) repeat-y 50% 0 #0a263d; }
+.header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; }
 .middle-container { background:url(../images/main_container_bg.gif) no-repeat 50% 0 #fbfaf6; }
 .middle { background:url(../images/main_bg.gif) no-repeat #fffffe;  padding:25px 25px 80px 25px; }
 
@@ -399,6 +399,7 @@ h1#logo {
     }
 .quick-access li.first { padding-left:0; }
 .quick-access li.last { padding-right:0; background:none; }
+.quick-access a {color:white; text-decoration:none;}
 .shop-access { margin-bottom:6px; }
 .shop-access a, .shop-access a:hover { color:#ebbc58; font-size:.95em; }
 .shop-access li.last { padding-right:0; background:none; }
