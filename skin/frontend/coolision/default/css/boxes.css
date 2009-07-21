@@ -392,7 +392,7 @@ h1#logo {
     }
 .quick-access p { margin-bottom:4px; }
 .quick-access li {
-    //display:inline;
+/*    display:inline;*/
     background:url(../images/shop_access_pipe.gif) no-repeat 100% .35em;
     padding-right:7px;
     padding-left:3px;
@@ -510,26 +510,29 @@ h1#logo {
 
 
 /********************** Footer */
-.footer-container { border-top:15px solid #B6D1E2; }
-.footer { width:930px; margin:0 auto; padding:10px 10px 4em; background-color:#618499; }
+.footer-container { /*border-top:15px solid #B6D1E2;*/ }
+.footer { width:930px; margin:0 auto; padding-bottom:5em; background-color:black; }
 .footer .store-switcher { display:inline; padding:0 10px 0 0; vertical-align:middle; }
+.footer .informational div { background:url(../images/main-menu_bg.png); /*background-color: #cc0;*/ }
 .footer .informational label { color:#fff; font-weight:bold; padding-right:3px; }
 .footer .informational ul {
     display:inline;
     }
 .footer .informational li {
     display:inline;
-    background:url(../images/footer_info_separator.gif) no-repeat 100% 50%;
+    background:url(../images/footer_informational_bg.gif) no-repeat 100% 50%;
     padding-right:8px;
     padding-left:4px;
     }
 .footer .informational li.last { background:none; padding-right:0; }
-.footer .informational a, .footer .informational a:hover { color:#fff; }
+.footer .informational a, .footer .informational a:hover { color:black; }
 .footer .informational a { text-decoration:none; }
 .footer .legality {
-    padding:13px 0;
+    padding:0.5em 0;
     color:#ecf3f6;
-    text-align:center;
+    text-align:right;
+    font-size: x-small;
+    font-weight: bold;
     }
 .footer .legality a, .footer .legality a:hover { color:#ecf3f6; }
 
