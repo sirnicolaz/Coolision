@@ -44,9 +44,14 @@
         <!-- end header -->
 
         <!-- start middle -->
+		<div class="under-menu-container">
+			<div class="under-menu-bg">
+				<?php echo $this->getChildHtml('breadcrumbs') ?>
+			</div>
+		</div>
         <div class="middle-container">
             <div class="middle col-3-layout">
-            <?php echo $this->getChildHtml('breadcrumbs') ?>
+            
                 <!-- start left -->
                 <div class="col-left side-col">
                     <?php echo $this->getChildHtml('left') ?>&nbsp;

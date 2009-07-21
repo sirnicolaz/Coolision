@@ -367,7 +367,7 @@ table.view-by td {
 .header-top { padding:10px; }
 .header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; }
 .middle-container { background:url(../images/main_container_bg.gif) no-repeat 50% 0 #fbfaf6; }
-.middle { background:url(../images/main_bg.gif) no-repeat #fffffe;  padding:25px 25px 80px 25px; }
+.middle { background:url(../images/main_bg.gif) no-repeat #fffffe;  padding:0px 25px 80px 25px; } /*Modified*/
 
 
 /********************** Header */
@@ -413,15 +413,17 @@ h1#logo {
 
 
 /* Mini search */ /*Modified*/
-.mini-search { position:relative; float:right; top:0; right:0; width:300px; height:30px; padding:1px 20px 0 40px; background:url(../images/mini_search_bg.gif) 0 0 no-repeat; }
-.mini-search .input-text { width:212px; margin-right:4px; }
+.mini-search { position:relative; float:right; top:0; right:0; width:300px; height:30px; padding:0px 0px 0 0px; background:url(../images/mini_search_bg.gif) 0 0 no-repeat; }
+/*.mini-search .input-text { width:212px; margin-right:4px; }*/
+.mini-search .input-text {border:none; background:url(../images/mini-search_txtb.png) no-repeat; margin-right:0em; width:11em; padding:0; padding-left:3px; padding-right:3px; margin-top:0.22em;}
+.mini-search .input-btn { padding:0; margin:0;}
+#search_mini_form {padding:0; margin:0;}
 .search-autocomplete { z-index:999; }
 .search-autocomplete ul { border:1px solid #5c7989; background-color:#f9f5f0; }
 .search-autocomplete li { border-bottom:1px solid #f4eee7; padding:2px 8px 1px 8px; cursor:pointer; }
 .search-autocomplete li .amount { float:right; font-weight:bold; }
 .search-autocomplete li.odd { background-color:#fffefb; }
 .search-autocomplete li.selected { background-color:#f7e8dd; }
-
 
 /********************** Sidebars */
 .side-col .box { margin-bottom:1.3em; }
@@ -1562,3 +1564,15 @@ text-align: left;
 min-width: 20%;
 float: right;
 }
+
+/* Under menu */ /*Modified*/
+
+.under-menu-container { background:#1A1A1A; width:100%; height:23px;}
+
+.under-menu-bg { background:url(../images/under-menu_bg.png); }
+
+.under-menu { padding-top:0em; width:930px; margin:0 auto; }
+
+.under-menu ul{ float:left; padding-top:0.35em;}
+
+.mini-search {background: none; padding-top:0; margin-top:0;}

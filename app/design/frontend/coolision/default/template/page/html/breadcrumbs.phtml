@@ -26,6 +26,7 @@
 ?>
 <?php if($crumbs && is_array($crumbs)): ?>
 <h4 class="no-display"><?php echo $this->__("You're currently on:") ?></h4>
+<div class="under-menu">
 <ul class="breadcrumbs">
     <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
         <li class="<?php echo $_crumbName ?>">
@@ -42,8 +43,7 @@
         <?php endif; ?>
     <?php endforeach; ?>
 </ul>
-<span>
 	<?php //echo $this->getLayout()->getBlock("top.search")->toHtml(); ?> 
 	<?php echo $this->getChildHtml('topSearch') ?> 
-</span>
+</div>
 <?php endif; ?>
