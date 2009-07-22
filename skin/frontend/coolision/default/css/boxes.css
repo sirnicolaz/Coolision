@@ -367,7 +367,7 @@ table.view-by td {
 .header-top { padding:10px; }
 .header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; }
 .middle-container { background:url(../images/main_container_bg.gif) no-repeat 50% 0 #fbfaf6; }
-.middle { background:url(../images/main_bg.gif) no-repeat #fffffe;  padding:0px 25px 80px 25px; } /*Modified*/
+.middle { /*background:url(../images/main_bg.gif) no-repeat #fffffe;*/ padding:10px 25px 80px 25px; } /*Modified*/
 
 
 /********************** Header */
