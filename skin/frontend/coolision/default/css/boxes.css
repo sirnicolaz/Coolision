@@ -1587,7 +1587,8 @@ table.print .price-incl-tax .price { display:inline; }
 
 /* Under menu */ /*Modified*/
 
-.under-menu-container { background:#1A1A1A; width:100%; height:23px;}
+.under-menu-container { background:#000; width:100%; height:23px; color:#fff; }
+.under-menu-container a:visited { color:#fff; }
 
 .under-menu-bg { background:url(../images/under-menu_bg.png); }
 
@@ -1596,3 +1597,5 @@ table.print .price-incl-tax .price { display:inline; }
 .under-menu ul{ float:left; padding-top:0.35em;}
 
 .mini-search {background: none; padding-top:0; margin-top:0;}
+.mini-search input#search {background-color:#fff;}
+.mini-search input.input-btn {background-image: url(../images/button-search.png);}
