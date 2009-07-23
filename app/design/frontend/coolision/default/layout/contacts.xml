@@ -38,7 +38,7 @@
 	    <!-- TODO Da creare e collegare le pagine statiche ai link -->
 	    <action method="addLink" translate="label title" module="contacts">
                 <label>termini d'uso</label>
-                <url>termini d'uso</url>
+                <url>termini_uso</url>
                 <title>termini d'uso</title>
             </action>
 	    <action method="addLink" translate="label title" module="contacts">
@@ -63,7 +63,7 @@
             </action>
 	    <action method="addLink" translate="label title" module="contacts">
                 <label>how to shop</label>
-                <url>how to shop</url>
+                <url>how_to_shop</url>
                 <title>how to shop</title>
             </action>
 	    <action method="addLink" translate="label title" module="contacts">
