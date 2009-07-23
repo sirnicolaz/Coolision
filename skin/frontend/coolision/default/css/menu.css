@@ -36,11 +36,11 @@
 #nav li.active a { color:#d96708; }
 #nav a { float:left; padding:5px 12px 6px 8px; color:black; font-weight:bold; }
 #nav li.over a,
-#nav a:hover { color:yellow; background:black;}
+#nav a:hover { color:#fcca20; background:black;}
 
 /************ 1ST LEVEL ************/
 #nav ul li,
-#nav ul li.active { float:none; margin:0; padding-bottom:1px; background:#ecf3f6 url(../images/nav_divider.gif) repeat-x 0 100%; }
+#nav ul li.active { float:none; margin:0; padding-bottom:1px; /*background:#ecf3f6 url(../images/nav_divider.gif) repeat-x 0 100%;*/ background-color:black; }
 /*#nav ul li.over { background:#d5e4eb url(../images/nav_divider.gif) repeat-x 0 100%; }*/
 #nav ul li.last { background:#ecf3f6; padding-bottom:0; }
 

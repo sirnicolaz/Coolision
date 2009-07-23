@@ -365,7 +365,7 @@ table.view-by td {
 .header { }
 .header-top-container { border-bottom:1px solid #415966; background-color:black; background-image:url(../images/header_lines.png); padding-top:5em; background-position: left;}
 .header-top { padding:10px; }
-.header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; }
+.header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
 .middle-container { background:url(../images/main_container_bg.gif) no-repeat 50% 0 #fbfaf6; }
 .middle { /*background:url(../images/main_bg.gif) no-repeat #fffffe;*/ padding:10px 25px 80px 25px; } /*Modified*/
 
@@ -513,7 +513,7 @@ h1#logo {
 .footer-container { /*border-top:15px solid #B6D1E2;*/ }
 .footer { width:930px; margin:0 auto; padding-bottom:5em; background-color:black; }
 .footer .store-switcher { display:inline; padding:0 10px 0 0; vertical-align:middle; }
-.footer .informational div { background:url(../images/main-menu_bg.png); /*background-color: #cc0;*/ }
+.footer .informational div { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
 .footer .informational label { color:#fff; font-weight:bold; padding-right:3px; }
 .footer .informational ul {
     display:inline;
