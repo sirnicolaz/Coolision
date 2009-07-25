@@ -29,13 +29,17 @@
 <script type="text/javascript">countryRegions = <?php echo $this->helper('directory')->getRegionJson() ?></script>
 
 <ol id="checkoutSteps" class="one-page-checkout">
+<!-- scorre i vari step del checkout -->
 <?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
-<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
+<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?> <!-- guarda se ha senso mostrare lo step corrente -->
+    <!-- an seconda di come è lo step cambia la class e l'id -->
     <li id="opc-<?php echo $_stepId ?>" class="section <?php echo !empty($_stepInfo['allow'])?'allow':'' ?> <?php echo !empty($_stepInfo['complete'])?'saved':'' ?>">
         <div class="head">
+	    <!-- head dello step, cioè id e titolo (cliccabile per andare a quello step) -->
             <h3><span class="step-count"><?php echo $i ?></span> &nbsp;<?php echo $_stepInfo['label'] ?></h3><a href="#"><?php echo $this->__('Edit') ?></a>
         </div>
         <div id="checkout-step-<?php echo $_stepId ?>" class="box<?php if($_stepId=='shipping_method'): ?>-no-padding<?php endif; ?> a-item" style="display:none;">
+	    <!-- va a prendere l'html dello step identificato da un certo step_id (ad esempio shipping_method) -->
             <?php echo $this->getChildHtml($_stepId) ?>
         </div>
     </li>

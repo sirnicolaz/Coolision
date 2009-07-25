@@ -1,0 +1,10 @@
+<!-- recupera le possibili opzioni per il filtro -->
+<?php $options = $this->getItems() ?>
+<select id="select-manufacturer" onchange="window.location=this.value">
+  <option value="#" selected="selected"> </option>
+  <?php foreach ($options as $option): ?>
+    <?php $urlArray = explode('?', $option->getUrl(), 2) ?>
+    <!-- per ora l'url della subcategory è hardcoded, ma non penso sia assurdo andarlo a recuperare -->
+    <option value="<?php echo $urlArray[0]."categories.html?".$urlArray[1] ?>"><?php echo $option->getLabel() ?></option>
+  <?php endforeach; ?>
+</select>
