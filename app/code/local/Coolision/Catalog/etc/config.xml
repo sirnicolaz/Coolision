@@ -7,6 +7,9 @@
         <Coolision_Layer_Filter_Item>
             <version>0.1.0</version>
         </Coolision_Layer_Filter_Item>
+	<Coolision_Layer_Filter_Price>
+	  <version>0.1.0</version>
+	</Coolision_Layer_Filter_Price>
     </modules>
     <global>
         <models>
@@ -21,5 +24,12 @@
                 </rewrite>
             </catalog>
         </models>
+	<blocks>
+	  <catalog>
+	    <rewrite>
+              <layer_filter_price>Coolision_Catalog_Block_Layer_Filter_Price</layer_filter_price>
+            </rewrite>
+	  </catalog>
+	</blocks>
     </global>
 </config>

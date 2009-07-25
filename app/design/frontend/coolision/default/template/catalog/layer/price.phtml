@@ -1,0 +1,82 @@
+<SCRIPT LANGUAGE="JavaScript">
+
+  function price(from, to) {
+    /* Recupera l'item per il filtro (uno qualsiasi tanto a noi non interessa). Ce ne è sempre uno */
+    var url =  unescape("<?php echo "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>");
+
+    url = url.replace( /\?price=.*&/ , "?"); /* CASO 1 */
+    url = url.replace( /&price=.*&/ , "&"); /* CASO 3 */
+    url = url.replace( /[\?|&]price=.*$/ , ""); /* CASO 2 o 4 */
+
+    /* A questo punto o il prezzo non era impostato, o se lo era è stato rimosso dalla stringa parametri */
+    if ( from.value == "" && to.value == "" ) {
+      /* Tolgo, se c'è, il filtro sui prezzi; altrimenti non faccio niente. */
+      document.location = url;
+      return;
+    }
+
+    var fromValue;
+    var toValue;
+
+    if ( from.value == "" )
+    {
+      /* L'utente non ha specificato un limite inferiore per il prezzo */
+      fromValue = 1;
+      toValue = parseFloat(to.value);
+    }
+    else if ( to.value == "")
+    {
+      /* L'utente non ha specificato un limite superiore per il prezzo */
+      toValue = 1000000000;
+      fromValue = parseFloat(from.value);
+    }
+    else
+    {
+      fromValue = parseFloat(from.value);
+      toValue = parseFloat(to.value);
+    }
+      
+    /* Check sui valori inseriti */
+    if ( !isDecimal(fromValue) || !isDecimal(toValue) )
+    {
+      /* I valori inseriti non sono dei numeri decimali */
+      alert("i valori devono essere decimali dio can.");
+    }
+    else if ( toValue < fromValue )
+    {
+      /* il limite superiore del range di prezzi è inferiore del limite inferiore */
+      alert("toValue deve essere maggiore di fromValue dio can.");
+    }
+    else
+    {
+      /* Aggiunge il prezzo inserito in coda alla pagina */
+      if ( url.search(/html\?/) != -1 )
+      {
+	/* Il prezzo non è l'unico parametro, lo accodo */
+	url = url + "&price=" + fromValue + "," + toValue; 
+      }
+      else
+      {
+	/* Il prezzo è l'unico parametro */
+	url = url + "?price=" + fromValue + "," + toValue;
+      }
+      /* Redirect alla nuova pagina */
+      document.location = url;
+    }
+  }
+
+  /* Funzione che controlla che un numero sia un decimale valido */
+  function isDecimal( str )
+  {
+    return str != "" ? /^\d*\.?\d*$/.test( str ) : false;
+  }
+
+</SCRIPT>
+
+<form id="priceForm" name="priceForm">
+  <input type=text id="priceFrom" name = "priceFrom">
+  <input type=text id="priceTo" name = "priceTo">
+  <input type="button" name="submit" value="Filtra" OnClick="price(document.getElementById('priceFrom'), document.getElementById('priceTo'))">
+</form> 
+
+
