@@ -55,7 +55,7 @@ q:before, q:after{content:'';}
 
 /* Form */
 form { display:inline;}
-fieldset { border:none; }
+/*fieldset { border:none; }*/
 legend {display:none;}
 label { color:#666; /*font-size:.95em;*/  font-weight:bold; }
 input, select, button { vertical-align:middle; }

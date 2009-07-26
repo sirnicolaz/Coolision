@@ -74,8 +74,8 @@ Default layout, loads most of the pages
             </block>
 
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs">
-				<block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
-			</block>
+				      <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+			      </block>
 
             <block type="core/text_list" name="left" as="left"/>
 

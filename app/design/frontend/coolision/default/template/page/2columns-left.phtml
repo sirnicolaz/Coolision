@@ -45,8 +45,9 @@
 
     <!-- start middle -->
     <div class="middle-container">
+        <?php echo $this->getChildHtml('breadcrumbs') ?>
         <div class="middle col-2-left-layout">
-            <?php echo $this->getChildHtml('breadcrumbs') ?>
+            
             <!-- start left -->
             <div class="col-left side-col">
                 <?php echo $this->getChildHtml('left') ?>&nbsp;
