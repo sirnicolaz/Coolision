@@ -36,6 +36,19 @@
         <li>
             <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?></li>
         <li>
+	<li>
+	    <div class="input-box">
+            <label for="sex"><?php echo $this->__('Sex') ?> <span class="required">*</span></label><br />
+            <input type="text" name="sex" id="sex" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Sex') ?>" class="required-entry validate-email input-text" />
+            </div>
+	</li>
+	<li>
+	    <div class="input-box">
+            <label for="birthDate"><?php echo $this->__('Birth Date') ?> <span class="required">*</span></label><br />
+            <input type="text" name="birthDate" id="birthDate" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Birth Date') ?>" class="required-entry validate-email input-text" />
+            </div>
+	</li>
+	<li>
             <div class="input-box">
             <label for="email"><?php echo $this->__('Email Address') ?> <span class="required">*</span></label><br />
             <input type="text" name="email" id="email" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="required-entry validate-email input-text" />
