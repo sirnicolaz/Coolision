@@ -78,16 +78,31 @@
 		        <?php endif;?>
 				</div>
 				
-				<!-- Shipping info tab-->
+				<!-- Shipping info tab--><!-- Il contenuto di questo blocco andrebbe inserito in un file di template separato per rendere il codice un po' più pulito. Chi avesse voglia faccia pure perchè al momento non mi sovviene come fare-->
+				<script>
+					function changeCost(){
+						var mylist=document.getElementById("shipStates")
+						var val = mylist.options[mylist.selectedIndex].value;
+						document.getElementById("shipCost").value=val;
+					}
+				</script>
 				<div class="tab">
-				<?php if ($_measures = $this->getChildHtml('shipping')):?>
 		            <div class="collateral-box">
 		                <div class="head">
 		                    <h4><?php echo $this->__('Shipping') ?></h4>
 		                </div>
-		           <?php echo $_measures ?>
+						<div><!--Da qui-->
+							<span id="ship-descr">Llorem ipsum pizza pizza pie pepperoni mushrooms potatos cookies pizza salami paprika</span>
+							<br/>
+							<select class="ship-states" id="shipStates" onChange="changeCost()">
+								<option value="13.00$">Italy</option>
+								<option value="19.00$">Germany</option>
+								<option value="129.00$">Wonderland</option>
+							</select>
+							<br/>
+							<label class="ship-lab">SHIPPING COST </label><input type="text" id="shipCost" class="ship-cost" readonly="readonly" value="13.00 $" ></input>
+						</div><!--A qui-->
 		            </div>
-		        <?php endif;?>
 				</div>
 				
 				</div>
