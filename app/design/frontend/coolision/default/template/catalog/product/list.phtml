@@ -100,14 +100,15 @@
                 </p>
                 <h5><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h5>
                 <?php if($_product->getRatingSummary()): ?>
-                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                <?php //echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
                 <?php echo $this->getPriceHtml($_product, true) ?>
                 <?php if($_product->isSaleable()): ?>
-                    <button type="button" class="form-button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php echo $this->__('Add to Cart') ?></span></button>
+                    <!--<button type="button" class="form-button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php //echo $this->__('Add to Cart') ?></span></button-->
                 <?php else: ?>
                 <div class="out-of-stock"><?php echo $this->__('Out of stock') ?></div>
                 <?php endif; ?>
+                <!--
                 <p class="add-to">
                     <?php if ($this->helper('wishlist')->isAllow()) : ?>
                     <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-cart"><?php echo $this->__('Add to Wishlist') ?></a>
@@ -116,6 +117,7 @@
                     <a href="<?php echo $_compareUrl ?>"><?php echo $this->__('Add to Compare') ?></a>
                     <?php endif; ?>
                 </p>
+                -->
             </li>
         <?php if($i%3==0 || $i==$_collectionSize): ?>
         </ol>

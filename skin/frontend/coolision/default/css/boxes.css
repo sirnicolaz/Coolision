@@ -363,11 +363,11 @@ table.view-by td {
 
 /* Style */
 .header { }
-.header-top-container { border-bottom:1px solid #415966; background-color:black; /*background-image:url(../images/header_lines.png);*/ padding-top:5em; background-position: left;}
-.header-top { padding:10px; }
+.header-top-container { border-bottom:1px solid #415966; background-color:black; /*background-image:url(../images/header_lines.png);*/ padding-top:1em; background-position: left;}
+.header-top { /*padding:10px;*/ }
 .header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
 .middle-container { background:url(../images/main_container_bg.gif) no-repeat 50% 0 #fbfaf6; }
-.middle { /*background:url(../images/main_bg.gif) no-repeat #fffffe;*/ padding:10px 25px 80px 25px; } /*Modified*/
+.middle { /*background:url(../images/main_bg.gif) no-repeat #fffffe;*/ padding:10px 25px 80px 0px; }
 
 
 /********************** Header */
@@ -433,8 +433,9 @@ h1#logo {
 }
 
 /* Breadcrumbs */ /*Modified*/
-.breadcrumbs {  margin-bottom:13px; font-size:.95em; line-height:1.25em; float:left;}
+.breadcrumbs { margin-bottom:13px; font-size:.95em; line-height:1.25em; float:left;}
 .breadcrumbs li { display:inline; }
+.breadcrumbs a:visited { color:white; }
 
 /* Mini search */ /*Modified*/
 .mini-search { position:relative; float:right; top:0; right:0; width:300px; height:30px; padding:0px 0px 0 0px; background:url(../images/mini_search_bg.gif) 0 0 no-repeat; }
@@ -484,9 +485,9 @@ h1#logo {
 
 
 /* Base Mini */
-.base-mini { border:1px solid #c4c1bc; background:#fff; line-height:1.3em;  font-size:.95em;  }
-.base-mini .head { margin:0 1px; border-bottom:1px solid #ddd; background:url(../images/base_mini_head_bg.gif) repeat-x #fff; padding:2px 8px; }
-.base-mini .head h4 { min-height:16px; color:#e26703; background-repeat:no-repeat; background-position:0 0; padding:1px 0 1px 21px; text-transform:uppercase; }
+.base-mini { /*border:1px solid #c4c1bc;*/ background:#fff; line-height:1.3em;  font-size:.95em;  }
+.base-mini .head { margin:0 1px; /*border-bottom:1px solid #ddd;*/ background:url(../images/base_mini_head_bg.gif) repeat-x #fff; padding:2px 8px; }
+.base-mini .head h4 { min-height:16px; color:black; background-repeat:no-repeat; background-position:0 0; padding:1px 0 1px 21px; text-transform:uppercase; }
 .base-mini .head h4 .count { text-transform:none; color:#2f2f2f; white-space:nowrap; font-weight:normal; font-size:.95em; }
 .base-mini h5 { font-size:1em; }
 .base-mini .content, .base-mini ol { background:#f8f7f5; }
@@ -513,8 +514,16 @@ h1#logo {
 .mini-product-tags .content { padding:10px; }
 .mini-product-tags .content a, .mini-product-tags .content a:hover { color:#1b2d3b; }
 
-.mini-newsletter h4 { background-image:url(../images/icon_newspaper.gif); }
+.mini-newsletter .head { background-image:url(../images/header_newsletter.png); }
+.mini-newsletter h4 { /*background-image:url(../images/icon_newspaper.gif);*/ }
+.mini-newsletter .content { background-color:white; /*background-image:url();*/ border-width:0; }
 .mini-newsletter input.input-text { display:block; margin:3px 0; width:167px; }
+.mini-newsletter .form-button-alt { 
+  background-image:url(../images/button_newsletter.png); 
+  width:53px;
+  height:18px;
+  border:0;
+  }
 
 .mini-cart .head h4 { background-image:url(../images/icon_basket.gif); }
 .mini-cart .subtotal { background:#fbebd9; margin-top:5px; padding:2px 0; text-align:center; }
@@ -1590,11 +1599,12 @@ table.print .price-incl-tax .price { display:inline; }
 .under-menu-container { background:#000; width:100%; height:23px; color:#fff; }
 .under-menu-container a:visited { color:#fff; }
 
-.under-menu-bg { background:url(../images/under-menu_bg.png); }
+/*.under-menu-bg { background:url(../images/under-menu_bg.png); }*/
 
-.under-menu { padding-top:0em; width:930px; margin:0 auto; }
+.under-menu { background-color:black; color:white; padding:0 55px 0 110px; /*width:930px;*/ margin:0 auto; }
 
 .under-menu ul{ float:left; padding-top:0.35em;}
+.under-menu form fieldset { border-width:0; }
 
 .mini-search {background: none; padding-top:0; margin-top:0;}
 .mini-search input#search {background-color:#fff;}
