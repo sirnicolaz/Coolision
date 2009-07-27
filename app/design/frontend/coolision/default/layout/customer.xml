@@ -215,7 +215,7 @@ Customer account home dashboard layout
                 <block type="core/template" name="customer_account_dashboard_info1" as="info1" />
                 <block type="core/template" name="customer_account_dashboard_info2" as="info2" />
 		<block type="customer/account_dashboard_info" name="customer_account_dashboard_link" as="link" template="customer/account/dashboard/link.phtml"/> 
-		<block type="newsletter/subscribe" name="right.newsletter" as="newsletter" template="newsletter/subscribe.phtml"/>
+		<block type="newsletter/subscribe" name="newsletter" as="newsletter" template="customer/account/dashboard/my_newsletter.phtml"/>
             </block>
         </reference>
 

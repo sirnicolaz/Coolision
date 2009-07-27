@@ -1,0 +1,26 @@
+<div class="box base-mini mini-newsletter">
+    <div class="head">
+        <h4><?php echo $this->__('Newsletter') ?><a name="newsletter-box"></a></h4>
+    </div>
+    <form action="<?php echo $this->getUrl('newsletter/subscriber/new') ?>" method="post" id="newsletter-validate-detail">
+    <fieldset class="content">
+            <legend><?php echo $this->__('Newsletter') ?></legend>
+            <!--
+            <?php if( $message = $this->getErrorMessage() ): ?>
+                <p class="error"><?php echo $message ?></p>
+            <?php endif; ?>
+            <?php if( $message = $this->getSuccessMessage() ): ?>
+                <p class="success"><?php echo $message ?></p>
+            <?php endif; ?>
+            -->
+            <label for="newsletter"><?php echo $this->__('Sign up for our newsletter:') ?></label>
+            <input name="email" type="text" id="newsletter" class="required-entry validate-email input-text" />
+            <button type="submit" class="form-button-alt"><span><?php echo $this->__('') ?></span></button>
+    </fieldset>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+//]]>
+</script>
+</div>
