@@ -50,6 +50,12 @@
                     <input type="text" name="email" id="email_address" value="<?php echo $this->htmlEscape($this->getFormData()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="validate-email required-entry input-text" />
                 </div>
             </li>
+	    <li>
+	      <div class="input-box">
+		<label for="sex"><?php echo $this->__('Sex') ?></label><br />
+		<input type="text" name="sex" id="sex" value="<?php echo $this->htmlEscape($this->getFormData()->getSex()) ?>" title="<?php echo $this->__('Sex') ?>" class="input-text" />
+	      </div>
+	    </li>
             <?php if ($this->isNewsletterEnabled()): ?>
             <li>
                 <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed" <?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif ?> />

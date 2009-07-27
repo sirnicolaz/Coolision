@@ -34,8 +34,8 @@
         <p> <!-- TODO: LE FUNZIONALITÀ getSex() e getBirthDate() non sono ancora implementate -->
 	    NOME: <?php echo $this->htmlEscape($this->getCustomer()->getFirstname()) ?><br />
             COGNOME: <?php echo $this->htmlEscape($this->getCustomer()->getLastname()) ?><br />
-	    SESSO: <!-- <?php //echo $this->htmlEscape($this->getCustomer()->getSex()) ?> --> <br /> <!-- no, non è come pensate... -->
-	    DATA DI NASCITA: <!-- <?php //echo $this->htmlEscape($this->getCustomer()->getBirthDate()) ?> --> <br />
+	    SESSO: <?php echo $this->htmlEscape($this->getCustomer()->getSex()) ?> <br /> <!-- no, non è come pensate... -->
+	    DATA DI NASCITA: <?php echo $this->htmlEscape($this->getCustomer()->getDob()) ?> <br />
             EMAIL: <?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?><br />
             <a href="<?php echo $this->getChangePasswordUrl() ?>"><?php echo $this->__('Change Password') ?></a>
         </p>
