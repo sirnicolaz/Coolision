@@ -310,32 +310,36 @@ td.label        { font-weight:bold; }
 
 /********************** Pager */
 table.pager select,
-table.view-by select { margin:0 3px; font-size:.95em; }
+/*table.view-by select { margin:0 3px; font-size:.95em; }*/
 table.pager select { width:50px; }
-table.view-by td.sort-by { text-align:right; padding-right:44px; }
-table.view-by select { width:85px; }
-table.pager, table.view-by {
+table td.sort-by { text-align:right; padding-right:44px; }
+table td.sort-by select { width:6em; }
+/*table.view-by select { width:85px; }*/
+table.pager {
     width:100%;
     background:url(../images/pager_bg.gif) repeat-x 0 100% #fff;
-    font-size:.95em;
+/*    font-size:.95em;*/
+    font-size:0.75em;
     }
 table.pager td {
-    width:32%;
-    border-top:1px solid #eee;
+/*    width:25%;*/
+    border:1px solid #eee;
     padding:4px 8px;
     vertical-align:middle;
+/*    horizontal-align:middle;*/
+    text-align: center;
     }
 table.pager td.pages { padding:4px 0; white-space:nowrap; text-align:center; }
 table.pager ol, table.pager li {
     display:inline;
     }
 table.pager li { padding:0 2px; }
-table.view-by td {
-    width:33%;
-    border-top:1px solid #e2e2e2;
-    padding:4px 8px;
-    vertical-align:middle;
-    }
+/*table.view-by td {*/
+/*    width:33%;*/
+/*    border-top:1px solid #e2e2e2;*/
+/*    padding:4px 8px;*/
+/*    vertical-align:middle;*/
+/*    }*/
 
 
 
@@ -468,6 +472,17 @@ h1#logo {
 .widget-btn { float:right; font-size:11px; margin:0 3px 1px 5px; }
 .widget-btn, .widget-btn:hover { color:#646464; font-weight:bold; }
 
+.side-col .mini-product-list-box {}
+.side-col .mini-product-list-box .head { 
+    padding: 0.1em 0 0 0.5em; 
+    margin:0; 
+    text-transform:uppercase;
+    background-color: #facc20;
+    margin-right: 5em;
+    font-weight: bold;
+    }
+.side-col .mini-product-list-box .content { border:1px solid #ddd; }
+.side-col .mini-product-list-box .content input { width:80%; }
 
 /* Currency Switcher */
 .currency-switcher {
@@ -543,7 +558,6 @@ h1#logo {
 
 .mini-product-view .head h4 { background-image:url(../images/icon_tag_green.gif); }
 
-
 /********************** Footer */
 .footer-container { /*border-top:15px solid #B6D1E2;*/ }
 .footer { width:930px; margin:0 auto; padding-bottom:5em; background-color:black; }
@@ -576,7 +590,7 @@ h1#logo {
 /************************************************************/
 
 .product-shop { float:right; }
-.out-of-stock { height:18px; padding-top:3px;color:#D83820; font-weight:bold; }
+.out-of-stock { height:18px; /*padding-top:3px;*/ color:#D83820; font-weight:bold; }
 .product-shop .short-description { width:100%; overflow:hidden; margin-bottom:10px; }
 
 /********************** Rating */
@@ -617,12 +631,12 @@ h1#logo {
 /************************** Prices */
 .price { white-space:nowrap !important; }
 
-.price-box { padding:5px 0; }
-.price-box .price { font-weight:bold; color:#c76200; }
+/*.price-box { padding:5px 0; }*/
+.price-box .price { font-weight:bold; color:black; color:#c76200; }
 
 /* Regular price */
 .regular-price { color:#c76200; }
-.regular-price .price { font-weight:bold; font-size:13px; color:#c76200; }
+.regular-price .price { font-weight:bold; font-size:13px; color:black; }
 
 /* Old price */
 .old-price { margin:0; }
@@ -691,7 +705,7 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
 
 /********************** Catalog Listing */
 .catalog-listing { line-height:1.35em; }
-.catalog-listing h5 { margin-bottom:.4em; font-size:1.05em; }
+.catalog-listing h5 { margin-bottom:.4em; font-size:1.05em; color:#999; }
 .catalog-listing h5 a, .catalog-listing h5 a:hover { color:#203548; text-decoration:underline; }
 .catalog-listing .add-to { margin:.7em 0; color:#555; line-height:1.3em; font-size:.95em; font-weight:bold; }
 .catalog-listing .add-to a, .catalog-listing .add-to a:hover { text-decoration:underline; }
@@ -714,11 +728,11 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
 /********************** Layered Navigation */
 .layered-nav .head {
     margin:0;
-    background:url(../images/layered_nav_head_bg.gif) no-repeat;
+/*    background:url(../images/layered_nav_head_bg.gif) no-repeat;*/
     height:24px;
     }
 .layered-nav h3 { display:none; }
-.layered-nav .border-creator { border-style:solid; border-color:#a0b3c3; border-width:0 1px 1px 1px; }
+.layered-nav .border-creator { border-style:solid; border-color:#ddd; border-width:1px; }
 .layered-nav h4 {
     margin:0;
     border:1px solid #b9ccdd;
@@ -744,22 +758,25 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
     }
 .layered-nav .actions {
     border-style:solid;
-    border-color:#dee5e8;
+/*    border-color:#dee5e8;*/
     border-width:1px 0;
     padding:4px 10px;
     background:#cad6e4;
     }
 .narrow-by dl {
-    background:#e7f1f4;
+/*    background:#e7f1f4;*/
     padding:0 0 1em 0;
     }
 .narrow-by dt {
     margin:0;
-    padding:7px 10px 0 28px;
-    background:url(../images/narrow_by_set.gif) no-repeat 9px .9em;
+    padding:5px 10px 0 13px;
+/*    background:url(../images/narrow_by_set.gif) no-repeat 9px .9em;*/
     color:#2f2f2f;
     text-transform:uppercase;
     }
+.narrow-by dd input[type="text"] {
+        width:40px;
+    }    
 .narrow-by dd {
     background:url(../images/narrow_by_dd_bg.gif) repeat-x 0 100%;
     padding:0 12px .8em 12px;
@@ -859,8 +876,8 @@ table.recently-list td { width:20%; }
 .listing-type-grid .actions { margin:10px 0; text-align:center; }*/
 
 /* Grid Type */
-.listing-type-grid { background:url(../images/bkg_products-grid3.gif) 0 0 repeat; }
-.listing-type-grid .grid-row { border-bottom:1px solid #d9dde3; }
+/*.listing-type-grid { background:url(../images/bkg_products-grid3.gif) 0 0 repeat; }*/
+/*.listing-type-grid .grid-row { border-bottom:1px solid #d9dde3; }*/
 .listing-type-grid li.item { float:left; width:138px; padding:12px 10px; line-height:1.6em; overflow:hidden; }
 .listing-type-grid .last { border-bottom:0; }
 .listing-type-grid .product-image { text-align:center; }
@@ -869,8 +886,8 @@ table.recently-list td { width:20%; }
 /* Rewrites for different layouts */
 .col-1-layout .listing-type-grid { background-image:url(../images/bkg_products-grid1.gif); }
 .col-1-layout .listing-type-grid li.item { width:280px; }
-.col-2-left-layout .listing-type-grid,
-.col-2-right-layout .listing-type-grid { background-image:url(../images/bkg_products-grid2.gif); }
+/*.col-2-left-layout .listing-type-grid,*/
+/*.col-2-right-layout .listing-type-grid { background-image:url(../images/bkg_products-grid2.gif); }*/
 .col-2-left-layout .listing-type-grid li.item,
 .col-2-right-layout .listing-type-grid li.item { width:208px; }
 
