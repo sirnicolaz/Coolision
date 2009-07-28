@@ -859,7 +859,7 @@ table.recently-list td { width:20%; }
 /********************** Catalog Listing */
 
 /* List Type */
-.listing-type-list .listing-item { border-top:1px solid #D9DDE3; padding:12px 10px; }
+.listing-type-list .listing-item { /*border-top:1px solid #D9DDE3;*/ padding:12px 10px; }
 
 .listing-type-list .listing-item .product-item-table td {
     width:20%;
