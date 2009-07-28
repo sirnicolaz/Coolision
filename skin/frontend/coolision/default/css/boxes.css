@@ -310,32 +310,36 @@ td.label        { font-weight:bold; }
 
 /********************** Pager */
 table.pager select,
-table.view-by select { margin:0 3px; font-size:.95em; }
+/*table.view-by select { margin:0 3px; font-size:.95em; }*/
 table.pager select { width:50px; }
-table.view-by td.sort-by { text-align:right; padding-right:44px; }
-table.view-by select { width:85px; }
-table.pager, table.view-by {
+table td.sort-by { text-align:right; padding-right:44px; }
+table td.sort-by select { width:6em; }
+/*table.view-by select { width:85px; }*/
+table.pager {
     width:100%;
     background:url(../images/pager_bg.gif) repeat-x 0 100% #fff;
-    font-size:.95em;
+/*    font-size:.95em;*/
+    font-size:0.75em;
     }
 table.pager td {
-    width:32%;
-    border-top:1px solid #eee;
+/*    width:25%;*/
+    border:1px solid #eee;
     padding:4px 8px;
     vertical-align:middle;
+/*    horizontal-align:middle;*/
+    text-align: center;
     }
 table.pager td.pages { padding:4px 0; white-space:nowrap; text-align:center; }
 table.pager ol, table.pager li {
     display:inline;
     }
 table.pager li { padding:0 2px; }
-table.view-by td {
-    width:33%;
-    border-top:1px solid #e2e2e2;
-    padding:4px 8px;
-    vertical-align:middle;
-    }
+/*table.view-by td {*/
+/*    width:33%;*/
+/*    border-top:1px solid #e2e2e2;*/
+/*    padding:4px 8px;*/
+/*    vertical-align:middle;*/
+/*    }*/
 
 
 
@@ -859,8 +863,8 @@ table.recently-list td { width:20%; }
 .listing-type-grid .actions { margin:10px 0; text-align:center; }*/
 
 /* Grid Type */
-.listing-type-grid { background:url(../images/bkg_products-grid3.gif) 0 0 repeat; }
-.listing-type-grid .grid-row { border-bottom:1px solid #d9dde3; }
+/*.listing-type-grid { background:url(../images/bkg_products-grid3.gif) 0 0 repeat; }*/
+/*.listing-type-grid .grid-row { border-bottom:1px solid #d9dde3; }*/
 .listing-type-grid li.item { float:left; width:138px; padding:12px 10px; line-height:1.6em; overflow:hidden; }
 .listing-type-grid .last { border-bottom:0; }
 .listing-type-grid .product-image { text-align:center; }
@@ -869,8 +873,8 @@ table.recently-list td { width:20%; }
 /* Rewrites for different layouts */
 .col-1-layout .listing-type-grid { background-image:url(../images/bkg_products-grid1.gif); }
 .col-1-layout .listing-type-grid li.item { width:280px; }
-.col-2-left-layout .listing-type-grid,
-.col-2-right-layout .listing-type-grid { background-image:url(../images/bkg_products-grid2.gif); }
+/*.col-2-left-layout .listing-type-grid,*/
+/*.col-2-right-layout .listing-type-grid { background-image:url(../images/bkg_products-grid2.gif); }*/
 .col-2-left-layout .listing-type-grid li.item,
 .col-2-right-layout .listing-type-grid li.item { width:208px; }
 

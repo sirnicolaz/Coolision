@@ -34,13 +34,44 @@
 <?php if($this->getCollection()->getSize()): ?>
     <table class="pager" cellspacing="0">
         <tr>
+            <!-- ORDINA PER -->
+            <td class="sort-by">
+                <?php //echo $this->__('ORDINA PER') ?> <select onchange="setLocation(this.value)">
+                <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+                    <option value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+                        <?php echo $_order ?>
+                    </option>
+                <?php endforeach; ?>
+                </select>
+                <?php if($this->getCurrentDirection() == 'desc'): ?>
+                    <a href="<?php echo $this->getOrderUrl(null, 'asc') ?>"><img src="<?php echo $this->getSkinUrl('images/sort_desc_arrow.gif') ?>" alt="<?php echo $this->__('Set Ascending Direction') ?>" class="v-middle" /></a>
+                <?php else: ?>
+                    <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>"><img src="<?php echo $this->getSkinUrl('images/sort_asc_arrow.gif') ?>" alt="<?php echo $this->__('Set Descending Direction') ?>" class="v-middle" /></a>
+                <?php endif; ?>
+            </td>
+            
+            <!-- N. PRODOTTI -->
             <td>
             <?php if($this->getLastPageNum()>1): ?>
-                <?php echo $this->__('Items %s to %s of %s total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+                <?php //echo $this->__('PRODOTTI DA %s A %s DI %s', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+                <?php echo $this->__('%s PRODOTTI TROVATI', $this->getTotalNum()) ?>
             <?php else: ?>
-                <strong><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></strong>
+                <strong><?php echo $this->__('%s PRODOTTI/O TROVATI/O', $this->getTotalNum()) ?></strong>
             <?php endif; ?>
             </td>
+            
+            <!-- PRODOTTI VISUALIZZATI -->
+            <td> <!--class="a-right"-->
+                <?php echo $this->__('PRODOTTI VISUALIZZATI') ?> <select onchange="setLocation(this.value)">
+                <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+                    <option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
+                        <?php echo $_limit ?>
+                    </option>
+                <?php endforeach; ?>
+                </select> <?php //echo $this->__('per page') ?>
+            </td>
+            
+            <!-- PAGINA N. -->
             <?php if($this->getLastPageNum()>1): ?>
             <td class="pages">
                 <strong><?php echo $this->__('Page:') ?></strong>
@@ -61,25 +92,13 @@
                 </ol>
             </td>
             <?php endif; ?>
-            <td class="a-right">
-                <?php echo $this->__('Show') ?> <select onchange="setLocation(this.value)">
-                <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
-                    <option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
-                        <?php echo $_limit ?>
-                    </option>
-                <?php endforeach; ?>
-                </select> <?php echo $this->__('per page') ?>
-            </td>
-        </tr>
-    </table>
-    <?php if( $this->isExpanded() ): ?>
-    <table class="view-by" cellspacing="0">
-        <tr>
+            
+            <!-- MODALITA' VISUALIZZAZIONE -->
             <?php if( $this->isEnabledViewSwitcher() ): ?>
             <td>
                 <?php $_modes = $this->getModes(); ?>
                 <?php if($_modes && count($_modes)>1): ?>
-                <?php echo $this->__('View as') ?>:
+                <?php echo $this->__('VISUALIZZAZIONE') ?>:
                 <?php foreach ($this->getModes() as $_code=>$_label): ?>
                     <?php if($this->isModeActive($_code)): ?>
                         <strong><?php echo $_label ?></strong>&nbsp;
@@ -90,21 +109,15 @@
                 <?php endif; ?>
             </td>
             <?php endif; ?>
-            <td class="sort-by">
-                <?php echo $this->__('Sort by') ?> <select onchange="setLocation(this.value)">
-                <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
-                    <option value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
-                        <?php echo $_order ?>
-                    </option>
-                <?php endforeach; ?>
-                </select>
-                <?php if($this->getCurrentDirection() == 'desc'): ?>
-                    <a href="<?php echo $this->getOrderUrl(null, 'asc') ?>"><img src="<?php echo $this->getSkinUrl('images/sort_desc_arrow.gif') ?>" alt="<?php echo $this->__('Set Ascending Direction') ?>" class="v-middle" /></a>
-                <?php else: ?>
-                    <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>"><img src="<?php echo $this->getSkinUrl('images/sort_asc_arrow.gif') ?>" alt="<?php echo $this->__('Set Descending Direction') ?>" class="v-middle" /></a>
-                <?php endif; ?>
-            </td>
         </tr>
     </table>
-    <?php endif; ?>
+    
+    <?php //if( $this->isExpanded() ): ?>
+    <!--table class="view-by" cellspacing="0">
+        <tr>
+            
+            
+        </tr>
+    </table-->
+    <?php //endif; ?>
 <?php endif ?>
