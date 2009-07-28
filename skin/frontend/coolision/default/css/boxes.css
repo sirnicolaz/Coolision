@@ -481,7 +481,7 @@ h1#logo {
     margin-right: 5em;
     font-weight: bold;
     }
-.side-col .mini-product-list-box .content { border:1px solid #ddd; }
+.side-col .mini-product-list-box .content { border:1px solid #ddd; max-height:20em; overflow:auto; }
 .side-col .mini-product-list-box .content input { width:80%; }
 
 /* Currency Switcher */
@@ -860,15 +860,10 @@ table.recently-list td { width:20%; }
 
 /* List Type */
 .listing-type-list .listing-item { border-top:1px solid #D9DDE3; padding:12px 10px; }
-.listing-type-list .product-image { 
-    float:left; width:135px; 
-    padding-right:2em; 
-    border-right: 2px dotted #ddd;
-    }
 
 .listing-type-list .listing-item .product-item-table td {
     width:20%;
-    border-right:2px dotted #aaa; 
+    border-right:2px dotted #ddd; 
     border-collapse:collapse;
     padding: 0 0.5em;
     text-align:center;
