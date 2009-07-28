@@ -480,6 +480,8 @@ h1#logo {
     }
 .side-col .mini-product-list-box .content { border:1px solid #ddd; max-height:20em; overflow:auto; }
 .side-col .mini-product-list-box .content input { width:80%; }
+.side-col .mini-product-list-box #priceForm input[type="text"] { width:50px; }
+.side-col .mini-product-list-box #priceForm input[type="button"] { width:50px; margin-left:60px; }
 
 /* Currency Switcher */
 .currency-switcher {
