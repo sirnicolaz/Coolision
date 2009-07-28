@@ -472,6 +472,16 @@ h1#logo {
 .widget-btn { float:right; font-size:11px; margin:0 3px 1px 5px; }
 .widget-btn, .widget-btn:hover { color:#646464; font-weight:bold; }
 
+.side-col .mini-product-list-box {}
+.side-col .mini-product-list-box .head { 
+    padding: 0.1em 0 0 0.5em; 
+    margin:0; 
+    text-transform:uppercase;
+    background-color: #facc20;
+    margin-right: 5em;
+    font-weight: bold;
+    }
+.side-col .mini-product-list-box .content { border:1px solid #ddd; }
 
 /* Currency Switcher */
 .currency-switcher {
@@ -546,7 +556,6 @@ h1#logo {
 .mini-poll td.item  { white-space:nowrap; }
 
 .mini-product-view .head h4 { background-image:url(../images/icon_tag_green.gif); }
-
 
 /********************** Footer */
 .footer-container { /*border-top:15px solid #B6D1E2;*/ }
