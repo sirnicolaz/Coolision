@@ -62,12 +62,12 @@
         <!--div class="clear"></div-->
         <td class="description">
             <?php echo nl2br($_product->getShortDescription()) ?>
-            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><small><?php echo $this->__('Learn More') ?></small></a>
+            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><small><br/><?php echo $this->__('Maggiori informazioni') ?></small></a>
         </td>
         <td class="last-item">
             <?php echo $this->getPriceHtml($_product, true) ?>
             <?php if(!$_product->isSaleable()): ?>
-                <div class="out-of-stock"><?php echo $this->__('Out of stock') ?></div>
+                <div class="out-of-stock"><?php echo $this->__('Fuori stock') ?></div>
             <?php endif; ?>
         </td>
          </tr>
