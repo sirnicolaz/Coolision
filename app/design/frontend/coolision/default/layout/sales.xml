@@ -72,7 +72,7 @@ Customer account home dashboard layout
         <update handle="customer_account"/>
         <reference name="content">
             <block type="sales/order_history" name="sales.order.history"/>
-            <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+            <!--<block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>-->
         </reference>
     </sales_order_history>
 

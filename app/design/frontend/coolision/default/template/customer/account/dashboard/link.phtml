@@ -4,7 +4,27 @@
   </li>
   <li>
     <!-- per ora mi limito a renderizzare il blocco dei link del carrello nel top link.. ma non va bene! bisognerà avere un phtml separato.. -->
-    <?php echo $this->getLayout()->getBlock("top.links.cart")->toHtml(); ?>
+    <p><a href="<?php echo $this->getUrl('checkout/cart') ?>">CARRELLO</a>  Numero prodotti:
+    <?php $count = $this->helper('checkout/cart')->getSummaryCount();
+    if( $count == 1 ) {
+                echo $this->__('CARRELLO (%s prodotto)', $count);
+            } elseif( $count > 0 ) {
+                echo $this->__('CARRELLO (%s prodotti)', $count);
+            } else {
+		echo $this->__('CARRELLO vuoto');
+	    }
+    ?></p>
+    <p><a href="<?php echo $this->getUrl('wishlist') ?>">WISHLIST</a>  Numero prodotti: 
+    <?php $count = $this->helper('wishlist')->getItemCount();
+            if( $count == 1 ) {
+                echo $this->__('WISHLIST (%d prodotto)', $count);
+            } elseif( $count > 1 ) {
+                echo $this->__('WISHLIST (%d prodotti)', $count);
+            } else {
+                echo $this->__('WISHLIST vuota');
+            }
+    ?></p>
+
   </li>
     <?php if( $this->getIsSubscribed() ): ?>
       <!-- utente registrato alla newsletter, fa vedere il pultante di "unsubscribe" e "cambia email" --> 
