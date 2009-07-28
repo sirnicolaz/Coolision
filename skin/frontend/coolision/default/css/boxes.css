@@ -363,7 +363,7 @@ table.view-by td {
 
 /* Style */
 .header { }
-.header-top-container { border-bottom:1px solid #415966; background-color:black; /*background-image:url(../images/header_lines.png);*/ padding-top:1em; background-position: left;}
+.header-top-container { border-bottom:1px solid #415966; background-color:black; background-image:url(../images/header_lines.png); padding-top:1em; background-position: left;}
 .header-top { /*padding:10px;*/ }
 .header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
 .middle-container { background:url(../images/main_container_bg.gif) no-repeat 50% 0 #fbfaf6; }
