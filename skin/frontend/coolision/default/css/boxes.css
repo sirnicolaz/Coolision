@@ -482,6 +482,7 @@ h1#logo {
     font-weight: bold;
     }
 .side-col .mini-product-list-box .content { border:1px solid #ddd; }
+.side-col .mini-product-list-box .content input { width:80%; }
 
 /* Currency Switcher */
 .currency-switcher {
@@ -589,7 +590,7 @@ h1#logo {
 /************************************************************/
 
 .product-shop { float:right; }
-.out-of-stock { height:18px; padding-top:3px;color:#D83820; font-weight:bold; }
+.out-of-stock { height:18px; /*padding-top:3px;*/ color:#D83820; font-weight:bold; }
 .product-shop .short-description { width:100%; overflow:hidden; margin-bottom:10px; }
 
 /********************** Rating */
@@ -630,12 +631,12 @@ h1#logo {
 /************************** Prices */
 .price { white-space:nowrap !important; }
 
-.price-box { padding:5px 0; }
-.price-box .price { font-weight:bold; color:#c76200; }
+/*.price-box { padding:5px 0; }*/
+.price-box .price { font-weight:bold; color:black; color:#c76200; }
 
 /* Regular price */
 .regular-price { color:#c76200; }
-.regular-price .price { font-weight:bold; font-size:13px; color:#c76200; }
+.regular-price .price { font-weight:bold; font-size:13px; color:black; }
 
 /* Old price */
 .old-price { margin:0; }
@@ -704,7 +705,7 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
 
 /********************** Catalog Listing */
 .catalog-listing { line-height:1.35em; }
-.catalog-listing h5 { margin-bottom:.4em; font-size:1.05em; }
+.catalog-listing h5 { margin-bottom:.4em; font-size:1.05em; color:#999; }
 .catalog-listing h5 a, .catalog-listing h5 a:hover { color:#203548; text-decoration:underline; }
 .catalog-listing .add-to { margin:.7em 0; color:#555; line-height:1.3em; font-size:.95em; font-weight:bold; }
 .catalog-listing .add-to a, .catalog-listing .add-to a:hover { text-decoration:underline; }
