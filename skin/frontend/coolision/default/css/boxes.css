@@ -383,12 +383,13 @@ h1#logo {
 
 /* Quick Access*/
 .quick-access {
-    width:540px;
+    min-width:610px;
     float:right;
 /*    margin-top:28px;*/
     text-align:left;
-    padding:0 40px;
+/*    padding:0 40px;*/
     color:#fff;
+/*    padding-left: 4em;*/
     }
 .quick-access p { margin-bottom:4px; }
 .quick-access li {
@@ -402,12 +403,7 @@ h1#logo {
 .quick-access li.first { /*padding-left:0;*/ list-style-image:url(../images/icon_door.png) }
 .quick-access li.last { /*padding-right:0;*/ background:none; list-style-image:url(../images/icon_cart.png) }
 .quick-access a {color:white; text-decoration:none;}
-/*.quick-access .menu-separator {*/
-/*    display:inline;*/
-/*    width:3px;*/
-/*    height:216px;*/
-/*    background:url(../images/menu-separator.png) repeat-y 100%;*/
-/*}*/
+
 .shop-access { margin-bottom:6px; }
 .shop-access a, .shop-access a:hover { color:#ebbc58; font-size:.95em; }
 .shop-access li.last { padding-right:0; background:none; }
@@ -415,7 +411,10 @@ h1#logo {
 .language-switcher label { color:#A7C6DD; padding-right:5px; }
 .language-switcher .flag option { background-repeat:no-repeat; background-position:left center; padding-left:20px; margin-left:2px; }
 
-/* Content-block nell'header (bottoni e login) */
+/* Stile dell'area di login */
+.mini_login { float:left; }
+
+/* Content-block nell'header */
 .header-cblock {
     text-align: left;
     min-width: 20%;
@@ -431,6 +430,9 @@ h1#logo {
     background:url(../images/icon_shopping_guide.png) no-repeat;
     margin: 0 auto;
 }
+
+.mini_login input { width:90px; }
+.mini_login input[type="submit"] { width:50px; }
 
 /* Breadcrumbs */ /*Modified*/
 .breadcrumbs { margin-bottom:13px; font-size:.95em; line-height:1.25em; float:left;}
