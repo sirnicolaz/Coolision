@@ -860,7 +860,27 @@ table.recently-list td { width:20%; }
 
 /* List Type */
 .listing-type-list .listing-item { border-top:1px solid #D9DDE3; padding:12px 10px; }
-.listing-type-list .product-image { float:left; width:135px; }
+.listing-type-list .product-image { 
+    float:left; width:135px; 
+    padding-right:2em; 
+    border-right: 2px dotted #ddd;
+    }
+
+.listing-type-list .listing-item .product-item-table td {
+    width:20%;
+    border-right:1px dashed #aaa; 
+    border-collapse:collapse;
+    padding: 0 0.5em;
+    text-align:center;
+    }
+.listing-type-list .listing-item .product-item-table td.name h5 { color:black; } 
+.listing-type-list .listing-item .product-item-table td.description { 
+    color:#aaa; 
+    text-align:left;
+    font-size: 0.8em; 
+    } 
+.listing-type-list .listing-item .product-item-table td.last-item { border-right:0 } 
+    
 .listing-type-list .product-shop { width:305px; }
 .listing-type-list .product-shop .description { margin:.5em 0 1.2em 0; }
 .listing-type-list .product-shop .price-box { float:left;text-align:left; white-space:nowrap; margin:3px 13px 5px 0; padding:0; }
