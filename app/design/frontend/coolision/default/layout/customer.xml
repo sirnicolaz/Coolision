@@ -47,7 +47,6 @@ Default layout, loads most of the pages
 -->
 
     <default>
-
         <!-- Mage_Customer -->
         <reference name="top.links.user">
             <action method="addLink" translate="label title" module="customer"><label>area personale</label><url helper="customer/getAccountUrl"/><title>area personale</title><prepare/><urlParams/><position>10</position></action>
