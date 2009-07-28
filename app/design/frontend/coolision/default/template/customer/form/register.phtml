@@ -51,9 +51,14 @@
                 </div>
             </li>
 	    <li>
-	      <div class="input-box">
+	      <div class="input-box" style="display:none">
+		<label for="sex"><?php echo $this->__('Sex') ?></label><br/>
+		<input type="text" name="sex" id="sex" class="input-text" />
+	      </div>
+	      <div class="sex-container">
 		<label for="sex"><?php echo $this->__('Sex') ?></label><br />
-		<input type="text" name="sex" id="sex" value="<?php echo $this->htmlEscape($this->getFormData()->getSex()) ?>" title="<?php echo $this->__('Sex') ?>" class="input-text" />
+		<input type="radio" name="sex_radio" id="sex_radio_m" value="M" checked="checked">Maschio</input>
+		<input type="radio" name="sex_radio" id="sex_radio_f" value="F" >Femmina</input>
 	      </div>
 	    </li>
             <?php if ($this->isNewsletterEnabled()): ?>
@@ -62,14 +67,18 @@
                 <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
             </li>
             <?php endif ?>
-<?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
-<?php if ($_dob->isEnabled()): ?>
-            <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
-<?php endif ?>
-<?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
-<?php if ($_taxvat->isEnabled()): ?>
-            <li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
-<?php endif ?>
+	    <li>
+	      <input type="checkbox" name="privacy" title="<?php echo $this->__('Acconsento') ?>" value="1" id="privacy" class="required-entry" />
+	      <label for="checkbox"><?php echo $this->__('Acconsento al trattamento dei dati personali') ?></label>
+	    </li>
+	    <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+	    <?php if ($_dob->isEnabled()): ?>
+	      <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
+	    <?php endif ?>
+	    <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+	    <?php if ($_taxvat->isEnabled()): ?>
+	      <li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
+	    <?php endif ?>
         </ul>
     </fieldset>
 <?php if($this->getShowAddressFields()): ?>
@@ -91,10 +100,10 @@
                 <label for="street_1"><?php echo $this->__('Street Address') ?> <span class="required">*</span></label><br />
                 <input type="text" name="street[]" value="<?php echo $this->htmlEscape($this->getFormData()->getStreet(1)) ?>" title="<?php echo $this->__('Street Address') ?>" id="street_1" class="required-entry input-text" />
             </li>
-<?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
+	    <?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
             <li>
                 <input type="text" name="street[]" value="<?php echo $this->htmlEscape($this->getFormData()->getStreet($_i)) ?>" title="<?php echo $this->__('Street Address '.$_i) ?>" id="street_<?php echo $_i?>" class="input-text" />
-<?php endfor ?>
+	    <?php endfor ?>
             </li>
             <li>
                 <div class="input-box">
@@ -145,7 +154,8 @@
     <div class="button-set">
         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
         <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>
-        <button class="form-button" type="submit"><span><?php echo $this->__('Submit') ?></span></button>
+        <input type="command" class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>" />
+	<input type="command" onClick="resetForm()" class="form-button" value="<?php echo $this->__('Azzera')?>" />
     </div>
 </form>
 <script type="text/javascript">
@@ -154,5 +164,17 @@
     <?php if($this->getShowAddressFields()): ?>
     new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>);
     <?php endif; ?>
+    function resetForm()
+    {
+      document.getElementById("form-validate").reset();
+    }
+    function submitForm()
+    {
+      if (document.getElementById("sex_radio_m").checked == true) 
+      {
+	document.getElementById("sex").value="M";
+      } else {document.getElementById("sex").value="F";}
+      document.getElementById("form-validate").submit();
+    }
 //]]>
 </script>
