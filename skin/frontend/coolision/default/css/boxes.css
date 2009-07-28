@@ -870,9 +870,10 @@ table.recently-list td { width:20%; }
     }
 .listing-type-list .listing-item .product-item-table td.name h5 { color:black; } 
 .listing-type-list .listing-item .product-item-table td.description { 
-    color:#aaa; 
+    color:#999; 
     text-align:left;
-    font-size: 0.8em; 
+    font-size: 0.8em;
+    line-height: 1.3em;
     } 
 .listing-type-list .listing-item .product-item-table td.last-item { border-right:0 } 
     
