@@ -46,24 +46,27 @@ NOTE: Regarding styles - if we leave it this way, we'll move it to boxes.css
 */
 ?>
 <div class="customer-dob">
-    <label for="<?php echo $this->getFieldId('day')?>">
-        <?php echo $this->__('Date of Birth') ?>
-        <?php if ($this->isRequired()):?><span class="required">*</span><?php endif ?>
-    </label>
-
+    <td>
+        <label for="<?php echo $this->getFieldId('day')?>">
+            <?php echo $this->__('Data di nascita') ?>
+            <?php if ($this->isRequired()):?><span class="required">*</span><?php endif ?>
+        </label>
+    </td>
+    
+    <td>
     <div class="input-box dob-day">
         <input type="text" id="<?php echo $this->getFieldId('day')?>" name="<?php echo $this->getFieldName('day')?>" value="<?php echo $this->getDay() ?>" title="<?php echo $this->__('Day') ?>" class="input-text validate-custom" <?php echo $this->getFieldParams() ?> />
-        <label for="<?php echo $this->getFieldId('day')?>" class="label-dob"><?php echo $this->__('DD') ?></label>
+        <label for="<?php echo $this->getFieldId('day')?>" class="label-dob"><?php echo $this->__('giorno') ?></label>
     </div>
 
     <div class="input-box dob-month">
         <input type="text" id="<?php echo $this->getFieldId('month')?>" name="<?php echo $this->getFieldName('month')?>" value="<?php echo $this->getMonth() ?>" title="<?php echo $this->__('Month') ?>" class="input-text validate-custom" <?php echo $this->getFieldParams() ?> />
-        <label for="<?php echo $this->getFieldId('month')?>" class="label-dob"><?php echo $this->__('MM') ?></label>
+        <label for="<?php echo $this->getFieldId('month')?>" class="label-dob"><?php echo $this->__('mese') ?></label>
     </div>
 
     <div class="input-box dob-year">
         <input type="text" id="<?php echo $this->getFieldId('year')?>" name="<?php echo $this->getFieldName('year')?>" value="<?php echo $this->getYear() ?>" title="<?php echo $this->__('Year') ?>" class="input-text validate-custom" <?php echo $this->getFieldParams() ?> />
-        <label for="<?php echo $this->getFieldId('year')?>" class="label-dob"><?php echo $this->__('YYYY') ?></label>
+        <label for="<?php echo $this->getFieldId('year')?>" class="label-dob"><?php echo $this->__('anno') ?></label>
     </div>
 
     <div class="dob-full" style="display:none;">
@@ -72,6 +75,7 @@ NOTE: Regarding styles - if we leave it this way, we'll move it to boxes.css
 
     <div style="opacity: 0.999999; display:none;" class="validation-advice"></div>
 </div>
+</td>
 <script type="text/javascript">
 //<![CDATA[
     var customer_dob = new Varien.DOB('.customer-dob', <?php echo $this->isRequired() ? 'true' : 'false' ?>, '<?php echo $this->getDateFormat() ?>');
