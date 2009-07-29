@@ -137,7 +137,12 @@ almeno un carattere speciale.
                     <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed" <?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif ?> />
                     <label for="is_subscribed"><?php echo $this->__('Desidero essere sempre informato attraverso il servizio coolision mail delle novità presenti nel portale') ?></label>
                 <?php endif ?>
+                <!-- buttons -->
+                <div class="form-buttons">
+                	<input type="command" onClick="resetForm()" class="form-button button-reset" value="<?php echo $this->__('Azzera')?>" />
+                    <input type="command" class="form-button button-submit" onClick="submitForm()" value="<?php echo $this->__('Registrati')?>" />
                 <!-- -->
+                </div>
             </content>
         </td>
         </tr>
@@ -203,9 +208,7 @@ almeno un carattere speciale.
 
     <!-- BUTTONS -->
     <div class="button-set">
-        <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>
-        <input type="command" class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>" />
-	<input type="command" onClick="resetForm()" class="form-button" value="<?php echo $this->__('Azzera')?>" />
+<!--        <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>-->
     </div>
 </form>
 <script type="text/javascript">

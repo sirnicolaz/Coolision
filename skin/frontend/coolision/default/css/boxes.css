@@ -197,6 +197,21 @@ a.form-button-alt { padding:2px 9px; text-decoration:none; }
     color:white;
     }
 #register-form .panel-register-info div#panel-info-content { padding:0 1em 1em 1em; }
+#register-form .panel-register-info div#panel-info-content .form-buttons { float:right; margin:2em 0; }
+#register-form .panel-register-info div#panel-info-content .form-button { 
+    background-color:#fcca20;
+    border:0;
+    color:black;
+    }
+#register-form .panel-register-info div#panel-info-content .button-submit { 
+    padding: 0.5em 0;
+    width:9em;
+    }   
+#register-form .panel-register-info div#panel-info-content .button-reset { 
+    background-color:#999;
+    color:white;
+    width:6em;
+    }
 
 #register-form .panel-register-info .info-item { 
     padding: 0.5em 2em;
