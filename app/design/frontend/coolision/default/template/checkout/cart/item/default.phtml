@@ -29,14 +29,14 @@
     <td class="a-center"><a href="<?php echo $this->getDeleteUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/btn_trash.gif') ?>" width="16" height="16" alt="<?php $this->__('Remove item')?>" /></a></td>
     <td><a href="<?php echo $this->getProductUrl() ?>"><img src="<?php echo $this->getProductThumbnail()->resize(75); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" width="75" /></a></td>
     <td class="attributes-col">
-        <h4 class="title"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->getProductName() ?></a></h4>
+        <h4 class="title"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->getProductName() ?></a></h4> <!-- link per tornare alla pagina prodotti-->
         <!-- item custom options -->
-        <?php if ($_options = $this->getOptionList()):?>
+        <?php if ($_options = $this->getOptionList()):?> <!-- lista delle opzioni per il prodotto -->
         <dl class="item-options">
             <?php foreach ($_options as $_option) : ?>
             <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
-            <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
-            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?>
+            <dt><?php echo $this->htmlEscape($_option['label']) ?></dt> <!-- label dell'attributo configurabile (tipo color) -->
+            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?> <!-- valore -->
                 <?php if (isset($_formatedOptionValue['full_view'])): ?>
                 <div class="truncated_full_value">
                     <dl class="item-options">
