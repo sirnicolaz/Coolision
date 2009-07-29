@@ -102,7 +102,8 @@
 				<div id="shipTab" class="tabInactive">
 		            <div class="collateral-box">
 						<div><!--Da qui-->
-							<span id="ship-descr">Llorem ipsum pizza pizza pie pepperoni mushrooms potatos cookies pizza salami paprika</span>
+							<span id="ship-descr">Llorem ipsum pizza pizza pie pepperoni mushrooms potatos cookies pizza salami paprikapepperoni mushrooms potatos cookies pizza salami paprikapepperoni mushrooms potatos cookies pizza salami paprika</span>
+							<br/>
 							<br/>
 							<select class="ship-states" id="shipStates" onChange="changeCost()">
 								<option value="13.00$">Italy</option>
@@ -110,7 +111,14 @@
 								<option value="129.00$">Wonderland</option>
 							</select>
 							<br/>
-							<label class="ship-lab">SHIPPING COST </label><input type="text" id="shipCost" class="ship-cost" readonly="readonly" value="13.00 $" ></input>
+							<div class="ship-info-sum">
+							<span><label class="ship-lab">SHIPPING PRICE </label><input type="text" id="shipCost" class="ship-cost" readonly="readonly" value="13.00 $" ></input></span>
+							<br/>
+							<span>A quanto a dir qual'era cosa dura</span>
+							<br/>
+							<br/>
+							<span>Esta selva sevlaggia aspra e forte</span>
+							</div>
 						</div><!--A qui-->
 		            </div>
 				</div>
@@ -124,15 +132,11 @@
 						for(var j=0; j<document.getElementById('menuContainer').getElementsByTagName('li').length; j++){
 							var menuTab = document.getElementById('menuContainer').getElementsByTagName('li')[j];
 							if(menuTab.id==tabName){
-								//menuTab.style.background = 'url(../images/product-tab-yellow.png) no-repeat top left";
-								//menuTab.style.background = "#262626";
 								document.getElementById('menuContainer').getElementsByTagName('li')[j].class='active';
 								document.getElementById('menuContainer').getElementsByTagName('li')[j].getElementsByTagName('a')[0].style.color= '#262626';
 								document.getElementById('menuContainer').getElementsByTagName('li')[j].style.background = '#FCCA21';
 							}
 							else{ 
-								//menuTab.style.background = 'url(../images/product-tab-black.png) no-repeat top left";
-								//menuTab.style.background = "white";
 								document.getElementById('menuContainer').getElementsByTagName('li')[j].class='inactive';
 								document.getElementById('menuContainer').getElementsByTagName('li')[j].getElementsByTagName('a')[0].style.color= 'white';
 								document.getElementById('menuContainer').getElementsByTagName('li')[j].style.background = '#262626';
@@ -144,12 +148,10 @@
 							var panelId = document.getElementById('tabPanels').getElementsByTagName('div')[k].id;
 							if(panelClass=='tabInactive' || panelClass=='tabActive'){
 								if(panelId == tabName+'Tab'){
-									document.getElementById('tabPanels').getElementsByTagName('div')[k].style.display='block';//class='tabActive';
-									//panel.style.display = 'none';
+									document.getElementById('tabPanels').getElementsByTagName('div')[k].style.display='block';
 								}
 								else{
 									document.getElementById('tabPanels').getElementsByTagName('div')[k].style.display='none';
-									//panel.style.display = 'block';
 								}
 							}
 						}
@@ -163,18 +165,25 @@
                 <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a><br />
             <?php endif; ?>
 
-            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+            <?php //echo $this->getReviewsSummaryHtml($_product, false, true)?>
 
             <fieldset class="no-display">
               <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
               <input type="hidden" name="related_product" id="related-products-field" value="" />
             </fieldset>
 
-            <?php echo $this->getChildHtml('alert_urls') ?>
-            <?php echo $this->getChildHtml('product_type_data') ?>
-            <?php echo $this->getTierPriceHtml() ?>
-
-            <?php if (!$this->hasOptions()):?>
+			<div class="configurable-attributes">
+					<?php if ($_product->isSaleable() && $this->hasOptions()):?>
+						<?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+					<?php endif;?>
+			</div>
+            <div class="divider"></div>
+			<div class="product-sum-link">
+				<div class="sum-link"><?php echo $this->getPriceHtml($_product) ?></div>
+				<div class="sum-link"><?php //echo $_product->getTierPriceHtml() ?></div>
+				<div class="sum-link"><?php echo $this->getChildHtml('alert_urls') ?></div>
+	            <!--<div class="sum-link"><?php //echo $this->getChildHtml('product_type_data') ?></div>-->
+				<div class="sum-link"><?php if (!$this->hasOptions()):?>
                 <div class="add-to-holder">
                     <?php if($_product->isSaleable()): ?>
                         <?php echo $this->getChildHtml('addtocart') ?>
@@ -184,16 +193,20 @@
                     <?php endif; ?>
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>
-            <?php else:?>
-                <?php echo $this->getChildHtml('addto') ?>
-            <?php endif; ?>
-
-            <div class="divider"></div>
-
-            <?php if ($_product->getShortDescription()):?>
-                <h4><?php echo $this->__('Quick Overview') ?></h4>
-                <div class="short-description"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
-            <?php endif;?>
+				<?php else:?>
+					<?php echo $this->getChildHtml('addto') ?>
+				<?php endif; ?></div>
+				<div class="sum-link"><?php if($_product->isSaleable()): ?></div>
+				<div class="sum-link"><fieldset class="add-to-cart-box">
+					<!--<legend><?php //echo $this->__('Add Items to Cart') ?></legend>-->
+					<button type="button" class="form-button" onclick="productAddToCartForm.submit()"><?php echo $this->__('Add to Cart') ?></button>
+				<?php endif; ?></div>
+    </fieldset>
+			</div>
+            <!--<?php //if ($_product->getShortDescription()):?>
+                <h4><?php //echo $this->__('Quick Overview') ?></h4>
+                <div class="short-description"><?php //echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+            <?php //endif;?>-->
 
             <?php echo $this->getChildHtml('other');?>
 
@@ -203,9 +216,7 @@
 
         </div>
         <div class="clear"></div>
-        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-        <?php endif;?>
+        
     </form>
     <script type="text/javascript">
             var productAddToCartForm = new VarienForm('product_addtocart_form');

@@ -2,6 +2,16 @@
 width:50%;
 }
 
+.product-essential{
+background:none;
+border:1.5px #262626 solid;
+padding:8px;
+}
+
+.product-info-box{
+border:none;
+}
+
 .product-essential .product-shop{
 float:left;
 width:50%;
@@ -50,8 +60,10 @@ color:white;
 }
 
 .description-tab-menu-container {
-background:url(../images/product-separator.png) no-repeat bottom left;
-height:23px;
+/*background:url(../images/product-separator.png) no-repeat bottom left;*/
+border-bottom:solid 1.5px #262626;
+width:423px;
+height:22px;
 }
 
 .tabPanels .tabActive{
@@ -60,4 +72,102 @@ display:block;
 
 #tabPanels .tabInactive{
 display:none;
+}
+
+.product-collateral{
+background: none;
+padding:0.2em;
+height:20em;
+}
+
+.configurable-attributes{
+height:12em;
+}
+
+.configurable-attribute{
+float:left;
+margin-right:0px;
+}
+
+.product-sum-link{
+height:6em;;
+}
+
+.configurable-attribute input#Red{
+background-color: lightblue;
+color: green;
+}
+
+.configurable-attribute dt{
+padding-top:0em;
+padding-left:0em;
+padding:0px;
+margin:0px;
+margin-left:0px;
+height:1.85em;
+width:7.5em;
+background:#262626;
+color:white;
+text-align:center;
+text-transform:uppercase;
+}
+
+.configurable-attribute .border-bottom{
+padding-top:0px;
+margin-top:0px;
+width:141px;
+height:1.85em;
+border-bottom:1.5px;
+border-bottom-style:solid;
+border-bottom-color:#262626;
+}
+
+.product-options{
+background:none;
+border:none;
+margin:0px;
+padding:0px;
+
+}
+
+.product-options dd{
+border:none;
+margin-left:2em;
+}
+
+.qty-box #qty{
+margin-top:2em;
+margin-left:2em;
+}
+
+.add-to-cart-box .form-button{
+float:right;
+height:2.5em;
+width:7.6m;
+padding-right:5em;
+text-align:center;
+text-transform:uppercase;
+border:none;
+background:none;
+/*background-color:#FCCA21;*/
+background:url(../images/button-add-to-cart.png) top left no-repeat;
+color:black;
+}
+
+.ship-info-sum span {
+margin-top:1.5em;
+}
+
+.product-sum-link .sum-link{
+float:left;
+}
+
+.product-shop{
+/*border:1.5px #262626 solid;*/
+}
+
+.divider{
+height:1.5px;/* #262626 solid;*/
+background:#262626;
+width:423px;
 }

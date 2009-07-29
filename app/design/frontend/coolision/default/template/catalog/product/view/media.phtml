@@ -69,11 +69,10 @@
 <?php endif; ?>
 <?php if (count($this->getGalleryImages()) > 0): ?>
 <div class="more-views">
-    <h4><?php echo $this->__('More Views') ?></h4>
     <ul>
     <?php foreach ($this->getGalleryImages() as $_image): ?>
         <li>
-			<a href="#" onclick="changeImg('<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->resize(265)?>')"><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(56); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /></a>
+			<a href="#" onclick="changeImg('<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(265)?>')"><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(56); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /></a>
         </li>
     <?php endforeach; ?>
     </ul>
