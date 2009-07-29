@@ -39,27 +39,19 @@
     (<?php echo $_item->getCount() ?>)<a href="<?php echo $_item->getRemoveUrl() ?>">Remove</a>
     -->
     
-    <input type="checkbox" 
+    <!-- 
+        The onClick() javascript code must be inline, because it has some parts that
+        must be filled by php and these parts are different for every checkbox.
+     -->
+    <input type="checkbox"
+            id="<?php echo $_item->getLabel() ?>" 
             name="<?php echo $_item->getLabel() ?>"
-            onClick="ciao()">
-        <?php echo $_item->getLabel() ?>
-    </input>
+            value="<?php echo $_item->getLabel() ?>"
+            onClick="
+                var url =  unescape('<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER['REQUEST_URI']; ?>');
+                window.location='<?php echo $_item->getUrl() ?>'; return true;
+            
+            "/>
+    <label for="<?php echo $_item->getLabel() ?>"><?php echo $_item->getLabel() ?></label>
     <br/>
 <?php endforeach ?>
-
-<script type="text/javascript">
-function ciao() {
-    var inputs = document.getElementsByTagName('input');
-                
-    for (var i = 0; i < inputs.length; i++) {
-        alert(inputs[i]);
-        if (inputs[i].getAttribute('name') == <?php echo $_item->getLabel() ?>) {
-            if (inputs[i].checked) {
-                document.window.location = '<?php echo $_item->getUrl() ?>';
-            } else {
-                document.window.location = '<?php echo $_item->getRemoveUrl() ?>';
-            }
-        }
-    }
-}
-</script>
