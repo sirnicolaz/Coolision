@@ -29,12 +29,10 @@
 <div class="page-head">
     <h3><?php echo $this->__('My Orders') ?></h3>
 </div>
-
-<!--
-<?php echo $this->getPagerHtml(); ?>
+<?php //echo $this->getPagerHtml(); ?>
 <?php if($_orders->getSize()): ?>
 
-        <?php foreach ($_orders as $_order): ?> <!-- cicla e costruisce la tabella degli ordini -->
+        <?php foreach ($_orders as $_order): ?>  <!-- cicla e costruisce la tabella degli ordini -->
 	<!-- HEADER DELL'ORDINE -->
 	  <p>ORDINE EFFETTUATO IN DATA <?php echo $this->formatDate($_order->getCreatedAtStoreDate()) ?> (ALLE...) (COD. ORDINE <?php echo $_order->getRealOrderId() ?>)</p>
 	<!-- TABELLA DEGLI ITEMS DELL'ORDINE -->
