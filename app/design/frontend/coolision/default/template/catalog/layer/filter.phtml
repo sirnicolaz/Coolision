@@ -32,11 +32,34 @@
  */
 ?>
 
-<ol>
 <?php foreach ($this->getItems() as $_item): ?>
-    <li>
-        <a href="<?php echo $_item->getUrl() ?>"><?php echo $_item->getLabel() ?></a>
-        (<?php echo $_item->getCount() ?>)<a href="<?php echo $_item->getRemoveUrl() ?>">Remove</a>
-    </li>
+
+    <!--
+    <a href="<?php echo $_item->getUrl() ?>"></a>
+    (<?php echo $_item->getCount() ?>)<a href="<?php echo $_item->getRemoveUrl() ?>">Remove</a>
+    -->
+    
+    <input type="checkbox" 
+            name="<?php echo $_item->getLabel() ?>"
+            onClick="ciao()">
+        <?php echo $_item->getLabel() ?>
+    </input>
+    <br/>
 <?php endforeach ?>
-</ol>
+
+<script type="text/javascript">
+function ciao() {
+    var inputs = document.getElementsByTagName('input');
+                
+    for (var i = 0; i < inputs.length; i++) {
+        alert(inputs[i]);
+        if (inputs[i].getAttribute('name') == <?php echo $_item->getLabel() ?>) {
+            if (inputs[i].checked) {
+                document.window.location = '<?php echo $_item->getUrl() ?>';
+            } else {
+                document.window.location = '<?php echo $_item->getRemoveUrl() ?>';
+            }
+        }
+    }
+}
+</script>
