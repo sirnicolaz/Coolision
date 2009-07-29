@@ -31,9 +31,7 @@
  * @see Mage_Catalog_Block_Layer_Filter
  */
 ?>
-
 <?php foreach ($this->getItems() as $_item): ?>
-
     <!--
     <a href="<?php echo $_item->getUrl() ?>"></a>
     (<?php echo $_item->getCount() ?>)<a href="<?php echo $_item->getRemoveUrl() ?>">Remove</a>
@@ -41,17 +39,40 @@
     
     <!-- 
         The onClick() javascript code must be inline, because it has some parts that
-        must be filled by php and these parts are different for every checkbox.
+        must be filled by php and these parts are different for every checkbox
      -->
     <input type="checkbox"
-            id="<?php echo $_item->getLabel() ?>" 
+            id="<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>" 
             name="<?php echo $_item->getLabel() ?>"
-            value="<?php echo $_item->getLabel() ?>"
+            value="<?php echo $_item->getValueString() ?>"
             onClick="
-                var url =  unescape('<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER['REQUEST_URI']; ?>');
-                window.location='<?php echo $_item->getUrl() ?>'; return true;
-            
+					if(document.getElementById('<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>').checked){
+						window.location='<?php echo $_item->getUrl() ?>'; return true;
+					
+					}
+					else{
+								window.location='<?php echo $_item->getRemoveUrl() ?>'; return true;
+					}
             "/>
     <label for="<?php echo $_item->getLabel() ?>"><?php echo $_item->getLabel() ?></label>
     <br/>
+	<script>
+	//Verify that category filter requestvar is written in URL
+	var reqUri = document.location.search;
+	var thisReqUri = '<?php echo $_item->getFilter()->getRequestVar() ?>';
+	var set = false;
+	if(reqUri.match(/\?<?php echo $_item->getFilter()->getRequestVar() ?>/)){
+		set=true;
+	}
+	else if(reqUri.match(/&<?php echo $_item->getFilter()->getRequestVar() ?>/)){
+		set=true;
+	}
+	//Check if item value is set in reqVar parameters
+	if(set){
+		//if(reqUri.match(/\?<?php echo $_item->getFilter()->getRequestVar() ?>=([0-9]*-)*<?php echo $_item->getValueString() ?>(-[0-9]*)*?[&|$]/) || reqUri.match(/&<?php echo$_item->getFilter()->getRequestVar() ?>=([0-9]*-)*<?php echo $_item->getValueString() ?>(-[0-9]*)*?[&|$]/)){
+		if(reqUri.match(/\?<?php echo $_item->getFilter()->getRequestVar() ?>=([0-9]*-)*<?php echo $_item->getValueString() ?>(-[0-9]*)*/) || reqUri.match(/&<?php echo$_item->getFilter()->getRequestVar() ?>=([0-9]*-)*<?php echo $_item->getValueString() ?>(-[0-9]*)*/)){
+			document.getElementById('<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>').checked='checked';
+		}
+	}
+	</script>
 <?php endforeach ?>
