@@ -41,14 +41,16 @@
     	    <td class="description_field"><?php echo $this->__('password') ?>:</td>
     	    <td><input name="login[password]" /></td>
     	  </tr>
-    	  <tr>
-    	    <td>&nbsp;</td>
-    	    <td id="forgotten_password">
-    	        <a href="<?php echo $this->getUrl("customer/account/forgotpassword") ?>"><?php echo $this->__('Dimenticato la password') ?></a>
-    	    </td>
-    	  </tr>
+<!--    	  <tr>-->
+<!--    	    <td>&nbsp;</td>-->
+<!--    	    <td id="forgotten_password">-->
+<!--    	        <a href="<?php echo $this->getUrl("customer/account/forgotpassword") ?>"><?php echo $this->__('Dimenticato la password') ?></a>-->
+<!--    	    </td>-->
+<!--    	  </tr>-->
       </table>
   </form>
+  <a id="forgotten_password" href="<?php echo $this->getUrl("customer/account/forgotpassword") ?>"><?php echo $this->__('Dimenticato la password') ?></a>
+    	    
 <?php else: ?> <!-- se l'utente è loggato mostra un pulsante per il logout -->
   <form action="<?php echo $this->getUrl("customer/account/logout") ?>" method="post">
     <input type="submit" value="<?php echo $this->__('Logout') ?>" />
