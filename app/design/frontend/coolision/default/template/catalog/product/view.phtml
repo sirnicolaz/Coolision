@@ -60,49 +60,18 @@
 				
 				<div id="menuContainer" class="description-tab-menu-container">
 					<ul class="description-tab-menu">
-						<li id="descr" onclick="changeTab('descr')" class="active">
-			                    <?php echo $this->__('Description') ?>
+						<li id="descr" onclick="changeTab('descr'); return false;" class="active">
+			                    <a href="#" onclick="changeTab('descr'); return false;"><?php echo $this->__('Description') ?></a>
 						</li>
-						<li id="meas" onclick="changeTab('meas')" class="inactive">
-							<?php echo $this->__('Measures') ?>
+						<li id="meas" onclick="changeTab('meas');return false;" class="inactive">
+							<a href="#" onclick="changeTab('meas'); return false;"><?php echo $this->__('Measures') ?></a>
 						</li>
-						<li id="ship" onclick="changeTab('ship')" class="inactive">
-								<?php echo $this->__('Shipping Info') ?>
+						<li id="ship" onclick="changeTab('ship');return false;" class="inactive">
+								<a href="#" onclick="changeTab('ship'); return false;"><?php echo $this->__('Shipping Info') ?></a>
 						</li>
 					</ul>
 				</div>
 
-				<script type="text/javascript">
-					function changeTab(tabName){
-						
-						for(var j=0; j<document.getElementById('menuContainer').getElementsByTagName('li').length; j++){
-							var menuTab = document.getElementById('menuContainer').getElementsByTagName('li')[j];
-							if(menuTab.id==tabName){
-								//menuTab.style.background = 'url(../images/product-tab-yellow.png) no-repeat top left";
-								//menuTab.style.background = "#262626";
-								menuTab.class='active';
-							}
-							else{
-								//menuTab.style.background = 'url(../images/product-tab-black.png) no-repeat top left";
-								//menuTab.style.background = "white";
-								menuTab.class='inactive';
-							}
-						}
-						for(var k=0; k<document.getElementById('tabPanels').getElementsByTagName('div').length; k++){
-							var panel = document.getElementById('tabPanels').getElementsByTagName('div')[k];
-							if(panel.class=='tabInactive' || panel.class=='tabActive'){
-								if(panel.id == tabName+'Tab'){
-									panel.class='tabActive';
-									//panel.style.display = 'none';
-								}
-								else{
-									panel.class ='tabInactive"
-									//panel.style.display = 'block';
-								}
-							}
-						}
-					}
-				</script>
 				
 				<div id="tabPanels">
 				<div id="descrTab" class="tabActive" >
@@ -148,8 +117,48 @@
 				
 				</div>
 				</div>
+				
+				<script language="Javascript" type="text/javascript">
+					function changeTab(tabName){
+						
+						for(var j=0; j<document.getElementById('menuContainer').getElementsByTagName('li').length; j++){
+							var menuTab = document.getElementById('menuContainer').getElementsByTagName('li')[j];
+							if(menuTab.id==tabName){
+								//menuTab.style.background = 'url(../images/product-tab-yellow.png) no-repeat top left";
+								//menuTab.style.background = "#262626";
+								document.getElementById('menuContainer').getElementsByTagName('li')[j].class='active';
+								document.getElementById('menuContainer').getElementsByTagName('li')[j].getElementsByTagName('a')[0].style.color= '#262626';
+								document.getElementById('menuContainer').getElementsByTagName('li')[j].style.background = '#FCCA21';
+							}
+							else{ 
+								//menuTab.style.background = 'url(../images/product-tab-black.png) no-repeat top left";
+								//menuTab.style.background = "white";
+								document.getElementById('menuContainer').getElementsByTagName('li')[j].class='inactive';
+								document.getElementById('menuContainer').getElementsByTagName('li')[j].getElementsByTagName('a')[0].style.color= 'white';
+								document.getElementById('menuContainer').getElementsByTagName('li')[j].style.background = '#262626';
+	
+							}
+						}
+						for(var k=0; k<document.getElementById('tabPanels').getElementsByTagName('div').length; k++){
+							var panelClass = document.getElementById('tabPanels').getElementsByTagName('div')[k].className;
+							var panelId = document.getElementById('tabPanels').getElementsByTagName('div')[k].id;
+							if(panelClass=='tabInactive' || panelClass=='tabActive'){
+								if(panelId == tabName+'Tab'){
+									document.getElementById('tabPanels').getElementsByTagName('div')[k].style.display='block';//class='tabActive';
+									//panel.style.display = 'none';
+								}
+								else{
+									document.getElementById('tabPanels').getElementsByTagName('div')[k].style.display='none';
+									//panel.style.display = 'block';
+								}
+							}
+						}
+					}
+				</script>
+				
+				
 			</div>
-			
+				
             <?php if ($this->canEmailToFriend()): ?>
                 <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a><br />
             <?php endif; ?>
