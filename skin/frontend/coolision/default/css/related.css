@@ -1,0 +1,121 @@
+.mini-related-items{
+border:none;
+background:url(../images/related-product-box.png) top left no-repeat;
+height:155px;
+width:43.5em;
+padding-top:0.1em;
+}
+
+.mini-related-items .head{
+border:none;
+background: none;
+float:right;
+padding-top:0px;
+margin-top:0px;
+text-transform:lowercase;
+font-weight:bold;
+font-size:1em;
+color:#FCCA21;
+margin-right:10px;
+}
+
+.mini-related-items .related-left-arrow{
+position:relative;
+float:left;
+width:5px;
+height:52px;
+background:url(../images/related-left-arrow.png) top left no-repeat;
+padding:0.5em;
+margin:0.5em;
+margin-top:45px;
+margin-left:12px;
+margin-right:12px;
+}
+
+.base-mini .content{
+float:left;
+position:relative;
+height:120px;
+width:36em;
+white-space: nowrap;
+overflow:auto;
+padding:0px;
+margin:0px;
+/*float:left;*/
+padding-bottom:0em;
+margin-left:0em;
+margin-right:0em;
+}
+
+.mini-related-items .related-right-arrow{
+float:left;
+width:5px;
+height:52px;
+background:url(../images/related-right-arrow.png) top left no-repeat;
+padding:0.5em;
+margin:0.5em;
+margin-top:25px;
+margin-left:12px;
+margin-right:12px;
+}
+
+.related-product ol{
+height:110px;
+width:70em;
+margin:0em;
+padding:0em;
+display: block;
+list-style:none;
+}
+
+.related-product li { 
+display: block;
+float:left;
+list-style-type: none;
+padding:0px;
+margin:0px;
+margin-right:16px;
+}
+
+.related-product .product-details-container{
+width:10em;
+margin-bottom:0px;
+padding-bottom:0px;
+}
+
+.related-product .product-details{
+background:url(../images/related-back.png);
+padding:0px;
+margin:0px;
+font-size:0.8em;
+line-height:0.8em;
+margin-top:8em;
+margin-bottom:0px;
+padding-bottom:0px;
+}
+
+.related-product .price-box{
+display:block;
+float:right;
+padding:0px;
+margin:0px;
+}
+.related-product .price{
+font-weight:normal;
+font-size:0.8em;
+padding-right:0.5em;
+margin-bottom:5px;;
+}
+
+.related-product .manufacturer{
+display:block;
+padding-top:0.4em;
+padding-left:0.5em;
+text-transform:uppercase
+}
+
+
+.related-product .category{
+display:block;
+padding-left:0.5em;
+}

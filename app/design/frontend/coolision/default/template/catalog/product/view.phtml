@@ -31,6 +31,7 @@
  * @see Mage_Review_Block_Product_View
  */
 ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/related.css');?>" media="all" />
 <?php
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct();
@@ -159,13 +160,55 @@
     <script type="text/javascript">
             var productAddToCartForm = new VarienForm('product_addtocart_form');
             productAddToCartForm.submit = function(){
+					
+					//Renderize radio button as dropdown to validate user selection
+					
+					//Isolate data for each div
+					var attributes = $$('.super-attribute-select');
+					var selectIds = new Array();
+					var selectNames = new Array();
+					var selectClasses = new Array();
+					var selectedOptionId = new Array();
+					var selectedOptionValue = new Array();
+					
+					for(var i=0; i<attributes.length; i++){
+							selectNames[i]=attributes[i].getAttribute('name');
+							selectClasses[i]=attributes[i].getAttribute('class');
+							selectIds[i]=attributes[i].getAttribute('id');
+							
+							var optionId = new Array();
+							var optionValue = new Array();
+							for(var j=0; j<attributes[i].getElementsByTagName('input').length; j++){
+								if(attributes[i].getElementsByTagName('input')[j].checked){
+									optionValue=attributes[i].getElementsByTagName('input')[j].getAttribute('value');
+									optionId=attributes[i].getElementsByTagName('input')[j].getAttribute('id');
+								}
+							}
+							selectedOptionId[i] = optionId;
+							selectedOptionValue[i] = optionValue;
+					}
+					
+					//Generate select
+					var selectsContainer = document.getElementById('dd-settings-container');//.getElementsByTagName('dl')[0];
+					var newDD = "";
+					for(var i=0; i<attributes.length; i++){
+						newDD = newDD + '<select style="display:none;" name="'+selectNames[i]+'" id="'+selectIds[i]+'" class="'+selectClasses[i]+'">'+'<option selected="selected" value="' + selectedOptionValue[i] + '" id="' + selectedOptionId[i] + '" ></option>'+'</select>';
+						alert(newDD);
+					}
+					selectsContainer.innerHTML = newDD;
+					alert(selectsContainer.innerHTML);
+					//TODO: verify radio is checked
                     if (this.validator.validate()) {
                             this.form.submit();
                     }
             }.bind(productAddToCartForm);
     </script>
     </div>
-
+	
+	<div class="related-product">
+		<?php echo $this->getLayout()->getBlock('catalog.product.related')->toHtml(); ?>
+    </div>
+	
 	<div class="product-collateral">
 	<?php if ($_additional = $this->getChildHtml('additional')):?>
 	            <div class="collateral-box">
@@ -177,6 +220,7 @@
 	        <?php endif;?>
 	        <?php echo $this->getChildHtml('upsell_products') ?>
 	        <?php echo $this->getChildHtml('product_additional_data') ?>
+	
+		
 	</div>
-    
 </div>

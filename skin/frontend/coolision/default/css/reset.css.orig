@@ -1,0 +1,6 @@
+.related-product li { 
+display: inline;
+float:left;
+list-style-type: none;
+padding-right: 20px;
+}
