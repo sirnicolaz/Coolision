@@ -152,37 +152,35 @@ a.form-button-alt { padding:2px 9px; text-decoration:none; }
 /* Register form */
 #register-form { padding:0; border:none; }
 #register-form table { width:100%; border-collapse:collapse; }
-#register-form .panel-register-data { 
-    max-width:50%;
-    border:1px solid #aaa;
-    }
-#register-form .panel-register-data p.required {
-    margin-right:1em;
-}
+#register-form .panel-register-data { max-width:50%; border:1px solid #aaa; }
+#register-form .panel-register-data p.required { margin-right:1em; }
 #register-form .panel-register-data .form-data { margin:0 1em 1em 1em; }
-#register-form .panel-register-data .panel-register-data-header div {
-    padding:0.2em 0.5em;
-    font-weight:bold;
-}
+#register-form .panel-register-data .form-data td { padding:0.5em 0; }
+
+#register-form .panel-register-header { text-transform:uppercase; font-weight:bold; min-height:3em; /*height:5em; background-color:green;*/ }
+#register-form .panel-register-data .panel-register-header div { padding:0.2em 0.5em; }
 #register-form .panel-register-data .panel-title {
     background-color:black;
-    color:white;
-    text-transform:uppercase;
+    color:white;  
     float:left;
-    width:8em;
+    width:11em;
 }
 #register-form .panel-register-data .login-link {
     background-color:#aaa;
     color:black;
-    text-transform:uppercase;
     text-align:center;
-/*    float:right;*/
-}   
+}
 #register-form .panel-register-info {
     width:50%; 
     border:1px solid #aaa;
-    padding:0 1em 1em 1em;
     }
+#register-form .panel-register-info .panel-register-header { 
+    background-color:#fcca20; 
+/*    padding:0.2em 0.5em;*/
+    font-size:xx-small;
+    padding:0.2em 0.5em;
+    }
+#register-form .panel-register-info div#panel-info-content { padding:0 1em 1em 1em; }
 
 /* Form Messages */
 .validation-advice, .required { color:#EB340A; }
