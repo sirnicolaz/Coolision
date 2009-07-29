@@ -62,7 +62,17 @@
                 
                 <tr>
                     <td><label for="password"><?php echo $this->__('Password') ?> <span class="required">*</span></label></td>
-                    <td><input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="required-entry validate-password input-text" /></td>
+                    <td>
+                        <input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="required-entry validate-password input-text" />
+                        <!--
+                        <br/>
+                        <p style="font-size:x-small">
+                            La Password deve essere di almeno 6 caratteri (gli spazi non vengono considerati).
+Per aumentare la sicurezza, ti consigliamo di utilizzare numeri, lettere e
+almeno un carattere speciale. 
+                        </p>
+                        -->
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="confirmation"><?php echo $this->__('Conferma Password') ?> <span class="required">*</span></label></td>
@@ -95,14 +105,37 @@
             <div class="panel-register-header">
                 Hai dubbi sul prodotto? Coolision ti aiuta a scegliere quello più giusto per te...
             </div>
+            <div class="panel-register-header-subtext">
+                Agli utenti COOLISION sono riservati numerosi vantaggi
+            </div>
+            <!-- Info elements -->
+            <div class="info-item">
+                <strong>MYCOOLISION:</strong> sarai informato per primo quando nuovi prodotti                            saranno disponibili sul sito       
+            </div>
+            <div class="info-item">
+                <strong>BUY NOW:</strong> potrai portare a termine più velocemente i tuoi acquisti
+            </div>
+            <div class="info-item">
+                <strong>I MIEI ORDINI:</strong> potrai accedere alla sezione dedicata ai tuoi ordini e controllarne lo stato in modo semplice e veloce
+            </div>
+            <div class="info-item">
+                <strong>PROFILO:</strong> potrai accedere a tutte le tue informazioni personali tramite un unico pannello di controllo
+            </div>
+            <div class="info-item">
+                <strong>WISHLIST:</strong> potrai salvare i tuoi prodotti preferiti nella Whishlist e condividerli con i tuoi amici; potrai inoltre essere sempre avvisato sulla disponibilità dei prodotti che hai selezionato
+            </div>
+            <div class="info-item">
+                <strong>COOLISION NEWS:</strong> scoprirai in anteprima tutte le novità di COOLISION: novità, prodotti in esclusiva, originali selezioni, promozioni riservate e molto di più 
+            </div>
+            <!-- Info content -->
             <div id="panel-info-content">
                 <!-- CHECKBOX INFO -->
                 <input type="checkbox" name="privacy" title="<?php echo $this->__('Acconsento') ?>" value="1" id="privacy" class="required-entry" />
-                <label for="checkbox"><?php echo $this->__('Acconsento al trattamento dei dati personali') ?></label>
+                <label for="checkbox"><?php echo $this->__('Acconsento all’uso dei miei dati secondo l\'informativa') ?></label>
                 <br/>
                  <?php if ($this->isNewsletterEnabled()): ?>
                     <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed" <?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif ?> />
-                    <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
+                    <label for="is_subscribed"><?php echo $this->__('Desidero essere sempre informato attraverso il servizio coolision mail delle novità presenti nel portale') ?></label>
                 <?php endif ?>
                 <!-- -->
             </content>

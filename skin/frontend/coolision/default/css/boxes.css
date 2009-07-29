@@ -152,13 +152,19 @@ a.form-button-alt { padding:2px 9px; text-decoration:none; }
 /* Register form */
 #register-form { padding:0; border:none; }
 #register-form table { width:100%; border-collapse:collapse; }
+
+#register-form .panel-register-header { text-transform:uppercase; font-weight:bold; }
+
 #register-form .panel-register-data { max-width:50%; border:1px solid #aaa; }
-#register-form .panel-register-data p.required { margin-right:1em; }
+#register-form .panel-register-data p.required { margin:0.5em 1em 0 0; text-transform:uppercase; }
 #register-form .panel-register-data .form-data { margin:0 1em 1em 1em; }
 #register-form .panel-register-data .form-data td { padding:0.5em 0; }
-
-#register-form .panel-register-header { text-transform:uppercase; font-weight:bold; min-height:3em; /*height:5em; background-color:green;*/ }
 #register-form .panel-register-data .panel-register-header div { padding:0.2em 0.5em; }
+
+#register-form .panel-register-header,
+#register-form .panel-register-data .panel-title,
+#register-form .panel-register-data .login-link { height:20px; }
+
 #register-form .panel-register-data .panel-title {
     background-color:black;
     color:white;  
@@ -170,17 +176,36 @@ a.form-button-alt { padding:2px 9px; text-decoration:none; }
     color:black;
     text-align:center;
 }
+#register-form .panel-register-data #day,
+#register-form .panel-register-data #month,
+#register-form .panel-register-data #year { width:3em; }
+
 #register-form .panel-register-info {
     width:50%; 
     border:1px solid #aaa;
+    font-size:x-small;
     }
 #register-form .panel-register-info .panel-register-header { 
     background-color:#fcca20; 
-/*    padding:0.2em 0.5em;*/
     font-size:xx-small;
     padding:0.2em 0.5em;
     }
+#register-form .panel-register-info .panel-register-header-subtext { 
+    background-color:#444; 
+    font-size:xx-small;
+    padding:0 0.5em;
+    color:white;
+    }
 #register-form .panel-register-info div#panel-info-content { padding:0 1em 1em 1em; }
+
+#register-form .panel-register-info .info-item { 
+    padding: 0.5em 2em;
+    color:#aaa;
+    border-bottom: 1px solid #ccc;
+    font-size:x-small;
+    line-height:1.2em;
+    }
+#register-form .panel-register-info .info-item strong { color:black; text-transform:uppercase; }
 
 /* Form Messages */
 .validation-advice, .required { color:#EB340A; }
