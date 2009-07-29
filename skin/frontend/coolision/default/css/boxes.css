@@ -535,10 +535,23 @@ h1#logo {
 .mini-product-tags .content { padding:10px; }
 .mini-product-tags .content a, .mini-product-tags .content a:hover { color:#1b2d3b; }
 
-.mini-newsletter .head { background-image:url(../images/header_newsletter.png); }
+.mini-newsletter .head { 
+    background-image:url(../images/header_newsletter.png);
+    background-position:-2px 0;
+    }
 .mini-newsletter h4 { /*background-image:url(../images/icon_newspaper.gif);*/ }
-.mini-newsletter .content { background-color:white; /*background-image:url();*/ border-width:0; }
-.mini-newsletter input.input-text { display:block; margin:3px 0; width:167px; }
+.mini-newsletter .content { 
+/*    background-color:white; */
+    background:white url(../images/box_newsletter_bg.png);
+    background-position: center; 
+    border-width:0;
+    padding-top:0;
+    }
+.mini-newsletter .content p { 
+    margin: 0.3em 0;
+    }
+.mini-newsletter label { background-color:#fcca20; }
+.mini-newsletter input.input-text { display:block; margin:0 0 3px 0; width:167px; }
 .mini-newsletter .form-button-alt { 
   background-image:url(../images/button_newsletter.png); 
   width:53px;
