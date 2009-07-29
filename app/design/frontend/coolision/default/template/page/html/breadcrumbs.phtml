@@ -31,6 +31,7 @@
 <div class="under-menu">
 <ul class="breadcrumbs">
     <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
+      <?php if ($_crumbInfo['label'] !== "categories"): ?> <!-- non visualizza la root -->
         <li class="<?php echo $_crumbName ?>">
         <?php if($_crumbInfo['link']): ?>
             <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $_crumbInfo['title'] ?>"><?php echo $_crumbInfo['label'] ?></a>
@@ -43,6 +44,7 @@
         <?php if(!$_crumbInfo['last']): ?>
         <li> / </li>
         <?php endif; ?>
+      <?php endif; ?>
     <?php endforeach; ?>
 </ul>
 	<?php //echo $this->getLayout()->getBlock("top.search")->toHtml(); ?> 

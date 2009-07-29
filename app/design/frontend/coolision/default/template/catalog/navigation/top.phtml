@@ -35,9 +35,11 @@
     <div class="header-nav">
         <h4 class="no-display"><?php echo $this->__('Category Navigation:') ?></h4>
         <ul id="nav">
-        <?php foreach ($this->getStoreCategories() as $_category): ?>
-            <?php echo $this->drawItem($_category) ?>
-        <?php endforeach ?>
+        <?php foreach ($this->getStoreCategories() as $_category): ?> <!-- scorre tutte le categorie dello store -->
+	    <?php foreach ($_category->getChildren() as $_subCategory): ?>
+	      <?php echo $this->drawItem($_subCategory) ?>
+	    <?php endforeach; ?>
+        <?php endforeach; ?>
         </ul>
     </div>
     <?php echo $this->getChildHtml('topLeftLinks') ?>
