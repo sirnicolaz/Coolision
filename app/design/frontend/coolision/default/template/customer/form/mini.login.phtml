@@ -30,6 +30,7 @@
 	  <tr><td><?php echo $this->__('Email') ?>:</td><td><input name="login[username]" /></td></tr>
 	  <tr><td><?php echo $this->__('Password') ?>:</td><td><input name="login[password]" /></td></tr>
 	  <tr><td>&nbsp;</td><td><input type="submit" value="<?php echo $this->__('Login') ?>" /></td></tr>
+	  <tr><td>&nbsp;</td><td><a href="<?php echo $this->getUrl("customer/account/forgotpassword") ?>"><?php echo $this->__('Dimenticato la password') ?></a></td></tr>
       </table>
   </form>
 <?php else: ?> <!-- se l'utente è loggato mostra un pulsante per il logout -->
