@@ -1,0 +1,64 @@
+<ul>
+  <li>
+    <a href="<?php echo $this->getUrl('sales/order/history/') ?>"><?php echo $this->__('STATO SPEDIZIONI'); ?></a>
+  </li>
+  <li>
+    <!-- per ora mi limito a renderizzare il blocco dei link del carrello nel top link.. ma non va bene! bisognerà avere un phtml separato.. -->
+    <p><a href="<?php echo $this->getUrl('checkout/cart') ?>">CARRELLO</a>  Numero prodotti:
+    <?php $count = $this->helper('checkout/cart')->getSummaryCount();
+    if( $count == 1 ) {
+                echo $this->__('CARRELLO (%s prodotto)', $count);
+            } elseif( $count > 0 ) {
+                echo $this->__('CARRELLO (%s prodotti)', $count);
+            } else {
+		echo $this->__('CARRELLO vuoto');
+	    }
+    ?></p>
+    <p><a href="<?php echo $this->getUrl('wishlist') ?>">WISHLIST</a>  Numero prodotti: 
+    <?php $count = $this->helper('wishlist')->getItemCount();
+            if( $count == 1 ) {
+                echo $this->__('WISHLIST (%d prodotto)', $count);
+            } elseif( $count > 1 ) {
+                echo $this->__('WISHLIST (%d prodotti)', $count);
+            } else {
+                echo $this->__('WISHLIST vuota');
+            }
+    ?></p>
+
+  </li>
+    <?php if( $this->getIsSubscribed() ): ?>
+      <!-- utente registrato alla newsletter, fa vedere il pultante di "unsubscribe" e "cambia email" --> 
+      <?php //echo $this->__("You are currently subscribed to 'General Subscription'.") ?>
+      <!-- form per la cancellazione dalla newsletter -->
+      <form action="<?php echo $this->getUrl('newsletter/manage/save') ?>" method="post" id="form-validate">
+	<fieldset style="display:none">
+	  <?php echo $this->getBlockHtml('formkey')?> <!-- questo blocco non ho capito a cosa serve -->
+	  <p><input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo $this->__('General Subscription') ?>" checked="checked" /> <!--<label for="subscription"><?php //echo $this->__('General Subscription') ?></label>--></p>
+	</fieldset>
+	<div class="button-set">
+	  <button type="button" onClick="unsubscribe()" class="form-button"><span><?php echo $this->__('Unsubscribe') ?></span></button>
+	  <button type="button" onClick="changeMail()" class="form-button"><span><?php echo $this->__('Cange The Mail') ?></span></button>
+	</div>
+      </form>
+      <script type="text/javascript">
+	//<![CDATA[
+	  var dataForm = new VarienForm('form-validate', true);
+	  function unsubscribe(checkbox) 
+	  {
+	    document.getElementById("subscription").checked = false;
+	    document.getElementById("form-validate").submit();
+	  }
+	  
+	  // funzione che cambia la mail per la newsletter dell'utente, non so ancora come fare, quindi non è ancora implementata
+	  function changeMail() {}
+	  
+	//]]>
+      </script>
+    <?php else: ?>
+      <!-- utente non registrato alla newsletter, fa vedere il form per la registrazione -->
+      <?php echo $this->__('You are currently not subscribed to any newsletter.') ?>
+      <?php echo $this->getLayout()->getBlock("newsletter")->toHtml(); ?>
+    <?php endif; ?>
+  
+
+</ul>

@@ -24,7 +24,9 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php if($crumbs && is_array($crumbs)): ?>
+<?php if(!$crumbs || !is_array($crumbs)): ?>
+<?php $crumbs=array("home" => array("link" => "", "title" => "Home", "label" => "Home", "last" => true)) ?>
+<?php endif; ?>
 <h4 class="no-display"><?php echo $this->__("You're currently on:") ?></h4>
 <div class="under-menu">
 <ul class="breadcrumbs">
@@ -46,4 +48,3 @@
 	<?php //echo $this->getLayout()->getBlock("top.search")->toHtml(); ?> 
 	<?php echo $this->getChildHtml('topSearch') ?> 
 </div>
-<?php endif; ?>

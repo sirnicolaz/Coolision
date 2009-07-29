@@ -32,32 +32,21 @@
  */
 ?>
 <?php if($this->canShowBlock()): ?>
-    <div class="box layered-nav">
-        <div class="head">
-            <h3><?php echo $this->__('Shop by') ?></h3>
-        </div>
-
-        <div class="border-creator">
+    
         <?php //echo $this->getStateHtml() ?>
-        <?php if($this->canShowOptions()): ?>
-            <div class="narrow-by">
-                <h4><?php echo $this->__('Shopping Options') ?></h4>
-            <dl id="narrow-by-list">
-                <?php $_filters = $this->getFilters() ?>
-				
-                <?php foreach ($_filters as $_filter): ?>
+        <?php if($this->canShowOptions()): ?>   
+            <?php $_filters = $this->getFilters() ?>
+            <?php foreach ($_filters as $_filter): ?>
                 <?php if($_filter->getItemsCount()): ?>
-                <dt><?php echo $this->__($_filter->getName()) ?></dt>
-                <dd>
-                <?php echo $_filter->getHtml() ?>
-                </dd>
+                    <div class="box mini-product-list-box">
+                        <div class="head"><?php echo $this->__($_filter->getName()) ?></div>
+                        <div class="content">
+                            <?php echo $_filter->getHtml() ?>
+                        </div>
+                    </div>
                 <?php endif; ?>
-                <?php endforeach; ?>
-            </dl>
-            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
-            </div>
-            <?php endif; ?>
-        </div>
-    </div>
+            <?php endforeach; ?>     
+        <?php endif; ?>
+
 <?php endif; ?>
 <!-- [ends] .browse-by // -->

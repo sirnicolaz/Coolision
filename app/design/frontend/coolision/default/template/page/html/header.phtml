@@ -31,29 +31,28 @@
         <p class="no-display"><a href="#main"><strong><?php echo $this->__('Skip to Main Content') ?> &raquo;</strong></a></p>
         <?php //echo $this->getChildHtml('topSearch') ?>
         <div class="quick-access">
-			<!-- Un giorno, molto lontano, forse, chissà, ci andrà il messaggio di benvenuto. Se l'uomo del monte dice si. -->
-           <!--<?php //echo $this->getWelcome() ?><br />-->
-            <!--div class="shop-access">
-					<?php //echo $this->getChildHtml('topLinks') ?>
-			</div-->
-			
-			<!--  Div con le aree di accesso stile "bottoni" -->
-			<!--<div class="header-cblock"> -->
-				<!-- login -->
-			<!--</div>-->
-			<div class="header-cblock">
-				<!-- amministrazione -->
-				<?php echo $this->getLayout()->getBlock("top.links.cart")->toHtml(); ?>
-			</div>
-			<span class="menu-separator"></span>
-			<div class="header-cblock">
-				<!-- Guida all'acquisto -->
-				<div id="icon_shopping_guide"></div>
-				<a href="/how_to_shop">GUIDA ALL'ACQUISTO</a>
-			</div>
-			<div class="header-cblock">
-				<?php echo $this->getLayout()->getBlock("top.links.user")->toHtml(); ?>
-			</div>
+    			<!-- Un giorno, molto lontano, forse, chissÃ , ci andrÃ  il messaggio di benvenuto. Se l'uomo del monte dice si. -->
+               <!--<?php //echo $this->getWelcome() ?><br />-->
+                <!--div class="shop-access">
+    					<?php //echo $this->getChildHtml('topLinks') ?>
+    			</div-->
+    			
+    			<!--  Div con le aree di accesso stile "bottoni" -->
+    			<div class="mini_login">
+        			<?php echo $this->getChildHtml('mini.login') ?>
+    			</div>
+    			<div class="header-cblock">
+    				<!-- amministrazione -->
+    				<?php echo $this->getLayout()->getBlock("top.links.cart")->toHtml(); ?>
+    			</div>
+    			<div class="header-cblock">
+    				<!-- Guida all'acquisto -->
+    				<div id="icon_shopping_guide"></div>
+    				<a href="/how_to_shop">GUIDA ALL'ACQUISTO</a>
+    			</div>
+    			<div class="header-cblock">
+    				<?php echo $this->getLayout()->getBlock("top.links.user")->toHtml(); ?>
+    			</div>
 			
             <?php echo $this->getChildHtml('store_language') ?>
         </div>

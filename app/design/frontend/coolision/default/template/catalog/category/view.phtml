@@ -1,4 +1,4 @@
-<?php
+<?php //
 /**
  * Magento
  *
@@ -24,7 +24,8 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php
+<!--
+<?php //
 /**
  * Category view template
  *
@@ -32,62 +33,64 @@
  */
 ?>
 <?php
-    $_helper    = $this->helper('catalog/output');
-    $_category  = $this->getCurrentCategory();
-    $_imgHtml   = '';
-    if ($_imageUrl = $_category->getImageUrl()) {
-        $_imgHtml = '<img src="'.$_imageUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" width="475" />';
-        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
-    }
+#    $_helper    = $this->helper('catalog/output');
+#    $_category  = $this->getCurrentCategory();
+#    $_imgHtml   = '';
+#    if ($_imageUrl = $_category->getImageUrl()) {
+#        $_imgHtml = '<img src="'.$_imageUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" width="475" />';
+#        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+#    }
 ?>
-<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<?php if($this->isContentMode()): ?>
+<?php //echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php //if($this->isContentMode()): ?>
     <div class="category-head">
-    <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
-        <a href="<?php echo $this->getRssLink() ?>" class="link-feed right"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
-    <?php endif; ?>
-    <h2><?php echo $_helper->categoryAttribute($_category, $this->htmlEscape($_category->getName()), 'name') ?></h2>
+    <?php // //if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+        <a href="<?php // echo $this->getRssLink() ?>" class="link-feed right"><?php // echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php // endif; ?>
+    <h2><?php // echo $_helper->categoryAttribute($_category, $this->htmlEscape($_category->getName()), 'name') ?></h2>
     </div>
-    <?php if($_imgHtml): ?>
-        <p><?php echo $_imgHtml?></p>
-    <?php endif; ?>
-    <?php if($_description=$_category->getDescription()): ?>
-        <p class="category-description"><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
-    <?php endif; ?>
-    <?php echo $this->getCmsBlockHtml() ?>
-<?php elseif($this->isMixedMode()): ?>
+    <?php // if($_imgHtml): ?>
+        <p><?php // echo $_imgHtml?></p>
+    <?php // endif; ?>
+    <?php // if($_description=$_category->getDescription()): ?>
+        <p class="category-description"><?php // echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
+    <?php // endif; ?>
+    <?php // echo $this->getCmsBlockHtml() ?>
+<?php // elseif($this->isMixedMode()): ?>
     <div class="category-head">
-    <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
-        <a href="<?php echo $this->getRssLink() ?>" class="link-feed right"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
-    <?php endif; ?>
-    <h2><?php echo $_helper->categoryAttribute($_category, $this->htmlEscape($_category->getName()), 'name') ?></h2>
+    <?php // if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+        <a href="<?php // echo $this->getRssLink() ?>" class="link-feed right"><?php // echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php // endif; ?>
+    <h2><?php // echo $_helper->categoryAttribute($_category, $this->htmlEscape($_category->getName()), 'name') ?></h2>
     </div>
-    <?php if($_imgHtml): ?>
-        <p><?php echo $_imgHtml?></p>
-    <?php endif; ?>
-    <?php if($_description=$_category->getDescription()): ?>
-        <p class="category-description"><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
-    <?php endif; ?>
+    <?php // if($_imgHtml): ?>
+        <p><?php // echo $_imgHtml?></p>
+    <?php // endif; ?>
+    <?php // if($_description=$_category->getDescription()): ?>
+        <p class="category-description"><?php // echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
+    <?php // endif; ?>
 <?php /*
     <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
         <a href="<?php echo $this->getRssLink() ?>" class="link-feed"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
-    <?php endif; ?>
+    <?php // endif; ?>
 */ ?>
-    <?php echo $this->getCmsBlockHtml() ?>
-    <?php echo $this->getProductListHtml() ?>
+    <?php // echo $this->getCmsBlockHtml() ?>
+    <?php // echo $this->getProductListHtml() ?>
 
-<?php else: ?>
+<?php // else: ?>
     <div class="category-head">
-    <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
-        <a href="<?php echo $this->getRssLink() ?>" class="link-feed right"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
-    <?php endif; ?>
-    <h2><?php echo $_helper->categoryAttribute($_category, $this->htmlEscape($_category->getName()), 'name') ?></h2>
+    <?php // if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+        <a href="<?php // echo $this->getRssLink() ?>" class="link-feed right"><?php // echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php // endif; ?>
+    <h2><?php // echo $_helper->categoryAttribute($_category, $this->htmlEscape($_category->getName()), 'name') ?></h2>
     </div>
-    <?php if($_imgHtml): ?>
-        <p><?php echo $_imgHtml?></p>
-    <?php endif; ?>
-    <?php if($_description=$_category->getDescription()): ?>
-        <p class="category-description"><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
-    <?php endif; ?>
-    <?php echo $this->getProductListHtml() ?>
-<?php endif; ?>
+    <?php // if($_imgHtml): ?>
+        <p><?php // echo $_imgHtml?></p>
+    <?php // endif; ?>
+    <?php // if($_description=$_category->getDescription()): ?>
+        <p class="category-description"><?php // echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
+    <?php // endif; ?>
+    <?php // echo $this->getProductListHtml() ?>
+<?php // endif; ?> -->
+
+<?php echo $this->getProductListHtml() ?>

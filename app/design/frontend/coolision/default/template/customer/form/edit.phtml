@@ -39,13 +39,7 @@
 	<li>
 	    <div class="input-box">
             <label for="sex"><?php echo $this->__('Sex') ?> <span class="required">*</span></label><br />
-            <input type="text" name="sex" id="sex" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Sex') ?>" class="required-entry validate-email input-text" />
-            </div>
-	</li>
-	<li>
-	    <div class="input-box">
-            <label for="birthDate"><?php echo $this->__('Birth Date') ?> <span class="required">*</span></label><br />
-            <input type="text" name="birthDate" id="birthDate" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Birth Date') ?>" class="required-entry validate-email input-text" />
+            <input type="text" name="sex" id="sex" value="<?php echo $this->htmlEscape($this->getCustomer()->getSex()) ?>" title="<?php echo $this->__('Sex') ?>" class="required-entry input-text" />
             </div>
 	</li>
 	<li>
