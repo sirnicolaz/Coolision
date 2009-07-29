@@ -415,9 +415,9 @@ h1#logo {
 /* Stile dell'area di login */
 .mini_login { float:left; }
 .mini_login #submit_image_cell { padding-top:1em; }
-.mini_login #submit_image { width:19px; height:19px; background:url(../images/icon_cart.png); valign:center; }
+.mini_login #submit_image { width:21px; height:21px; background:url(../images/button_submit.png); valign:center; }
 .mini_login .description_field { text-align:right; }
-.mini_login #forgotten_password { font-size:x-small; }
+.mini_login #forgotten_password { padding-left:6em; font-size:x-small; }
 
 /* Content-block nell'header */
 .header-cblock {
