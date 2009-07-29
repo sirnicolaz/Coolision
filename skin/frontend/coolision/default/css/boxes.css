@@ -478,7 +478,8 @@ h1#logo {
     padding: 0.1em 0 0 0.5em; 
     margin:0; 
     text-transform:uppercase;
-    background-color: #facc20;
+    background: #facc20 url(../images/main-menu_bg.png);
+    background-position:-3em 0;
     margin-right: 5em;
     font-weight: bold;
     }
