@@ -422,19 +422,6 @@
     <?php endif; ?>
     -->
 </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
 		<!-- fine codice incollato da sales/order/items/renderer/defaults.phtml -->
 		<?php if($this->helper('giftmessage/message')->getIsMessagesAvailable('order_item', $_item) && $_item->getGiftMessageId()): ?>
 		  <tr class="border<?php echo ($_index++ > $_count ?' last':'') ?>" id="order-item-gift-message-<?php echo $_item->getId() ?>" style="display:none;">
