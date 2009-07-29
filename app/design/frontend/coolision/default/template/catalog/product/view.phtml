@@ -31,6 +31,7 @@
  * @see Mage_Review_Block_Product_View
  */
 ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/related.css');?>" media="all" />
 <?php
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct();
@@ -203,7 +204,11 @@
             }.bind(productAddToCartForm);
     </script>
     </div>
-
+	
+	<div class="related-product">
+		<?php echo $this->getLayout()->getBlock('catalog.product.related')->toHtml(); ?>
+    </div>
+	
 	<div class="product-collateral">
 	<?php if ($_additional = $this->getChildHtml('additional')):?>
 	            <div class="collateral-box">
@@ -215,6 +220,7 @@
 	        <?php endif;?>
 	        <?php echo $this->getChildHtml('upsell_products') ?>
 	        <?php echo $this->getChildHtml('product_additional_data') ?>
+	
+		
 	</div>
-    
 </div>
