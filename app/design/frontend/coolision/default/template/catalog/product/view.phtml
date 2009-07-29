@@ -32,6 +32,8 @@
  */
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/related.css');?>" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/product.css');?>" media="all" />
+
 <?php
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct();
@@ -53,27 +55,68 @@
                 <?php echo $_helper->productAttribute($_product, $this->htmlEscape($_product->getName()), 'name') ?>
             </h3>
 			
-			<div class="tabs-area">
+			<div id="tabsArea" class="tabs-area">
 				<div class="product-collateral">
 				
-				<div class="tab">
+				<div id="menuContainer" class="description-tab-menu-container">
+					<ul class="description-tab-menu">
+						<li id="descr" onclick="changeTab('descr')" class="active">
+			                    <?php echo $this->__('Description') ?>
+						</li>
+						<li id="meas" onclick="changeTab('meas')" class="inactive">
+							<?php echo $this->__('Measures') ?>
+						</li>
+						<li id="ship" onclick="changeTab('ship')" class="inactive">
+								<?php echo $this->__('Shipping Info') ?>
+						</li>
+					</ul>
+				</div>
+
+				<script type="text/javascript">
+					function changeTab(tabName){
+						
+						for(var j=0; j<document.getElementById('menuContainer').getElementsByTagName('li').length; j++){
+							var menuTab = document.getElementById('menuContainer').getElementsByTagName('li')[j];
+							if(menuTab.id==tabName){
+								//menuTab.style.background = 'url(../images/product-tab-yellow.png) no-repeat top left";
+								//menuTab.style.background = "#262626";
+								menuTab.class='active';
+							}
+							else{
+								//menuTab.style.background = 'url(../images/product-tab-black.png) no-repeat top left";
+								//menuTab.style.background = "white";
+								menuTab.class='inactive';
+							}
+						}
+						for(var k=0; k<document.getElementById('tabPanels').getElementsByTagName('div').length; k++){
+							var panel = document.getElementById('tabPanels').getElementsByTagName('div')[k];
+							if(panel.class=='tabInactive' || panel.class=='tabActive'){
+								if(panel.id == tabName+'Tab'){
+									panel.class='tabActive';
+									//panel.style.display = 'none';
+								}
+								else{
+									panel.class ='tabInactive"
+									//panel.style.display = 'block';
+								}
+							}
+						}
+					}
+				</script>
+				
+				<div id="tabPanels">
+				<div id="descrTab" class="tabActive" >
 		        <?php if ($_description = $this->getChildHtml('description')):?>
 		            <div class="collateral-box">
-		                <div class="head">
-		                    <h4><?php echo $this->__('Product Description') ?></h4>
-		                </div>
 		                <?php echo $_description ?>
 		            </div>
 		        <?php endif;?>
 				</div>
 				
 				<!--Measures tab-->
-				<div class="tab">
+				<div id="measTab" class="tabInactive">
 				<?php if ($_measures = $this->getChildHtml('measures')):?>
 		            <div class="collateral-box">
-		                <div class="head">
-		                    <h4><?php echo $this->__('Measures') ?></h4>
-		                </div>
 		           <?php echo $_measures ?>
 		            </div>
 		        <?php endif;?>
@@ -87,11 +130,8 @@
 						document.getElementById("shipCost").value=val;
 					}
 				</script>
-				<div class="tab">
+				<div id="shipTab" class="tabInactive">
 		            <div class="collateral-box">
-		                <div class="head">
-		                    <h4><?php echo $this->__('Shipping') ?></h4>
-		                </div>
 						<div><!--Da qui-->
 							<span id="ship-descr">Llorem ipsum pizza pizza pie pepperoni mushrooms potatos cookies pizza salami paprika</span>
 							<br/>
@@ -106,6 +146,7 @@
 		            </div>
 				</div>
 				
+				</div>
 				</div>
 			</div>
 			
