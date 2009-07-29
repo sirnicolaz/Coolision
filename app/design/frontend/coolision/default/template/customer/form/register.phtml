@@ -31,57 +31,83 @@
  * @see Mage_Customer_Block_Form_Register
  */
 ?>
+<!--
 <div class="page-head">
     <h3><?php echo $this->__('Create an Account') ?></h3>
 </div>
+-->
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
-    <fieldset class="group-select wide">
+    <fieldset class="group-select wide" id="register-form">
     <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
     <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
-        <h4 class="legend"><?php echo $this->__('Personal Information') ?></h4>
-        <ul>
-            <li>
-                <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->toHtml() ?>
-            </li>
-            <li>
-                <div class="input-box">
-                    <label for="email_address"><?php echo $this->__('Email Address') ?> <span class="required">*</span></label><br/>
-                    <input type="text" name="email" id="email_address" value="<?php echo $this->htmlEscape($this->getFormData()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="validate-email required-entry input-text" />
+        <!-- <h4 class="legend"><?php echo $this->__('Registrazione') ?></h4> -->
+        <table>
+        <tr>
+        <td class="panel-register-data">
+            <div class="panel-register-data-header">
+                <div class="panel-title">
+                    Registrazione
                 </div>
-            </li>
-	    <li>
-	      <div class="input-box" style="display:none">
-		<label for="sex"><?php echo $this->__('Sex') ?></label><br/>
-		<input type="text" name="sex" id="sex" class="input-text" />
-	      </div>
-	      <div class="sex-container">
-		<label for="sex"><?php echo $this->__('Sex') ?></label><br />
-		<input type="radio" name="sex_radio" id="sex_radio_m" value="M" checked="checked">Maschio</input>
-		<input type="radio" name="sex_radio" id="sex_radio_f" value="F" >Femmina</input>
-	      </div>
-	    </li>
-            <?php if ($this->isNewsletterEnabled()): ?>
-            <li>
+                <div class="login-link">
+                    Se sei già registrato, effettua il login
+                </div>
+            </div>
+            <p class="required"><?php echo $this->__('* Campi Obbligatori') ?></p>
+            <table class="form-data">
+                <tr>
+                    <td><label for="email_address"><?php echo $this->__('Email') ?> <span class="required">*</span></label></td>
+                    <td><input type="text" name="email" id="email_address" value="<?php echo $this->htmlEscape($this->getFormData()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="validate-email required-entry input-text" /></td>
+                </tr>
+                
+                <tr>
+                    <td><label for="password"><?php echo $this->__('Password') ?> <span class="required">*</span></label></td>
+                    <td><input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="required-entry validate-password input-text" /></td>
+                </tr>
+                <tr>
+                    <td><label for="confirmation"><?php echo $this->__('Conferma Password') ?> <span class="required">*</span></label></td>
+                    <td><input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="required-entry validate-cpassword input-text" /></td>
+                </tr>
+        	    <tr>
+            	    <div class="input-box" style="display:none">
+            		    <label for="sex"><?php echo $this->__('Sex') ?></label>
+            		    <input type="text" name="sex" id="sex" class="input-text" />
+        	        </div>
+            	    <td><label for="sex"><?php echo $this->__('Sex') ?></label></td>
+                	<td>
+                	    <input type="radio" name="sex_radio" id="sex_radio_m" value="M" checked="checked">Maschio</input>
+            		    <input type="radio" name="sex_radio" id="sex_radio_f" value="F" >Femmina</input>
+        	        </td>
+        	    </tr>
+                <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->toHtml() ?>
+    	        
+    	    <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+    	    <?php if ($_dob->isEnabled()): ?>
+    	        <tr><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></tr>
+    	    <?php endif ?>
+    	    <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+    	    <?php if ($_taxvat->isEnabled()): ?>
+    	      <tr><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></tr>
+    	    <?php endif ?>
+            </table>
+        </td>
+        <td class="panel-register-info">
+            <!-- CHECKBOX INFO -->
+            <input type="checkbox" name="privacy" title="<?php echo $this->__('Acconsento') ?>" value="1" id="privacy" class="required-entry" />
+            <label for="checkbox"><?php echo $this->__('Acconsento al trattamento dei dati personali') ?></label>
+            <br/>
+             <?php if ($this->isNewsletterEnabled()): ?>
                 <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed" <?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif ?> />
                 <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
-            </li>
             <?php endif ?>
-	    <li>
-	      <input type="checkbox" name="privacy" title="<?php echo $this->__('Acconsento') ?>" value="1" id="privacy" class="required-entry" />
-	      <label for="checkbox"><?php echo $this->__('Acconsento al trattamento dei dati personali') ?></label>
-	    </li>
-	    <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
-	    <?php if ($_dob->isEnabled()): ?>
-	      <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
-	    <?php endif ?>
-	    <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
-	    <?php if ($_taxvat->isEnabled()): ?>
-	      <li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
-	    <?php endif ?>
-        </ul>
+            <!-- -->
+        </td>
+        </tr>
+        </table>
     </fieldset>
-<?php if($this->getShowAddressFields()): ?>
+    
+<!-- ADDRESS STUFF -->
+<?php if($this->getShowFields()): ?>
     <input type="hidden" name="create_address" value="1" />
     <fieldset class="group-select wide">
         <h4 class="legend"><?php echo $this->__('Address Information') ?></h4>
@@ -136,23 +162,9 @@
     <input type="hidden" name="default_billing" value="1" />
     <input type="hidden" name="default_shipping" value="1" />
 <?php endif; ?>
-    <fieldset class="group-select wide">
-        <h4 class="legend"><?php echo $this->__('Login Information') ?></h4>
-        <ul>
-            <li>
-                <div class="input-box">
-                    <label for="password"><?php echo $this->__('Password') ?> <span class="required">*</span></label><br/>
-                    <input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="required-entry validate-password input-text" />
-                </div>
-                <div class="input-box">
-                    <label for="confirmation"><?php echo $this->__('Confirm Password') ?> <span class="required">*</span></label><br />
-                    <input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="required-entry validate-cpassword input-text" />
-                </div>
-            </li>
-        </ul>
-    </fieldset>
+
+    <!-- BUTTONS -->
     <div class="button-set">
-        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
         <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>
         <input type="command" class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>" />
 	<input type="command" onClick="resetForm()" class="form-button" value="<?php echo $this->__('Azzera')?>" />

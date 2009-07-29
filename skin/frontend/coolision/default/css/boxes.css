@@ -130,7 +130,7 @@ a.form-button-alt { padding:2px 9px; text-decoration:none; }
     margin:28px 0;
     border:1px solid #bbafa0;
     padding:22px 25px 12px 25px;
-    background:#fbfaf6;
+/*    background:#fbfaf6;*/
     }
 .group-select .legend {
     margin-top:-33px;
@@ -143,11 +143,46 @@ a.form-button-alt { padding:2px 9px; text-decoration:none; }
     font-size:1.1em;
     }
 .group-select li { padding:4px 8px; }
-.group-select li .input-box { float:left; width:275px; }
+.group-select li label { text-transform:uppercase; }
+.group-select li .input-box { float:left; /*width:275px;*/ margin: 1em 0; }
 .group-select li .input-text, .group-select li select, .group-select li textarea { width:525px; }
 .group-select li .input-box .input-text, .group-select li .input-box textarea { width:250px; }
 .group-select li .input-box select { width:256px; }
 
+/* Register form */
+#register-form { padding:0; border:none; }
+#register-form table { width:100%; border-collapse:collapse; }
+#register-form .panel-register-data { 
+    max-width:50%;
+    border:1px solid #aaa;
+    }
+#register-form .panel-register-data p.required {
+    margin-right:1em;
+}
+#register-form .panel-register-data .form-data { margin:0 1em 1em 1em; }
+#register-form .panel-register-data .panel-register-data-header div {
+    padding:0.2em 0.5em;
+    font-weight:bold;
+}
+#register-form .panel-register-data .panel-title {
+    background-color:black;
+    color:white;
+    text-transform:uppercase;
+    float:left;
+    width:8em;
+}
+#register-form .panel-register-data .login-link {
+    background-color:#aaa;
+    color:black;
+    text-transform:uppercase;
+    text-align:center;
+/*    float:right;*/
+}   
+#register-form .panel-register-info {
+    width:50%; 
+    border:1px solid #aaa;
+    padding:0 1em 1em 1em;
+    }
 
 /* Form Messages */
 .validation-advice, .required { color:#EB340A; }
@@ -478,7 +513,8 @@ h1#logo {
     padding: 0.1em 0 0 0.5em; 
     margin:0; 
     text-transform:uppercase;
-    background-color: #facc20;
+    background: #facc20 url(../images/main-menu_bg.png);
+    background-position:-3em 0;
     margin-right: 5em;
     font-weight: bold;
     }
@@ -535,10 +571,23 @@ h1#logo {
 .mini-product-tags .content { padding:10px; }
 .mini-product-tags .content a, .mini-product-tags .content a:hover { color:#1b2d3b; }
 
-.mini-newsletter .head { background-image:url(../images/header_newsletter.png); }
+.mini-newsletter .head { 
+    background-image:url(../images/header_newsletter.png);
+    background-position:-2px 0;
+    }
 .mini-newsletter h4 { /*background-image:url(../images/icon_newspaper.gif);*/ }
-.mini-newsletter .content { background-color:white; /*background-image:url();*/ border-width:0; }
-.mini-newsletter input.input-text { display:block; margin:3px 0; width:167px; }
+.mini-newsletter .content { 
+/*    background-color:white; */
+    background:white url(../images/box_newsletter_bg.png);
+    background-position: center; 
+    border-width:0;
+    padding-top:0;
+    }
+.mini-newsletter .content p { 
+    margin: 0.3em 0;
+    }
+.mini-newsletter label { background-color:#fcca20; }
+.mini-newsletter input.input-text { display:block; margin:0 0 3px 0; width:167px; }
 .mini-newsletter .form-button-alt { 
   background-image:url(../images/button_newsletter.png); 
   width:53px;
@@ -1424,6 +1473,10 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .customer-name-prefix-middlename-suffix .name-suffix { width:50px !important; }
 .customer-name-prefix-middlename-suffix .name-suffix input { width:45px !important; }
 .customer-name-prefix-middlename-suffix .name-suffix select { width:51px !important; }
+
+.customer-name .name-lastname { clear:left; }
+#form-validate #confirm-password { clear:left; }
+/*#form-validate .input-box input[type="text"] { float:right; }*/
 
 .customer-dob .input-box { float:left; width:60px !important; }
 .customer-dob input { width:50px !important; }
