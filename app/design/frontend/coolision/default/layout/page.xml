@@ -62,7 +62,7 @@ Default layout, loads most of the pages
             </block>
 
             <block type="page/html_header" name="header" as="header">
-                <block type="page/html" name="mini.search" as="mini.search" template="customer/form/mini.login.phtml"/>
+                <block type="customer/form_login" name="mini.login" as="mini.login" template="customer/form/mini.login.phtml"/>
                 <block type="page/template_links" name="top.links" as="topLinks">
 					<!-- Smars blocks of ecommerce shit -->
 					<block type="page/template_links" name="top.links.login" as="loginArea"/>
