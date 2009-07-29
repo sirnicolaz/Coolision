@@ -77,11 +77,14 @@ For checkout/onepage/shipping.phtml:
 <?php endif ?>
 
     <div class="input-box name-firstname">
+    <tr>
+    <td>
         <label for="<?php echo $this->getFieldId('firstname')?>">
             <?php echo $this->__('Nome') ?>
             <span class="required">*</span>
         </label>
-        <!--br /-->
+    </td>
+    <td>
         <input type="text"
             id="<?php echo $this->getFieldId('firstname')?>"
             name="<?php echo $this->getFieldName('firstname')?>"
@@ -89,6 +92,8 @@ For checkout/onepage/shipping.phtml:
             title="<?php echo $this->__('First Name') ?>"
             class="required-entry input-text"
             <?php echo $this->getFieldParams() ?> />
+    </td>
+    </tr>
     </div>
 
 <?php if ($this->showMiddlename()): ?>
@@ -108,11 +113,14 @@ For checkout/onepage/shipping.phtml:
 <?php endif ?>
 
     <div class="input-box name-lastname">
+    <tr>
+    <td>
         <label for="<?php echo $this->getFieldId('lastname')?>">
             <?php echo $this->__('Cognome') ?>
             <span class="required">*</span>
         </label>
-        <!--br /-->
+    </td>
+    <td>
         <input type="text"
             id="<?php echo $this->getFieldId('lastname')?>"
             name="<?php echo $this->getFieldName('lastname')?>"
@@ -120,6 +128,8 @@ For checkout/onepage/shipping.phtml:
             title="<?php echo $this->__('Last Name') ?>"
             class="required-entry input-text"
             <?php echo $this->getFieldParams() ?> />
+    </td>
+    </tr>
     </div>
 
 <?php if ($this->showSuffix()): ?>
