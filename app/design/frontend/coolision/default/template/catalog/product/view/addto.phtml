@@ -29,9 +29,9 @@
 
 <ul class="add-to-box">
 <?php if ($this->helper('wishlist')->isAllow()) : ?>
-    <li class="wishlist-li"><a class="wishlist-link" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"><?php echo $this->__('Add to Wishlist') ?><div/></a></li>
+    <li class="wishlist-li"><a class="wishlist-link" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
 <?php endif; ?>
-<?php if($_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product) ): ?>
-    <li><span class="pipe">|</span> <a href="<?php echo $_compareUrl ?>"><?php echo $this->__('Add to Compare') ?></a></li>
-<?php endif; ?>
+<?php //if($_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product) ): ?>
+    <!--<li><span class="pipe">|</span> <a href="<?php //echo $_compareUrl ?>"><?php //echo $this->__('Add to Compare') ?></a></li>-->
+<?php //endif; ?>
 </ul>
