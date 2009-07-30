@@ -31,14 +31,28 @@ $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 ?>
 <?php if ($_product->isSaleable() && count($_attributes)):?>
     <?php foreach($_attributes as $_attribute): ?>
-        <dt><label><?php echo $_attribute->getLabel() ?><span class="required">&nbsp;*</span></label></dt>
+	<div class="configurable-attribute">
+        <div class="border-bottom">
+		<dt><?php echo $_attribute->getLabel() ?></dt>
+		</div>
         <dd<?php if ($_attribute->decoratedIsLast){?> class="last"<?php }?>>
           <div name="super_attribute[<?php echo $_attribute->getAttributeId() ?>]" id="attribute<?php echo $_attribute->getAttributeId() ?>" class="required-entry super-attribute-select">
             <input type="radio" ><?php echo $this->__('Choose an Option...') ?></input>
           </div>
         </dd>
+	</div>
     <?php endforeach; ?>
-    </dl>
+    
+	<div class="configurable-attribute">
+	<div class="border-bottom">
+		<dt><?php echo $this->__('Quantity'); ?></dt>
+	</div>
+	<?php if(!$_product->isGrouped()): ?>
+        <span class="qty-box">
+        <input name="qty" type="text" class="input-text qty" id="qty" maxlength="12" value="<?php echo $this->getMinimalQty($_product) ?>" /></span>
+    <?php endif; ?>
+	</div>
+	</dl>
     <script type="text/javascript">
         var spConfig = new Product.Config(<?php echo $this->getJsonConfig() ?>);
     </script>

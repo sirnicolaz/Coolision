@@ -557,7 +557,7 @@ h1#logo {
     font-weight: bold;
     }
 .side-col .mini-product-list-box .content { border:1px solid #ddd; max-height:20em; overflow:auto; }
-.side-col .mini-product-list-box .content input { width:80%; }
+.side-col .mini-product-list-box .content input { width:10%; }/*Changed from 80% to 10% to give compatibility with Nicola's browsers :-) */
 .side-col .mini-product-list-box .content label { font-weight:normal; }
 .side-col .mini-product-list-box #priceForm input[type="text"] { width:50px; }
 .side-col .mini-product-list-box #priceForm input[type="button"] { width:50px; margin-left:60px; }
