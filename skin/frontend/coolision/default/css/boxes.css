@@ -1569,6 +1569,7 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 /*    padding:15px;*/
     border-collapse:collapse;
     width:100%;
+    color:#999;
     }
 .account-box .account-col-left,
 .account-box .account-col-right {
@@ -1581,12 +1582,34 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .account-box .account-col-left {
     float:left;
     border:1px solid #ccc;
-    } 
+    }
+.account-box .account-col-left .col2-set-head {
+    border:none;
+    background-color:black;
+    padding-left:0.5em;
+    color:white;
+    text-transform:uppercase;
+    font-weight:bold;
+    }
+.account-box .account-col-left table th {
+    color:#666;
+    width:10em;
+    }
+.account-box .account-col-left .user-account-buttons { margin-top:1em; }
+.account-box .account-col-left .user-account-buttons a { 
+    background-color:#fcca20;
+    text-decoration:none;
+    color:black;
+    text-transform:uppercase;
+    font-weight:bold;
+    padding: 0.4em 0.9em;
+    }
+    
+    
 .account-box .account-col-right {
     float:left;
     border:1px solid #ccc;
     }
-
 .account-box .account-col-right .address-edit-box { padding:0 1px; border-bottom: 1px solid #ccc }    
 .account-box .account-col-right .address-edit-box .page-head {
     text-align:left;

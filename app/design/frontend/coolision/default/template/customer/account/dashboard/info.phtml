@@ -25,37 +25,58 @@
  */
 ?>
 <div class="col2-set">
-    <div class="col-1">
-        <div class="inner-head">
-            <h5><?php echo $this->__('Contact Information') ?></h5>
-	    <!-- link per cambiare le info personali, ovviamente la pagina sarà da cambiare aggiungendo la possibilità di modificare sesso e data di nascita-->
-            <a href="<?php echo $this->getUrl('customer/account/edit') ?>"><?php echo $this->__('Edit') ?></a>
-        </div>
-        <p> <!-- TODO: LE FUNZIONALITÀ getSex() e getBirthDate() non sono ancora implementate -->
-	    NOME: <?php echo $this->htmlEscape($this->getCustomer()->getFirstname()) ?><br />
-            COGNOME: <?php echo $this->htmlEscape($this->getCustomer()->getLastname()) ?><br />
-	    SESSO: <?php echo $this->htmlEscape($this->getCustomer()->getSex()) ?> <br /> <!-- no, non è come pensate... -->
-	    DATA DI NASCITA: <?php echo $this->htmlEscape($this->getCustomer()->getDob()) ?> <br />
-            EMAIL: <?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?><br />
-            <a href="<?php echo $this->getChangePasswordUrl() ?>"><?php echo $this->__('Change Password') ?></a>
-        </p>
+    <div class="col2-set-head">
+        <!--<h5><?php echo $this->__('Contact Information') ?></h5>-->
+        Profilo
     </div>
-    <!--
-    <?php if( $this->isNewsletterEnabled() ): ?>
+    <div class="col-1">
+        
+    </div>
+    
     <div class="col-2">
+        <!--
         <div class="inner-head">
             <h5><?php echo $this->__('Newsletters') ?></h5>
             <a href="<?php echo $this->getUrl('newsletter/manage') ?>"><?php echo $this->__('Edit') ?></a>
         </div>
-        <p>
-            <?php if( $this->getIsSubscribed() ): ?>
-                <?php echo $this->__("You are currently subscribed to 'General Subscription'.") ?>
-            <?php else: ?>
-                <?php echo $this->__('You are currently not subscribed to any newsletter.') ?>
-            <?php endif; ?>
-        </p>
+        -->
+        
+        <div class="user-info">
+            <!-- There will be the user image here
+            <div class="user-image">
+                
+            </div>
+            -->
+            <!-- TODO: LE FUNZIONALITÀ getSex() e getBirthDate() non sono ancora implementate -->
+            <table>
+                <tr><th>NOME</th><td><?php echo $this->htmlEscape($this->getCustomer()->getFirstname()) ?></td></tr>
+                <tr><th>COGNOME</th><td><?php echo $this->htmlEscape($this->getCustomer()->getLastname()) ?></td></tr>
+    	        <tr><th>SESSO</th><td><?php echo $this->htmlEscape($this->getCustomer()->getSex()) ?></td></tr>
+    	        <tr><th>DATA DI NASCITA</th><td><?php echo $this->htmlEscape($this->getCustomer()->getDob()) ?></td></tr>
+                <tr><th>EMAIL</th><td><?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?></td></tr>
+            </table>
+            
+            <!--
+            <p>
+                <a href="<?php echo $this->getChangePasswordUrl() ?>"><?php echo $this->__('Change Password') ?></a>
+            </p>
+            -->
+        </div>
+        <div class="user-account-buttons">
+            <a href="<?php echo $this->getUrl('customer/account/edit') ?>"><?php echo $this->__('Edit') ?></a>
+        </div>
+      
+        <!--
+        <?php if( $this->isNewsletterEnabled() ): ?>  
+            <p>
+                <?php if( $this->getIsSubscribed() ): ?>
+                    <?php echo $this->__("You are currently subscribed to 'General Subscription'.") ?>
+                <?php else: ?>
+                    <?php echo $this->__('You are currently not subscribed to any newsletter.') ?>
+                <?php endif; ?>
+            </p>
+        <?php endif; ?>
+        -->
     </div>
-    <?php endif; ?>
-    -->
 </div>
-<br />
+<!--<br />-->
