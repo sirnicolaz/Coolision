@@ -33,7 +33,7 @@
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/related.css');?>" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/product.css');?>" media="all" />
-
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/recentlyViewed.css');?>" media="all" />
 <?php
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct();
@@ -272,8 +272,64 @@
 	<div class="related-product">
 		<?php echo $this->getLayout()->getBlock('catalog.product.related')->toHtml(); ?>
     </div>
+
+	<div class="recently-viewed-product">
+		<?php echo $this->getLayout()->getBlock('left.reports.product.viewed')->toHtml(); ?>
+	</div>
 	
-	<div class="product-collateral">
+	<script>
+	$(function(){
+			slideProdSet(0);
+			});
+
+	//Prepare a 3-set product to show in list
+	function slideSet(dir,index,menu){
+		if(dir=='left'){
+						if(document.getElementById(index).value>0){
+							var tmpIndex = 1;
+							tmpIndex=tmpIndex*1;
+							var actualIndex=document.getElementById(index).value*1;
+							tmpIndex=actualIndex-tmpIndex;
+							document.getElementById(index).value = tmpIndex;
+							slideProdSet(document.getElementById(index).value,menu);
+						}
+		}
+		else{
+						alert(menu);
+						var maxIndex = document.getElementById(menu).getElementsByTagName('li').length-3;
+						if(document.getElementById(index).value < maxIndex){
+							var tmpIndex = 1;
+							tmpIndex=tmpIndex*1;
+							var actualIndex=document.getElementById(index).value*1;
+							tmpIndex=actualIndex+tmpIndex;
+							document.getElementById(index).value=tmpIndex;
+							slideProdSet(document.getElementById(index).value,menu);
+						}
+		}
+	}
+
+	function slideProdSet(start,menu){
+						for(var i=0; i<=document.getElementById(menu).getElementsByTagName('li').length-3; i++){
+							if(i==start){
+									j1=i+0;
+									j2=i+1;
+									j3=i+2;
+									document.getElementById(menu).getElementsByTagName('li')[j1].style.display='block';
+									document.getElementById(menu).getElementsByTagName('li')[j2].style.display='block';
+									document.getElementById(menu).getElementsByTagName('li')[j3].style.display='block';
+									i=i*1;
+									i=i+1;
+							}
+							else{
+								document.getElementById(menu).getElementsByTagName('li')[i].style.display='none';
+							}
+						}
+	}
+	
+	</script>
+	
+	
+	<!--<div class="product-collateral">
 	<?php if ($_additional = $this->getChildHtml('additional')):?>
 	            <div class="collateral-box">
 	                <div class="head">
@@ -286,5 +342,5 @@
 	        <?php echo $this->getChildHtml('product_additional_data') ?>
 	
 		
-	</div>
+	</div>-->
 </div>

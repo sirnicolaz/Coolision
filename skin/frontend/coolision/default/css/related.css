@@ -98,6 +98,10 @@ margin-bottom:0px;
 padding-bottom:0px;
 }
 
+.related-product{
+float:left;
+}
+
 .related-product .price-box{
 display:block;
 float:right;

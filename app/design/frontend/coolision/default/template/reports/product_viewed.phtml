@@ -27,33 +27,28 @@
 <?php if ($_products = $this->getRecentlyViewedProducts()): ?>
 <div class="box base-mini mini-product-view">
     <div class="head">
-        <h4><span><?php echo $this->__('Recently Viewed Products') ?></span></h4>
+        <?php echo $this->__('Recently Viewed Products') ?>
     </div>
-    <ol id="recently-viewed-items">
+	<input type="button" class="related-left-arrow" id="relatedLeftArrow" onclick="slideSet('left','recViewedIndex','recentlyViewedMenu');"/>
+	<input type="hidden" id="recViewedIndex" value="0"/>;
+	<div class="content"  id="contentRecViewed">
+    <ul id="recentlyViewedMenu" class="recently-viewed-menu">
     <?php foreach ($_products as $_item): ?>
-        <li <?php if($_item->isComposite() || !$_item->isSaleable()): ?> class="super-products"<?php endif; ?>>
-            <div class="product-images">
-            <?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
-                <span class="checkbox-container">
-                <?php if (!$_item->getRequiredOptions()): ?>
-                    <input type="checkbox" class="related-checkbox left" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
-                <?php endif; ?>
-                </span>
-            <?php else: ?>
-                <span class="checkbox-container">&nbsp;</span>
-            <?php endif; ?>
-                <a href="<?php echo $_item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" width="50" height="50" /></a>
-            </div>
-			<div class="product-manufacturer">
-				<h3><?php echo "Manufacturer: ".$_item->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($_item); ?></h3>
-				<br/>
-				<span><?php echo "Color: ".$_item->getResource()->getAttribute('category')->getFrontend()->getValue($_item); ?></span>
-				<br/>
-				<span><?php echo "Price: ".$_item->getPriceHtml();?></span>
+        <li <?php if($_item->isComposite() || !$_item->isSaleable()): ?> class="super-products"<?php endif; ?> style="background:url(<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(100)?>) no-repeat center;" >
+		<a href="<?php echo $_item->getProductUrl() ?>" style="text-decoration:none; color:#FCCA21;">
+			<div class="product-details-container">
+				<div class="product-details">
+					<span class="manufacturer"><?php echo $_item->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($_item); ?></span><br/>
+					<span class="category"><?php echo $_item->getResource()->getAttribute('categoria')->getFrontend()->getValue($_item); ?></span><br/>
+					<div class="price-box"><?php echo $_item->getFormatedPrice();?></div>
+				</div>
 			</div>
+		</a>
 		</li>
     <?php endforeach; ?>
-    </ol>
+    </ul>
+	</div>
+	<input type="button" class="related-right-arrow" value="" id="relatedRightArrow" onclick="slideSet('right','recViewedIndex','recentlyViewedMenu');" />
     <script type="text/javascript">decorateList('recently-viewed-items')</script>
 </div>
 <?php endif; ?>

@@ -239,6 +239,7 @@ Product view
                 <action method="unsetCallChild"><child>container1</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
                 <action method="unsetCallChild"><child>container2</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
 				<block type="catalog/product_list_related" name="catalog.product.related" template="catalog/product/list/related.phtml"/>
+				<block type="reports/product_viewed" before="right.permanent.callout" name="left.reports.product.viewed" template="reports/product_viewed.phtml" />
             </block>
         </reference>
         <reference name="right">
