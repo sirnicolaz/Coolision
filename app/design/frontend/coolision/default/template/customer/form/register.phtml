@@ -99,6 +99,10 @@ almeno un carattere speciale.
     	    <?php if ($_taxvat->isEnabled()): ?>
     	      <tr><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></tr>
     	    <?php endif ?>
+    	    <tr>
+                <td></td>
+                <td><button class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>"><?php echo $this->__('Submit')?></button></td>
+            </tr>
             </table>
         </td>
         <td class="panel-register-info">
