@@ -1577,7 +1577,7 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     width:48%;
     }
 
-.account-box > div { height:20em; }
+.account-box > div { height:40em; }
 
 .account-box .account-col-left {
     float:left;
@@ -1642,14 +1642,42 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     padding:0;
 }
 
+/* Link bars */
+.account-box .account-col-right .link-bar-delivery-status,
+.account-box .account-col-right .link-bar-cart,
+.account-box .account-col-right .link-bar-wishlist { padding:0.4em 0.8em; font-weight:bold; }
 
+.account-box .account-col-right .link-bar-counter { float:right; margin-right:20%; }
+.account-box .account-col-right .goto { float:right; }
+
+.account-box .account-col-right .link-bar-delivery-status {
+    background-color:#999;
+    color:white;
+    }
+.account-box .account-col-right .link-bar-cart {
+    background-color:#fcca20;
+    color:black;
+    }
+.account-box .account-col-right .link-bar-wishlist {
+    background-color:#666;
+    color:white;
+    }
+.account-box .account-col-right .bar-newsletter {
+    background-color:#ddd;
+    }
+
+.account-box .account-col-right .link-bar-delivery-status a { text-decoration:none; color:white; }
+.account-box .account-col-right .link-bar-cart a { text-decoration:none; color:black; width:100px;}
+.account-box .account-col-right .link-bar-wishlist a { text-decoration:none; color:white; }
+
+/* Form button */
 .account-box .form-button { 
     background-color:#fcca20;
     border:0;
     color:black;
     }
 
-/* debug */
+/**** Address table: only 4 debug purposes ***/
 /*.account-box table {border-collapse:collapse;}*/
 /*.account-box td {border:1px solid red; padding: 0 3px; }*/
 /*********/
