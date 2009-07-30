@@ -35,17 +35,33 @@
     
         <?php //echo $this->getStateHtml() ?>
         <?php //if($this->canShowOptions()): ?>   
+	    <!--<div class="box mini-product-list-box">
+	      <select id="select-manufacturer" onchange="window.location=this.value">
+		<?php //foreach (Mage::helper('catalog/navigation')->getStoreCategories() as $_category): ?> 
+		  <?php //foreach ($_category->getChildren() as $_subCategory): ?> 
+		    DIO CAN
+		    <option value="<?php //$_subCategory->getUrl()?>"><?php //$_subCategory->getName() ?></option>
+		  <?php //endforeach; ?>
+		<?php //endforeach; ?>
+	      </select>
+	    <div/>-->
             <?php $_filters = $this->getFilters() ?>
             <?php foreach ($_filters as $_filter): ?>
                 <?php //if($_filter->getItemsCount()): ?>
-		  <?php if ($_filter->getName() !== 'Category'): ?>
+		  <?php if ($_filter->getName() == 'Category'): ?>
+		    <?php if ($_filter->getItemsCount() == 0): continue; endif; ?>
+		    <?php $_filter->setTemplate('catalog/layer/categoryFilter.phtml') ?>
+		  <?php endif; ?>
                     <div class="box mini-product-list-box">
-                        <div class="head"><?php echo $this->__($_filter->getName()) ?></div>
+			<?php if ($_filter->getName() == 'Category'): ?>
+			  <div class="head"><?php echo $this->__('Cerca in') ?></div>
+			<?php else: ?>
+			  <div class="head"><?php echo $this->__($_filter->getName()) ?></div>
+			<?php endif; ?>
                         <div class="content">
                             <?php echo $_filter->getHtml() ?>
                         </div>
                     </div>
-		  <?php endif; ?>
             <?php endforeach; ?>     
         <?php //endif; ?>
 
