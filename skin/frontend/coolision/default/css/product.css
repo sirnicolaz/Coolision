@@ -171,3 +171,50 @@ height:1.5px;/* #262626 solid;*/
 background:#262626;
 width:423px;
 }
+.product-sum-link .price-label{
+width:7em;
+height:1.4em;
+color:#262626;
+background:#FCCA21;
+text-align:center;
+text-transform:uppercase;
+}
+
+.product-sum-link #priceBox{
+background:url(../images/price-box-frame.png) top right no-repeat;
+width:12em;
+height:1.4em;
+float:left;
+line-height:1px;
+color:#262626;
+text-align:right;
+padding:1px;
+padding-right:3px;
+margin-bottom:4em;
+}
+
+.price-container{
+margin-left:130px;
+}
+
+.add-to-box .wishlist-li{
+width:7em;
+height:1.4em;
+padding:0px;
+line-height:0.1em;
+background:#FCCA21;
+}
+
+.add-to-box a{
+width:7em;
+height:1.4em;
+padding:0px;
+text-decoration:none;
+color:#262626;
+}
+
+.add-to-box .wishlist-image div{
+background:url(../images/wishlist.png) no-repeat top left;
+width:10px;
+height:9px;
+}
