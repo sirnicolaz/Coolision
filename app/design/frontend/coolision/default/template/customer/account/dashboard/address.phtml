@@ -24,23 +24,32 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<!--
 <div class="inner-head">
     <h5><?php echo $this->__('Address Book') ?></h5>
     <a href="<?php echo $this->getAddressBookUrl() ?>"><?php echo $this->__('Manage Addresses') ?></a>
 </div>
+-->
+<?php echo $this->getLayout()->getBlock('customer_address_edit')->toHtml(); ?>
+<!--
 <div class="col2-set">
     <div class="col-1">
+
         <h6><?php echo $this->__('Primary Billing Address') ?></h6>
         <address>
             <?php echo $this->getPrimaryBillingAddressHtml() ?><br />
             <a href="<?php echo $this->getPrimaryBillingAddressEditUrl() ?>"><?php echo $this->__('Edit Address') ?></a>
         </address>
+
     </div>
     <div class="col-2">
+
         <h6><?php echo $this->__('Primary Shipping Address') ?></h6>
         <address>
             <?php echo $this->getPrimaryShippingAddressHtml() ?><br />
             <a href="<?php echo $this->getPrimaryShippingAddressEditUrl() ?>"><?php echo $this->__('Edit Address') ?></a>
         </address>
+
     </div>
+-->
 </div><br />

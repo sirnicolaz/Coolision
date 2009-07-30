@@ -152,13 +152,19 @@ a.form-button-alt { padding:2px 9px; text-decoration:none; }
 /* Register form */
 #register-form { padding:0; border:none; }
 #register-form table { width:100%; border-collapse:collapse; }
+
+#register-form .panel-register-header { text-transform:uppercase; font-weight:bold; }
+
 #register-form .panel-register-data { max-width:50%; border:1px solid #aaa; }
-#register-form .panel-register-data p.required { margin-right:1em; }
+#register-form .panel-register-data p.required { margin:0.5em 1em 0 0; text-transform:uppercase; }
 #register-form .panel-register-data .form-data { margin:0 1em 1em 1em; }
 #register-form .panel-register-data .form-data td { padding:0.5em 0; }
-
-#register-form .panel-register-header { text-transform:uppercase; font-weight:bold; min-height:3em; /*height:5em; background-color:green;*/ }
 #register-form .panel-register-data .panel-register-header div { padding:0.2em 0.5em; }
+
+#register-form .panel-register-header,
+#register-form .panel-register-data .panel-title,
+#register-form .panel-register-data .login-link { height:20px; }
+
 #register-form .panel-register-data .panel-title {
     background-color:black;
     color:white;  
@@ -170,17 +176,51 @@ a.form-button-alt { padding:2px 9px; text-decoration:none; }
     color:black;
     text-align:center;
 }
+#register-form .panel-register-data #day,
+#register-form .panel-register-data #month,
+#register-form .panel-register-data #year { width:3em; }
+
 #register-form .panel-register-info {
     width:50%; 
     border:1px solid #aaa;
+    font-size:x-small;
     }
 #register-form .panel-register-info .panel-register-header { 
     background-color:#fcca20; 
-/*    padding:0.2em 0.5em;*/
     font-size:xx-small;
     padding:0.2em 0.5em;
     }
+#register-form .panel-register-info .panel-register-header-subtext { 
+    background-color:#444; 
+    font-size:xx-small;
+    padding:0 0.5em;
+    color:white;
+    }
 #register-form .panel-register-info div#panel-info-content { padding:0 1em 1em 1em; }
+#register-form .panel-register-info div#panel-info-content .form-buttons { float:right; margin:2em 0; }
+#register-form .panel-register-info div#panel-info-content .form-button { 
+    background-color:#fcca20;
+    border:0;
+    color:black;
+    }
+#register-form .panel-register-info div#panel-info-content .button-submit { 
+    padding: 0.5em 0;
+    width:9em;
+    }   
+#register-form .panel-register-info div#panel-info-content .button-reset { 
+    background-color:#999;
+    color:white;
+    width:6em;
+    }
+
+#register-form .panel-register-info .info-item { 
+    padding: 0.5em 2em;
+    color:#aaa;
+    border-bottom: 1px solid #ccc;
+    font-size:x-small;
+    line-height:1.2em;
+    }
+#register-form .panel-register-info .info-item strong { color:black; text-transform:uppercase; }
 
 /* Form Messages */
 .validation-advice, .required { color:#EB340A; }
@@ -1519,15 +1559,40 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .login-box .content { min-height:230px; }
 
 
-/* Dashboard */.account-box {
-    margin-bottom:20px;
-    border:1px solid #ccc;
-    border-right-color:#999;
-    border-bottom-color:#999;
-    background:url(../images/account_box_bg.gif) repeat-x #fff;
-    padding:15px;
+/* Dashboard */
+.account-box {
+/*    margin-bottom:20px;*/
+/*    border:1px solid #ccc;*/
+/*    border-right-color:#999;*/
+/*    border-bottom-color:#999;*/
+/*    background:url(../images/account_box_bg.gif) repeat-x #fff;*/
+/*    padding:15px;*/
+    border-collapse:collapse;
     }
-.account-box .head { margin-bottom:10px; border-bottom:1px solid #d9dde3; }
+.account-box > div { height:20em; }
+.account-box .account-col-left {
+    float:left;
+    width:49%;
+    border:1px solid #ccc;
+    } 
+.account-box .account-col-right {
+    float:left;
+    width:49%;
+    border:1px solid #ccc;
+    }
+.account-box .form-button { 
+    background-color:#fcca20;
+    border:0;
+    color:black;
+    }
+
+.account-box .group-select { border:none; padding:0; margin:0; }
+.account-box .group-select li, .account-box .group-select li .input-box { padding:0; margin:0; }
+.account-box .group-select li .input-text { width:10em; }
+.account-box .group-select li .validate-select { width:10em; }
+.account-box .group-select li label { width:15em; margin-right:2em; }
+    
+.account-box .head { margin-bottom:10px; border-bottom:1px solid #d9dde3; background-color:yellow; }
 .account-box h4 { color:#E65505; font-size:1.1em; text-transform:uppercase; }
 .account-box .inner-head { margin-bottom:8px; background:url(../images/dotted_divider.gif) repeat-x 0 100%; padding-bottom:2px; text-align:right; }
 .account-box h5 { font-size:1.1em;   }

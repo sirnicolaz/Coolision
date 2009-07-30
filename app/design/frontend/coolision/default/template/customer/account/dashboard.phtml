@@ -25,17 +25,19 @@
  */
 ?>
 <div class="page-head">
-    <h3><?php echo $this->__('My Dashboard') ?></h3>
+    <!-- <h3><?php echo $this->__('My Dashboard') ?></h3> -->
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<?php echo $this->getChildHtml('hello') ?>
+<?php //echo $this->getChildHtml('hello') ?>
 <?php echo $this->getChildHtml('top') ?>
 <div class="account-box ad-account-info">
+    <!--
     <div class="head">
         <h4><?php echo $this->__('Account Information') ?></h4>
     </div>
-    <?php echo $this->getChildHtml('info') ?>
-    <?php echo $this->getChildHtml('address') ?>
+    -->
+    <div class="account-col-left"><?php echo $this->getChildHtml('info') ?></div>
+    <div class="account-col-right"><?php echo $this->getChildHtml('address') ?></div>
 </div>
 
 <?php echo $this->getChildHtml('info1') ?>
