@@ -24,6 +24,100 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+
+<!--<script type="text/javascript">
+/* This script and many more are available free online at
+The JavaScript Source!! http://javascript.internet.com
+Created by: Steve Chipman | http://slayeroffice.com/ */
+
+/********************************
+
+	Scrolling/Expanding List
+	Version 1.0
+	last revision: 04.26.2004
+	steve@slayeroffice.com
+
+	http://slayeroffice.com/code/scroll_menu/
+
+	Please notify me of any improvments you make on this
+	code so that I can update the version hosted on
+	slayeroffice
+
+	please leave this notice intact.
+
+********************************/
+
+//window.onload=init;
+
+var d=document;
+var expander; 			// object reference for the plus/minus div
+var lContainer; 			// object reference for the UL
+
+var currentTop=0;			// the current Y position of the UL
+var zInterval = null;		// animation thread interval
+var direction;			// direction we're scrolling the UL. 0==up, 1==down
+var startTop=0;			// the starting top of the UL
+
+var scrollRate=6;			// initial rate of scrolling
+var scrollTick=0;			// keeps track of long we've scrolled so we can slow it down accordingly
+
+var listExpand=true;		// boolean to tell us if we're expanding or contracting the list
+var listWidth=60;			// the current height of the UL
+
+var MAX_SCROLL_TICK=4;		// the maximum value of scrollTick before it's reset
+var LI_PADDING=2;		// the LI's padding value. used to compensate for overall dimensions
+var LI_WIDTH=40;		// the height of the LI
+var MAX_LIST_WIDTH=300;		// maximum height of the list when fully expanded
+var MIN_LIST_WIDTH=200;		// contracted height of the list
+var REBOUND = -4;		// the value of scrollRate when we stop scrolling
+var FAST_EXPAND=5;		// the initial rate of list expansion
+var SLOW_EXPAND=1;		// the end rate of expansion
+var SPEED_TRANSITION=20;	// when this value + the MAX or MIN list height is reached, we set scrollRate to its slower rate
+
+$(function init() {
+	if(!d.getElementById)return; // bail out if this is an older browser
+	// apply onclick behaviors to the up arrow, down arrow and expansion control elements
+	up=d.getElementById("relatedRightArrow");
+	down=d.getElementById("relatedLeftArrow");
+	down.onclick=function(){scrollObjects(0);}
+	up.onclick=function(){scrollObjects(1);}
+	expander=d.getElementById("changeSize");
+	lContainer = d.getElementById("relatedMenu");
+	d.getElementById("contentRelated").style.width=MIN_LIST_WIDTH+"px";
+});
+
+function scrollObjects(dir) {
+	if(zInterval)return; // already scrolling.
+	if((!dir && currentTop<=-240) || (dir && currentTop==0))return; // dont scroll up if we're at the top or down if at the bottom of the list
+	direction=dir;
+	zInterval=setInterval("animate()",20);
+}
+
+function animate() {
+	// increment or decrement currentTop based on direction
+	if(!direction) {
+		currentTop-=scrollRate;
+	} else {
+		currentTop+=scrollRate;
+	}
+	scrollTick++;
+	if(scrollTick>=MAX_SCROLL_TICK) {
+		scrollRate--; // slow the scroll rate down for a little style
+		scrollTick=0;
+	}
+
+	lContainer.style.left=currentTop+"px";
+	if(scrollRate<=REBOUND) {
+		// scroll is finished. clear the interval and reset vars for the next scroll
+		clearInterval(zInterval);
+		zInterval=null;
+		startTop=currentTop;
+		scrollTick=0;
+		scrollRate=6;
+	}
+}
+
+</script>-->
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js" type="text/javascript"></script>-->
 <!--<script type="text/javascript">
 $(function(){
@@ -59,11 +153,11 @@ $(function(){
     <div class="head">
         <div><?php echo $this->__('Related Products') ?></div>
     </div>
-	<div class="related-left-arrow">
-	</div>
-    <div class="content">
-        <!--<p><strong><?php //echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this);return false;"><?php //echo $this->__('select all') ?></a></strong></p>-->
-        <ol class="related-menu">
+	<input type="button" class="related-left-arrow" id="relatedLeftArrow" onclick="slideSet('left');"/>
+	<input type="hidden" id="relatedIndex" value="0"/>;
+    <div class="content" id="contentRelated">
+        <!--<p><strong><?php echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this);return false;"><?php echo $this->__('select all') ?></a></strong></p>-->
+        <ul class="related-menu" id="relatedMenu">
         <?php foreach($this->getItems() as $_item): ?>
         <li<?php if($_item->isComposite() || !$_item->isSaleable()): ?> class="super-products"<?php endif; ?> style="background:url(<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(100)?>) no-repeat center;">
                 <!--<a href="<?php //echo $_item->getProductUrl() ?>"><img src="<?php //echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" alt="<?php //echo $this->htmlEscape($_item->getName()) ?>" width="50" height="50" /></a>-->
@@ -81,16 +175,63 @@ $(function(){
            
         </li>
         <?php endforeach ?>
-        </ol>
+        </ul>
     </div>
-	<div class="related-right-arrow">
-	</div>
+	<input type="button" class="related-right-arrow" value="" id="relatedRightArrow" onclick="slideSet('right');" />
 </div>
 <script type="text/javascript">
 <!--
 $$('.related-checkbox').each(function(elem){
     Event.observe(elem, 'click', addRelatedToProduct)
 });
+
+$(function(){
+slideProdSet(0);
+});
+
+//Prepare a 3-set product to show in list
+function slideSet(dir){
+if(dir=='left'){
+	if(document.getElementById('relatedIndex').value>0){
+		var tmpIndex = 1;
+		tmpIndex=tmpIndex*1;
+		var actualIndex=document.getElementById('relatedIndex').value*1;
+		tmpIndex=actualIndex-tmpIndex;
+		document.getElementById('relatedIndex').value = tmpIndex;
+		slideProdSet(document.getElementById('relatedIndex').value);
+	}
+}
+else{
+	var maxIndex = document.getElementById('relatedMenu').getElementsByTagName('li').length-3;
+	if(document.getElementById('relatedIndex').value < maxIndex){
+		var tmpIndex = 1;
+		tmpIndex=tmpIndex*1;
+		var actualIndex=document.getElementById('relatedIndex').value*1;
+		tmpIndex=actualIndex+tmpIndex;
+		document.getElementById('relatedIndex').value=tmpIndex;
+		slideProdSet(document.getElementById('relatedIndex').value);
+	}
+}
+
+}
+
+function slideProdSet(start){
+	for(var i=0; i<=document.getElementById('relatedMenu').getElementsByTagName('li').length-3; i++){
+		if(i==start){
+				j1=i+0;
+				j2=i+1;
+				j3=i+2;
+				document.getElementById('relatedMenu').getElementsByTagName('li')[j1].style.display='block';
+				document.getElementById('relatedMenu').getElementsByTagName('li')[j2].style.display='block';
+				document.getElementById('relatedMenu').getElementsByTagName('li')[j3].style.display='block';
+				i=i*1;
+				i=i+1;
+		}
+		else{
+			document.getElementById('relatedMenu').getElementsByTagName('li')[i].style.display='none';
+		}
+	}
+}
 
 var relatedProductsCheckFlag = false;
 function selectAllRelated(txt){
