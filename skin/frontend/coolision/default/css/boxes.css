@@ -1575,7 +1575,9 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     padding: 0 1em;
     width:47%;
     }
+
 .account-box > div { height:20em; }
+
 .account-box .account-col-left {
     float:left;
     border:1px solid #ccc;
@@ -1584,6 +1586,16 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     float:left;
     border:1px solid #ccc;
     }
+    
+.account-box .account-col-right .page-head {
+    text-align:left;
+    border:none;
+    margin-bottom:0;
+    }
+.account-box .account-col-right .page-head h4 {
+    font-size:normal;
+    }
+
 .account-box .form-button { 
     background-color:#fcca20;
     border:0;
@@ -1595,7 +1607,6 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 /*.account-box td {border:1px solid red; padding: 0 3px; }*/
 /*********/
 .account-box .group-select { border:none; padding:0; margin:0; }
-/*.account-box td.form-label label { padding-right:6em; }*/
 .account-box td .street-input, .account-box td select.validate-select { width:100%; }
 
 /***********/

@@ -31,13 +31,14 @@
  * @see Mage_Customer_Block_Address_Edit
  */
 ?>
-<!--
+
 <?php if($this->getTitle()): ?>
 <div class="page-head">
-    <h3><?php echo $this->getTitle() ?></h3>
+    <h3>Info spedizioni</h3>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </div>
 <?php endif; ?>
--->
+
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate">
     <!-- questa parte a noi non ci interessa
@@ -56,7 +57,7 @@
             </tr>
             <tr>
                 <div class="input-box">
-                    <label for="telephone"><?php //echo $this->__('Telephone') ?> <span class="required">*</span></label><br />
+                    <label for="telephone"><?php //echo $this->__('Telephone') ?> </label><br />
                     <input type="text" name="telephone" value="<?php //echo $this->htmlEscape($this->getAddress()->getTelephone()) ?>" title="<?php //echo $this->__('Telephone') ?>" class="required-entry input-text" id="telephone" />
                 </div>
                 <div class="input-box">
@@ -71,23 +72,16 @@
          <!--<h4 class="legend"><?php echo $this->__('Address') ?></h4>-->
         <table>
             <tr>
-                <td class="form-label"><label for="street_1"><?php echo $this->__('Indirizzo') ?> <span class="required">*</span></label></td>
+                <td class="form-label"><label for="street_1"><?php echo $this->__('Indirizzo') ?> </label></td>
                 <td colspan="3"><input type="text" name="street[]" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet(1)) ?>" title="<?php echo $this->__('Street Address') ?>" id="street_1" class="required-entry input-text street-input" /></td>
             </tr>
-            <!--
-<?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
-            <tr>
-                <input type="text" name="street[]" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet($_i)) ?>" title="<?php echo $this->__('Street Address '.$_i) ?>" id="street_<?php echo $_i?>" class="input-text" />
-            </tr>
-<?php endfor ?>
-            -->
             <tr>
 <!--                <div class="input-box">-->
-                    <td class="form-label"><label for="city"><?php echo $this->__('Città') ?> <span class="required">*</span></label></td>
+                    <td class="form-label"><label for="city"><?php echo $this->__('Città') ?> </label></td>
                     <td><input type="text" name="city" value="<?php echo $this->htmlEscape($this->getAddress()->getCity()) ?>"  title="<?php echo $this->__('City') ?>" class="required-entry input-text" id="city" /></td>
 <!--                </div>-->
 <!--                <div class="input-box">-->
-                    <td class="form-label"><label for="region_id"><?php echo $this->__('Provincia') ?> <span class="required">*</span></label></td>
+                    <td class="form-label"><label for="region_id"><?php echo $this->__('Provincia') ?> </label></td>
                     <td><select id="region_id" name="region_id" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none">
                        <option value=""><?php echo $this->__('Seleziona la provincia') ?></option>
                     </select></td>
@@ -99,17 +93,17 @@
             </tr>
             <tr>
 <!--                <div class="input-box">-->
-            		<td class="form-label"><label for="telephone"><?php echo $this->__('N° TEL') ?> <span class="required">*</span></label></td>
+            		<td class="form-label"><label for="telephone"><?php echo $this->__('N° TEL') ?> </label></td>
                     <td><input type="text" name="telephone" value="<?php echo $this->htmlEscape($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="required-entry input-text" id="telephone" /></td>
 <!--                </div>-->
 <!--                <div class="input-box">-->
-                    <td class="form-label"><label for="zip"><?php echo $this->__('CAP') ?> <span class="required">*</span></label></td>
+                    <td class="form-label"><label for="zip"><?php echo $this->__('CAP') ?> </label></td>
                     <td><input type="text" name="postcode" value="<?php echo $this->htmlEscape($this->getAddress()->getPostcode()) ?>" title="<?php echo $this->__('Zip/Postal Code') ?>" id="zip" class="validate-zip-international required-entry input-text" /></td>
 <!--                </div>-->
             </tr>
             <tr>
 <!--                <div class="input-box">-->
-                    <td class="form-label"><label for="country"><?php echo $this->__('Stato') ?> <span class="required">*</span></label></td>
+                    <td class="form-label"><label for="country"><?php echo $this->__('Stato') ?> </label></td>
                     <td><?php echo $this->getCountryHtmlSelect() ?></td>
 <!--                </div>-->
             </tr>
