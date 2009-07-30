@@ -51,7 +51,11 @@
     				<a href="/how_to_shop">GUIDA ALL'ACQUISTO</a>
     			</div>
     			<div class="header-cblock">
-    				<?php echo $this->getLayout()->getBlock("top.links.user")->toHtml(); ?>
+			      <?php if ( !$this->helper('customer')->isLoggedIn() ): ?>
+    				<?php echo $this->getLayout()->getBlock("top.links.nouser")->toHtml(); ?>
+			      <?php else: ?>
+				<?php echo $this->getLayout()->getBlock("top.links.user")->toHtml(); ?>
+			      <?php endif; ?>
     			</div>
 			
             <?php echo $this->getChildHtml('store_language') ?>
