@@ -93,7 +93,7 @@ almeno un carattere speciale.
     	        
     	    <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
     	    <?php if ($_dob->isEnabled()): ?>
-    	        <tr><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></tr>
+    	        <tr><td><label><?php echo $this->__('Data di nascita') ?></label></td><td><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></td></tr>
     	    <?php endif ?>
     	    <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
     	    <?php if ($_taxvat->isEnabled()): ?>
@@ -101,7 +101,7 @@ almeno un carattere speciale.
     	    <?php endif ?>
     	    <tr>
                 <td></td>
-                <td><button class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>"><?php echo $this->__('Submit')?></button></td>
+                <td><button style="display:none" id="real-button" class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>"><?php echo $this->__('Submit')?></button></td>
             </tr>
             </table>
         </td>
@@ -134,7 +134,7 @@ almeno un carattere speciale.
             <!-- Info content -->
             <div id="panel-info-content">
                 <!-- CHECKBOX INFO -->
-                <input type="checkbox" name="privacy" title="<?php echo $this->__('Acconsento') ?>" value="1" id="privacy" class="required-entry" />
+                <input type="checkbox" name="privacy" title="<?php echo $this->__('Acconsento') ?>" value="1" id="privacy" />
                 <label for="checkbox"><?php echo $this->__('Acconsento all’uso dei miei dati secondo l\'informativa') ?></label>
                 <br/>
                  <?php if ($this->isNewsletterEnabled()): ?>
@@ -143,8 +143,8 @@ almeno un carattere speciale.
                 <?php endif ?>
                 <!-- buttons -->
                 <div class="form-buttons">
-                	<input type="command" onClick="resetForm()" class="form-button button-reset" value="<?php echo $this->__('Azzera')?>" />
-                    <input type="command" class="form-button button-submit" onClick="submitForm()" value="<?php echo $this->__('Registrati')?>" />
+		    <input type="command" onClick="resetForm()" class="form-button button-reset" value="<?php echo $this->__('Azzera')?>" />
+                    <input type="command" class="form-button button-submit" onClick="fakeSubmitForm()" value="<?php echo $this->__('Registrati')?>" />
                 <!-- -->
                 </div>
             </content>
@@ -233,6 +233,15 @@ almeno un carattere speciale.
 	document.getElementById("sex").value="M";
       } else {document.getElementById("sex").value="F";}
 //       document.getElementById("form-validate").submit();
+    }
+    function fakeSubmitForm()
+    {
+      if (document.getElementById("privacy").checked==false)
+      {
+	alert("Per registrarti è necessario acconsentire all'uso dei dati personali.");
+	return;
+      }
+      document.getElementById("real-button").click();
     }
 //]]>
 </script>
