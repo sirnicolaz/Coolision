@@ -50,10 +50,10 @@
         <remove name="right.newsletter" />
         <remove name="right.reports.product.viewed" />
         <reference name="root">
-            <action method="setTemplate"><template>page/3columns.phtml</template></action>
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
         </reference>
         <reference name="left">
-            <block type="catalogsearch/layer" name="catalogsearch.leftnav" after="currency" template="catalog/layer/view.phtml"/>
+            <block type="catalogsearch/layer" name="catalogsearch.leftnav" after="currency" template="catalog/layer/searchView.phtml"/>
             <block type="newsletter/subscribe" name="left.newsletter" template="newsletter/subscribe.phtml"/>
         </reference>
         <reference name="content">
