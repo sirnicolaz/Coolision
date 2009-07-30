@@ -35,90 +35,92 @@
     <?php echo $this->getLayout()->getBlock('customer_address_edit')->toHtml(); ?>
 </div>
 
-<!-- 
-    LINKS
-    Sarebbe il contenuto del file link.phtml, ma non abbiamo la più pallida idea di come caricarlo.
-    Soluzione: cut&paste 
--->
-<div class="link-bar-delivery-status"
-    <a href="<?php echo $this->getUrl('sales/order/history/') ?>"><?php echo $this->__('STATO SPEDIZIONI'); ?></a>
-    <div class="goto">></div>
-</div>
+<div class="link-bar">
+    <!-- 
+        LINKS
+        Sarebbe il contenuto del file link.phtml, ma non abbiamo la più pallida idea di come caricarlo.
+        Soluzione: cut&paste 
+    -->
+    <div class="link-bar-delivery-status"
+        <a href="<?php echo $this->getUrl('sales/order/history/') ?>"><?php echo $this->__('STATO SPEDIZIONI'); ?></a>
+        <div class="goto">></div>
+    </div>
 
-<div class="link-bar-cart">
-    <a href="<?php echo $this->getUrl('checkout/cart') ?>">CARRELLO
-    
-        <div class="goto">
-            Vai al carrello >
-        </div>
+    <div class="link-bar-cart">
+        <a href="<?php echo $this->getUrl('checkout/cart') ?>">CARRELLO
         
-        <div class="link-bar-counter">
-        <?php $count = $this->helper('checkout/cart')->getSummaryCount();
-        if( $count == 1 ) {
-                    echo $this->__('%s prodotto', $count);
-                } elseif( $count > 0 ) {
-                    echo $this->__('%s prodotti', $count);
-                } else {
-        	echo $this->__('0 prodotti');
-            }
-        ?>
-        </div>
-    </a>
-</div>
-
-<div class="link-bar-wishlist">
-    <a href="<?php echo $this->getUrl('wishlist') ?>">WISHLIST
-    
-        <div class="goto">
-            Vai al carrello >
-        </div>
-        
-        <div class="link-bar-counter">
-        <?php $count = $this->helper('wishlist')->getItemCount();
-                if( $count == 1 ) {
-                    echo $this->__('%d prodotto', $count);
-                } elseif( $count > 1 ) {
-                    echo $this->__('%d prodotti', $count);
-                } else {
-                    echo $this->__('0 prodotti');
+            <div class="goto">
+                Vai al carrello >
+            </div>
+            
+            <div class="link-bar-counter">
+            <?php $count = $this->helper('checkout/cart')->getSummaryCount();
+            if( $count == 1 ) {
+                        echo $this->__('%s prodotto', $count);
+                    } elseif( $count > 0 ) {
+                        echo $this->__('%s prodotti', $count);
+                    } else {
+            	echo $this->__('0 prodotti');
                 }
-        ?>
-        </div>
-    </a>
-</div>
+            ?>
+            </div>
+        </a>
+    </div>
 
-<div class="bar-newsletter">
-    <?php if( $this->getIsSubscribed() ): ?>
-            <!-- utente registrato alla newsletter, fa vedere il pultante di "unsubscribe" e "cambia email" --> 
-            <?php //echo $this->__("You are currently subscribed to 'General Subscription'.") ?>
-            <!-- form per la cancellazione dalla newsletter -->
-            <form action="<?php echo $this->getUrl('newsletter/manage/save') ?>" method="post" id="form-validate">
-    	<fieldset style="display:none">
-    	  <?php echo $this->getBlockHtml('formkey')?> <!-- questo blocco non ho capito a cosa serve -->
-    	  <p><input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo $this->__('General Subscription') ?>" checked="checked" /> <!--<label for="subscription"><?php //echo $this->__('General Subscription') ?></label>--></p>
-    	</fieldset>
-    	<div class="button-set">
-        	  <button type="button" onClick="unsubscribe()" class="form-button"><span><?php echo $this->__('Unsubscribe') ?></span></button>
-        	  <button type="button" onClick="changeMail()" class="form-button"><span><?php echo $this->__('Cange The Mail') ?></span></button>
-    	</div>
-        </form>
-            <script type="text/javascript">
-    	//<![CDATA[
-    	  var dataForm = new VarienForm('form-validate', true);
-    	  function unsubscribe(checkbox) 
-    	  {
-    	    document.getElementById("subscription").checked = false;
-    	    document.getElementById("form-validate").submit();
-    	  }
-    	  
-    	  // funzione che cambia la mail per la newsletter dell'utente, non so ancora come fare, quindi non è ancora implementata
-    	  function changeMail() {}
-    	  
-    	//]]>
-            </script>
-    <?php else: ?>
-            <!-- utente non registrato alla newsletter, fa vedere il form per la registrazione -->
-            <?php echo $this->__('You are currently not subscribed to any newsletter.') ?>
-            <?php echo $this->getLayout()->getBlock("newsletter")->toHtml(); ?>
-    <?php endif; ?>
+    <div class="link-bar-wishlist">
+        <a href="<?php echo $this->getUrl('wishlist') ?>">WISHLIST
+        
+            <div class="goto">
+                Vai al carrello >
+            </div>
+            
+            <div class="link-bar-counter">
+            <?php $count = $this->helper('wishlist')->getItemCount();
+                    if( $count == 1 ) {
+                        echo $this->__('%d prodotto', $count);
+                    } elseif( $count > 1 ) {
+                        echo $this->__('%d prodotti', $count);
+                    } else {
+                        echo $this->__('0 prodotti');
+                    }
+            ?>
+            </div>
+        </a>
+    </div>
+
+    <div class="bar-newsletter">
+        <?php if( $this->getIsSubscribed() ): ?>
+                <!-- utente registrato alla newsletter, fa vedere il pultante di "unsubscribe" e "cambia email" --> 
+                <?php //echo $this->__("You are currently subscribed to 'General Subscription'.") ?>
+                <!-- form per la cancellazione dalla newsletter -->
+                <form action="<?php echo $this->getUrl('newsletter/manage/save') ?>" method="post" id="form-validate">
+        	<fieldset style="display:none">
+        	  <?php echo $this->getBlockHtml('formkey')?> <!-- questo blocco non ho capito a cosa serve -->
+        	  <p><input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo $this->__('General Subscription') ?>" checked="checked" /> <!--<label for="subscription"><?php //echo $this->__('General Subscription') ?></label>--></p>
+        	</fieldset>
+        	<div class="button-set">
+            	  <button type="button" onClick="unsubscribe()" class="form-button"><span><?php echo $this->__('Unsubscribe') ?></span></button>
+            	  <button type="button" onClick="changeMail()" class="form-button"><span><?php echo $this->__('Cange The Mail') ?></span></button>
+        	</div>
+            </form>
+                <script type="text/javascript">
+        	//<![CDATA[
+        	  var dataForm = new VarienForm('form-validate', true);
+        	  function unsubscribe(checkbox) 
+        	  {
+        	    document.getElementById("subscription").checked = false;
+        	    document.getElementById("form-validate").submit();
+        	  }
+        	  
+        	  // funzione che cambia la mail per la newsletter dell'utente, non so ancora come fare, quindi non è ancora implementata
+        	  function changeMail() {}
+        	  
+        	//]]>
+                </script>
+        <?php else: ?>
+                <!-- utente non registrato alla newsletter, fa vedere il form per la registrazione -->
+                <?php echo $this->__('You are currently not subscribed to any newsletter.') ?>
+                <?php echo $this->getLayout()->getBlock("newsletter")->toHtml(); ?>
+        <?php endif; ?>
+    </div>
 </div>
