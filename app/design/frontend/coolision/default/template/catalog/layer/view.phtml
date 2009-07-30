@@ -31,22 +31,23 @@
  * @see Mage_Catalog_Block_Layer_View
  */
 ?>
-<?php if($this->canShowBlock()): ?>
+<?php //if($this->canShowBlock()): ?>
     
         <?php //echo $this->getStateHtml() ?>
-        <?php if($this->canShowOptions()): ?>   
+        <?php //if($this->canShowOptions()): ?>   
             <?php $_filters = $this->getFilters() ?>
             <?php foreach ($_filters as $_filter): ?>
-                <?php if($_filter->getItemsCount()): ?>
+                <?php //if($_filter->getItemsCount()): ?>
+		  <?php if ($_filter->getName() !== 'Category'): ?>
                     <div class="box mini-product-list-box">
                         <div class="head"><?php echo $this->__($_filter->getName()) ?></div>
                         <div class="content">
                             <?php echo $_filter->getHtml() ?>
                         </div>
                     </div>
-                <?php endif; ?>
+		  <?php endif; ?>
             <?php endforeach; ?>     
-        <?php endif; ?>
+        <?php //endif; ?>
 
-<?php endif; ?>
+<?php //endif; ?>
 <!-- [ends] .browse-by // -->
