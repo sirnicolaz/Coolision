@@ -826,15 +826,21 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
 .layered-nav .border-creator { border-style:solid; border-color:#ddd; border-width:1px; }
 .layered-nav h4 {
     margin:0;
-    border:1px solid #b9ccdd;
-    border-left:0;
-    border-right:0;
-    padding:3px 10px;
-    background:url(../images/layered_nav_narrowed_category_heading.gif) #d5e8ff;
-    color:#1f5070;
+    margin-top:1em;
+/*    border:1px solid #b9ccdd;*/
+/*    border-left:0;*/
+/*    border-right:0;*/
+    padding:1px 1em;
+/*    background:url(../images/layered_nav_narrowed_category_heading.gif) #d5e8ff;*/
+    color:black;
     font-weight:bold;
     font-size:1em;
+    background-color:#fcca20;
     }
+.layered-nav select { width:100%; }
+.layered-nav #narrow-by-list { background:#444 url(../images/header_lines.png) repeat-x -15em; }
+.layered-nav #narrow-by-list dd.odd { background:none; }
+.layered-nav #narrow-by-list dt { color:white; }
 .layered-nav .narrowed-category li { background:url(../images/narrow_category_bg.gif) repeat-x 0 100% #fff; padding:4px 6px 4px 10px; }
 .layered-nav .narrowed-category li .label {
     background:url(../images/narrow_by_li_by.gif) no-repeat 0 .2em;
