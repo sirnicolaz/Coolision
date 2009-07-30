@@ -36,7 +36,7 @@ class Coolision_CatalogIndex_Model_Mysql4_Attribute extends Mage_CatalogIndex_Mo
 	public function applyFilterToCollection($collection, $attribute, $value)
 	{
 		$alias = 'attr_index_'.$attribute->getId();
-		echo "applyfiltertocollection";
+// 		echo "applyfiltertocollection";
 		//Build query string
 		$query=$alias.'.value = ?';
 		$val=$value[0];
