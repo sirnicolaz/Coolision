@@ -9,16 +9,20 @@ padding-top:10px;
 height:300px;
 }
 
-.product-img-box img{
+.product-img-box #image{
 margin-top:50px;
 margin-left:90px;
 }
 
 .product-img-box ul{
 float:right;
-padding-right:20px
+padding-right:20px;
+padding-top:70px;
 }
 
+.product-img-box ul li{
+border:solid 1px;
+}
 
 .product-shop{
 padding-top:10px;
