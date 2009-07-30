@@ -1666,8 +1666,8 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     background-color:#ddd;
     }
 
-.account-box .account-col-right .link-bar-delivery-status a { text-decoration:none; color:white; }
-.account-box .account-col-right .link-bar-cart a { text-decoration:none; color:black; width:100px;}
+.account-box .account-col-right .link-bar-delivery-status a { text-decoration:none; color:white; padding:0.5em 24em 0.5em 0; }
+.account-box .account-col-right .link-bar-cart a { text-decoration:none; color:black;}
 .account-box .account-col-right .link-bar-wishlist a { text-decoration:none; color:white; }
 
 /* Form button */
