@@ -10,8 +10,7 @@ cron.sh
 downloader 
 favicon.ico 
 includes
-index.php.sample 
-js 
+index.php.sample  
 lib 
 media 
 pear 

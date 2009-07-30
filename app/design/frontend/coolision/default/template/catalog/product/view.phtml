@@ -179,7 +179,11 @@
 			</div>
             <div class="divider"></div>
 			<div class="product-sum-link">
-				<div class="sum-link"><?php echo $this->getPriceHtml($_product) ?></div>
+				<div class="price-container">
+					<div class="price-label"><?php echo $this->__('Price')?></div>
+					<div class="sum-link" id="priceBox"><span><?php echo $this->getPriceHtml($_product) ?><span></div>
+				</div>
+				<br/>
 				<div class="sum-link"><?php //echo $_product->getTierPriceHtml() ?></div>
 				<div class="sum-link"><?php echo $this->getChildHtml('alert_urls') ?></div>
 	            <!--<div class="sum-link"><?php //echo $this->getChildHtml('product_type_data') ?></div>-->
@@ -199,7 +203,7 @@
 				<div class="sum-link"><?php if($_product->isSaleable()): ?></div>
 				<div class="sum-link"><fieldset class="add-to-cart-box">
 					<!--<legend><?php //echo $this->__('Add Items to Cart') ?></legend>-->
-					<button type="button" class="form-button" onclick="productAddToCartForm.submit()"><?php echo $this->__('Add to Cart') ?></button>
+					<button type="button" class="form-button" onclick="productAddToCartForm.submit()"><span><?php echo $this->__('Add to Cart') ?></span></button>
 				<?php endif; ?></div>
     </fieldset>
 			</div>

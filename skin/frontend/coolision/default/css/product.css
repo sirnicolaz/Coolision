@@ -139,19 +139,31 @@ margin-left:2em;
 margin-top:2em;
 margin-left:2em;
 }
+.add-to-cart-box {
+width:7.5em;
+height:2.5em;
+border:none;
+float:left;
+padding:0px;
+margin:0px;
+}
 
 .add-to-cart-box .form-button{
-float:right;
 height:2.5em;
-width:7.6m;
-padding-right:5em;
-text-align:center;
+width:7.5m;
+text-align:left;
 text-transform:uppercase;
 border:none;
 background:none;
 /*background-color:#FCCA21;*/
 background:url(../images/button-add-to-cart.png) top left no-repeat;
 color:black;
+}
+
+.add-to-cart-box .form-button span{
+background:url(../images/cart.png) right no-repeat;
+padding-right:3em;
+float:left;
 }
 
 .ship-info-sum span {
@@ -170,4 +182,58 @@ float:left;
 height:1.5px;/* #262626 solid;*/
 background:#262626;
 width:423px;
+}
+.product-sum-link .price-label{
+width:7em;
+height:1.4em;
+color:#262626;
+background:#FCCA21;
+text-align:center;
+text-transform:uppercase;
+}
+
+.product-sum-link #priceBox{
+background:url(../images/price-box-frame.png) top right no-repeat;
+width:12em;
+height:1.4em;
+float:left;
+line-height:1px;
+color:#262626;
+text-align:right;
+padding:1px;
+padding-right:3px;
+margin-bottom:13px;
+margin-right:100px;
+}
+
+.price-container{
+margin-left:130px;
+}
+
+.add-to-box .wishlist-li{
+float:left;
+width:11em;
+height:1.9em;
+padding:0px;
+background:#4D4D4D;
+text-align:center;
+}
+
+.add-to-box{
+margin-top:4px;
+margin-right:60px;
+margin-left:60px;
+}
+
+.add-to-box .wishlist-li a{
+background:url(../images/wishlist.png) no-repeat right;
+width:11em;
+height:1.9em;
+margin:0 auto;
+padding-top:2px;
+text-decoration:none;
+color:white;
+text-transform:uppercase;
+font-size:11px;
+float:left;
 }
