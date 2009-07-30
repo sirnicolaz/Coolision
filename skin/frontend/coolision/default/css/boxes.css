@@ -1561,20 +1561,13 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 
 /* Dashboard */
 .account-box {
-/*    margin-bottom:20px;*/
-/*    border:1px solid #ccc;*/
-/*    border-right-color:#999;*/
-/*    border-bottom-color:#999;*/
-/*    background:url(../images/account_box_bg.gif) repeat-x #fff;*/
-/*    padding:15px;*/
     border-collapse:collapse;
     width:100%;
     color:#999;
     }
 .account-box .account-col-left,
 .account-box .account-col-right {
-/*    padding: 0 1em;*/
-    width:48%;
+    width:37.3em;
     }
 
 .account-box > div { height:40em; }
@@ -1643,6 +1636,7 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 }
 
 /* Link bars */
+.account-box .account-col-right .link-bar { position:absolute; bottom:0; width:37.3em; /*border:1px solid red;*/ }
 .account-box .account-col-right .link-bar-delivery-status,
 .account-box .account-col-right .link-bar-cart,
 .account-box .account-col-right .link-bar-wishlist { padding:0.4em 0.8em; font-weight:bold; }
@@ -1653,7 +1647,6 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .account-box .account-col-right .link-bar-delivery-status {
     background-color:#999;
     color:white;
-    margin-top:14.5em;
     }
 .account-box .account-col-right .link-bar-cart {
     background-color:#fcca20;
@@ -1665,12 +1658,13 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     }
 .account-box .account-col-right .bar-newsletter {
     background-color:#ddd;
+    padding:0 1em 1em 1em;
     }
 
 .account-box .account-col-right .link-bar-delivery-status a { 
     text-decoration:none; 
     color:white; 
-    padding:0.5em 24em 0.5em 0; 
+/*    padding:0.5em 24em 0.5em 0; */
     }
 .account-box .account-col-right .link-bar-cart a { text-decoration:none; color:black;}
 .account-box .account-col-right .link-bar-wishlist a { text-decoration:none; color:white; }
