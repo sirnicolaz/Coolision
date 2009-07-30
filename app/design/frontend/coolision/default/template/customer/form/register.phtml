@@ -171,7 +171,7 @@
     <!-- BUTTONS -->
     <div class="button-set">
         <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>
-        <input type="command" class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>" />
+        <button class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>"><?php echo $this->__('Submit')?></button>
 	<input type="command" onClick="resetForm()" class="form-button" value="<?php echo $this->__('Azzera')?>" />
     </div>
 </form>
@@ -191,7 +191,7 @@
       {
 	document.getElementById("sex").value="M";
       } else {document.getElementById("sex").value="F";}
-      document.getElementById("form-validate").submit();
+//       document.getElementById("form-validate").submit();
     }
 //]]>
 </script>
