@@ -1568,16 +1568,20 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 /*    background:url(../images/account_box_bg.gif) repeat-x #fff;*/
 /*    padding:15px;*/
     border-collapse:collapse;
+    width:100%;
+    }
+.account-box .account-col-left,
+.account-box .account-col-right {
+    padding: 0 1em;
+    width:47%;
     }
 .account-box > div { height:20em; }
 .account-box .account-col-left {
     float:left;
-    width:49%;
     border:1px solid #ccc;
     } 
 .account-box .account-col-right {
     float:left;
-    width:49%;
     border:1px solid #ccc;
     }
 .account-box .form-button { 
@@ -1586,12 +1590,15 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     color:black;
     }
 
+/* debug */
+/*.account-box table {border-collapse:collapse;}*/
+/*.account-box td {border:1px solid red; padding: 0 3px; }*/
+/*********/
 .account-box .group-select { border:none; padding:0; margin:0; }
-.account-box .group-select li, .account-box .group-select li .input-box { padding:0; margin:0; }
-.account-box .group-select li .input-text { width:10em; }
-.account-box .group-select li .validate-select { width:10em; }
-.account-box .group-select li label { width:15em; margin-right:2em; }
-    
+/*.account-box td.form-label label { padding-right:6em; }*/
+.account-box td .street-input, .account-box td select.validate-select { width:100%; }
+
+/***********/
 .account-box .head { margin-bottom:10px; border-bottom:1px solid #d9dde3; background-color:yellow; }
 .account-box h4 { color:#E65505; font-size:1.1em; text-transform:uppercase; }
 .account-box .inner-head { margin-bottom:8px; background:url(../images/dotted_divider.gif) repeat-x 0 100%; padding-bottom:2px; text-align:right; }
