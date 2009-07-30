@@ -1,8 +1,8 @@
 .mini-related-items{
 border:none;
-background:url(../images/related-product-box.png) top left no-repeat;
-height:155px;
-width:43.5em;
+background:url(../images/related-product-box-small.png) top left no-repeat;
+height:165px;
+width:449px;
 padding-top:0.1em;
 }
 
@@ -22,23 +22,25 @@ margin-right:10px;
 .mini-related-items .related-left-arrow{
 position:relative;
 float:left;
-width:5px;
-height:52px;
-background:url(../images/related-left-arrow.png) top left no-repeat;
-padding:0.5em;
-margin:0.5em;
+border:none;
+width:10px;
+height:72px;
+background:url(../images/related-left-arrow-small.png) top left no-repeat;
+padding:2px;
+margin:0em;
 margin-top:45px;
-margin-left:12px;
-margin-right:12px;
+margin-left:8px;
+margin-right:8px;
 }
 
 .base-mini .content{
+background:none;
 float:left;
 position:relative;
-height:120px;
-width:36em;
+height:140px;
+width:390px;
 white-space: nowrap;
-overflow:auto;
+overflow:hidden;
 padding:0px;
 margin:0px;
 /*float:left;*/
@@ -49,19 +51,20 @@ margin-right:0em;
 
 .mini-related-items .related-right-arrow{
 float:left;
-width:5px;
-height:52px;
-background:url(../images/related-right-arrow.png) top left no-repeat;
-padding:0.5em;
-margin:0.5em;
-margin-top:25px;
-margin-left:12px;
-margin-right:12px;
+width:10px;
+height:72px;
+border:none;
+background:url(../images/related-right-arrow-small.png) top left no-repeat;
+padding:2px;
+margin:0em;
+margin-top:28px;
+margin-left:8px;
+margin-right:8px;
 }
 
 .related-product ol{
+background:none;
 height:110px;
-width:70em;
 margin:0em;
 padding:0em;
 display: block;
@@ -74,11 +77,12 @@ float:left;
 list-style-type: none;
 padding:0px;
 margin:0px;
-margin-right:16px;
+margin-right:8px;
+margin-left:8px;
 }
 
 .related-product .product-details-container{
-width:10em;
+width:9.5em;
 margin-bottom:0px;
 padding-bottom:0px;
 }
