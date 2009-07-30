@@ -1653,6 +1653,7 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .account-box .account-col-right .link-bar-delivery-status {
     background-color:#999;
     color:white;
+    margin-top:11.5em;
     }
 .account-box .account-col-right .link-bar-cart {
     background-color:#fcca20;
