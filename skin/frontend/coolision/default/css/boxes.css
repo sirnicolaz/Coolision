@@ -1590,7 +1590,7 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     color:white;
     text-transform:uppercase;
     font-weight:bold;
-    }
+    }    
 .account-box .account-col-left table th {
     color:#666;
     width:10em;
@@ -1609,6 +1609,16 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .account-box .account-col-right {
     float:left;
     border:1px solid #ccc;
+    }
+.account-box .account-col-right .col-right-header {
+    border:none;
+    background-color:#fcca20;
+    padding-left:0.5em;
+    color:black;
+    text-transform:uppercase;
+    font-weight:bold;
+    text-align:center;
+    font-size:80%;
     }
 .account-box .account-col-right .address-edit-box { padding:0 1px; border-bottom: 1px solid #ccc }    
 .account-box .account-col-right .address-edit-box .page-head {
