@@ -47,9 +47,9 @@
 			<div class="product-manufacturer">
 				<h3><?php echo "Manufacturer: ".$_item->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($_item); ?></h3>
 				<br/>
-				<span><?php echo "Color: ".$_item->getResource()->getAttribute('color')->getFrontend()->getValue($_item); ?></span>
+				<span><?php echo "Color: ".$_item->getResource()->getAttribute('category')->getFrontend()->getValue($_item); ?></span>
 				<br/>
-				<span><?php echo "Price: ".$_item->getFormatedPrice();?></span>
+				<span><?php echo "Price: ".$_item->getPriceHtml();?></span>
 			</div>
 		</li>
     <?php endforeach; ?>
