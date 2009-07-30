@@ -1653,7 +1653,7 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .account-box .account-col-right .link-bar-delivery-status {
     background-color:#999;
     color:white;
-    margin-top:11.5em;
+    margin-top:14.5em;
     }
 .account-box .account-col-right .link-bar-cart {
     background-color:#fcca20;
@@ -1667,9 +1667,16 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     background-color:#ddd;
     }
 
-.account-box .account-col-right .link-bar-delivery-status a { text-decoration:none; color:white; padding:0.5em 24em 0.5em 0; }
+.account-box .account-col-right .link-bar-delivery-status a { 
+    text-decoration:none; 
+    color:white; 
+    padding:0.5em 24em 0.5em 0; 
+    }
 .account-box .account-col-right .link-bar-cart a { text-decoration:none; color:black;}
 .account-box .account-col-right .link-bar-wishlist a { text-decoration:none; color:white; }
+
+.account-box .account-col-right .bar-newsletter .mini-newsletter .head { display:none;}
+.account-box .account-col-right .bar-newsletter .mini-newsletter .content {background:#ddd;}
 
 /* Form button */
 .account-box .form-button { 
