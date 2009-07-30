@@ -37,9 +37,17 @@
     </div>
     -->
     <div class="account-col-left"><?php echo $this->getChildHtml('info') ?></div>
-    <div class="account-col-right"><?php echo $this->getChildHtml('address') ?></div>
+    <div class="account-col-right">
+        <div class="col-right-header">
+            Vuoi avere il controllo dei tuoi acquisti? COOLISION te lo lascia fare...
+        </div>
+        <?php echo $this->getChildHtml('address') ?>
+        <div><?php echo $this->getChildHtml('link') ?></div>
+    </div>
 </div>
 
 <?php echo $this->getChildHtml('info1') ?>
 <?php echo $this->getChildHtml('info2') ?>
-<?php echo $this->getChildHtml('link') ?>
+<!--
+<?php //echo $this->getChildHtml('link') ?>
+-->

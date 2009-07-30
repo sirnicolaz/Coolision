@@ -30,7 +30,11 @@
     <a href="<?php echo $this->getAddressBookUrl() ?>"><?php echo $this->__('Manage Addresses') ?></a>
 </div>
 -->
-<?php echo $this->getLayout()->getBlock('customer_address_edit')->toHtml(); ?>
+
+<div class="address-edit-box">
+    <?php echo $this->getLayout()->getBlock('customer_address_edit')->toHtml(); ?>
+</div>
+
 <!--
 <div class="col2-set">
     <div class="col-1">

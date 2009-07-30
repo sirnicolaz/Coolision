@@ -488,7 +488,7 @@ h1#logo {
 /* Stile dell'area di login */
 .mini_login { float:left; }
 .mini_login #submit_image_cell { padding-top:1em; }
-.mini_login #submit_image { width:21px; height:21px; background:url(../images/button_submit.png); valign:center; }
+.mini_login #submit_image { width:21px; height:21px; background:url(../images/button_submit.png); }
 .mini_login .description_field { text-align:right; }
 .mini_login #forgotten_password { padding-left:6em; font-size:x-small; }
 
@@ -1568,30 +1568,95 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 /*    background:url(../images/account_box_bg.gif) repeat-x #fff;*/
 /*    padding:15px;*/
     border-collapse:collapse;
+    width:100%;
+    color:#999;
     }
+.account-box .account-col-left,
+.account-box .account-col-right {
+/*    padding: 0 1em;*/
+    width:48%;
+    }
+
 .account-box > div { height:20em; }
+
 .account-box .account-col-left {
     float:left;
-    width:49%;
-    border:1px solid #ccc;
-    } 
-.account-box .account-col-right {
-    float:left;
-    width:49%;
     border:1px solid #ccc;
     }
+.account-box .account-col-left .col2-set-head {
+    border:none;
+    background-color:black;
+    padding-left:0.5em;
+    color:white;
+    text-transform:uppercase;
+    font-weight:bold;
+    }    
+.account-box .account-col-left table th {
+    color:#666;
+    width:10em;
+    }
+.account-box .account-col-left .user-account-buttons { margin-top:1em; }
+.account-box .account-col-left .user-account-buttons a { 
+    background-color:#fcca20;
+    text-decoration:none;
+    color:black;
+    text-transform:uppercase;
+    font-weight:bold;
+    padding: 0.4em 0.9em;
+    }
+    
+    
+.account-box .account-col-right {
+    float:left;
+    border:1px solid #ccc;
+    }
+.account-box .account-col-right .col-right-header {
+    border:none;
+    background-color:#fcca20;
+    padding-left:0.5em;
+    color:black;
+    text-transform:uppercase;
+    font-weight:bold;
+    text-align:center;
+    font-size:80%;
+    }
+.account-box .account-col-right .address-edit-box { padding:0 1px; border-bottom: 1px solid #ccc }    
+.account-box .account-col-right .address-edit-box .page-head {
+    text-align:left;
+    border:none;
+    margin-bottom:0;
+    }
+.account-box .account-col-right .address-edit-box .page-head span.foobar {
+    font-size:130%;
+    font-weight:bold;
+    text-transform:uppercase;
+    color: #666;
+    }
+.account-box .account-col-right .address-edit-box .page-head span.xizzy {
+    font-size:90%;
+    color:#999;
+    }
+.account-box .account-col-right .address-edit-box .button-set {
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+
 .account-box .form-button { 
     background-color:#fcca20;
     border:0;
     color:black;
     }
 
+/* debug */
+/*.account-box table {border-collapse:collapse;}*/
+/*.account-box td {border:1px solid red; padding: 0 3px; }*/
+/*********/
 .account-box .group-select { border:none; padding:0; margin:0; }
-.account-box .group-select li, .account-box .group-select li .input-box { padding:0; margin:0; }
-.account-box .group-select li .input-text { width:10em; }
-.account-box .group-select li .validate-select { width:10em; }
-.account-box .group-select li label { width:15em; margin-right:2em; }
-    
+.account-box td .street-input, .account-box td select.validate-select { width:98%; }
+
+/***********/
 .account-box .head { margin-bottom:10px; border-bottom:1px solid #d9dde3; background-color:yellow; }
 .account-box h4 { color:#E65505; font-size:1.1em; text-transform:uppercase; }
 .account-box .inner-head { margin-bottom:8px; background:url(../images/dotted_divider.gif) repeat-x 0 100%; padding-bottom:2px; text-align:right; }

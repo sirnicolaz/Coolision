@@ -42,7 +42,7 @@
 	            <div class="product-details">
 						<span class="manufacturer"><?php echo $_item->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($_item); ?></span><br/>
 	                    <!--<a href="<?php //echo $_item->getProductUrl() ?>"><?php //echo $this->htmlEscape($_item->getName()) ?></a><br/>-->
-						<span class="category"><?php echo $_item->getResource()->getAttribute('categoria')->getFrontend()->getValue($_item); ?></span><br/>
+						<span class="category"><?php echo $_item->getResource()->getAttribute('tipologia_capo')->getFrontend()->getValue($_item); ?></span><br/>
 	                    <?php echo $this->getPriceHtml($_item, true) ?>
 	                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
 	                    <!--<a href="<?php //echo $this->getAddToWishlistUrl($_item) ?>" class="link-cart"><?php //echo $this->__('Add to Wishlist') ?></a>-->
@@ -61,6 +61,54 @@
 $$('.related-checkbox').each(function(elem){
     Event.observe(elem, 'click', addRelatedToProduct)
 });
+
+$(function(){
+slideProdSet(0);
+});
+
+//Prepare a 3-set product to show in list
+function slideSet(dir){
+if(dir=='left'){
+	if(document.getElementById('relatedIndex').value>0){
+		var tmpIndex = 1;
+		tmpIndex=tmpIndex*1;
+		var actualIndex=document.getElementById('relatedIndex').value*1;
+		tmpIndex=actualIndex-tmpIndex;
+		document.getElementById('relatedIndex').value = tmpIndex;
+		slideProdSet(document.getElementById('relatedIndex').value);
+	}
+}
+else{
+	var maxIndex = document.getElementById('relatedMenu').getElementsByTagName('li').length-3;
+	if(document.getElementById('relatedIndex').value < maxIndex){
+		var tmpIndex = 1;
+		tmpIndex=tmpIndex*1;
+		var actualIndex=document.getElementById('relatedIndex').value*1;
+		tmpIndex=actualIndex+tmpIndex;
+		document.getElementById('relatedIndex').value=tmpIndex;
+		slideProdSet(document.getElementById('relatedIndex').value);
+	}
+}
+
+}
+
+function slideProdSet(start){
+	for(var i=0; i<=document.getElementById('relatedMenu').getElementsByTagName('li').length-3; i++){
+		if(i==start){
+				j1=i+0;
+				j2=i+1;
+				j3=i+2;
+				document.getElementById('relatedMenu').getElementsByTagName('li')[j1].style.display='block';
+				document.getElementById('relatedMenu').getElementsByTagName('li')[j2].style.display='block';
+				document.getElementById('relatedMenu').getElementsByTagName('li')[j3].style.display='block';
+				i=i*1;
+				i=i+2;
+		}
+		else{
+			document.getElementById('relatedMenu').getElementsByTagName('li')[i].style.display='none';
+		}
+	}
+}
 
 var relatedProductsCheckFlag = false;
 function selectAllRelated(txt){
