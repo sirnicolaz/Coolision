@@ -66,6 +66,7 @@ Default layout, loads most of the pages
                 <block type="page/template_links" name="top.links" as="topLinks">
 					<!-- Smars blocks of ecommerce shit -->
 					<block type="page/template_links" name="top.links.login" as="loginArea"/>
+					<block type="page/template_links" name="top.links.nouser" as="nouserArea"/>
 					<block type="page/template_links" name="top.links.user" as="userArea"/>
 					<block type="page/template_links" name="top.links.misc" as="miscArea"/>
 					<block type="page/template_links" name="top.links.cart" as="cartArea"/>
