@@ -27,7 +27,7 @@
 <script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
 <script type="text/javascript">countryRegions = <?php echo $this->helper('directory')->getRegionJson() ?></script>
-
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/checkout.css');?>" media="all" />
 <ol id="checkoutSteps" class="one-page-checkout">
 <!-- scorre i vari step del checkout -->
 <?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
