@@ -26,29 +26,21 @@
 ?>
 <?php $_item = $this->getItem()?>
 <tr>
-    <td class="a-center"><a href="<?php echo $this->getDeleteUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/btn_trash.gif') ?>" width="16" height="16" alt="<?php $this->__('Remove item')?>" /></a></td>
-    <td><a href="<?php echo $this->getProductUrl() ?>"><img src="<?php echo $this->getProductThumbnail()->resize(75); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" width="75" /></a></td>
-    <td class="attributes-col">
-        <h4 class="title"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->getProductName() ?></a></h4> <!-- link per tornare alla pagina prodotti-->
-        <!-- item custom options -->
-        <?php if ($_options = $this->getOptionList()):?> <!-- lista delle opzioni per il prodotto -->
-        <dl class="item-options">
-            <?php foreach ($_options as $_option) : ?>
-            <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
-            <dt><?php echo $this->htmlEscape($_option['label']) ?></dt> <!-- label dell'attributo configurabile (tipo color) -->
-            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?> <!-- valore -->
-                <?php if (isset($_formatedOptionValue['full_view'])): ?>
-                <div class="truncated_full_value">
-                    <dl class="item-options">
-                        <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
-                        <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
-                    </dl>
-                </div>
-                <?php endif; ?>
-            </dd>
-            <?php endforeach; ?>
-        </dl>
-        <?php endif;?>
+    <!--<td class="a-center"><a href="<?php echo $this->getDeleteUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/btn_trash.gif') ?>" width="16" height="16" alt="<?php $this->__('Remove item')?>" /></a></td>-->	
+	<!--Remove url moved in last column with price-->
+    <!--<td><a href="<?php echo $this->getProductUrl() ?>"><img src="<?php echo $this->getProductThumbnail()->resize(75); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" width="75" /></a></td>-->
+	<!--Product image moved in next column-->
+    <td class="info-col">
+		<!--<span class="category-name"><?php //echo $this->getProduct()->getCategory()->getName();?></span>-->
+		<!-- Product image -->
+		<div class="product-img"><a href="<?php echo $this->getProductUrl() ?>"><img src="<?php echo $this->getProductThumbnail()->resize(100); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /></a></div>
+        <div class="product-title"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->getProductName() ?></a></div> <!-- link per tornare alla pagina prodotti-->
+	    <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
+	    <div class="addToWishList">
+			<input type="button" class="wishlist-button" onClick="document.getElementById('ws<?php echo $_item->getId() ?>').checked='checked'; document.getElementById('formButtonAlt').click();" id="wishListButton" value="<?php echo $this->__('Add to wishlist')?>" name="cart[<?php echo $_item->getId() ?>][wishlist]" />
+			<input type="checkbox" value="1" id="ws<?php echo $_item->getId() ?>" name="cart[<?php echo $_item->getId() ?>][wishlist]" style="display:none"/>
+		</div>
+	    <?php endif ?>
         <!-- / -->
 
         <?php if ($messages = $this->getMessages()): ?>
@@ -59,12 +51,65 @@
         <?php endforeach; ?>
         <?php endif; ?>
     </td>
-    <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
-    <td class="a-center">
+	
+	<td class="color-col">
+	        <!-- item custom options -->
+        <?php if ($_options = $this->getOptionList()):?> <!-- lista delle opzioni per il prodotto -->
+        <dl class="item-options">
+            <?php foreach ($_options as $_option) : ?>
+			<?php if($_option['label'] == 'Color') : ?>
+            <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
+            <!--<dt><?php echo $this->htmlEscape($_option['label']) ?></dt> --><!-- label dell'attributo configurabile (tipo color) -->
+            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?> <!-- valore -->
+                <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                <div class="truncated_full_value">
+                    <dl class="item-options">
+                        <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
+                        <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
+                    </dl>
+                </div>
+                <?php endif; ?>
+            </dd>
+			<?php endif; ?>
+            <?php endforeach; ?>
+        </dl>
+        <?php endif;?>
+		
+	</td>
+	
+	<td class="size-col">
+	        <!-- item custom options -->
+        <?php if ($_options = $this->getOptionList()):?> <!-- lista delle opzioni per il prodotto -->
+        <dl class="item-options">
+            <?php foreach ($_options as $_option) : ?>
+			<?php if($_option['label'] == 'Size') : ?><!--Sistemare!!!!! Si usa il label per fare il controllo, invece bisogna utilizzare il codice dell'attributo per fare il controllo poichè non dipende dalla lingua-->
+            <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
+            <!--<dt><?php echo $this->htmlEscape($_option['label']) ?></dt> --><!-- label dell'attributo configurabile (tipo color) -->
+            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?> <!-- valore -->
+                <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                <div class="truncated_full_value">
+                    <dl class="item-options">
+                        <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
+                        <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
+                    </dl>
+                </div>
+                <?php endif; ?>
+            </dd>
+			<?php endif; ?>
+            <?php endforeach; ?>
+        </dl>
+        <?php endif;?>
+		
+	</td>
+    <!--<?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
+	<td class="a-center">
         <input type="checkbox" value="1" name="cart[<?php echo $_item->getId() ?>][wishlist]" />
     </td>
-    <?php endif ?>
-    <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+	<?php endif ?>-->
+	<!--Wish list column removed. It has been moved in first column with product info-->
+	
+	<!--Unit price column not needed in this release-->
+    <!--<?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
     <td class="a-right">
         <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && $_item->getWeeeTaxAppliedAmount()): ?>
             <div class="cart-tax-total" onclick="taxToggle('eunit-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
@@ -77,7 +122,7 @@
             <?php else: ?>
                 <?php echo $this->helper('checkout')->formatPrice($_item->getCalculationPrice()) ?>
             <?php endif; ?>
-
+		
         </div>
 
 
@@ -110,8 +155,10 @@
             <?php endif; ?>
         <?php endif; ?>
     </td>
-    <?php endif; ?>
-    <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+    <?php endif; ?>-->
+	
+	<!--Unit price column not needed for this release-->
+    <!--<?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
     <td class="a-right">
         <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
         <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && $_item->getWeeeTaxAppliedAmount()): ?>
@@ -125,8 +172,7 @@
             <?php else: ?>
                 <?php echo $this->helper('checkout')->formatPrice($_incl-$_item->getWeeeTaxDisposition()) ?>
             <?php endif; ?>
-
-        </div>
+			</div>
         <?php if (Mage::helper('weee')->getApplied($_item)): ?>
 
             <div class="cart-tax-info" id="unit-item-tax-details<?php echo $_item->getId(); ?>" style="display: none;">
@@ -156,7 +202,8 @@
             <?php endif; ?>
         <?php endif; ?>
     </td>
-    <?php endif; ?>
+    <?php endif; ?>-->
+	
     <td class="a-center">
         <input name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4" class="input-text qty" maxlength="8" />
     </td>
@@ -173,7 +220,8 @@
             <?php else: ?>
                 <?php echo $this->helper('checkout')->formatPrice($_item->getRowTotal()) ?>
             <?php endif; ?>
-
+			<!--"Remove" button added to last comumn-->
+			<a href="<?php echo $this->getDeleteUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/btn_trash.gif') ?>" width="16" height="16" alt="<?php $this->__('Remove item')?>" /></a>
         </div>
         <?php if (Mage::helper('weee')->getApplied($_item)): ?>
 
@@ -219,7 +267,8 @@
             <?php else: ?>
                 <?php echo $this->helper('checkout')->formatPrice($_incl-$_item->getWeeeTaxRowDisposition()) ?>
             <?php endif; ?>
-
+			<!--Remove button added to last comumn-->
+			<a href="<?php echo $this->getDeleteUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/btn_trash.gif') ?>" width="16" height="16" alt="<?php $this->__('Remove item')?>" /></a>
         </div>
 
 

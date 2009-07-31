@@ -31,11 +31,9 @@
  * @see Mage_Checkout_Block_Cart_Totals
  */
 ?>
-<table cellspacing="0" id="shopping-cart-totals-table">
-    <tfoot>
-        <?php echo $this->renderTotals('footer'); ?>
-    </tfoot>
-    <tbody>
+
+    <?php echo $this->renderTotals(); ?>
+ <!--   <tbody>
         <?php echo $this->renderTotals(); ?>
     </tbody>
-</table>
+-->
