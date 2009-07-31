@@ -46,16 +46,16 @@
 	  <table cellspacing="0" class="" id="my-orders-table">
 	    <col />
 	    <col width="25%" />
-	    <col width="1" />
-	    <col width="1" />
-	    <col width="1" />
+	    <col width="1%" />
+	    <col width="15%" />
+	    <col width="15%" />
 	    <thead>
 	      <tr>
-		<th><span class="table-th-text"><?php echo $this->__('Product Name') ?></span></th>
+		<th class="first-cell"><span class="table-th-text"><?php echo $this->__('Product Name') ?></span></th>
 		<th><span class="table-th-text"><?php echo $this->__('SKU') ?></span></th>
 		<th class="a-right"><span class="table-th-text"><?php echo $this->__('Price') ?></span></th>
-		<th class="a-center"><span class="table-th-text"><?php echo $this->__('Qty') ?></span></th>
-		<th class="a-right"><span class="table-th-text table-th-text-subtotal"><?php echo $this->__('Subtotal') ?></span></th>
+		<th class="a-center"><span class="table-th-text"><?php echo $this->__('Quantità') ?></span></th>
+		<th class="a-right th-subtotal"><span class="table-th-text table-th-text-subtotal"><?php echo $this->__('Subtotal') ?></span></th>
 	      </tr>
 	      <!-- tr>
 	      <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
@@ -285,7 +285,7 @@
     <td class="a-right nowrap">
         <span class="nobr">
                 <?php if ($_item->getQtyOrdered() > 0): ?>
-            <?php echo $this->__('Ordered'); ?>: <strong><?php echo $_item->getQtyOrdered()*1 ?></strong><br />
+            <?php echo $this->__('X'); ?> <strong><?php echo $_item->getQtyOrdered()*1 ?></strong><br />
         <?php endif; ?>
         <?php if ($_item->getQtyShipped() > 0): ?>
             <?php echo $default->__('Shipped'); ?>: <strong><?php echo $_item->getQtyShipped()*1 ?></strong><br />

@@ -1743,10 +1743,10 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .sales-order-history .middle { padding-bottom:1em; }
 
 .sales-order-history p.order-header-summary { font-weight:bold; }
-.sales-order-history table { border:none; width:100% }
-.sales-order-history table.info-table { margin-bottom:6em; }
 
-.sales-order-history thead tr th { 
+.sales-order-history table { border:none; width:100% }
+.sales-order-history table h5 { text-align:left; }
+.sales-order-history table th { 
     background:none; 
     color:white; 
     text-transform:uppercase;
@@ -1755,9 +1755,15 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     border:none;
     border-bottom:2px solid black !important;
     }
-.sales-order-history thead tr .table-th-text { background-color:#444; padding:0.3em 1em; }
-.sales-order-history thead tr th.a-right { border-bottom:2px solid #fcca20 !important; }
-.sales-order-history thead tr .table-th-text-subtotal { background-color:#fcca20; }
+.sales-order-history table td { color:#666; text-align:center; }
+.sales-order-history table .first-cell { text-align:left; }
+.sales-order-history table .cart-price { text-align:right; }
+.sales-order-history .table-th-text { background-color:#444; padding:0.3em 1em; }
+.sales-order-history th.th-subtotal { border-bottom:2px solid #fcca20 !important; }
+.sales-order-history tr .table-th-text-subtotal { background-color:#fcca20; }
+
+.sales-order-history table.info-table { margin-bottom:6em; }
+.sales-order-history table.info-table td { text-align:left; }
 
 .sales-order-history .sales-history-p { color:#bbb; font-size:90%; }
 
