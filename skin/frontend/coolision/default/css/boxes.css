@@ -653,20 +653,20 @@ h1#logo {
 .footer-container { /*border-top:15px solid #B6D1E2;*/ }
 .footer { width:930px; margin:0 auto; padding-bottom:5em; background-color:black; }
 .footer .store-switcher { display:inline; padding:0 10px 0 0; vertical-align:middle; }
-.footer .informational div { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
-.footer .informational label { color:#fff; font-weight:bold; padding-right:3px; }
-.footer .informational ul {
+.footer-container .informational div { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
+.footer-container .informational label { color:#fff; font-weight:bold; padding-right:3px; }
+.footer-container .informational ul {
     display:inline;
     }
-.footer .informational li {
+.footer-container .informational li {
     display:inline;
     background:url(../images/footer_informational_bg.gif) no-repeat 100% 50%;
     padding-right:8px;
     padding-left:4px;
     }
-.footer .informational li.last { background:none; padding-right:0; }
-.footer .informational a, .footer .informational a:hover { color:black; }
-.footer .informational a { text-decoration:none; }
+.footer-container .informational li.last { background:none; padding-right:0; }
+.footer-container .informational a, .footer-container .informational a:hover { color:black; }
+.footer-container .informational a { text-decoration:none; }
 .footer .legality {
     padding:0.5em 0;
     color:#ecf3f6;
