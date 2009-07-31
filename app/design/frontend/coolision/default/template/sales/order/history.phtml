@@ -26,10 +26,13 @@
 ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <?php $_orders = $this->getOrders(); ?>
+<!--
 <div class="page-head">
     <h3><?php echo $this->__('My Orders') ?></h3>
 </div>
 <?php //echo $this->getPagerHtml(); ?>
+-->
+
 <?php if($_orders->getSize()): ?>
 
         <?php foreach ($_orders as $_order): ?>  <!-- cicla e costruisce la tabella degli ordini -->
@@ -452,5 +455,8 @@
     <p><?php echo $this->__('You have placed no orders.'); ?></p>
 <?php endif ?>
 
+<p class="sales-history-p">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque. Aliquam at risus. Pellentesque dictum neque et ante. Aenean tempus porta est. Maecenas volutpat justo vel ligula. Nunc eu augue. Donec blandit nibh eu nunc. Sed iaculis turpis non quam. Phasellus ligula nisl, tempus ut, malesuada sed, fringilla ac, lacus. Nunc tempus facilisis sapien. Maecenas gravida commodo risus. Sed blandit viverra nisl. Aenean scelerisque, odio eget dignissim pretium, mi felis laoreet lorem, quis pharetra erat libero quis nibh. Fusce quis ligula in dolor porta imperdiet.
+</p>
 
 

@@ -1740,6 +1740,8 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 
 /* Account Order History */
 .sales-order-view .checkmo-mailing-address { display:block; padding-left:20px; }
+.sales-order-history .middle { padding-bottom:1em; }
+.sales-order-history .sales-history-p { color:#bbb; font-size:90%; }
 
 /* Compare Products */
 .compare-products { margin:30px 0 50px 0; }
