@@ -1741,6 +1741,20 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 /* Account Order History */
 .sales-order-view .checkmo-mailing-address { display:block; padding-left:20px; }
 .sales-order-history .middle { padding-bottom:1em; }
+
+.sales-order-history p.order-header-summary { font-weight:bold; }
+.sales-order-history table#my-orders-table { border:none; } 
+.sales-order-history table#my-orders-table thead tr th { 
+    background:none; 
+    color:white; 
+    text-transform:uppercase;
+    text-align:center; 
+    font-weight:bold;
+    border:none;
+    border-bottom:2px solid black !important;
+    }
+.sales-order-history table#my-orders-table thead tr .table-th-text { background-color:black; padding:0.5em 1em; }
+
 .sales-order-history .sales-history-p { color:#bbb; font-size:90%; }
 
 /* Compare Products */
