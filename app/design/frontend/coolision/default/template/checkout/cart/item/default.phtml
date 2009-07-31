@@ -35,9 +35,10 @@
 		<!-- Product image -->
 		<div class="product-img"><a href="<?php echo $this->getProductUrl() ?>"><img src="<?php echo $this->getProductThumbnail()->resize(100); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /></a></div>
         <div class="product-title"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->getProductName() ?></a></div> <!-- link per tornare alla pagina prodotti-->
+		<div class="come-back"><a href="<?php echo $this->getProductUrl() ?>"><div class="back-to-product" id="backToProductButton"><?php echo $this->__('Back to product')?></div></a></div>
 	    <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
 	    <div class="addToWishList">
-			<input type="button" class="wishlist-button" onClick="document.getElementById('ws<?php echo $_item->getId() ?>').checked='checked'; document.getElementById('formButtonAlt').click();" id="wishListButton" value="<?php echo $this->__('Add to wishlist')?>" name="cart[<?php echo $_item->getId() ?>][wishlist]" />
+			<a href="#"><input type="button" class="wishlist-button" onClick="document.getElementById('ws<?php echo $_item->getId() ?>').checked='checked'; document.getElementById('formButtonAlt').click();" id="wishListButton" value="<?php echo $this->__('Add to wishlist')?>" name="cart[<?php echo $_item->getId() ?>][wishlist]" /></a>
 			<input type="checkbox" value="1" id="ws<?php echo $_item->getId() ?>" name="cart[<?php echo $_item->getId() ?>][wishlist]" style="display:none"/>
 		</div>
 	    <?php endif ?>
@@ -205,7 +206,18 @@
     <?php endif; ?>-->
 	
     <td class="a-center">
-        <input name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4" class="input-text qty" maxlength="8" />
+        <input id="qty<?php echo $_item->getId() ?>" name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4" class="input-text qty" maxlength="8" style="display:none"/>
+		<select class="dd-qty" id="dd-qty<?php echo $_item->getId() ?>" onchange="document.getElementById('qty<?php echo $_item->getId() ?>').value=document.getElementById('dd-qty<?php echo $_item->getId() ?>').options[document.getElementById('dd-qty<?php echo $_item->getId() ?>').selectedIndex].value; document.getElementById('formButtonAlt').click();">
+			<?php $num=$this->getQty();
+				for($j=0; $j<$num+10; $j++){
+					echo "<option value='".$j."'";
+					if($j==$num){
+					echo " selected='selected'";
+					}
+					echo ">".$j."</option>";
+				}
+			?>
+		</select>
     </td>
     <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
     <td class="a-right">
@@ -221,7 +233,7 @@
                 <?php echo $this->helper('checkout')->formatPrice($_item->getRowTotal()) ?>
             <?php endif; ?>
 			<!--"Remove" button added to last comumn-->
-			<a href="<?php echo $this->getDeleteUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/btn_trash.gif') ?>" width="16" height="16" alt="<?php $this->__('Remove item')?>" /></a>
+			<a href="<?php echo $this->getDeleteUrl() ?>"><?php echo $this->__('Remove')?></a>
         </div>
         <?php if (Mage::helper('weee')->getApplied($_item)): ?>
 

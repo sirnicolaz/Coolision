@@ -111,7 +111,35 @@ margin-left:1.5em;
 .info-col .wishlist-button{
 float:right;
 background:url(../images/wishlist.png) no-repeat right #808080;
-background-position: 11.5em 0.3em;
+background-position:12.5em 0.5em;
+border:none;
+color:white;
+text-transform:uppercase;
+font-size:11px;
+font-weight:bold;
+width:14.4em;
+height:2.4em;
+padding-left:3px;
+padding-right:0.2em;
+padding-bottom:0.4em;
+margin-top:10px;
+text-align:left;
+}
+
+.info-col .come-back a{
+color:white;
+text-decoration:none;
+}
+
+.info-col .back-to-product{
+margin-top:0.4em;
+margin-left:0.4em;
+}
+
+.info-col .come-back{
+float:right;
+background:url(../images/left-arrow.png) no-repeat #CCCCCC;
+background-position: 140px 10px;
 border:none;
 color:white;
 text-transform:uppercase;
@@ -123,8 +151,8 @@ padding-right:0.2em;
 padding-bottom:0.4em;
 margin-top:50px;
 text-align:left;
+margin-bottom:0px;
 }
-
 /*.data-table tfoot{
 border-top:solid;
 }
@@ -142,14 +170,21 @@ padding:0px;
 .data-table tr.last td.a-right-price{
 background:url(../images/total-box.png) top left no-repeat;
 border-right:solid 2px #FCCA21;
+height:2.6em;
 }
 
 .data-table tr.last td.a-right-price span.price-s{
 float:right;
+margin-right:9px;
+font-weight:bold;
+font-size:15px;
 }
 
 .data-table tr.last td.a-right-price span.tot-lab{
 float:left;
+font-weight:bold;
+font-size:13px;
+text-transform:lowercase;
 }
 
 .data-table tfoot tr.first{
@@ -167,4 +202,71 @@ border-top:solid 1.7px;
 color:white;
 background:url(../images/total-box.png) top left no-repeat;
 float:right;
+}
+
+.data-table input.input-text, textarea {
+float:left;
+margin-left:14px;
+padding:2px;
+}
+
+.data-table .cart-price span.price{
+text-decoration:none;
+font-weight:bold;
+font-size:15px;
+margin-right:0px;
+}
+
+.data-table .cart-price a {
+background:transparent url(../images/remove-button.png) no-repeat scroll right top;
+color:white;
+float:right;
+height:3em;
+margin-right:0;
+padding-left:2em;
+padding-right:1.5em;
+text-align:left;
+transform-text:uppercase;
+font-weight:bold;
+text-decoration:none;
+white-space:nowrap;
+}
+
+.data-table td.last {
+padding-right:0px;
+}
+
+.continue-shopping{
+float:left;
+color:white;
+margin-top:30px;
+background:#999999;
+border:none;
+height:2.5em;
+text-transform:uppercase;
+}
+
+.dd-qty{
+float:left;
+margin-left:12px;
+width:30% !important;
+}
+
+.checkout-types li{
+}
+
+.checkout-types a{
+float:right;
+margin-top:30px;
+color:black;
+background:#FCCA21;
+border:none;
+font-weight:bold;
+text-transform:uppercase;
+text-decoration:none;
+padding:0em;
+height:2.5em;
+width:14em;
+padding-left:2em;
+padding-top:1em;
 }

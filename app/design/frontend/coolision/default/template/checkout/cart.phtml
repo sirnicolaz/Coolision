@@ -35,13 +35,8 @@
 
 <div class="page-head-alt button-level">
     <h3><?php echo $this->__('Shopping Cart') ?></h3>
-    <?php if(!$this->hasError()): ?>
-    <ul class="checkout-types">
-        <?php echo $this->getChildHtml('top_methods') ?>
-    </ul>
-    <?php endif; ?>
 </div>
-<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
 <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
 <table cellspacing="0" border="0" id="shopping-cart-table" class="data-table box-table shopping-cart">
 	<col />
@@ -106,31 +101,15 @@
     </tbody>
 </table>
 <?php if($this->getContinueShoppingUrl()): ?>
-           <button class="form-button-alt continue-shopping" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')" type="button"><span><?php echo $this->__('Continue Shopping') ?></span></button>
+           <button class="form-button-alt continue-shopping" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')" type="button" ><span><?php echo $this->__('Continue Shopping') ?></span></button>
 <?php endif; ?>
 <script type="text/javascript">decorateTable('shopping-cart-table')</script>
-<button class="form-button-alt" id="formButtonAlt" type="submit"><span><?php echo $this->__('Update Shopping Cart') ?></span></button>
+<button class="form-button-alt" id="formButtonAlt" type="submit" style="display:none"><span><?php echo $this->__('Update Shopping Cart') ?></span></button>
 </form>
-
-<!--Not needed in this release-->
-<!--
-<div class="shopping-cart-collaterals">
-    <div class="col2-set">
-        <?php echo $this->getChildHtml('crosssell') ?>
-        <div class="col-2">
-            <?php echo $this->getChildHtml('coupon') ?>
-            <?php if (!$this->getIsVirtual()): echo $this->getChildHtml('shipping'); endif; ?>
-        </div>
-    </div>
-</div>
-
-<div class="shopping-cart-totals">
-    <?php echo $this->getChildHtml('totals'); ?>
-    <?php if(!$this->hasError()): ?>
+<?php if(!$this->hasError()): ?>
     <ul class="checkout-types">
-        <?php echo $this->getChildHtml('methods') ?>
+        <?php echo $this->getChildHtml('top_methods') ?>
     </ul>
     <?php endif; ?>
-</div>
--->
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <div class="clear"></div>
