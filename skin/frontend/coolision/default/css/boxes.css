@@ -817,7 +817,7 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
 
 
 /********************** Layered Navigation */
-.layered-nav { background:#222 url(../images/header_lines.png) repeat-x -15em; }
+.layered-nav { background:#222 url(../images/layer_box_bg.png) repeat-x -15em; }
 .layered-nav .head {
     margin:0;
     height:0.5em;
@@ -830,7 +830,7 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
     color:black;
     font-weight:bold;
     font-size:1em;
-    background-color:#fcca20;
+    background:#fcca20 url(../images/layer_box_header_bg.png) repeat-x;
     }
 .layered-nav select { width:100%; }
 .layered-nav #narrow-by-list {  }
