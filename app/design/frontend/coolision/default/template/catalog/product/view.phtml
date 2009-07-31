@@ -226,8 +226,7 @@
             var productAddToCartForm = new VarienForm('product_addtocart_form');
             productAddToCartForm.submit = function(){
 					
-					//Renderize radio button as dropdown to validate user selection
-					
+					//Renderize radio button as dropdown to validate user selectio
 					//Isolate data for each div
 					var attributes = $$('.super-attribute-select');
 					var selectIds = new Array();
@@ -255,13 +254,15 @@
 					
 					//Generate select
 					var selectsContainer = document.getElementById('dd-settings-container');//.getElementsByTagName('dl')[0];
-					var newDD = "";
-					for(var i=0; i<attributes.length; i++){
-						newDD = newDD + '<select style="display:none;" name="'+selectNames[i]+'" id="'+selectIds[i]+'" class="'+selectClasses[i]+'">'+'<option selected="selected" value="' + selectedOptionValue[i] + '" id="' + selectedOptionId[i] + '" ></option>'+'</select>';
+					if(selectsContainer){
+					    var newDD = "";
+					    for(var i=0; i<attributes.length; i++){
+						    newDD = newDD + '<select style="display:none;" name="'+selectNames[i]+'" id="'+selectIds[i]+'" class="'+selectClasses[i]+'">'+'<option selected="selected" value="' + selectedOptionValue[i] + '" id="' + selectedOptionId[i] + '" ></option>'+'</select>';
+					    }
+					    selectsContainer.innerHTML = newDD;
+					    //alert(selectsContainer.innerHTML);
+					    //TODO: verify radio is checked
 					}
-					selectsContainer.innerHTML = newDD;
-					//alert(selectsContainer.innerHTML);
-					//TODO: verify radio is checked
                     if (this.validator.validate()) {
                             this.form.submit();
                     }
