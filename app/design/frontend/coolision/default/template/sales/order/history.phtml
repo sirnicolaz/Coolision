@@ -43,7 +43,7 @@
 	<!-- inizio codice copiato da items.phtml -->
 	
 	  <?php //$_order = $this->getOrder() ?> <!-- noi ce l'abbiamo già -->
-	  <table cellspacing="0" class="data-table" id="my-orders-table">
+	  <table cellspacing="0" class="" id="my-orders-table">
 	    <col />
 	    <col width="25%" />
 	    <col width="1" />
@@ -55,7 +55,7 @@
 		<th><span class="table-th-text"><?php echo $this->__('SKU') ?></span></th>
 		<th class="a-right"><span class="table-th-text"><?php echo $this->__('Price') ?></span></th>
 		<th class="a-center"><span class="table-th-text"><?php echo $this->__('Qty') ?></span></th>
-		<th class="a-right"><span class="table-th-text"><?php echo $this->__('Subtotal') ?></span></th>
+		<th class="a-right"><span class="table-th-text table-th-text-subtotal"><?php echo $this->__('Subtotal') ?></span></th>
 	      </tr>
 	      <!-- tr>
 	      <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
@@ -450,11 +450,13 @@
 	  <!--
 	  <a href="<?php echo $this->getViewUrl($_order) ?>"><?php echo $this->__('View Order') ?></a>
 	  -->
-	  <table class="data-table">
-	        <tr>
-	            <td><span class="table-th-text">INFO SPEDIZIONE<span></td>
-	            <td><span class="table-th-text">INFO PAGAMENTO</span></td>
-	        </tr>
+	  <table class="info-table">
+	        <thead>
+    	        <tr>
+    	            <th><span class="table-th-text">INFO SPEDIZIONE<span></th>
+    	            <th><span class="table-th-text">INFO PAGAMENTO</span></th>
+    	        </tr>
+	        </thead>
 	        <tr>
 	            <td>Tipologia spedizione: ...</td>
 	            <td>Tipologia pagamento: <?php echo $this->__($_order->getPayment()->getMethodInstance()->getTitle()) ?></td>	        
