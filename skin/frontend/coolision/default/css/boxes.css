@@ -632,6 +632,11 @@ h1#logo {
   height:18px;
   border:0;
   }
+.mini-newsletter div.foot {
+    width:100%;
+    height:6px;
+    background-image:url(../images/newsletter_box_footer.png);
+    }
 
 .mini-cart .head h4 { background-image:url(../images/icon_basket.gif); }
 .mini-cart .subtotal { background:#fbebd9; margin-top:5px; padding:2px 0; text-align:center; }
@@ -817,7 +822,7 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
 
 
 /********************** Layered Navigation */
-.layered-nav { background:#222 url(../images/header_lines.png) repeat-x -15em; }
+.layered-nav { background:#222 url(../images/layer_box_bg.png) repeat-x -15em; }
 .layered-nav .head {
     margin:0;
     height:0.5em;
@@ -830,7 +835,7 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
     color:black;
     font-weight:bold;
     font-size:1em;
-    background-color:#fcca20;
+    background:#fcca20 url(../images/layer_box_header_bg.png) repeat-x;
     }
 .layered-nav select { width:100%; }
 .layered-nav #narrow-by-list {  }
@@ -1642,7 +1647,7 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .account-box .account-col-right .link-bar-cart,
 .account-box .account-col-right .link-bar-wishlist { padding:0.4em 0.8em; font-weight:bold; }
 
-.account-box .account-col-right .link-bar-counter { float:right; margin-right:20%; }
+.account-box .account-col-right .link-bar-counter { float:right; margin-right:5em; }
 .account-box .account-col-right .goto { float:right; }
 
 .account-box .account-col-right .link-bar-delivery-status {
@@ -1743,10 +1748,10 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .sales-order-history .middle { padding-bottom:1em; }
 
 .sales-order-history p.order-header-summary { font-weight:bold; }
-.sales-order-history table { border:none; width:100% }
-.sales-order-history table.info-table { margin-bottom:6em; }
 
-.sales-order-history thead tr th { 
+.sales-order-history table { border:none; width:100% }
+.sales-order-history table h5 { text-align:left; }
+.sales-order-history table th { 
     background:none; 
     color:white; 
     text-transform:uppercase;
@@ -1755,9 +1760,15 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     border:none;
     border-bottom:2px solid black !important;
     }
-.sales-order-history thead tr .table-th-text { background-color:#444; padding:0.3em 1em; }
-.sales-order-history thead tr th.a-right { border-bottom:2px solid #fcca20 !important; }
-.sales-order-history thead tr .table-th-text-subtotal { background-color:#fcca20; }
+.sales-order-history table td { color:#666; text-align:center; }
+.sales-order-history table .first-cell { text-align:left; }
+.sales-order-history table .cart-price { text-align:right; }
+.sales-order-history .table-th-text { background-color:#444; padding:0.3em 1em; }
+.sales-order-history th.th-subtotal { border-bottom:2px solid #fcca20 !important; }
+.sales-order-history tr .table-th-text-subtotal { background-color:#fcca20; }
+
+.sales-order-history table.info-table { margin-bottom:6em; }
+.sales-order-history table.info-table td { text-align:left; }
 
 .sales-order-history .sales-history-p { color:#bbb; font-size:90%; }
 
