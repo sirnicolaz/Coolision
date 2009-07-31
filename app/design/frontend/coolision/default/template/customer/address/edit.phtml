@@ -41,6 +41,8 @@
 
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate">
+<!--     <form action="<?php //echo $this->getUrl("customer/address/formPost/id/1/") ?>" method="post" id="form-validate"> -->
+
     <!-- questa parte a noi non ci interessa
     <fieldset class="group-select">
     <?php //echo $this->getBlockHtml('formkey')?>
@@ -88,7 +90,7 @@
                     <script type="text/javascript">
                         $('region_id').setAttribute('defaultValue',  "<?php echo $this->getAddress()->getRegionId() ?>");
                     </script>
-                    <td><input type="text" id="region" name="region" value="<?php echo $this->htmlEscape($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text" style="display:none" /></td>
+                    <td><input type="text" id="region" name="region" value="<?php echo $this->htmlEscape($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text" /></td>
 <!--                </div>-->
             </tr>
             <tr>
@@ -133,7 +135,7 @@
     </fieldset>
     <div class="button-set">
 <!--        <p class="required"><?php echo $this->__('* Required Fields') ?></p>-->
-<!--        <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>-->
+<!--        <a href="<?php //echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>-->
         <button class="form-button" type="submit"><span><?php echo $this->__('Salva') ?></span></button>
     </div>
 </form>
