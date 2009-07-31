@@ -24,15 +24,14 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<tr>
-    <td style="<?php echo $this->getTotal()->getStyle() ?>" class="a-right" colspan="<?php echo $this->getColspan(); ?>">
+<tr class="footer-price">
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td style="<?php echo $this->getTotal()->getStyle() ?>" class="a-right-price">
         <?php if ($this->getRenderingArea() == $this->getTotal()->getArea()): ?><strong><?php endif; ?>
-            <?php echo $this->getTotal()->getTitle() ?>
-        <?php if ($this->getRenderingArea() == $this->getTotal()->getArea()): ?></strong><?php endif; ?>
-    </td>
-    <td style="<?php echo $this->getTotal()->getStyle() ?>" class="a-right">
-        <?php if ($this->getRenderingArea() == $this->getTotal()->getArea()): ?><strong><?php endif; ?>
-            <?php echo $this->helper('checkout')->formatPrice($this->getTotal()->getValue()) ?>
+            <span class="tot-lab"><?php echo $this->__('Total ')?></span><span class="price-s"><?php echo $this->helper('checkout')->formatPrice($this->getTotal()->getValue()) ?></span>
         <?php if ($this->getRenderingArea() == $this->getTotal()->getArea()): ?></strong><?php endif; ?>
     </td>
 </tr>

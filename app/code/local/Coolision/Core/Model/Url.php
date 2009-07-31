@@ -108,11 +108,11 @@ class Coolision_Core_Model_Url extends Mage_Core_Model_Url
 			
 			else{
 	            foreach ($data as $param => $value) {
-					
-					if(isset($params[$param])){
+											
+					if($param!="order" && $param!="dir" && $param!="p" && $param!="mode" && $param!="limit" && isset($params[$param])){
 						$compArr=explode("-",$params[$param]);
 						$justAdded=false;
-						
+
 						//Verify if value has already been selected
 						if(is_array($compArr)){
 							foreach($compArr as $el){
@@ -121,7 +121,7 @@ class Coolision_Core_Model_Url extends Mage_Core_Model_Url
 							}
 						}
 						else
-							if($compArr===$el)
+							if($compArr===$value)
 								$justAdded=true;
 								
 						if(!$justAdded)

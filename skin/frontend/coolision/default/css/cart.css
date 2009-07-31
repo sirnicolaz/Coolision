@@ -1,0 +1,272 @@
+.data-table{
+background:none;
+border:none;
+}
+
+.data-table thead tr th{
+background:none;
+border:none;
+border-bottom:solid 3px !important;
+}
+
+.data-table tr th{
+border-bottom:solid 3px !important;
+}
+
+.data-table tr.last th{
+padding-bottom:0px;
+border-bottom:solid 2px !important;
+padding-left:0px;
+}
+
+.data-table tr.last th.a-last{
+border-bottom:solid 2px #FCCA21 !important;
+}
+
+.data-table tfoot tr{
+background:none !important;
+}
+
+.data-table tfoot tr.first{
+background:none;
+}
+
+.data-table td{
+background:none;
+}
+
+.data-table tbody td{
+background:none;
+border:none;
+}
+
+.data-table tbody td.a-right{
+border-left:dotted #B2B2B2 1.5px;
+}
+
+.data-table .odd{
+background:none;
+}
+
+.data-table .even{
+background:none !important;
+}
+
+.data-table thead tr th span{
+background:#262626;
+color:white;
+text-transform:uppercase;
+float:left;
+}
+
+.data-table .product-name{
+padding-right:25px;
+padding-left:0.5em;
+padding-top:0.3em;
+padding-bottom:0.1em;
+}
+
+.data-table .color{
+padding-right:25px;
+padding-left:0.5em;
+padding-top:0.3em;
+padding-bottom:0.1em;
+}
+
+.data-table .size{
+padding-right:25px;
+padding-left:0.5em;
+padding-top:0.3em;
+padding-bottom:0.1em;
+}
+
+.data-table .quantity{
+padding-right:25px;
+padding-left:0.5em;
+padding-top:0.3em;
+padding-bottom:0.1em;
+}
+
+.data-table .subtotal{
+padding-right:25px;
+padding-left:0.5em;
+padding-top:0.3em;
+padding-bottom:0.1em;
+background:#FCCA21;
+float:right;
+color:black;
+}
+
+.info-col img{
+float:left;
+}
+
+.info-col .product-title a{
+text-decoration:none;
+color:black;
+font-weight:bold;
+margin-left:1.5em;
+}
+
+.info-col .wishlist-button{
+float:right;
+background:url(../images/wishlist.png) no-repeat right #808080;
+background-position:12.5em 0.5em;
+border:none;
+color:white;
+text-transform:uppercase;
+font-size:11px;
+font-weight:bold;
+width:14.4em;
+height:2.4em;
+padding-left:3px;
+padding-right:0.2em;
+padding-bottom:0.4em;
+margin-top:10px;
+text-align:left;
+}
+
+.info-col .come-back a{
+color:white;
+text-decoration:none;
+}
+
+.info-col .back-to-product{
+margin-top:0.4em;
+margin-left:0.4em;
+}
+
+.info-col .come-back{
+float:right;
+background:url(../images/left-arrow.png) no-repeat #CCCCCC;
+background-position: 140px 10px;
+border:none;
+color:white;
+text-transform:uppercase;
+font-size:12px;
+font-weight:bold;
+width:13em;
+height:2em;
+padding-right:0.2em;
+padding-bottom:0.4em;
+margin-top:50px;
+text-align:left;
+margin-bottom:0px;
+}
+/*.data-table tfoot{
+border-top:solid;
+}
+
+.data-table tr.last td.last{
+
+text-align:right;
+}
+
+.data-table tr.last td.a-right .price{
+padding:0px;
+
+}*/
+
+.data-table tr.last td.a-right-price{
+background:url(../images/total-box.png) top left no-repeat;
+border-right:solid 2px #FCCA21;
+height:2.6em;
+}
+
+.data-table tr.last td.a-right-price span.price-s{
+float:right;
+margin-right:9px;
+font-weight:bold;
+font-size:15px;
+}
+
+.data-table tr.last td.a-right-price span.tot-lab{
+float:left;
+font-weight:bold;
+font-size:13px;
+text-transform:lowercase;
+}
+
+.data-table tfoot tr.first{
+display:none;
+}
+
+
+
+.data-table tfoot tr.footer-price td{
+border:none;
+border-top:solid 1.7px;
+}
+
+.data-table tfoot #shoppingCartTotals{
+color:white;
+background:url(../images/total-box.png) top left no-repeat;
+float:right;
+}
+
+.data-table input.input-text, textarea {
+float:left;
+margin-left:14px;
+padding:2px;
+}
+
+.data-table .cart-price span.price{
+text-decoration:none;
+font-weight:bold;
+font-size:15px;
+margin-right:0px;
+}
+
+.data-table .cart-price a {
+background:transparent url(../images/remove-button.png) no-repeat scroll right top;
+color:white;
+float:right;
+height:3em;
+margin-right:0;
+padding-left:2em;
+padding-right:1.5em;
+text-align:left;
+transform-text:uppercase;
+font-weight:bold;
+text-decoration:none;
+white-space:nowrap;
+}
+
+.data-table td.last {
+padding-right:0px;
+}
+
+.continue-shopping{
+float:left;
+color:white;
+margin-top:30px;
+background:#999999;
+border:none;
+height:2.5em;
+text-transform:uppercase;
+}
+
+.dd-qty{
+float:left;
+margin-left:12px;
+width:30% !important;
+}
+
+.checkout-types li{
+}
+
+.checkout-types a{
+float:right;
+margin-top:30px;
+color:black;
+background:#FCCA21;
+border:none;
+font-weight:bold;
+text-transform:uppercase;
+text-decoration:none;
+padding:0em;
+height:2.5em;
+width:14em;
+padding-left:2em;
+padding-top:1em;
+}
