@@ -26,21 +26,24 @@
 ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <?php $_orders = $this->getOrders(); ?>
+<!--
 <div class="page-head">
     <h3><?php echo $this->__('My Orders') ?></h3>
 </div>
 <?php //echo $this->getPagerHtml(); ?>
+-->
+
 <?php if($_orders->getSize()): ?>
 
-        <?php foreach ($_orders as $_order): ?>  <!-- cicla e costruisce la tabella degli ordini -->
+    <?php foreach ($_orders as $_order): ?>  <!-- cicla e costruisce la tabella degli ordini -->
 	<!-- HEADER DELL'ORDINE -->
-	  <p>ORDINE EFFETTUATO IN DATA <?php echo $this->formatDate($_order->getCreatedAtStoreDate()) ?> (ALLE...) (COD. ORDINE <?php echo $_order->getRealOrderId() ?>)</p>
+	  <p class="order-header-summary">ORDINE EFFETTUATO IN DATA <?php echo $this->formatDate($_order->getCreatedAtStoreDate()) ?> <!--ALLE ... --> (COD. ORDINE <?php echo $_order->getRealOrderId() ?>)</p>
 	<!-- TABELLA DEGLI ITEMS DELL'ORDINE -->
 
 	<!-- inizio codice copiato da items.phtml -->
 	
 	  <?php //$_order = $this->getOrder() ?> <!-- noi ce l'abbiamo già -->
-	  <table cellspacing="0" class="data-table" id="my-orders-table">
+	  <table cellspacing="0" class="" id="my-orders-table">
 	    <col />
 	    <col width="25%" />
 	    <col width="1" />
@@ -48,11 +51,11 @@
 	    <col width="1" />
 	    <thead>
 	      <tr>
-		<th><?php echo $this->__('Product Name') ?></th>
-		<th><?php echo $this->__('SKU') ?></th>
-		<th class="a-right"><?php echo $this->__('Price') ?></th>
-		<th class="a-center"><?php echo $this->__('Qty') ?></th>
-		<th class="a-right"><?php echo $this->__('Subtotal') ?></th>
+		<th><span class="table-th-text"><?php echo $this->__('Product Name') ?></span></th>
+		<th><span class="table-th-text"><?php echo $this->__('SKU') ?></span></th>
+		<th class="a-right"><span class="table-th-text"><?php echo $this->__('Price') ?></span></th>
+		<th class="a-center"><span class="table-th-text"><?php echo $this->__('Qty') ?></span></th>
+		<th class="a-right"><span class="table-th-text table-th-text-subtotal"><?php echo $this->__('Subtotal') ?></span></th>
 	      </tr>
 	      <!-- tr>
 	      <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
@@ -444,13 +447,32 @@
 	<!-- fine codice copiato da items.phtml -->
 
 	<!-- FOOTER DELL'ORDINE -->
+	  <!--
 	  <a href="<?php echo $this->getViewUrl($_order) ?>"><?php echo $this->__('View Order') ?></a>
-	  <p>INFO SPEDIZIONE<br/>Stato spedizione: <?php echo $this->__($_order->getStatusLabel()) ?></p>
-	  <p>INFO PAGAMENTO<br/>Tipologia pagamento: <?php echo $this->__($_order->getPayment()->getMethodInstance()->getTitle()) ?></p>
-        <?php endforeach; ?>
+	  -->
+	  <table class="info-table">
+	        <thead>
+    	        <tr>
+    	            <th><span class="table-th-text">INFO SPEDIZIONE<span></th>
+    	            <th><span class="table-th-text">INFO PAGAMENTO</span></th>
+    	        </tr>
+	        </thead>
+	        <tr>
+	            <td>Tipologia spedizione: ...</td>
+	            <td>Tipologia pagamento: <?php echo $this->__($_order->getPayment()->getMethodInstance()->getTitle()) ?></td>	        
+	        </tr>
+	        <tr>
+	            <td>Stato spedizione: <?php echo $this->__($_order->getStatusLabel()) ?></td>
+	            <td/>
+	        </tr>
+	  </table>
+    <?php endforeach; ?>
 <?php else: ?>
     <p><?php echo $this->__('You have placed no orders.'); ?></p>
 <?php endif ?>
 
+<p class="sales-history-p">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque. Aliquam at risus. Pellentesque dictum neque et ante. Aenean tempus porta est. Maecenas volutpat justo vel ligula. Nunc eu augue. Donec blandit nibh eu nunc. Sed iaculis turpis non quam. Phasellus ligula nisl, tempus ut, malesuada sed, fringilla ac, lacus. Nunc tempus facilisis sapien. Maecenas gravida commodo risus. Sed blandit viverra nisl. Aenean scelerisque, odio eget dignissim pretium, mi felis laoreet lorem, quis pharetra erat libero quis nibh. Fusce quis ligula in dolor porta imperdiet.
+</p>
 
 

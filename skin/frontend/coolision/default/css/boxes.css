@@ -653,20 +653,20 @@ h1#logo {
 .footer-container { /*border-top:15px solid #B6D1E2;*/ }
 .footer { width:930px; margin:0 auto; padding-bottom:5em; background-color:black; }
 .footer .store-switcher { display:inline; padding:0 10px 0 0; vertical-align:middle; }
-.footer .informational div { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
-.footer .informational label { color:#fff; font-weight:bold; padding-right:3px; }
-.footer .informational ul {
+.footer-container .informational div { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
+.footer-container .informational label { color:#fff; font-weight:bold; padding-right:3px; }
+.footer-container .informational ul {
     display:inline;
     }
-.footer .informational li {
+.footer-container .informational li {
     display:inline;
     background:url(../images/footer_informational_bg.gif) no-repeat 100% 50%;
     padding-right:8px;
     padding-left:4px;
     }
-.footer .informational li.last { background:none; padding-right:0; }
-.footer .informational a, .footer .informational a:hover { color:black; }
-.footer .informational a { text-decoration:none; }
+.footer-container .informational li.last { background:none; padding-right:0; }
+.footer-container .informational a, .footer-container .informational a:hover { color:black; }
+.footer-container .informational a { text-decoration:none; }
 .footer .legality {
     padding:0.5em 0;
     color:#ecf3f6;
@@ -817,24 +817,25 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
 
 
 /********************** Layered Navigation */
+.layered-nav { background:#222 url(../images/header_lines.png) repeat-x -15em; }
 .layered-nav .head {
     margin:0;
-/*    background:url(../images/layered_nav_head_bg.gif) no-repeat;*/
-    height:24px;
+    height:0.5em;
     }
 .layered-nav h3 { display:none; }
 .layered-nav .border-creator { border-style:solid; border-color:#ddd; border-width:1px; }
 .layered-nav h4 {
     margin:0;
-    border:1px solid #b9ccdd;
-    border-left:0;
-    border-right:0;
-    padding:3px 10px;
-    background:url(../images/layered_nav_narrowed_category_heading.gif) #d5e8ff;
-    color:#1f5070;
+    padding:1px 1em;
+    color:black;
     font-weight:bold;
     font-size:1em;
+    background-color:#fcca20;
     }
+.layered-nav select { width:100%; }
+.layered-nav #narrow-by-list {  }
+.layered-nav #narrow-by-list dd.odd { background:none; }
+.layered-nav #narrow-by-list dt { color:white; }
 .layered-nav .narrowed-category li { background:url(../images/narrow_category_bg.gif) repeat-x 0 100% #fff; padding:4px 6px 4px 10px; }
 .layered-nav .narrowed-category li .label {
     background:url(../images/narrow_by_li_by.gif) no-repeat 0 .2em;
@@ -1561,23 +1562,16 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 
 /* Dashboard */
 .account-box {
-/*    margin-bottom:20px;*/
-/*    border:1px solid #ccc;*/
-/*    border-right-color:#999;*/
-/*    border-bottom-color:#999;*/
-/*    background:url(../images/account_box_bg.gif) repeat-x #fff;*/
-/*    padding:15px;*/
     border-collapse:collapse;
     width:100%;
     color:#999;
     }
 .account-box .account-col-left,
 .account-box .account-col-right {
-/*    padding: 0 1em;*/
-    width:48%;
+    width:37.3em;
     }
 
-.account-box > div { height:20em; }
+.account-box > div { height:40em; }
 
 .account-box .account-col-left {
     float:left;
@@ -1642,14 +1636,51 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
     padding:0;
 }
 
+/* Link bars */
+.account-box .account-col-right .link-bar { position:absolute; bottom:0; width:37.3em; /*border:1px solid red;*/ }
+.account-box .account-col-right .link-bar-delivery-status,
+.account-box .account-col-right .link-bar-cart,
+.account-box .account-col-right .link-bar-wishlist { padding:0.4em 0.8em; font-weight:bold; }
 
+.account-box .account-col-right .link-bar-counter { float:right; margin-right:20%; }
+.account-box .account-col-right .goto { float:right; }
+
+.account-box .account-col-right .link-bar-delivery-status {
+    background-color:#999;
+    color:white;
+    }
+.account-box .account-col-right .link-bar-cart {
+    background-color:#fcca20;
+    color:black;
+    }
+.account-box .account-col-right .link-bar-wishlist {
+    background-color:#666;
+    color:white;
+    }
+.account-box .account-col-right .bar-newsletter {
+    background-color:#ddd;
+    padding:0 1em 1em 1em;
+    }
+
+.account-box .account-col-right .link-bar-delivery-status a { 
+    text-decoration:none; 
+    color:white; 
+/*    padding:0.5em 24em 0.5em 0; */
+    }
+.account-box .account-col-right .link-bar-cart a { text-decoration:none; color:black;}
+.account-box .account-col-right .link-bar-wishlist a { text-decoration:none; color:white; }
+
+.account-box .account-col-right .bar-newsletter .mini-newsletter .head { display:none;}
+.account-box .account-col-right .bar-newsletter .mini-newsletter .content {background:#ddd;}
+
+/* Form button */
 .account-box .form-button { 
     background-color:#fcca20;
     border:0;
     color:black;
     }
 
-/* debug */
+/**** Address table: only 4 debug purposes ***/
 /*.account-box table {border-collapse:collapse;}*/
 /*.account-box td {border:1px solid red; padding: 0 3px; }*/
 /*********/
@@ -1709,6 +1740,26 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 
 /* Account Order History */
 .sales-order-view .checkmo-mailing-address { display:block; padding-left:20px; }
+.sales-order-history .middle { padding-bottom:1em; }
+
+.sales-order-history p.order-header-summary { font-weight:bold; }
+.sales-order-history table { border:none; width:100% }
+.sales-order-history table.info-table { margin-bottom:6em; }
+
+.sales-order-history thead tr th { 
+    background:none; 
+    color:white; 
+    text-transform:uppercase;
+    text-align:center; 
+    font-weight:bold;
+    border:none;
+    border-bottom:2px solid black !important;
+    }
+.sales-order-history thead tr .table-th-text { background-color:#444; padding:0.3em 1em; }
+.sales-order-history thead tr th.a-right { border-bottom:2px solid #fcca20 !important; }
+.sales-order-history thead tr .table-th-text-subtotal { background-color:#fcca20; }
+
+.sales-order-history .sales-history-p { color:#bbb; font-size:90%; }
 
 /* Compare Products */
 .compare-products { margin:30px 0 50px 0; }

@@ -218,8 +218,9 @@ Customer account home dashboard layout
                 <block type="customer/account_dashboard_info" name="customer_account_dashboard_info" as="info" template="customer/account/dashboard/info.phtml"/>
                 <block type="customer/account_dashboard_newsletter" name="customer_account_dashboard_newsletter" as="newsletter" template="customer/account/dashboard/newsletter.phtml"/>
                 <block type="customer/account_dashboard_address" name="customer_account_dashboard_address" as="address" template="customer/account/dashboard/address.phtml">
-                    <block type="customer/address_edit" name="customer_address_edit" template="customer/address/edit.phtml"/>
+<!--                     <block type="customer/address_edit" name="customer_address_edit" template="customer/address/edit.phtml"/> -->
                 </block>
+		<block type="customer/address_edit" name="customer_address_edit" template="customer/address/edit.phtml"/>
                 <block type="core/template" name="customer_account_dashboard_info1" as="info1" />
                 <block type="core/template" name="customer_account_dashboard_info2" as="info2" />
 		<block type="customer/account_dashboard_info" name="customer_account_dashboard_link" as="link" template="customer/account/dashboard/link.phtml"/> 
