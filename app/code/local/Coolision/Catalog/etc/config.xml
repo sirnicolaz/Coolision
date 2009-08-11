@@ -10,6 +10,9 @@
 	<Coolision_Layer_Filter_Price>
 	  <version>0.1.0</version>
 	</Coolision_Layer_Filter_Price>
+	<Coolision_Navigation>
+	  <version>0.1.0</version>
+	</Coolision_Navigation>
     </modules>
     <global>
         <models>
@@ -29,6 +32,11 @@
 	    <rewrite>
               <layer_filter_price>Coolision_Catalog_Block_Layer_Filter_Price</layer_filter_price>
             </rewrite>
+	  </catalog>
+	  <catalog>
+	    <rewrite>
+              <navigation>Coolision_Catalog_Block_Navigation</navigation>
+        </rewrite>
 	  </catalog>
 	</blocks>
     </global>

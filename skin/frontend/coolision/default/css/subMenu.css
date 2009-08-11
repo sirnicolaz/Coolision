@@ -1,0 +1,16 @@
+ul.level0 li.sub-menu-top {
+display:block !important;
+float:left !important;
+text-transform:capitalize;
+padding:0px;
+margin:0px;
+}
+
+ul.level0 {
+background:black;
+padding-right:0px;
+}
+
+li.level0{
+width:90px;
+}
