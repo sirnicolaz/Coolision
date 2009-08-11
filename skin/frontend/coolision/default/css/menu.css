@@ -45,7 +45,7 @@
 /*#nav ul li.last { background:#ecf3f6; padding-bottom:0; }*/
 
 #nav ul a,
-#nav ul a:hover { float:none; padding:0; background:none; }
+#nav ul a:hover { float:none; background:none; }
 #nav ul li a { font-weight:normal !important; }
 
 #nav ul li a span { color:#fcca20;}
