@@ -39,23 +39,22 @@
 	      <select id="select-manufacturer" onchange="window.location=this.value">
 		<?php //foreach (Mage::helper('catalog/navigation')->getStoreCategories() as $_category): ?> 
 		  <?php //foreach ($_category->getChildren() as $_subCategory): ?> 
-		    DIO CAN
 		    <option value="<?php //$_subCategory->getUrl()?>"><?php //$_subCategory->getName() ?></option>
 		  <?php //endforeach; ?>
 		<?php //endforeach; ?>
 	      </select>
 	    <div/>-->
-            <?php $_filters = $this->getFilters() ?>
+            <?php $_filters = $this->getFilters() ?> <!-- recupera i filtri disponibili -->
             <?php foreach ($_filters as $_filter): ?>
                 <?php //if($_filter->getItemsCount()): ?>
-		  <?php if ($_filter->getName() == 'Category'): ?>
-		    <?php if ($_filter->getItemsCount() == 0): continue; endif; ?>
-		    <?php $_filter->setTemplate('catalog/layer/categoryFilter.phtml') ?>
+		  <?php if ($_filter->getName() == 'Category'): ?> <!-- se stiamo esaminando il filtro categoria -->
+		    <?php if ($_filter->getItemsCount() == 0): continue; endif; ?> <!-- se non ci sono categorie non far niente -->
+		    <?php $_filter->setTemplate('catalog/layer/categoryFilter.phtml') ?> <!-- se ci sono categorie cambia il template -->
 		  <?php endif; ?>
                     <div class="box mini-product-list-box">
-			<?php if ($_filter->getName() == 'Category'): ?>
+			<?php if ($_filter->getName() == 'Category'): ?> <!-- se stiamo esaminando il filtro categoria -->
 			  <div class="head"><?php echo $this->__('Cerca in') ?></div>
-			<?php else: ?>
+			<?php else: ?> <!-- altrimenti visualizza il nome del filtro come al solito -->
 			  <div class="head"><?php echo $this->__($_filter->getName()) ?></div>
 			<?php endif; ?>
                         <div class="content">
