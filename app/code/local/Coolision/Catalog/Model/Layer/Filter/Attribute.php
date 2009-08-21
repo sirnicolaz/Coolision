@@ -33,8 +33,7 @@
  */
 class Coolision_Catalog_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_Layer_Filter_Attribute
 {
-
-	  /**
+    /**
      * Get data array for building attribute filter items
      *
      * @return array
@@ -69,13 +68,13 @@ class Coolision_Catalog_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_
                                 'count' => $optionsCount[$option['value']],
                             );
                         }
-// 			else{ /* se decommentato fa vedere SEMPRE tutte le voci dei filtri.. anche quelle senza prodotti */
-//                             $data[] = array(
-//                                 'label' => $option['label'],
-//                                 'value' => $option['value'],
-//                                 'count' => 0,
-//                             );
-//                         }
+ 			else{ /* se decommentato fa vedere SEMPRE tutte le voci dei filtri.. anche quelle senza prodotti */
+                             $data[] = array(
+                                 'label' => $option['label'],
+                                 'value' => $option['value'],
+                                 'count' => 0,
+                             );
+                         }
                     }
                 }
             }
@@ -101,13 +100,13 @@ class Coolision_Catalog_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_
     public function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
     {
 	
-		// Isolate filter type
+	// Isolate filter type
         $filters = $request->getParam($this->_requestVar);
         if (is_array($filters)) {
             return $this;
         }
 		
-		//Get option value
+	//Get option value
         $text = $this->_getOptionText($filters);
 		//Verify that option value and filters are set
 		if ($filters) {

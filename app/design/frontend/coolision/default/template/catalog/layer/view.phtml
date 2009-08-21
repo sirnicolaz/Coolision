@@ -44,6 +44,26 @@
 		<?php //endforeach; ?>
 	      </select>
 	    <div/>-->
+
+<script language="JavaScript">  
+  function clearAll() {
+    /* recupero l'url corrente */
+    var url =  unescape("<?php echo "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>");
+    <?php $filtersName = $this->getFiltersName() ?>
+    <?php foreach($filtersName as  $filterName): ?>
+      /* per ogni filtro, se è applicato (cioè presente nell'url), lo tolgo */
+      /* 4 casi per eliminare un filtro dall'url (il ? non è supportato da IE5!!!) */
+      url = url.replace( /\?<?php echo $filterName ?>=.*?&/ , "?"); /* CASO 1: il filtro è il primo parametro ed è seguito da un secondo parametro*/
+      url = url.replace( /&<?php echo $filterName ?>=.*?&/ , "&"); /* CASO 3: il filtro non è il primo parametro ed è seguito da un altro parametro*/
+      url = url.replace( /[\?|&]<?php echo $filterName ?>=.*$/ , ""); /* CASO 2 o 4: il filtro è l'ultimo parametro*/
+    <?php endforeach; ?>
+    document.location = url;
+  }
+</script>
+
+	    <form id="clearForm" name="clearForm">
+	      <input type="button" name="clear" value="<?php echo $this->__('Clear All') ?>" OnClick="clearAll()">
+	    </form>
             <?php $_filters = $this->getFilters() ?> <!-- recupera i filtri disponibili -->
             <?php foreach ($_filters as $_filter): ?>
                 <?php //if($_filter->getItemsCount()): ?>

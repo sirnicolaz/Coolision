@@ -5,8 +5,8 @@
             <active>true</active>
 	    <codePool>local</codePool>
        </Coolision_Catalog>
-	   <Coolision_CatalogIndex>
-            <active>true</active>
+      <Coolision_CatalogIndex>
+           <active>true</active>
            <codePool>local</codePool>
        </Coolision_CatalogIndex>
 	   <Coolision_Core>
