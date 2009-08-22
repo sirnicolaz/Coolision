@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config>
-	<modules>
+    <modules>
         <Coolision_Layer_Filter_Attribute>
             <version>0.1.0</version>
         </Coolision_Layer_Filter_Attribute>
@@ -13,6 +13,12 @@
 	<Coolision_Navigation>
 	  <version>0.1.0</version>
 	</Coolision_Navigation>
+	<Coolision_Layer_View>
+	  <version>0.1.0</version>
+	</Coolision_Layer_View>
+	<Coolision_Layer_Filter_Abstract>
+	  <version>0.1.0</version>
+	</Coolision_Layer_Filter_Abstract>
     </modules>
     <global>
         <models>
@@ -21,7 +27,7 @@
                     <layer_filter_attribute>Coolision_Catalog_Model_Layer_Filter_Attribute</layer_filter_attribute>
                 </rewrite>
             </catalog>
-			<catalog>
+	    <catalog>
                 <rewrite>
                     <layer_filter_item>Coolision_Catalog_Model_Layer_Filter_Item</layer_filter_item>
                 </rewrite>
@@ -36,7 +42,17 @@
 	  <catalog>
 	    <rewrite>
               <navigation>Coolision_Catalog_Block_Navigation</navigation>
-        </rewrite>
+	    </rewrite>
+	  </catalog>
+	  <catalog>
+	    <rewrite>
+	      <layer_view>Coolision_Catalog_Block_Layer_View</layer_view>
+	    </rewrite>
+	  </catalog>
+	  <catalog>
+	    <rewrite>
+	      <layer_filter_abstract>Coolision_Catalog_Block_Layer_Filter_Abstract</layer_filter_abstract>
+	    </rewrite>
 	  </catalog>
 	</blocks>
     </global>

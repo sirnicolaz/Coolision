@@ -4,8 +4,8 @@
     /* Recupera l'item per il filtro (uno qualsiasi tanto a noi non interessa). Ce ne è sempre uno */
     var url =  unescape("<?php echo "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>");
 
-    url = url.replace( /\?price=.*&/ , "?"); /* CASO 1 */
-    url = url.replace( /&price=.*&/ , "&"); /* CASO 3 */
+    url = url.replace( /\?price=.*?&/ , "?"); /* CASO 1 NON SUPPORTATO IN IE 5! */
+    url = url.replace( /&price=.*?&/ , "&"); /* CASO 3 NON SUPPORTATO IN IE 5! */
     url = url.replace( /[\?|&]price=.*$/ , ""); /* CASO 2 o 4 */
 
     /* A questo punto o il prezzo non era impostato, o se lo era è stato rimosso dalla stringa parametri */
@@ -74,9 +74,9 @@
 </SCRIPT>
 
 <form id="priceForm" name="priceForm">
-  Da <input type=text id="priceFrom" name = "priceFrom"> €
-  A <input type=text id="priceTo" name = "priceTo"> €
-  <input type="button" name="submit" value="Filtra" OnClick="price(document.getElementById('priceFrom'), document.getElementById('priceTo'))">
+  Da <input type=text id="priceFrom" name = "priceFrom"/> €
+  A <input type=text id="priceTo" name = "priceTo"/> €
+  <input type="button" name="submit" value="Filtra" OnClick="price(document.getElementById('priceFrom'), document.getElementById('priceTo'))"/>
 </form> 
 
 
