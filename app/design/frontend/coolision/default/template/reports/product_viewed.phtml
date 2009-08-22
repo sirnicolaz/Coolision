@@ -25,12 +25,12 @@
  */
 ?>
 <?php if ($_products = $this->getRecentlyViewedProducts()): ?>
-<div class="box base-mini mini-product-view">
+<div class="box base-mini mini-product-view recently-viewed">
     <div class="head">
         <?php echo $this->__('Recently Viewed Products') ?>
     </div>
-	<input type="button" class="related-left-arrow" id="relatedLeftArrow" onclick="slideSet('left','recViewedIndex','recentlyViewedMenu');"/>
-	<input type="hidden" id="recViewedIndex" value="0"/>;
+	<input type="button" class="related-up-arrow" id="relatedUpArrow" onclick="slideSet('up','recViewedIndex','recentlyViewedMenu');" text="Sù"/>
+	<input type="hidden" id="recViewedIndex" value="0"/>
 	<div class="content"  id="contentRecViewed">
     <ul id="recentlyViewedMenu" class="recently-viewed-menu">
     <?php foreach ($_products as $_item): ?>
@@ -48,7 +48,7 @@
     <?php endforeach; ?>
     </ul>
 	</div>
-	<input type="button" class="related-right-arrow" value="" id="relatedRightArrow" onclick="slideSet('right','recViewedIndex','recentlyViewedMenu');" />
+	<input type="button" class="related-down-arrow" value="" id="relatedDownArrow" onclick="slideSet('down','recViewedIndex','recentlyViewedMenu');" text="Giù"/>
     <script type="text/javascript">decorateList('recently-viewed-items')</script>
 </div>
 <?php endif; ?>

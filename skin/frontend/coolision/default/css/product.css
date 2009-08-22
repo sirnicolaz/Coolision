@@ -44,7 +44,7 @@ margin-left:15px;
 
 .product-essential .product-shop{
 float:left;
-width:47%;
+width:49%;
 }
 
 .description-tab-menu-container ul{
@@ -92,7 +92,7 @@ color:white;
 .description-tab-menu-container {
 /*background:url(../images/product-separator.png) no-repeat bottom left;*/
 border-bottom:solid 1.5px #262626;
-width:405px;
+width:95%;
 height:22px;
 }
 
@@ -118,7 +118,9 @@ margin-left:20px;
 
 .configurable-attribute{
 float:left;
+margin-left:15px;
 margin-right:0px;
+width:40%;
 }
 
 .product-sum-link{
@@ -159,7 +161,6 @@ background:none;
 border:none;
 margin:0px;
 padding:0px;
-
 }
 
 .product-options dd{
@@ -203,18 +204,22 @@ margin-top:1.5em;
 }
 
 .product-sum-link{
-margin-left:20px;
+margin-left:0px;
+text-align:center;
 }
 
 .product-sum-link .sum-link{
-float:left;
+text-align:center;
 }
 
 .divider{
 height:1.5px;/* #262626 solid;*/
 background:#262626;
-width:450px;
+width:342px;
+margin-right:0px;
+padding-right:0px;
 }
+
 .product-sum-link .price-label{
 width:7em;
 height:1.4em;
@@ -235,11 +240,10 @@ text-align:right;
 padding:1px;
 padding-right:3px;
 margin-bottom:13px;
-margin-right:100px;
 }
 
 .price-container{
-margin-left:130px;
+margin-left:120px;
 }
 
 .add-to-box .wishlist-li{
@@ -249,12 +253,14 @@ height:1.9em;
 padding:0px;
 background:#4D4D4D;
 text-align:center;
+margin-right:27px;
+margin-left:35px;
 }
 
 .add-to-box{
 margin-top:4px;
-margin-right:60px;
-margin-left:60px;
+margin-right:0px;
+margin-left:0px;
 }
 
 .add-to-box .wishlist-li a{

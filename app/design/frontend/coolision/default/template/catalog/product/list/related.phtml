@@ -30,8 +30,8 @@
     <div class="head">
         <div><?php echo $this->__('Related Products') ?></div>
     </div>
-	<input type="button" class="related-left-arrow" id="relatedLeftArrow" onclick="slideSet('left','relatedIndex','relatedMenu');"/>
-	<input type="hidden" id="relatedIndex" value="0"/>;
+	<input type="button" class="related-up-arrow" id="relatedUpArrow" onclick="slideSet('up','relatedIndex','relatedMenu');" text="Sù"/>
+	<input type="hidden" id="relatedIndex" value="0"/>
     <div class="content" id="contentRelated">
         <!--<p><strong><?php echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this);return false;"><?php echo $this->__('select all') ?></a></strong></p>-->
         <ul class="related-menu" id="relatedMenu">
@@ -54,7 +54,7 @@
         <?php endforeach ?>
         </ul>
     </div>
-	<input type="button" class="related-right-arrow" value="" id="relatedRightArrow" onclick="slideSet('right','relatedIndex','relatedMenu');" />
+	<input type="button" class="related-down-arrow" value="" id="relatedDownArrow" onclick="slideSet('down','relatedIndex','relatedMenu');" text="Giù"/>
 </div>
 <script type="text/javascript">
 <!--
@@ -68,7 +68,7 @@ slideProdSet(0);
 
 //Prepare a 3-set product to show in list
 function slideSet(dir){
-if(dir=='left'){
+if(dir=='up'){
 	if(document.getElementById('relatedIndex').value>0){
 		var tmpIndex = 1;
 		tmpIndex=tmpIndex*1;
