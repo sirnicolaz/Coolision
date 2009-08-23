@@ -29,6 +29,7 @@
 <?php endif; ?>
 <h4 class="no-display"><?php echo $this->__("You're currently on:") ?></h4>
 <div class="under-menu">
+<div class="under-menu-aligner">
 <ul class="breadcrumbs">
     <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
       <?php if ($_crumbInfo['label'] !== "categories"): ?> <!-- non visualizza la root -->
@@ -49,4 +50,5 @@
 </ul>
 	<?php //echo $this->getLayout()->getBlock("top.search")->toHtml(); ?> 
 	<?php echo $this->getChildHtml('topSearch') ?> 
+	</div>
 </div>

@@ -52,11 +52,15 @@
 	$liNum = <?php echo $numLi;?>;
 	$liWidth = 100/$liNum;
 	$j = 0;
+	$first = true;
 	for($i=0; $i<$menuLi.length; $i++){
 		if(document.getElementById('nav').getElementsByTagName('li')[$i].className.indexOf("level0") != -1){
 			document.getElementById('nav').getElementsByTagName('li')[$i].style.width = $liWidth + "%";
-			$j = $i;
+			if($first){
+				$j = $i;
+				$first=false;
+			}
 		}
 	}
-	document.getElementById('nav').getElementsByTagName('li')[$j].id = "last";
+	document.getElementById('nav').getElementsByTagName('li')[$j].id = "first";
 </script>

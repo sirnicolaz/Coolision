@@ -27,7 +27,7 @@
 #nav li {position:relative; text-align:left; }
 #nav li.over { z-index:999; }
 #nav li.level0 > a{border-left:dotted 2px;}
-#nav > li#last a{border-right:dotted 2px;}
+#nav > li#first a{border:none;}
 #nav a,
 #nav a:hover { display:block; line-height:1.3em; text-decoration:none; }
 #nav span { display:block; cursor:pointer; white-space:nowrap; }
