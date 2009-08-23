@@ -24,8 +24,10 @@
 #nav { padding:0 20px; font-size:1.1em; text-transform:uppercase; }
 
 /************** ALL LEVELS  *************/ /* Style consistent throughout all nav levels */
-#nav li { position:relative; text-align:left; }
+#nav li {position:relative; text-align:left; }
 #nav li.over { z-index:999; }
+#nav li.level0 > a{border-left:dotted 2px;}
+#nav > li#last a{border-right:dotted 2px;}
 #nav a,
 #nav a:hover { display:block; line-height:1.3em; text-decoration:none; }
 #nav span { display:block; cursor:pointer; white-space:nowrap; }
@@ -34,7 +36,7 @@
 /************ 0 LEVEL  ***************/ /*Modified*/
 #nav li { float:left; }
 #nav li.active a { color:#d96708; }
-#nav a { float:left; padding:5px 12px 6px 8px; color:black; font-weight:bold; }
+#nav a { text-align:center;padding:5px 12px 6px 8px; color:black; font-weight:bold; }
 #nav li.over a,
 #nav a:hover { color:#fcca20; background:black;}
 
