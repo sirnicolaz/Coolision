@@ -24,6 +24,7 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/wishlist.css');?>" media="all" />
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <div class="page-head">
     <?php if($this->helper('wishlist')->isRssAllow() && $this->getWishlist()->getSize()): ?>
@@ -36,40 +37,58 @@
 <form action="<?php echo $this->getUrl('*/*/update') ?>" method="post">
     <?php echo $this->getBlockHtml('formkey')?>
     <table cellspacing="0" width="100%" class="data-table box-table" id="wishlist-table">
-    <col width="130" />
-    <col width="300" />
-    <col />
-    <col />
-        <thead>
-            <tr>
-                <th><?php echo $this->__('Product') ?></th>
-                <th><?php echo $this->__('Comment') ?></th>
-                <th><?php echo $this->__('Added On') ?></th>
-                <th class="a-center">&nbsp;</th>
-            </tr>
-        </thead>
+    <col width="330" />
+    <col width="330" />
+	<col width="330" />
+   <!-- <col />
+    <col />-->
         <tbody>
+		<?php $i=1; ?>
+			<tr>
         <?php foreach($this->getWishlist() as $item): ?>
-            <tr>
+			<?php if($i > 3):?>
+				<?php $i=1; ?>
+			</tr>
+			<tr>
+				<td>
+					<div class="wishlist-left">
+						<div><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></div>
+						<div><?php echo $item->getResource()->getAttribute('categoria')->getFrontend()->getValue($item); ?></div>
+						<div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 113); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
+						<div><?php echo $item->getShortDescription();?></div>
+					</div>
+					<div class="wishlist-right">
+	                    <div><?php echo $this->getPriceHtml($item) ?></div>
+						<div><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
+						<div><?php if($item->isSaleable()): ?>
+	                    <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Add to Cart') ?></a><br />
+						<?php endif; ?>
+	                    <a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove Item') ?></a>
+						</div>
+					</div>
+				</td>
+            <?php else: ?>
                 <td>
-                    <div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 113); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
-                    <div><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></div>
-                    <?php echo $this->getPriceHtml($item) ?>
-                </td>
-                <td align="center">
-                    <textarea name="description[<?php echo $item->getWishlistItemId() ?>]" rows="3" cols="3" style="width:95%;height:160px;" onfocus="focusComment(this)" onblur="focusComment(this)"><?php echo ( $this->getEscapedDescription($item) ) ? $this->getEscapedDescription($item) : $this->helper('wishlist')->defaultCommentString() ?></textarea>
-                </td>
-                <td>
-                    <?php echo $this->getFormatedDate($item->getAddedAt()) ?>
-                </td>
-                <td class="a-center">
-                <?php if($item->isSaleable()): ?>
-                    <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Add to Cart') ?></a><br />
-                <?php endif; ?>
-                    <a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove Item') ?></a>
-                </td>
-            </tr>
+					<div class="wishlist-left">
+						<div><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></div>
+						<div><?php echo $item->getResource()->getAttribute('categoria')->getFrontend()->getValue($item); ?></div>
+						<div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 113); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
+						<div><?php echo $item->getShortDescription();?></div>
+					</div>
+					<div class="wishlist-right">
+	                    <div><?php echo $this->getPriceHtml($item) ?></div>
+						<div><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
+						<div><?php if($item->isSaleable()): ?>
+	                    <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Add to Cart') ?></a><br />
+						<?php endif; ?>
+	                    <a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove Item') ?></a>
+						</div>
+					</div>
+				</td>
+			<?php endif; ?>
+			<?php $i++; ?>
         <?php endforeach ?>
+		</tr>
         </tbody>
     </table>
 <script type="text/javascript">decorateTable('wishlist-table')</script>
