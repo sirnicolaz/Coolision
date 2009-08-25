@@ -82,6 +82,9 @@ Category default layout
         <reference name="content">
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+		    <action method="addAttribute"><attribute>Manufacturer</attribute></action>
+		    <action method="addAttribute"><attribute>TipologiaCapo</attribute></action>
+		    <action method="addAttribute"><attribute>Size</attribute></action>
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
                         <!-- The following code shows how to set your own pager increments -->
                         <!--

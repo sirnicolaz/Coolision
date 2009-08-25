@@ -31,12 +31,12 @@
  * @see Mage_Catalog_Block_Product_List
  */
 ?>
-<?php $_productCollection=$this->getLoadedProductCollection() ?>
-<?php if(!$_productCollection->count()): ?>
+<?php $_productCollection=$this->getLoadedProductCollection() ?> <?php /* carica la collezione di prodotti */ ?>
+<?php if(!$_productCollection->count()): ?> <?php /* se è vuota */ ?>
 <div class="note-msg">
     <?php echo $this->__('There are no products matching the selection.') ?>
 </div>
-<?php else: ?>
+<?php else: ?> <?php /* se ci sono prodotti da visualizzare */ ?>
 
 <?php echo $this->getToolbarHtml() ?>
 <?php // List mode ?>
@@ -62,8 +62,15 @@
         <!--div class="clear"></div-->
         <td class="description">
             <?php echo nl2br($_product->getShortDescription()) ?>
+	    <?php /* info aggiuntive sul prodotto */ ?>
+	    <?php echo '<br/><br/>' ?>
+	    <?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
+	    <?php echo 'Categoria: '.$_product->getAttributeText('tipologia_capo').'<br/>' ?>
+	    <?php echo 'Taglie'.$_product->getAttributeText('size').'<br/>' ?>
+	    <?php /* pulsante scheda prodotto */ ?>
             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><small><br/><?php echo $this->__('Maggiori informazioni') ?></small></a>
         </td>
+	<?php /* prezzo */ ?>
         <td class="last-item">
             <?php echo $this->getPriceHtml($_product, true) ?>
             <?php if(!$_product->isSaleable()): ?>

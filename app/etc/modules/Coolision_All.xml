@@ -9,9 +9,5 @@
            <active>true</active>
            <codePool>local</codePool>
        </Coolision_CatalogIndex>
-	   <Coolision_Core>
-            <active>true</active>
-           <codePool>local</codePool>
-       </Coolision_Core>
     </modules>
 </config>

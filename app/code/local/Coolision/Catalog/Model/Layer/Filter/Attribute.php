@@ -68,13 +68,13 @@ class Coolision_Catalog_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_
                                 'count' => $optionsCount[$option['value']],
                             );
                         }
- 			else{ /* se decommentato fa vedere SEMPRE tutte le voci dei filtri.. anche quelle senza prodotti */
-                             $data[] = array(
-                                 'label' => $option['label'],
-                                 'value' => $option['value'],
-                                 'count' => 0,
-                             );
-                         }
+//  			else{ /* se decommentato fa vedere SEMPRE tutte le voci dei filtri.. anche quelle senza prodotti */
+//                              $data[] = array(
+//                                  'label' => $option['label'],
+//                                  'value' => $option['value'],
+//                                  'count' => 0,
+//                              );
+//                          }
                     }
                 }
             }

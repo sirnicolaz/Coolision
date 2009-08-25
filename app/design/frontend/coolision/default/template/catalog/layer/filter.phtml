@@ -31,30 +31,50 @@
  * @see Mage_Catalog_Block_Layer_Filter
  */
 ?>
+<!-- se il filtro è applicato visualizzo il valore che è applicato -->
+<!-- ottengo la collezione di filtri attivi (SPONO recuperarla per ogni filtro... ma per ora è così) -->
+<?php $filters = $this->getLayer()->getState()->getFilters() ?>
+<?php if (!empty($filters)): ?>
+  <?php foreach ($filters as $filter): ?>
+    <?php if ($this->getName() == $filter->getName()): ?>
+      <input type='checkbox'
+	    id='<?php echo $filter->getName() ?>'
+            name='<?php echo $filter->getName() ?>'
+            value='<?php echo $filter->getLabel() ?>'
+            onClick="window.location='<?php echo $filter->getRemoveUrl() ?>'; return true;"
+	    checked='checked'
+      />
+
+    <label for="<?php echo $filter->getName() ?>"><?php echo $filter->getLabel() ?></label>
+    <br/>
+    <?php endif; ?>
+  <?php endforeach; ?>
+<?php endif; ?>
+
+<!-- scorre le items disponibili per il filtro e visualizza le varie voci con i checkbox (se il filtro è applicato l'array è vuoto) -->
 <?php foreach ($this->getItems() as $_item): ?>
     <!--
-    <a href="<?php echo $_item->getUrl() ?>"></a>
-    (<?php echo $_item->getCount() ?>)<a href="<?php echo $_item->getRemoveUrl() ?>">Remove</a>
+    <a href="<?php //echo $_item->getUrl() ?>"></a>
+    (<?php //echo $_item->getCount() ?>)<a href="<?php //echo $_item->getRemoveUrl() ?>">DIO</a>
     -->
     
     <!-- 
         The onClick() javascript code must be inline, because it has some parts that
         must be filled by php and these parts are different for every checkbox
      -->
-    <input type="checkbox"
-            id="<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>" 
-            name="<?php echo $_item->getLabel() ?>"
-            value="<?php echo $_item->getValueString() ?>"
+    <input type='checkbox'
+            id='<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>'
+            name='<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>'
+            value='<?php echo $_item->getValueString() ?>'
             onClick="
-					if(document.getElementById('<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>').checked){
-						window.location='<?php echo $_item->getUrl() ?>'; return true;
-					
-					}
-					else{
-								window.location='<?php echo $_item->getRemoveUrl() ?>'; return true;
-					}
+	      if(document.getElementById('<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>').checked){
+		window.location='<?php echo $_item->getUrl() ?>'; return true;
+	      }
+	      else{
+		window.location='<?php echo $_item->getRemoveUrl() ?>'; return true;
+	      }
             "/>
-    <label for="<?php echo $_item->getLabel() ?>"><?php echo $_item->getLabel() ?></label>
+    <label for="<?php echo $this->getName() ?>-<?php echo $_item->getValueString() ?>"><?php echo $_item->getLabel() ?></label>
     <br/>
 	<script>
 	//Verify that category filter requestvar is written in URL
@@ -62,12 +82,12 @@
 	var thisReqUri = '<?php echo $_item->getFilter()->getRequestVar() ?>';
 	var set = false;
 	if(reqUri.match(/\?<?php echo $_item->getFilter()->getRequestVar() ?>/)){
-		set=true;
+	  set=true;
 	}
 	else if(reqUri.match(/&<?php echo $_item->getFilter()->getRequestVar() ?>/)){
-		set=true;
+	  set=true;
 	}
-	//Check if item value is set in reqVar parameters
+	//Check if item value is set in reqVar parameters (per il prezzo scazza, credo...)
 	if(set){
 		//if(reqUri.match(/\?<?php echo $_item->getFilter()->getRequestVar() ?>=([0-9]*-)*<?php echo $_item->getValueString() ?>(-[0-9]*)*?[&|$]/) || reqUri.match(/&<?php echo$_item->getFilter()->getRequestVar() ?>=([0-9]*-)*<?php echo $_item->getValueString() ?>(-[0-9]*)*?[&|$]/)){
 		if(reqUri.match(/\?<?php echo $_item->getFilter()->getRequestVar() ?>=([0-9]*-)*<?php echo $_item->getValueString() ?>(-[0-9]*)*/) || reqUri.match(/&<?php echo$_item->getFilter()->getRequestVar() ?>=([0-9]*-)*<?php echo $_item->getValueString() ?>(-[0-9]*)*/)){
