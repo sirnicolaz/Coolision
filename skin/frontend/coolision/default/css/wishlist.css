@@ -2,10 +2,40 @@
 float:left;
 }
 
+.wishlist-left .product-name{
+font-weight:bold;
+}
+
+.wishlist-left .product-name a{
+color:#262626 !important;
+text-decoration:none !important;
+}
+
+.wishlist-left .product-category{
+color:#B3B3B3 !important;
+font-weight:bold;
+}
+
+.wishlist-left .product-description{
+color:#B3B3B3 !important;
+font-weight:bold;
+}
+
 .wishlist-right div{
 float:rihgt;
 text-align:right;
 font-size:11px;
+}
+
+.wishlist-right .price-head{
+text-align:right;
+background: url(../images/wishlist-price_box.png) no-repeat top right;
+}
+
+.wishlist-right .price-head span{
+padding:5px 5px 5px 4px;
+color:black;
+text-transform:uppercase;
 }
 
 #wishlist-table td{
