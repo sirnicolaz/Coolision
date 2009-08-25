@@ -208,7 +208,7 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
                 $this->_createItem($this->_renderItemLabel($range, $index), $filter)
             );
 
-            //$this->_items = array();
+            $this->_items = array();
         }
         return $this;
     }

@@ -79,33 +79,7 @@ class Mage_CatalogIndex_Model_Mysql4_Attribute extends Mage_CatalogIndex_Model_M
         return $counts;
     }
 
-	//Viene definita temporaneamente la nuova funzione direttamente nella classe originaria per problemi con la ridefinizione
-	public function applyFilterToCollection($collection, $attribute, $value)
-	{
-		$alias = 'attr_index_'.$attribute->getId();
-// 		echo "applyfiltertocollection";
-		//Build query string
-		$query=$alias.'.value = ?';
-		$val=$value[0];
-		foreach($value as $v)
-		{
-			if($v!==$val)
-				$query = $query.' OR '.$alias.'.value = '.$v;
-		}
-		
-        $collection->getSelect()->join(
-            array($alias => $this->getMainTable()),
-            $alias.'.entity_id=e.entity_id',
-            array()
-        )
-        ->where($alias.'.store_id = ?', $this->getStoreId())
-        ->where($alias.'.attribute_id = ?', $attribute->getId())
-        ->where($query, $val);
-        return $this;
-	}
-	
-	
-    public function applyFilterToCollectionBak($collection, $attribute, $value)
+    public function applyFilterToCollection($collection, $attribute, $value)
     {
         /**
          * Will be used after SQL review
@@ -114,6 +88,7 @@ class Mage_CatalogIndex_Model_Mysql4_Attribute extends Mage_CatalogIndex_Model_M
 //            $collection->getSelect()->where("e.{$attribute->getAttributeCode()}=?", $value);
 //            return $this;
 //        }
+
         $alias = 'attr_index_'.$attribute->getId();
         $collection->getSelect()->join(
             array($alias => $this->getMainTable()),

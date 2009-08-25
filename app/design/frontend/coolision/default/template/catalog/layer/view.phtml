@@ -66,21 +66,22 @@
 	    </form>
             <?php $_filters = $this->getFilters() ?> <!-- recupera i filtri disponibili -->
             <?php foreach ($_filters as $_filter): ?>
-                <?php //if($_filter->getItemsCount()): ?>
-		  <?php if ($_filter->getName() == 'Category'): ?> <!-- se stiamo esaminando il filtro categoria -->
-		    <?php if ($_filter->getItemsCount() == 0): continue; endif; ?> <!-- se non ci sono categorie non far niente -->
-		    <?php $_filter->setTemplate('catalog/layer/categoryFilter.phtml') ?> <!-- se ci sono categorie cambia il template -->
+	      <?php //if($_filter->getItemsCount()): ?> <!-- se il filtro ha item lo visualizzi, altrimenti no (A NOI NON SERVE PERCHE' LI VISUALIZZIAMO TUTTI) -->
+		<?php if ($_filter->getName() == 'Category'): ?> <!-- se stiamo esaminando il filtro categoria -->
+		  <?php if ($_filter->getItemsCount() == 0): continue; endif; ?> <!-- se non ci sono categorie non far niente (???) -->
+		  <?php $_filter->setTemplate('catalog/layer/categoryFilter.phtml') ?> <!-- se ci sono categorie cambia il template -->
+		<?php endif; ?>
+		<div class="box mini-product-list-box">
+		  <?php if ($_filter->getName() == 'Category'): ?> <!-- se stiamo esaminando il filtro categoria visualizza "Cerca in" -->
+		    <div class="head"><?php echo $this->__('Cerca in') ?></div>
+		  <?php else: ?> <!-- altrimenti visualizza il nome del filtro come al solito -->
+		    <div class="head"><?php echo $this->__($_filter->getName()) ?></div>
 		  <?php endif; ?>
-                    <div class="box mini-product-list-box">
-			<?php if ($_filter->getName() == 'Category'): ?> <!-- se stiamo esaminando il filtro categoria -->
-			  <div class="head"><?php echo $this->__('Cerca in') ?></div>
-			<?php else: ?> <!-- altrimenti visualizza il nome del filtro come al solito -->
-			  <div class="head"><?php echo $this->__($_filter->getName()) ?></div>
-			<?php endif; ?>
-                        <div class="content">
-                            <?php echo $_filter->getHtml() ?>
-                        </div>
-                    </div>
+		  <div class="content"> <!-- filtro vero e proprio (i vari item) -->
+		    <?php echo $_filter->getHtml() ?>
+		  </div>
+		</div>
+	      <?php //endif; ?>
             <?php endforeach; ?>     
         <?php //endif; ?>
 

@@ -1,27 +1,28 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Coolision_Layer_Filter_Attribute>
+        <!--<Coolision_Layer_Filter_Attribute>
             <version>0.1.0</version>
-        </Coolision_Layer_Filter_Attribute>
-        <Coolision_Layer_Filter_Item>
-            <version>0.1.0</version>
-        </Coolision_Layer_Filter_Item>
-	<Coolision_Layer_Filter_Price>
+        </Coolision_Layer_Filter_Attribute>-->
+	<!--<Coolision_Layer_Filter_Item>
+	    <version>0.1.0</version>
+	</Coolision_Layer_Filter_Item>-->
+	<!--<Coolision_Layer_Filter_Price>
 	  <version>0.1.0</version>
-	</Coolision_Layer_Filter_Price>
+	</Coolision_Layer_Filter_Price>-->
 	<Coolision_Navigation>
 	  <version>0.1.0</version>
 	</Coolision_Navigation>
 	<Coolision_Layer_View>
 	  <version>0.1.0</version>
 	</Coolision_Layer_View>
+	<!-- ma non va -->
 	<Coolision_Layer_Filter_Abstract>
 	  <version>0.1.0</version>
 	</Coolision_Layer_Filter_Abstract>
     </modules>
     <global>
-        <models>
+<!--        <models>
             <catalog>
                 <rewrite>
                     <layer_filter_attribute>Coolision_Catalog_Model_Layer_Filter_Attribute</layer_filter_attribute>
@@ -32,13 +33,13 @@
                     <layer_filter_item>Coolision_Catalog_Model_Layer_Filter_Item</layer_filter_item>
                 </rewrite>
             </catalog>
-        </models>
+        </models>-->
 	<blocks>
-	  <catalog>
+	  <!--<catalog>
 	    <rewrite>
               <layer_filter_price>Coolision_Catalog_Block_Layer_Filter_Price</layer_filter_price>
             </rewrite>
-	  </catalog>
+	  </catalog>-->
 	  <catalog>
 	    <rewrite>
               <navigation>Coolision_Catalog_Block_Navigation</navigation>
@@ -49,6 +50,7 @@
 	      <layer_view>Coolision_Catalog_Block_Layer_View</layer_view>
 	    </rewrite>
 	  </catalog>
+	  <!-- ma non va -->
 	  <catalog>
 	    <rewrite>
 	      <layer_filter_abstract>Coolision_Catalog_Block_Layer_Filter_Abstract</layer_filter_abstract>
