@@ -60,10 +60,12 @@
 					<div class="wishlist-right">
 	                    <div><?php echo $this->getPriceHtml($item) ?></div>
 						<div><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
-						<div><?php if($item->isSaleable()): ?>
-	                    <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Add to Cart') ?></a><br />
+						<div class="view-button"><a href="<?php echo $item->getProductUrl() ?>">View</a></div>
+						<div class="remove-button"><a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove') ?></a>
+						</div>
+						<div class="cart-button"><?php if($item->isSaleable()): ?>
+	                    <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Cart') ?></a><br />
 						<?php endif; ?>
-	                    <a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove Item') ?></a>
 						</div>
 					</div>
 				</td>
@@ -78,10 +80,12 @@
 					<div class="wishlist-right">
 	                    <div><?php echo $this->getPriceHtml($item) ?></div>
 						<div><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
-						<div><?php if($item->isSaleable()): ?>
-	                    <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Add to Cart') ?></a><br />
+						<div class="view-button"><a href="<?php echo $item->getProductUrl() ?>">View</a></div>
+						<div class="remove-button"><a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove') ?></a>
+						</div>
+						<div class="cart-button"><?php if($item->isSaleable()): ?>
+	                    <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Cart') ?></a><br />
 						<?php endif; ?>
-	                    <a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove Item') ?></a>
 						</div>
 					</div>
 				</td>

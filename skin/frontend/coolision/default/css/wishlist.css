@@ -1,0 +1,84 @@
+.wishlist-left{
+float:left;
+}
+
+.wishlist-right div{
+float:rihgt;
+text-align:right;
+font-size:11px;
+}
+
+#wishlist-table td{
+height:27em;
+}
+
+.wishlist-right .view-button{
+margin-top:10px;
+margin-bottom:12px;
+}
+
+.wishlist-right .view-button a{
+background: url(../images/wishlist-view_button.png) no-repeat top left;
+padding:0.25em 4.1em 0.5em 1em;
+text-align:left;
+text-decoration:none;
+color:white;
+text-transform:uppercase;
+font-weight:bold;
+}
+
+.wishlist-right .remove-button {
+margin-bottom:12px;
+}
+
+.wishlist-right .remove-button a{
+background:url(../images/wishlist-remove_button.png) no-repeat top left;
+padding:0.3em 2.5em 0.2em 1em;
+text-align:left;
+text-transform:uppercase;
+font-weight:bold;
+text-decoration:none;
+color:white !important;
+}
+
+.wishlist-right .cart-button{
+margin-bottom:12px;
+}
+
+.wishlist-right .link-cart{
+background:url(../images/wishlist-add2cart_button.png) no-repeat top left;
+padding:0.25em 5.4em 0.3em 0.55em;
+text-align:left;
+text-decoration:none;
+text-transform:uppercase;
+color:black !important;
+}
+
+.data-table .even {
+background:none !important;
+}
+
+.data-table tbody td{
+border:none;
+}
+
+.data-table .odd{
+background:none;
+}
+.data-table{
+border:none;
+}
+
+.page-head{
+margin:0px;
+border-bottom:solid 1px #262626;
+}
+
+.page-head h3{
+background:url(../images/wishlist-head.png) no-repeat top left;
+color:white !important;
+padding-left:1em;
+padding-top:0.2em;
+font-size:15px !important;
+text-transform:uppercase !important;
+}
