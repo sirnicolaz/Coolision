@@ -52,12 +52,13 @@
 			<tr>
 				<td>
 					<div class="wishlist-left">
-						<div><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></div>
-						<div><?php echo $item->getResource()->getAttribute('categoria')->getFrontend()->getValue($item); ?></div>
-						<div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 113); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
-						<div><?php echo $item->getShortDescription();?></div>
+						<div class="product-name"><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></div>
+						<div class="product-category"><?php echo $item->getResource()->getAttribute('categoria')->getFrontend()->getValue($item); ?></div>
+						<div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 133); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
+						<div class="product-description"><?php echo $item->getShortDescription();?></div>
 					</div>
 					<div class="wishlist-right">
+						<div class="price-head"><span>Price</span></div>
 	                    <div><?php echo $this->getPriceHtml($item) ?></div>
 						<div><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
 						<div class="view-button"><a href="<?php echo $item->getProductUrl() ?>">View</a></div>
@@ -72,12 +73,13 @@
             <?php else: ?>
                 <td>
 					<div class="wishlist-left">
-						<div><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></div>
-						<div><?php echo $item->getResource()->getAttribute('categoria')->getFrontend()->getValue($item); ?></div>
+						<div class="product-name"><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></div>
+						<div class="product-category"><?php echo $item->getResource()->getAttribute('categoria')->getFrontend()->getValue($item); ?></div>
 						<div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 113); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
-						<div><?php echo $item->getShortDescription();?></div>
+						<div class="product-description"><?php echo $item->getShortDescription();?></div>
 					</div>
 					<div class="wishlist-right">
+						<div class="price-head"><span>Price</span></div>
 	                    <div><?php echo $this->getPriceHtml($item) ?></div>
 						<div><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
 						<div class="view-button"><a href="<?php echo $item->getProductUrl() ?>">View</a></div>
