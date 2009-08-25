@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <config>
 	<modules>
-        <Coolision_Url>
+        <!-- <Coolision_Url>
             <version>0.1.0</version>
-        </Coolision_Url>
+        </Coolision_Url> -->
     </modules>
     <global>
         <models>
-            <core>
+            <!-- <core>
                 <rewrite>
                     <url>Coolision_Core_Model_Url</url>
                 </rewrite>
-            </core>
+            </core> -->
         </models>
     </global>
 </config>

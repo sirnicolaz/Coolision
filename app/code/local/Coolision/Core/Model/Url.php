@@ -152,6 +152,7 @@ class Coolision_Core_Model_Url extends Mage_Core_Model_Url
      */
     public function getUrl($routePath=null, $routeParams=null)
     {
+	echo "foo";
         $escapeQuery = false;
 
         /**
