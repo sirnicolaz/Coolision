@@ -178,7 +178,7 @@ Product view
         <!-- Mage_Catalog -->
 		<!-- Remove not requested sidebars :-->
 			<!-- Begin -->
-			<remove name="wishlist_sidebar"></remove>
+			<!--<remove name="wishlist_sidebar"></remove>-->
 			<remove name="catalog.compare.sidebar"></remove>
 			<remove name="sale.reorder.sidebar"></remove>
 			<remove name="cart_sidebar"></remove>
