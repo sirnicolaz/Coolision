@@ -31,6 +31,7 @@
  * @see Mage_Catalog_Block_Product_List
  */
 ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/productList.css');?>" media="all" />
 <?php $_productCollection=$this->getLoadedProductCollection() ?> <?php /* carica la collezione di prodotti */ ?>
 <?php if(!$_productCollection->count()): ?> <?php /* se è vuota */ ?>
 <div class="note-msg">
@@ -57,18 +58,19 @@
 
         <?php // Product description ?>
         <td class="name">
-            <h5><?php echo $this->htmlEscape($_product->getName()) ?></h5>
+			<h5><?php echo $this->htmlEscape($_product->getName()) ?></h5>
+			<!--<h3><?php /*echo $_product->getAttributeText('manufacturer').'<br/>'*/ ?></h4>-->
+			<h3><?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?></h4>
         </td>
         <!--div class="clear"></div-->
         <td class="description">
-            <?php echo nl2br($_product->getShortDescription()) ?>
+        <?php echo nl2br($_product->getShortDescription()) ?>
 	    <?php /* info aggiuntive sul prodotto */ ?>
 	    <?php echo '<br/><br/>' ?>
-	    <?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
-	    <?php echo 'Categoria: '.$_product->getAttributeText('tipologia_capo').'<br/>' ?>
-	    <?php echo 'Taglie'.$_product->getAttributeText('size').'<br/>' ?>
-	    <?php /* pulsante scheda prodotto */ ?>
-            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><small><br/><?php echo $this->__('Maggiori informazioni') ?></small></a>
+	   
+	    
+	    <!--<?php /* pulsante scheda prodotto */ ?>
+            <a href="<?php /*echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><small><br/><?php echo $this->__('Maggiori informazioni') */?></small></a>-->
         </td>
 	<?php /* prezzo */ ?>
         <td class="last-item">
@@ -90,7 +92,7 @@
 <div class="listing-type-grid catalog-listing">
 <?php $_collectionSize = $_productCollection->count() ?>
     <?php $i=0; foreach ($_productCollection as $_product): ?>
-        <?php if($i++%3==0): ?>
+        <?php if($i++%4==0): ?>
         <ol class="grid-row">
         <?php endif; ?>
             <li class="item">
@@ -124,7 +126,7 @@
                 </p>
                 -->
             </li>
-        <?php if($i%3==0 || $i==$_collectionSize): ?>
+        <?php if($i%4==0 || $i==$_collectionSize): ?>
         </ol>
         <?php endif; ?>
     <?php endforeach ?>
