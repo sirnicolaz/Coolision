@@ -77,6 +77,7 @@
                  <ul class="form-list" id="sender_options">
                        <li>
                             <div class="left">
+				<?php /* Campo per il nome di chi invia: preso dall'utente se è registrato, ma altrimenti?? */ ?>
                                 <label for="sender_name"><?php echo $this->__('Name:') ?> <span class="required">*</span></label><br/>
                                 <div style="width:250px"><input name="sender[name]" value="<?php echo $this->htmlEscape($this->getUserName()) ?>" title="<?php echo $this->__('Name') ?>" id="sender_name" type="text" class="input-text required-entry" style="width:250px;" /></div>
                             </div>
