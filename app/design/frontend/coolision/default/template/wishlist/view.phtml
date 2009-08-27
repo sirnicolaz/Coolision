@@ -73,7 +73,7 @@
                 <td>
 					<div class="wishlist-left">
 						<div><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($item->getName()) ?>"><?php echo $this->htmlEscape($item->getName()) ?></a></div>
-						<div><?php echo $item->getResource()->getAttribute('categoria')->getFrontend()->getValue($item); ?></div>
+<!-- 						<div><?php //echo $item->getResource()->getAttribute('categoria')->getFrontend()->getValue($item); ?></div> -->
 						<div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 113); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
 						<div><?php echo $item->getShortDescription();?></div>
 					</div>
