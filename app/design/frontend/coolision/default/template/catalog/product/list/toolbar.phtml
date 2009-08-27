@@ -61,10 +61,10 @@
             </td>
             
             <!-- PRODOTTI VISUALIZZATI -->
-            <td> <!--class="a-right"-->
+            <td class="viewedProduct"> <!--class="a-right"-->
                 <?php echo $this->__('Viewed product') ?> <!--<select onchange="setLocation(this.value)">-->
                 <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
-                    <a value="<?php echo $this->getLimitUrl($_key) ?>" href="<?php echo $this->getLimitUrl($_key) ?>" <?php if($this->isLimitCurrent($_key)): ?> class="selected" <?php endif ?>>
+                    <a value="<?php echo $this->getLimitUrl($_key) ?>" href="<?php echo $this->getLimitUrl($_key) ?>" class="<?php if($this->isLimitCurrent($_key)): ?>selected <?php endif ?><?php if($_limit=="All"):?>last<?php endif; ?>" >
                         <?php echo $_limit ?>
                     </a>
                 <?php endforeach; ?>
@@ -73,7 +73,11 @@
             
             <!-- MODALITA' VISUALIZZAZIONE -->
             <?php if( $this->isEnabledViewSwitcher() ): ?>
-            <td>
+			<?php if($this->getLastPageNum()>1): ?>
+            <td class="visualization">
+			<?php else: ?>
+			<td class="visualization last">
+			<?php endif; ?>
                 <?php $_modes = $this->getModes(); ?>
                 <?php if($_modes && count($_modes)>1): ?>
                 <?php echo $this->__('Visualization') ?>:

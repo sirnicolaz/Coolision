@@ -9,3 +9,42 @@ width:151px !important;
 .catalog-listing .listing-item:hover{
 background: url(../images/product-list_over-back.png) top left no-repeat;
 }
+
+.pager td.last {
+border:none;
+}
+
+.pager td.pages{
+border:none;
+}
+
+.pager td.viewedProduct{
+text-transform:uppercase;
+font-weight:bold;
+}
+
+.pager td.viewedProduct a{
+text-decoration:none;
+color:#3B3B3B;
+border-right: 1px solid #3B3B3B;
+margin-right:2px;
+margin-left:2px;
+}
+
+.pager td.viewedProduct a.last{
+border:none;
+}
+
+.pager td.viewedProduct a.selected{
+color:yellow;
+}
+
+.pager td.visualization{
+border:none;
+text-transform:uppercase;
+color:#3B3B3B;
+}
+
+.pager td.visualization img{
+vertical-align:middle;
+}
