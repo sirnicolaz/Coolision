@@ -58,9 +58,9 @@
 
         <?php // Product description ?>
         <td class="name">
-			<h5><?php echo $this->htmlEscape($_product->getName()) ?></h5>
+			<h5 style="float:left"><?php echo $this->htmlEscape($_product->getName()) ?></h5>
 			<!--<h3><?php /*echo $_product->getAttributeText('manufacturer').'<br/>'*/ ?></h4>-->
-			<h3><?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?></h4>
+			<div class="description" style="float:left";><?php echo $_product->getAttributeText('categoria').'<br/>' ?></div>
         </td>
         <!--div class="clear"></div-->
         <td class="description">
@@ -75,9 +75,9 @@
 	<?php /* prezzo */ ?>
         <td class="last-item">
             <?php echo $this->getPriceHtml($_product, true) ?>
-            <?php if(!$_product->isSaleable()): ?>
-                <div class="out-of-stock"><?php echo $this->__('Fuori stock') ?></div>
-            <?php endif; ?>
+            <!--<?php //if(!$_product->isSaleable()): ?>
+                <div class="out-of-stock"><?php //echo $this->__('Fuori stock') ?></div>
+            <?php //endif; ?>-->
         </td>
          </tr>
          </tbody>
@@ -106,11 +106,10 @@
                     <?php echo $this->htmlEscape($_product->getName()) ?>
                 </h5>
 		<?php /* info aggiuntive sul prodotto */ ?>
-		<?php echo '<br/><br/>' ?>
+		<?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?>
 		<?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
-		<?php echo 'Categoria: '.$_product->getAttributeText('tipologia_capo').'<br/>' ?>
 		<?php /* taglie disponibili (così funziona solo se il prodott non è configurabile!) */ ?>
-		<?php echo 'Taglie: '.$_product->getAttributeText('size').'<br/>' ?>
+		<!--<?php /*echo 'Taglie: '.$_product->getAttributeText('size').'<br/>'*/ ?>-->
                 <?php if($_product->getRatingSummary()): ?>
                     <?php //echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
@@ -118,9 +117,9 @@
                 <!--?php if($_product->isSaleable()): ?-->
                     <!--<button type="button" class="form-button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php //echo $this->__('Add to Cart') ?></span></button-->
                 <!--?php else: ?-->
-                <?php if(!$_product->isSaleable()): ?>
-                    <div class="out-of-stock"><?php echo $this->__('Out of stock') ?></div>
-                <?php endif; ?>
+                <!--<?php //if(!$_product->isSaleable()): ?>
+                    <div class="out-of-stock"><?php //echo $this->__('Out of stock') ?></div>
+                <?php //endif; ?>-->
                 <!--
                 <p class="add-to">
                     <?php if ($this->helper('wishlist')->isAllow()) : ?>
