@@ -33,6 +33,7 @@
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/productList.css');?>" media="all" />
 <?php $_productCollection=$this->getLoadedProductCollection() ?> <?php /* carica la collezione di prodotti */ ?>
+<?php $helper = Mage::getModel('catalog/product_type_configurable'); ?>
 <?php if(!$_productCollection->count()): ?> <?php /* se è vuota */ ?>
 <div class="note-msg">
     <?php echo $this->__('There are no products matching the selection.') ?>
@@ -60,7 +61,22 @@
         <td class="name">
 			<h5 style="float:left"><?php echo $this->htmlEscape($_product->getName()) ?></h5>
 			<!--<h3><?php /*echo $_product->getAttributeText('manufacturer').'<br/>'*/ ?></h4>-->
-			<div class="description" style="float:left";><?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?></div>
+			<?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?>
+			<?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
+			<?php /* visualizza le taglie disponibili per il prodotto */ ?>
+			<?php if ($_product->isConfigurable()): ?>
+			  <?php /* se il prodotto è configurabile fa vedere tutte le taglie impostate */ ?>
+			  <?php echo 'Taglie disponibili: ' ?>
+			  <?php $_subproducts = $helper->getUsedProducts(null, $_product); ?>
+			  <?php foreach ($_subproducts as $_subproduct): ?>
+			    <?php if ($_subproduct->isSalable()): ?>
+			      <?php echo $_subproduct->getAttributeText('size').'<br/>'; ?>
+			    <?php endif; ?>
+			  <?php endforeach; ?>
+			<?php else: ?>
+			  <?php /* se non è configurabile fa vedere la taglia impostata */ ?>
+			  <?php echo 'Taglie disponibili: '.$_product->getAttributeText('size').'<br/>' ?>
+			<?php endif; ?>
         </td>
         <!--div class="clear"></div-->
         <td class="description">
@@ -108,17 +124,21 @@
 		<?php /* info aggiuntive sul prodotto */ ?>
 		<?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?>
 		<?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
-		
 		<?php /* taglie disponibili (così funziona solo se il prodott non è configurabile!) */ ?>
-		<?php $_helper = Mage::getModel('catalog/product_type_configurable'); ?>
+		<?php /* visualizza le taglie disponibili per il prodotto */ ?>
 		<?php if ($_product->isConfigurable()): ?>
-		  <?php $_subproducts = $_helper->getUsedProducts(null, $_product); ?>
+		  <?php /* se il prodotto è configurabile fa vedere tutte le taglie impostate */ ?>
+		  <?php echo 'Taglie disponibili: ' ?>
+		  <?php $_subproducts = $helper->getUsedProducts(null, $_product); ?>
 		  <?php foreach ($_subproducts as $_subproduct): ?>
-		    <?php echo $_subproduct->getAttributeText('size'); ?>
-		    <?php //echo $_subproduct->getSize(); ?>
+		    <?php if ($_subproduct->isSalable()): ?>
+		      <?php echo $_subproduct->getAttributeText('size'); ?>
+		    <?php endif; ?>
 		  <?php endforeach; ?>
+		<?php else: ?>
+		  <?php /* se non è configurabile fa vedere la taglia impostata */ ?>
+		  <?php echo 'Taglie disponibili: '.$_product->getAttributeText('size').'<br/>' ?>
 		<?php endif; ?>
-		<!--<?php /*echo 'Taglie: '.$_product->getAttributeText('size').'<br/>'*/ ?>-->
                 <?php if($_product->getRatingSummary()): ?>
                     <?php //echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
