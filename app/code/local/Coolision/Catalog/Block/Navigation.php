@@ -90,7 +90,7 @@ class Coolision_Catalog_Block_Navigation extends Mage_Catalog_Block_Navigation
 	
 	function initSubMenu($html, $level, $category){
 	
-		$maxRowNum=6; //Maximum number of row per submenu
+		$maxRowNum=8; //Maximum number of row per submenu
 		
 		$htmlChildrenSub='';
 		$subElements=13; //Elements number
@@ -112,7 +112,7 @@ class Coolision_Catalog_Block_Navigation extends Mage_Catalog_Block_Navigation
 			$htmlChildrenSub.= '</li>' . "\n";
 		}
 		
-		$width=($columnNum+1)*10;
+		$width=($columnNum+1)*8;
 		//Adding submenu item to ul list
 		$html.='<ul class="level'. $level . '" style="width:'. $width . 'em !important;">'."\n"
 				.$htmlChildrenSub
