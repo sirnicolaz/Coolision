@@ -108,7 +108,16 @@
 		<?php /* info aggiuntive sul prodotto */ ?>
 		<?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?>
 		<?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
+		
 		<?php /* taglie disponibili (così funziona solo se il prodott non è configurabile!) */ ?>
+		<?php $_helper = Mage::getModel('catalog/product_type_configurable'); ?>
+		<?php if ($_product->isConfigurable()): ?>
+		  <?php $_subproducts = $_helper->getUsedProducts(null, $_product); ?>
+		  <?php foreach ($_subproducts as $_subproduct): ?>
+		    <?php echo $_subproduct->getAttributeText('size'); ?>
+		    <?php //echo $_subproduct->getSize(); ?>
+		  <?php endforeach; ?>
+		<?php endif; ?>
 		<!--<?php /*echo 'Taglie: '.$_product->getAttributeText('size').'<br/>'*/ ?>-->
                 <?php if($_product->getRatingSummary()): ?>
                     <?php //echo $this->getReviewsSummaryHtml($_product, 'short') ?>
