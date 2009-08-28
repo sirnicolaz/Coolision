@@ -1,31 +1,42 @@
 <?php if($this->canShowBlock()): ?>
-    <div class="box layered-nav">
-        <div class="head">
-            <h3><?php echo $this->__('Shop by') ?></h3>
-        </div>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/home.css');?>" media="all" />
+<div class="box layered-nav">
+<div class="ro">
+	<div class="lo">
+		<div class="ru">
+			<div class="lu">
+				<div class="inhalt" >
+			        <div class="head">
+			            <h3><?php echo $this->__('Shop by') ?></h3>
+			        </div>
 
-    	<!-- tolgo lo stato della layer navigation perchè non ci serve -->
-        <?php /*echo $this->getStateHtml() */ ?>
+			    	<!-- tolgo lo stato della layer navigation perchè non ci serve -->
+			        <?php /*echo $this->getStateHtml() */ ?>
 
-        <?php if($this->canShowOptions()): ?> <!-- guarda se può visualizzare il menu e cioè se almeno un filtro ha degli idems -->
-            <div class="narrow-by">
-                <h4><?php echo $this->__('Ricerca') ?></h4>
-		        <dl id="narrow-by-list">
-		            <?php $_filters = $this->getFilters() ?> <!-- recupera i filtri principali (ex: categoria, tipologia capo, designer) -->
-		            <?php foreach ($_filters as $_filter): ?> 
-            		    <?php if($_filter->getName() == 'Manufacturer' || $_filter->getName() == 'Categoria'): ?> <!-- se il filtro ha un qualche risultato -->
-		                    <dt><?php echo $this->__($_filter->getName()) ?></dt> <!-- visualizza il nome del filtro -->
-			                <dd>  
-			                <!-- per ognuno di questi filtri deve far vedere una dropdown list che fa vedere i possibili valori da selezionare -->
-			                    <?php $_filter->setTemplate('catalog/layer/homeFilter.phtml') ?> <!-- cambia il template che senno sarebbe quello per i filtri normali -->
-			                    <?php echo $_filter->getHtml()?> <!-- va a prendere il codice (phtml) per visualizzare i risultati del filtro  -->
-			                </dd>
-		                <?php  endif; ?> 
-		            <?php endforeach; ?>
-		  
-		        </dl>
-                <script type="text/javascript">decorateDataList('narrow-by-list')</script>
-            </div>
-        <?php endif; ?>
-    </div>
+			        <?php if($this->canShowOptions()): ?> <!-- guarda se può visualizzare il menu e cioè se almeno un filtro ha degli idems -->
+			            <div class="narrow-by">
+			                <h4><?php echo $this->__('Ricerca') ?></h4>
+					        <dl id="narrow-by-list">
+					            <?php $_filters = $this->getFilters() ?> <!-- recupera i filtri principali (ex: categoria, tipologia capo, designer) -->
+					            <?php foreach ($_filters as $_filter): ?> 
+			            		    <?php if($_filter->getName() == 'Manufacturer' || $_filter->getName() == 'Categoria'): ?> <!-- se il filtro ha un qualche risultato -->
+					                    <dt><?php echo $this->__($_filter->getName()) ?></dt> <!-- visualizza il nome del filtro -->
+						                <dd>  
+						                <!-- per ognuno di questi filtri deve far vedere una dropdown list che fa vedere i possibili valori da selezionare -->
+						                    <?php $_filter->setTemplate('catalog/layer/homeFilter.phtml') ?> <!-- cambia il template che senno sarebbe quello per i filtri normali -->
+						                    <?php echo $_filter->getHtml()?> <!-- va a prendere il codice (phtml) per visualizzare i risultati del filtro  -->
+						                </dd>
+					                <?php  endif; ?> 
+					            <?php endforeach; ?>
+					  
+					        </dl>
+			                <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+			            </div>
+			        <?php endif; ?>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
 <?php endif; ?>

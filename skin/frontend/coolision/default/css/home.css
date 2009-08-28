@@ -1,0 +1,53 @@
+.layered-nav .ro {
+
+background:url(../images/layered-nav_back_ro.png) top right no-repeat;
+
+margin:0;
+
+padding:0;
+
+height: 100%;
+
+}
+
+.layered-nav .lo {
+
+background:url(../images/layered-nav_back_lo.png) top left no-repeat;
+
+margin:0;
+
+padding:0;
+
+}
+
+.layered-nav .ru {
+
+background:url(../images/layered-nav_back_ru.png) bottom right no-repeat;
+
+margin:0;
+
+padding:0;
+
+}
+
+.layered-nav .lu {
+
+background:url(../images/layered-nav_back_lu.png) bottom left no-repeat;
+
+margin:0;
+
+padding:0;
+
+}
+
+ 
+
+.layered-nav .inhalt {
+
+margin:0;
+
+padding:0px 0px 33px;
+
+height: auto;
+
+}
