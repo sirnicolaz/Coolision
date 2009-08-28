@@ -38,24 +38,29 @@ class Mage_Catalog_Block_Product_View_Options_Type_Select
 
     public function getValuesHtml()
     {
+	/* ottiene la model dell'opzione  */
         $_option = $this->getOption();
 
         if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_DROP_DOWN
             || $_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_MULTIPLE) {
-            $require = ($_option->getIsRequire()) ? ' required-entry' : '';
+	    /* se l'opzione è di tipo dropdown o multiple */
+            $require = ($_option->getIsRequire()) ? ' required-entry' : ''; /* se l'opzione è required setta il campo */
             $extraParams = '';
+	    /* crea l'oggetto html select */
             $select = $this->getLayout()->createBlock('core/html_select')
                 ->setData(array(
                     'id' => 'select_'.$_option->getId(),
                     'class' => $require.' product-custom-option'
                 ));
+	    /* se l'opzione è di tipo drop down */
             if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_DROP_DOWN) {
                 $select->setName('options['.$_option->getid().']')
                     ->addOption('', $this->__('-- Please Select --'));
-            } else {
+            } else { /* se invece è di tipo multiple */
                 $select->setName('options['.$_option->getid().'][]');
                 $select->setClass('multiselect'.$require.' product-custom-option');
             }
+	    /* scorre i possibili valori dell'opzione */
             foreach ($_option->getValues() as $_value) {
                 $priceStr = $this->_formatPrice(array(
                     'is_percent' => ($_value->getPriceType() == 'percent') ? true : false,
