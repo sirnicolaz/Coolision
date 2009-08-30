@@ -1,0 +1,45 @@
+<h4><?php echo $this->__('News List') ?></h4>
+<?php   
+  /*
+    This will load one record from your database table.
+    load(news_id) will load whatever ID number you give it.
+  */
+
+  /*
+    $news = Mage::getModel('news/news')->load(1);
+    echo $news->getNewsId();
+    echo $news->getTitle();
+    echo $news->getContent();
+    echo $news->getStatus();
+  */
+
+  /*
+  This block of code loads all of the records in the database table.
+  */
+
+    $collection = Mage::getModel('news/news')->getCollection();
+    $collection->setPageSize(5);
+    $collection->setCurPage(2);
+    $size = $collection->getSize();
+    $cnt = count($collection);
+    foreach ($collection as $item) {
+      echo 'NEWS ID: '.$item->getNewsId().'<br/>';
+      echo 'TITLE: '.$item->getTitle().'<br/>';
+      echo 'CONTENT: '.$item->getContent().'<br/>';
+      $dateString = $item->getCreatedTime(); /* <- string: 2009-08-18 15:53:18 */
+      $fullDateArray = split(' ', $dateString);
+      $dateArray = split('-', $fullDateArray[0]);
+      echo 'CREATION TIME: '.$dateArray[2].'/'.$dateArray[1].'/'.$dateArray[0].'<br/>';
+      echo 'STATUS: '.$item->getStatus().'<br/>';
+    } 
+
+  /*
+    This shows how to load one value, change something and save it.
+  */
+
+  /*
+  $object = Mage::getModel('news/news')->load(1);
+  $object->setTitle('This is a changed title');
+  $object->save();
+  */
+?>

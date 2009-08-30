@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.">
+  <news_adminhtml_news_index>
+    <reference name="content">
+      <block type="news/adminhtml_news" name="news" />
+    </reference>
+  </news_adminhtml_news_index>
+</layout>

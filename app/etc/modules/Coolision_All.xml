@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Coolision_Catalog>
-            <active>true</active>
-	    <codePool>local</codePool>
-       </Coolision_Catalog>
+      <Coolision_Catalog>
+        <active>true</active>
+	<codePool>local</codePool>
+      </Coolision_Catalog>
       <Coolision_CatalogIndex>
-           <active>true</active>
-           <codePool>local</codePool>
-       </Coolision_CatalogIndex>
+        <active>true</active>
+        <codePool>local</codePool>
+      </Coolision_CatalogIndex>
+      <Coolision_News>
+	<active>true</active>
+	<codePool>local</codePool>
+      </Coolision_News>
     </modules>
 </config>
