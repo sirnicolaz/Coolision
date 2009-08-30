@@ -520,8 +520,8 @@ h1#logo {
 /* Mini search */ /*Modified*/
 .mini-search { position:relative; float:right; top:0; right:0; width:300px; height:30px; padding:0px 0px 0 0px; background:url(../images/mini_search_bg.gif) 0 0 no-repeat; }
 /*.mini-search .input-text { width:212px; margin-right:4px; }*/
-.mini-search .input-text {border:none; background:url(../images/mini-search_txtb.png) no-repeat; margin-right:0em; width:11em; padding:0; padding-left:3px; padding-right:3px; margin-top:7px;}
-.mini-search .input-btn { padding:0; margin-top:6px;}
+.mini-search .input-text {border:none; background:url(../images/search-box.png) no-repeat; margin-right:0em; width:125px; padding:0; padding-left:3px; padding-right:5px; margin-top:7px;}
+.mini-search .input-btn { padding:0; margin-top:6px;border:medium none;font-size:10px;font-weight:bold;margin-top:6px;padding:0.6px 0 3px 1.5px;text-align:left;text-transform:lowercase; font-family:arial,helvetica,sans-serif;}
 #search_mini_form {padding:0; margin:0;}
 .search-autocomplete { z-index:999; }
 .search-autocomplete ul { border:1px solid #5c7989; background-color:#f9f5f0; }
@@ -1889,6 +1889,5 @@ table.print .price-incl-tax .price { display:inline; }
 .under-menu form fieldset { border-width:0; }
 
 .mini-search {background: none; padding-top:0; margin-top:0;}
-.mini-search input#search {background-color:#fff;}
-.mini-search input.input-btn {background-image: url(../images/button-search.png);}
+.mini-search input.input-btn {background: url(../images/mini-search_btn.png) top left no-repeat; color:white;}
 table

@@ -29,7 +29,7 @@
         <legend><?php echo $this->__('Search Site') ?></legend>
         <div class="mini-search">
             <input id="search" type="text" class="input-text" name="<?php echo $this->helper('catalogSearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogSearch')->getEscapedQueryText() ?>" />
-            <input type="image" class="input-btn" src="<?php echo $this->getSkinUrl('images/mini-search_btn.png') ?>" alt="<?php echo $this->__('Search') ?>" />
+            <input type="command" class="input-btn" text="<?php echo $this->__("Search")?>" name="<?php echo $this->__("Search")?>" value="<?php echo $this->__("Search")?>" alt="<?php echo $this->__('Search') ?>" />
             <div id="search_autocomplete" class="search-autocomplete"></div>
             <script type="text/javascript">
             //<![CDATA[
