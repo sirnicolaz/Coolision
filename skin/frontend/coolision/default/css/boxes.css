@@ -431,7 +431,7 @@ table.pager li { padding:0 2px; }
 .col-main { float:left; }
 .col-right { float:right; }
 .col-1-layout .col-main { float:none; margin:0; }
-.col-2-right-layout .col-main { float:left; width:685px;  }
+.col-2-right-layout .col-main { float:left; width:76%;  }
 .col-2-left-layout .col-main { float:right; width:76%; }/*modified*/
 .col-3-layout .col-main { width:475px; margin-left:17px; }
 

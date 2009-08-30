@@ -35,12 +35,13 @@ background:none;
 float:left;
 position:relative;
 height:320px;
-width:150px;
+width:88%;
 white-space: nowrap;
 overflow:hidden;
 /*float:left;*/
 padding-bottom:0em;
-margin-left:10px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .mini-related-items .related-down-arrow{

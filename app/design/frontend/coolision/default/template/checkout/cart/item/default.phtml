@@ -206,8 +206,9 @@
     <?php endif; ?>-->
 	
     <td class="a-center">
+		
         <input id="qty<?php echo $_item->getId() ?>" name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4" class="input-text qty" maxlength="8" style="display:none"/>
-		<select class="dd-qty" id="dd-qty<?php echo $_item->getId() ?>" onchange="document.getElementById('qty<?php echo $_item->getId() ?>').value=document.getElementById('dd-qty<?php echo $_item->getId() ?>').options[document.getElementById('dd-qty<?php echo $_item->getId() ?>').selectedIndex].value; document.getElementById('formButtonAlt').click();">
+		<select class="dd-qty" id="dd-qty<?php echo $_item->getId() ?>" onchange="document.getElementById('qty<?php echo $_item->getId() ?>').value=document.getElementById('dd-qty<?php echo $_item->getId() ?>').options[document.getElementById('dd-qty<?php echo $_item->getId() ?>').selectedIndex].value;">
 			<?php $num=$this->getQty();
 				for($j=0; $j<$num+10; $j++){
 					echo "<option value='".$j."'";

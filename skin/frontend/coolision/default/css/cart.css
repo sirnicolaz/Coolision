@@ -239,7 +239,6 @@ padding-right:0px;
 .continue-shopping{
 float:left;
 color:white;
-margin-top:30px;
 background:#999999;
 border:none;
 height:2.5em;
@@ -252,21 +251,32 @@ margin-left:12px;
 width:30% !important;
 }
 
-.checkout-types li{
+.checkout-types{
+float:right;
+}
+
+.checkout-types .checkout-btn-left{
+background:url(../images/checkout-button_l.png) top left no-repeat;
+height:30px;
+padding-left:6px;
+float:left;
+display:block;
 }
 
 .checkout-types a{
 float:right;
-margin-top:30px;
 color:black;
-background:#FCCA21;
+background:url(../images/checkout-button_r.png) top right;
 border:none;
 font-weight:bold;
 text-transform:uppercase;
 text-decoration:none;
-padding:0em;
-height:2.5em;
-width:14em;
-padding-left:2em;
-padding-top:1em;
+padding-right:0.5em;
+padding-top:4.4px;
+height:24px;
+font-size:11px;
+}
+
+.update-shopping-cart {
+float:right;
 }
