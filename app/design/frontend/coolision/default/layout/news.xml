@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <news_index_index>
+    <reference name="content">
+      <block type="news/news" name="news" />
+    </reference>
+  </news_index_index>
+</layout>
