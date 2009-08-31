@@ -1,6 +1,7 @@
 .data-table{
 background:none;
 border:none;
+margin-bottom:10px
 }
 
 .data-table thead tr th{
@@ -237,12 +238,13 @@ padding-right:0px;
 }
 
 .continue-shopping span{
-float:left;
 color:white;
 background:url(../images/continue-shop-button_r.png) top right no-repeat;
 border:none;
-height:2.5em;
 text-transform:uppercase;
+padding-right:20px;
+padding-top:4px;
+padding-bottom:3px;
 }
 
 .continue-shopping{
@@ -250,9 +252,9 @@ float:left;
 color:white;
 background:url(../images/continue-shop-button_l.png) top left no-repeat;
 border:none;
-height:2.5em;
+height:22px;
 text-transform:uppercase;
-padding-left:6px;
+padding-left:1px;
 }
 
 .dd-qty{

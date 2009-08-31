@@ -104,6 +104,7 @@
            <button class="form-button-alt continue-shopping" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')" type="button" ><span><?php echo $this->__('Continue Shopping') ?></span></button>
 <?php endif; ?>
 <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+<button class="form-button-alt update-shopping-cart" id="formButtonAlt" type="submit" ><span><?php echo $this->__('Update Shopping Cart') ?></span></button>
 </form>
 <?php if(!$this->hasError()): ?>
     <ul class="checkout-types">
@@ -114,5 +115,4 @@
     </ul>
     <?php endif; ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<button class="form-button-alt update-shopping-cart" id="formButtonAlt" type="submit" ><span><?php echo $this->__('Update Shopping Cart') ?></span></button>
 <div class="clear"></div>
