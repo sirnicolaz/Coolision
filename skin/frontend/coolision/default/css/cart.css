@@ -236,13 +236,23 @@ white-space:nowrap;
 padding-right:0px;
 }
 
-.continue-shopping{
+.continue-shopping span{
 float:left;
 color:white;
-background:#999999;
+background:url(../images/continue-shop-button_r.png) top right no-repeat;
 border:none;
 height:2.5em;
 text-transform:uppercase;
+}
+
+.continue-shopping{
+float:left;
+color:white;
+background:url(../images/continue-shop-button_l.png) top left no-repeat;
+border:none;
+height:2.5em;
+text-transform:uppercase;
+padding-left:6px;
 }
 
 .dd-qty{
