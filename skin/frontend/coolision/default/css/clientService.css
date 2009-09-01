@@ -1,0 +1,74 @@
+.client-service-header{
+background:#4D4D4D !important;
+width:98%;
+text-align:left;
+color:white;
+height:90px;
+}
+
+.client-service-header .lines{
+background:url(../images/servizio-clienti_head.png) top right no-repeat;
+height:90px;
+}
+
+.client-service-header .lines span{
+vertical-align:middle;
+font-size:47px;
+font-weight:bold;
+text-transform:uppercase;
+padding-top:22px;
+padding-left:8px;
+}
+
+.client-service-header .lines br{
+margin-bottom:23px;
+margin-top:4px;
+}
+
+.description-tab-menu-container ul{
+margin:0em;
+padding:0em;
+display: block;
+list-style:none;
+}
+
+.description-tab-menu-container li {
+width:13%;
+height:1.85em;
+display: block;
+float:left;
+list-style-type: none;
+padding:0px;
+margin:0px;
+margin-right:5px;
+text-align:center;
+}
+
+.description-tab-menu-container li {
+/*background:url(../images/product-tab-black.png) no-repeat top left;*/
+background:#FCCA21;
+color:#262626;
+text-transform:uppercase;
+font-weight:bold;
+}
+.description-tab-menu-container li.active{
+/*background:url(../images/product-tab-yellow.png) no-repeat top left;*/
+background:#4D4D4D;
+color:white;
+}
+
+.description-tab-menu-container {
+/*background:url(../images/product-separator.png) no-repeat bottom left;*/
+margin-top:10px;
+border-bottom:solid 1.5px #4D4D4D;
+width:98%;
+height:22px;
+}
+
+.tabPanels .tabActive{
+display:block;
+}
+
+#tabPanels .tabInactive{
+display:none;
+}
