@@ -25,6 +25,7 @@
  */
 ?>
 <?php $_item = $this->getItem()?>
+<?php $_product = $_item->getProduct() ?> <?php /* recupero il prodotto relativo all'item corrente */ ?>
 <tr>
     <!--<td class="a-center"><a href="<?php echo $this->getDeleteUrl() ?>"><img src="<?php echo $this->getSkinUrl('images/btn_trash.gif') ?>" width="16" height="16" alt="<?php $this->__('Remove item')?>" /></a></td>-->	
 	<!--Remove url moved in last column with price-->
@@ -55,26 +56,28 @@
 	
 	<td class="color-col">
 	        <!-- item custom options -->
-        <?php if ($_options = $this->getOptionList()):?> <!-- lista delle opzioni per il prodotto -->
+        <?php //if ($_options = $this->getOptionList()): ?> <!-- lista delle opzioni per il prodotto -->
         <dl class="item-options">
-            <?php foreach ($_options as $_option) : ?>
-			<?php if($_option['label'] == 'Color') : ?>
-            <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
-            <!--<dt><?php echo $this->htmlEscape($_option['label']) ?></dt> --><!-- label dell'attributo configurabile (tipo color) -->
-            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?> <!-- valore -->
-                <?php if (isset($_formatedOptionValue['full_view'])): ?>
+	  <?php /* stampo il colore */ ?>
+	  <?php echo $_product->getResource()->getAttribute('color')->getFrontend()->getValue($_product) ?>
+<!--	  <?php //foreach ($_options as $_option) : ?>
+	    <?php //if($_option['label'] == 'Color') : ?>
+	      <?php //$_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
+            <dt><?php //echo $this->htmlEscape($_option['label']) ?></dt> 
+            <dd <?php //if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php //endif; ?> ><?php //echo $_formatedOptionValue['value'] ?>
+                <?php //if (isset($_formatedOptionValue['full_view'])): ?>
                 <div class="truncated_full_value">
                     <dl class="item-options">
-                        <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
-                        <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
+                        <dt><?php //echo $this->htmlEscape($_option['label']) ?> </dt>
+                        <dd><?php //echo $_formatedOptionValue['full_view'] ?> </dd>
                     </dl>
                 </div>
-                <?php endif; ?>
+                <?php //endif; ?>
             </dd>
-			<?php endif; ?>
-            <?php endforeach; ?>
+			<?php //endif; ?>
+            <?php //endforeach; ?>-->
         </dl>
-        <?php endif;?>
+        <?php //endif;?>
 		
 	</td>
 	
@@ -83,7 +86,7 @@
         <?php if ($_options = $this->getOptionList()):?> <!-- lista delle opzioni per il prodotto -->
         <dl class="item-options">
             <?php foreach ($_options as $_option) : ?>
-			<?php if($_option['label'] == 'Size') : ?><!--Sistemare!!!!! Si usa il label per fare il controllo, invece bisogna utilizzare il codice dell'attributo per fare il controllo poichè non dipende dalla lingua-->
+	    <?php if($_option['label'] == 'Size') : ?><!--Sistemare!!!!! Si usa il label per fare il controllo, invece bisogna utilizzare il codice dell'attributo per fare il controllo poichï¿½ non dipende dalla lingua-->
             <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
             <!--<dt><?php echo $this->htmlEscape($_option['label']) ?></dt> --><!-- label dell'attributo configurabile (tipo color) -->
             <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?> <!-- valore -->
