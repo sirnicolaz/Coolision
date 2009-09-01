@@ -44,18 +44,30 @@ margin-right:5px;
 text-align:center;
 }
 
-.description-tab-menu-container li {
+.description-tab-menu-container li{
 /*background:url(../images/product-tab-black.png) no-repeat top left;*/
 background:#FCCA21;
 color:#262626;
 text-transform:uppercase;
 font-weight:bold;
+text-decoration:none;
 }
 .description-tab-menu-container li.active{
 /*background:url(../images/product-tab-yellow.png) no-repeat top left;*/
 background:#4D4D4D;
 color:white;
 }
+
+
+.description-tab-menu-container li a{
+text-decoration:none;
+color:#262626;;
+}
+
+.description-tab-menu-container li.active a{
+color:white
+}
+
 
 .description-tab-menu-container {
 /*background:url(../images/product-separator.png) no-repeat bottom left;*/
