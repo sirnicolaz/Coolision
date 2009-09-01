@@ -59,7 +59,7 @@
 
         <?php // Product description ?>
         <td class="name">
-			<h5 style="float:left"><?php echo $this->htmlEscape($_product->getName()) ?></h5>
+			<h5><?php echo $this->htmlEscape($_product->getName()) ?></h5>
 			<!--<h3><?php /*echo $_product->getAttributeText('manufacturer').'<br/>'*/ ?></h4>-->
 			<?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?>
 			<?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
@@ -70,7 +70,7 @@
 			  <?php $_subproducts = $helper->getUsedProducts(null, $_product); ?>
 			  <?php foreach ($_subproducts as $_subproduct): ?>
 			    <?php if ($_subproduct->isSalable()): ?>
-			      <?php echo $_subproduct->getAttributeText('size').'<br/>'; ?>
+			      <?php echo $_subproduct->getAttributeText('size')." "; ?>
 			    <?php endif; ?>
 			  <?php endforeach; ?>
 			<?php else: ?>

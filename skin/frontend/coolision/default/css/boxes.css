@@ -963,7 +963,7 @@ table.recently-list td { width:20%; }
     border-right:2px dotted #ddd; 
     border-collapse:collapse;
     padding: 0 0.5em;
-    text-align:center;
+    text-align:left;
     }
 .listing-type-list .listing-item .product-item-table td.name h5 { color:black; } 
 .listing-type-list .listing-item .product-item-table td.description { 
