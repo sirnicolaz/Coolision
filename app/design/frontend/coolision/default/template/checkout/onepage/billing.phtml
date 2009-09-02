@@ -26,7 +26,9 @@
 ?>
 <form id="co-billing-form" action="">
 <?php if ($this->customerHasAddresses()): ?>
+    <?php /* se l'utente ha un indirizzo impostato */ ?>
     <p><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></p>
+    <?php /* visualizza il select per scegliere l'indirizzo utente */ ?>
     <ul><li><p><?php echo $this->getAddressesHtmlSelect('billing') ?></p></li></ul>
 
 <?php endif ?>

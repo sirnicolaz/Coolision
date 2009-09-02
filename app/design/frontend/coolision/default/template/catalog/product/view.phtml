@@ -35,14 +35,17 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/product.css');?>" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/recentlyViewed.css');?>" media="all" />
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/horizontal-menu.js');?>"></script>
- 
 <?php
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct();
+    /* recupera l'url per tornare alla pagina precedente (settato nella pagina precedente) */
+    $_url = explode( "?urlBack=" ,$_SERVER["REQUEST_URI"]);
+    $_urlBack = 'http://'.$_SERVER["HTTP_HOST"].$_url[1];
 ?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
+<a href="<?php echo $_urlBack ?>"><?php echo $this->__('Back to shop') ?></a>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-info-box">
     <div class="product-essential">
@@ -93,7 +96,7 @@
 		        <?php endif;?>
 				</div>
 				
-				<!-- Shipping info tab--><!-- Il contenuto di questo blocco andrebbe inserito in un file di template separato per rendere il codice un po' più pulito. Chi avesse voglia faccia pure perchè al momento non mi sovviene come fare-->
+				<!-- Shipping info tab--><!-- Il contenuto di questo blocco andrebbe inserito in un file di template separato per rendere il codice un po' piÃ¹ pulito. Chi avesse voglia faccia pure perchÃ¨ al momento non mi sovviene come fare-->
 				<script>
 					function changeCost(){
 						var mylist=document.getElementById("shipStates")
