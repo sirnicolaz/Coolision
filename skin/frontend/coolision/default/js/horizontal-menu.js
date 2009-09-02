@@ -1,4 +1,4 @@
-function changeTab(tabName, foreActive, foreInactive, backActive, backInactive){
+﻿function changeTab(tabName, foreActive, foreInactive, backActive, backInactive){
 						for(var j=0; j<document.getElementById('menuContainer').getElementsByTagName('li').length; j++){
 							var menuTab = document.getElementById('menuContainer').getElementsByTagName('li')[j];
 							if(menuTab.id==tabName){
