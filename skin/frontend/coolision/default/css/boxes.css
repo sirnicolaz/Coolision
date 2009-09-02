@@ -421,7 +421,13 @@ table.pager li { padding:0 2px; }
 /********************** Base Layout */
 
 /* Structure */
-.wrapper { min-width:954px; }
+html { height: 100%; }
+.wrapper { 
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -80px;  
+}
 .header { text-align:left; }
 .header-top { width:80%; margin:0 auto; position:relative; z-index:100; }
 .header-nav { width:80%; margin:0 auto; }
@@ -652,8 +658,9 @@ table.pager li { padding:0 2px; }
 .mini-product-view .head h4 { background-image:url(../images/icon_tag_green.gif); }
 
 /********************** Footer */
-.footer-container { /*border-top:15px solid #B6D1E2;*/ }
-.footer { width:80%; margin: auto; padding-bottom:3em; background-color:black; }
+.push { height: 80px; }
+.footer-container { height: 80px; background-color: #000000; }
+.footer { width:80%; margin: auto; background-color:black; }
 .footer .store-switcher { display:inline; padding:0 10px 0 0; vertical-align:middle; }
 .footer-container .informational div { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; padding-left: 10%; }
 .footer-container .informational label { color:#fff; font-weight:bold; padding-right:3px; }
@@ -668,6 +675,7 @@ table.pager li { padding:0 2px; }
     background:url(../images/footer_informational_bg.gif) no-repeat 100% 50%;
     padding-right:8px;
     padding-left:4px;
+	text-transform: lowercase;
     }
 .footer-container .informational li.last { background:none; padding-right:0; }
 .footer-container .informational a, .footer-container .informational a:hover { color:black; }
@@ -1883,7 +1891,7 @@ table.print .price-incl-tax .price { display:inline; }
 
 /*.under-menu-bg { background:url(../images/under-menu_bg.png); }*/
 
-.under-menu { background:black url(../images/main-menu_bg.png) repeat-y scroll 50% 0; color:white; /*width:930px;*/ margin:0 auto; }
+.under-menu { background:black url(../images/main-menu_bg.png) repeat-y scroll 50% 0; color:white; /*width:930px;*/ margin:0 auto; text-transform: lowercase; }
 
 .under-menu ul{ float:left; }
 .under-menu form fieldset { border-width:0; }

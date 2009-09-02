@@ -61,18 +61,21 @@
         </div>
         <!-- end middle -->
 
-        <!-- start footer -->
-        <div class="footer-container">
-            <div class="informational">
-                <?php echo $this->getChildHtml('footer_links') ?>
-            </div>
-            <div class="footer">
-                <?php echo $this->getChildHtml('footer') ?>
-            </div>
-        </div>
-        <!-- end footer -->
         <?php echo $this->getChildHtml('before_body_end') ?>
+		<div class="push"></div>
 </div>
+<!-- start footer -->
+
+ 
+<div class="footer-container">
+    <div class="informational">
+        <?php echo $this->getChildHtml('footer_links') ?>
+    </div>
+    <div class="footer">
+        <?php echo $this->getChildHtml('footer') ?>
+    </div>
+</div>
+<!-- end footer -->
 <?php echo $this->getAbsoluteFooter() ?>
 </body>
 </html>
