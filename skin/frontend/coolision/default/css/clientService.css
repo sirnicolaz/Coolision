@@ -51,6 +51,7 @@ color:#262626;
 text-transform:uppercase;
 font-weight:bold;
 text-decoration:none;
+cursor:pointer;
 }
 .description-tab-menu-container li.active{
 /*background:url(../images/product-tab-yellow.png) no-repeat top left;*/
@@ -74,7 +75,7 @@ color:white
 margin-top:10px;
 border-bottom:solid 1.5px #4D4D4D;
 width:98%;
-height:22px;
+height:23px;
 }
 
 .tabPanels .tabActive{
