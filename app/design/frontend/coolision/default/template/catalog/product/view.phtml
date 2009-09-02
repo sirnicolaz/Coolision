@@ -34,13 +34,18 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/related.css');?>" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/product.css');?>" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/recentlyViewed.css');?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/horizontal-menu.js');?>"></script>
 <?php
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct();
+    /* recupera l'url per tornare alla pagina precedente (settato nella pagina precedente) */
+    $_url = explode( "?urlBack=" ,$_SERVER["REQUEST_URI"]);
+    $_urlBack = 'http://'.$_SERVER["HTTP_HOST"].$_url[1];
 ?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
+<a href="<?php echo $_urlBack ?>"><?php echo $this->__('Back to shop') ?></a>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-info-box">
     <div class="product-essential">
@@ -60,14 +65,14 @@
 				
 				<div id="menuContainer" class="description-tab-menu-container">
 					<ul class="description-tab-menu">
-						<li id="descr" onclick="changeTab('descr'); return false;" class="active">
-			                    <a href="#" onclick="changeTab('descr'); return false;"><?php echo $this->__('Description') ?></a>
+						<li id="descr" onclick="changeTab('descr','#262626','white','#FCCA21','#262626'); return false;" class="active">
+			                    <a href="#" onclick="changeTab('descr','#262626','white','#FCCA21','#262626'); return false;"><?php echo $this->__('Description') ?></a>
 						</li>
-						<li id="meas" onclick="changeTab('meas');return false;" class="inactive">
-							<a href="#" onclick="changeTab('meas'); return false;"><?php echo $this->__('Measures') ?></a>
+						<li id="meas" onclick="changeTab('meas','#262626','white','#FCCA21','#262626');return false;" class="inactive">
+							<a href="#" onclick="changeTab('meas','#262626','white','#FCCA21','#262626'); return false;"><?php echo $this->__('Measures') ?></a>
 						</li>
-						<li id="ship" onclick="changeTab('ship');return false;" class="inactive">
-								<a href="#" onclick="changeTab('ship'); return false;"><?php echo $this->__('Shipping Info') ?></a>
+						<li id="ship" onclick="changeTab('ship','#262626','white','#FCCA21','#262626');return false;" class="inactive">
+								<a href="#" onclick="changeTab('ship','#262626','white','#FCCA21','#262626'); return false;"><?php echo $this->__('Shipping Info') ?></a>
 						</li>
 					</ul>
 				</div>
@@ -91,7 +96,7 @@
 		        <?php endif;?>
 				</div>
 				
-				<!-- Shipping info tab--><!-- Il contenuto di questo blocco andrebbe inserito in un file di template separato per rendere il codice un po' più pulito. Chi avesse voglia faccia pure perchè al momento non mi sovviene come fare-->
+				<!-- Shipping info tab--><!-- Il contenuto di questo blocco andrebbe inserito in un file di template separato per rendere il codice un po' piÃ¹ pulito. Chi avesse voglia faccia pure perchÃ¨ al momento non mi sovviene come fare-->
 				<script>
 					function changeCost(){
 						var mylist=document.getElementById("shipStates")
@@ -125,38 +130,6 @@
 				
 				</div>
 				</div>
-				
-				<script language="Javascript" type="text/javascript">
-					function changeTab(tabName){
-						
-						for(var j=0; j<document.getElementById('menuContainer').getElementsByTagName('li').length; j++){
-							var menuTab = document.getElementById('menuContainer').getElementsByTagName('li')[j];
-							if(menuTab.id==tabName){
-								document.getElementById('menuContainer').getElementsByTagName('li')[j].class='active';
-								document.getElementById('menuContainer').getElementsByTagName('li')[j].getElementsByTagName('a')[0].style.color= '#262626';
-								document.getElementById('menuContainer').getElementsByTagName('li')[j].style.background = '#FCCA21';
-							}
-							else{ 
-								document.getElementById('menuContainer').getElementsByTagName('li')[j].class='inactive';
-								document.getElementById('menuContainer').getElementsByTagName('li')[j].getElementsByTagName('a')[0].style.color= 'white';
-								document.getElementById('menuContainer').getElementsByTagName('li')[j].style.background = '#262626';
-	
-							}
-						}
-						for(var k=0; k<document.getElementById('tabPanels').getElementsByTagName('div').length; k++){
-							var panelClass = document.getElementById('tabPanels').getElementsByTagName('div')[k].className;
-							var panelId = document.getElementById('tabPanels').getElementsByTagName('div')[k].id;
-							if(panelClass=='tabInactive' || panelClass=='tabActive'){
-								if(panelId == tabName+'Tab'){
-									document.getElementById('tabPanels').getElementsByTagName('div')[k].style.display='block';
-								}
-								else{
-									document.getElementById('tabPanels').getElementsByTagName('div')[k].style.display='none';
-								}
-							}
-						}
-					}
-				</script>
 				
 				
 			</div>
