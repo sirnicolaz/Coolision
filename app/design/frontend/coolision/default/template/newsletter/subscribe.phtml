@@ -26,7 +26,9 @@
 ?>
 <div class="box base-mini mini-newsletter">
     <div class="head">
-        <h4><?php echo $this->__('Newsletter') ?><a name="newsletter-box"></a></h4>
+		<div class="content">
+			<h4><?php echo $this->__('Newsletter') ?><a name="newsletter-box"></a></h4>
+		</div>
     </div>
     <form action="<?php echo $this->getUrl('newsletter/subscriber/new') ?>" method="post" id="newsletter-validate-detail">
     <fieldset class="content">
@@ -46,7 +48,7 @@
             <input name="email" type="text" id="newsletter" class="required-entry validate-email input-text" />
             <button type="submit" class="form-button-alt"><span><?php echo $this->__('') ?></span></button>
     </fieldset>
-    <div class="foot"></div>
+    <div class="foot"><div class="foot-right"></div></div>
 </form>
 <script type="text/javascript">
 //<![CDATA[
