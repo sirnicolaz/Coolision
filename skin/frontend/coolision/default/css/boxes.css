@@ -446,7 +446,7 @@ html { height: 100%; }
 .header-top-container { border-bottom:1px solid #415966; background-color:black; background-image:url(../images/header_lines.png); padding-top:1em; background-position: left;}
 .header-top { /*padding:10px;*/ }
 .header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
-.middle-container { /*background:url(../images/main_container_bg.gif)*/ background-color:white; no-repeat 50% 0 #fbfaf6; }
+.middle-container { /*background:url(../images/main_container_bg.gif)*/ background-color:white; }
 .middle { /*background:url(../images/main_bg.gif) no-repeat #fffffe;*/ padding:10px 0px 10px 0px; }
 
 
@@ -1897,4 +1897,3 @@ table.print .price-incl-tax .price { display:inline; }
 
 .mini-search {background: none; padding-top:0; margin-top:0;}
 .mini-search input.input-btn {background: url(../images/mini-search_btn.png) top left no-repeat; color:white;}
-table
