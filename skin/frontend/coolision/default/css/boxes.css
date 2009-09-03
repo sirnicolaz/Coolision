@@ -638,7 +638,6 @@ html { height: 100%; }
 .mini-newsletter div.foot {
     width:100%;
     height:6px;
-    background-image:url(../images/newsletter_box_footer.png);
     }
 
 .mini-cart .head h4 { background-image:url(../images/icon_basket.gif); }
