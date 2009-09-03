@@ -27,7 +27,7 @@ display:none !important;
 .MagicZoomPup {
 	border: 		1px solid #aaa;
 	background: 	#ffffff;
-	cursor:			hand;
+	cursor:			pointer;
 }
 
 /* CSS style for loading animation box */
