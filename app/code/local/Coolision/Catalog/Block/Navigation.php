@@ -103,12 +103,18 @@ class Coolision_Catalog_Block_Navigation extends Mage_Catalog_Block_Navigation
 		$percWidth=$houndred / $columnNum;
 		
 		//Generate submenu item
+// 		echo 'DIOCANattributo= '.$category->_getAttribute('topologia_capo')->getFrontend()->getLabel();
+
 		for($i=0; $i<$subElements; $i++){
 			$htmlChildrenSub=$htmlChildrenSub.'<li style="display:inline !important; width:' . $percWidth . '%;" class="level';
 
 			$htmlChildrenSub.= $level+1 . ' nav-' . str_replace('/', '-', Mage::helper('catalog/category')->getCategoryUrlPath($category->getRequestPath())) . ' sub-menu-top">' . "\n";
-			$htmlChildrenSub.= '<a href="http://www.merda.it"><span>Test menu ' . $i . '</span></a>' . "\n";; //Menu item content - Per Andrea: inserisci qua il contenuto della singola voce di men�. Il resto dovrebbe essere ok senza bisogno di intervento.  Puoi anche rasare via la stringa e rimpiazzarla con quello che vuoi, basta che lasci intatto quella che c'� sopra e sotto.
+			$htmlChildrenSub.= '<a href="attributo='.$category->getName().'"><span>Test menu ' . $i . '</span></a>' . "\n"; //Menu item content - Per Andrea: inserisci qua il contenuto della singola voce di men�. Il resto dovrebbe essere ok senza bisogno di intervento.  Puoi anche rasare via la stringa e rimpiazzarla con quello che vuoi, basta che lasci intatto quella che c'è sopra e sotto.
 			$htmlChildrenSub.= '</li>' . "\n";
+			//foreach($category->getData() as $label => $value)
+			//{
+			//  $htmlChildrenSub.= '<p>'.$label.'='.$value.'</p><br/>';
+			//}
 		}
 		
 		$width=($columnNum+1)*8;
