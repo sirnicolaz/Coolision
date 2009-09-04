@@ -120,6 +120,56 @@ background:white url(../images/news-content_back.jpg) repeat scroll center cente
 }
 
 .mini-news .news-content{
-margin-left:6px;
-margin-right:6px;
+padding:0;
+}
+
+.mini-news ul{
+padding:0;
+padding-top:5px;
+padding-bottom:5px;
+}
+
+.mini-news .news-list li{
+border-top:#B3B3B3 solid 1px;
+width:100%;
+padding:0;
+margin:0;
+margin-top:5px;
+padding-top:5px;
+}
+
+.mini-news .news-list li div{
+margin-left:5px;
+margin-right:5px;
+}
+
+.mini-news .news-list li#l2{
+border-top:none;
+width:100%;
+padding:0;
+margin:0;
+}
+
+.mini-news .news-list .title{
+text-transform:lowercase;
+font-weight:bold;
+}
+
+.mini-news .news-list #l2 .title{
+color:#8CC63F;
+}
+
+.mini-news .news-list #l1 .title{
+color:#FCCA21;
+}
+
+.mini-news .news-list #l0 .title{
+color:#C1272D;
+}
+
+.mini-news .news-list .content{
+background:none;
+color:#4D4D4D;
+margin:0;
+padding:0;
 }

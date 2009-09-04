@@ -5,6 +5,7 @@
 		</div>
 	</div>
 	<div class="news-content">
+		<ul class="news-list">
 	<?php   
 	  /*
 	    This will load one record from your database table.
@@ -28,18 +29,36 @@
 	    $collection->setCurPage(2);
 	    $size = $collection->getSize();
 	    $cnt = count($collection);
-	    foreach ($collection as $item) {
-	      echo 'NEWS ID: '.$item->getNewsId().'<br/>';
-	      echo 'TITLE: '.$item->getTitle().'<br/>';
-	      echo 'CONTENT: '.$item->getContent().'<br/>';
-	      $dateString = $item->getCreatedTime(); /* <- string: 2009-08-18 15:53:18 */
-	      $fullDateArray = split(' ', $dateString);
-	      $dateArray = split('-', $fullDateArray[0]);
-	      echo 'CREATION TIME: '.$dateArray[2].'/'.$dateArray[1].'/'.$dateArray[0].'<br/>';
-	      echo 'STATUS: '.$item->getStatus().'<br/>';
-	    } 
+		$i = 1;
+		foreach($collection as $s_item){
+			if(!($s_item->getStatus())){
+				$i++;
+			}
+		}
+		$lNum = 2;
+		?>
+	    <?php foreach ($collection as $item):?> 
+		<?php if($i >= $cnt-2 && $item->getStatus()): ?>
+		<li id="l<?php echo $lNum; ?>">
+					<div>
+					<span class="title">
+					<?php	$dateString = $item->getCreatedTime(); /* <- string: 2009-08-18 15:53:18 */?>
+					<?php	$fullDateArray = split(' ', $dateString); ?>
+					<?php	$dateArray = split('-', $fullDateArray[0]); ?>
+					<?php	echo $dateArray[2].'/'.$dateArray[1].'/'.$dateArray[0].' - '.$item->getTitle() ?><br/>
+					</span>
+					<span class="content">
+					<?php	echo $item->getContent() ?><br/>
+					</span>
+					</div>
+		</li>
+		<?php $lNum--; ?>
+		<?php endif; ?>
+		<?php $i++; ?>
+	    <?php endforeach; ?>
 
-	  /*
+	<?php
+	/*
 	    This shows how to load one value, change something and save it.
 	  */
 
@@ -49,5 +68,6 @@
 	  $object->save();
 	  */
 	?>
+	</ul>
 	</div>
 </div>
