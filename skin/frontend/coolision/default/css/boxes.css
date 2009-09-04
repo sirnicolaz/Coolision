@@ -461,6 +461,7 @@ html { height: 100%; }
 /* Quick Access*/
 .quick-access {
     min-width:610px;
+	width: 70%;
     float:right;
 /*    margin-top:28px;*/
     text-align:left;
@@ -481,6 +482,26 @@ html { height: 100%; }
 .quick-access li.last { /*padding-right:0;*/ background:none; list-style-image:url(../images/icon_cart.png) }
 .quick-access a {color:white; text-decoration:none;}
 
+.inputMiniLoginBackground
+{
+	background-image: url('../images/inputbox.png');
+	width: 150px;
+	height: 17px;
+	background-repeat: no-repeat;
+	float: left;
+	margin-right: 10px;
+}
+
+.inputMiniLogin
+{
+	height: 16px;
+	width: 140px;
+	border: none;
+	display: block;
+	margin-left: 5px;
+	color: #333333;
+}
+
 .shop-access { margin-bottom:6px; }
 .shop-access a, .shop-access a:hover { color:#ebbc58; font-size:.95em; }
 .shop-access li.last { padding-right:0; background:none; }
@@ -489,20 +510,36 @@ html { height: 100%; }
 .language-switcher .flag option { background-repeat:no-repeat; background-position:left center; padding-left:20px; margin-left:2px; }
 
 /* Stile dell'area di login */
-.mini_login { float:left; }
+.mini_login { float:left; clear: left; width: 49%;}
 .mini_login #submit_image_cell { padding-top:1em; }
-.mini_login #submit_image { width:21px; height:21px; background:url(../images/button_submit.png); }
+.mini_login #submit_image { width:21px; height:21px; background:url(../images/button_submit.png); float: left;}
 .mini_login .description_field { text-align:right; }
-.mini_login #forgotten_password { padding-left:6em; font-size:x-small; }
+.mini_login #forgotten_password { font-size:x-small; clear: left; float: right; margin-right: 31px; text-transform: lowercase; padding: 0px;}
 
 /* Content-block nell'header */
 .header-cblock {
     text-align: left;
-    min-width: 20%;
-    min-height: 60px;
+	height: 60px;
     float: right;
-    border-left: 2px dotted;
-    padding: 0 0.5em;
+	width: 25%;
+}
+
+.topCart li
+{
+	height: 30px;
+}
+
+.mini_login li
+{
+	float: left;
+	margin-right: 10px;
+	width: 150px;
+}
+
+.formMiniLogin
+{
+	float: left;
+	clear: left;
 }
 
 .header-cblock #icon_shopping_guide {
@@ -512,7 +549,6 @@ html { height: 100%; }
     margin: 0 auto;
 }
 
-.mini_login input { width:90px; }
 .mini_login input[type="submit"] { width:50px; }
 
 /* Breadcrumbs */ /*Modified*/

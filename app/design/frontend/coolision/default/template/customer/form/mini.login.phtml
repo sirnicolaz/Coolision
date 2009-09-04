@@ -27,22 +27,15 @@
 
 <?php if ( !$this->helper('customer')->isLoggedIn() ): ?> <!-- se l'utente non è loggato fa vedere il form di login -->
   <form name="login_form" action="<?php echo $this->getPostActionUrl() ?>" method="post">
-      <table width="100%" class="mini-login">
-    	  <tr>
-    	    <td class="description_field"><?php echo $this->__('login') ?>:</td>
-    	    <td><input name="login[username]" /></td>
-    	    <td rowspan="2" id="submit_image_cell">
-    	        <a href="javascript:document.login_form.submit()" onclick="return val_form_this_page()">
+	<div class="inputMiniLoginBackground"><input class="inputMiniLogin" name="login[username]" value="email" onfocus="if (this.value=='email') this.value=''"/></div>
+	<div class="inputMiniLoginBackground"><input class="inputMiniLogin" type="password" name="login[password]" value="password" onfocus="if (this.value=='password') this.value=''"/></div>
+	<a href="javascript:document.login_form.submit()" onclick="return val_form_this_page()">
                     <div id="submit_image"></div>
                 </a>
-    	    </td>
-    	  </tr>
-    	  <tr>
-    	    <td class="description_field"><?php echo $this->__('password') ?>:</td>
-    	    <td><input type="password" name="login[password]" /></td>
-    	  </tr>
-      </table>
+      <!--<?php echo $this->__('login') ?>
+    	    <?php echo $this->__('password') ?>:-->
   </form>
+  <br />
   <a id="forgotten_password" href="<?php echo $this->getUrl("customer/account/forgotpassword") ?>"><?php echo $this->__('Dimenticato la password') ?></a>
 <?php //else: ?> <!-- se l'utente è loggato mostra un pulsante per il logout -->
   <!--<form action="<?php echo $this->getUrl("customer/account/logout") ?>" method="post">

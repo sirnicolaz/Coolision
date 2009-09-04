@@ -31,17 +31,26 @@
         <p class="no-display"><a href="#main"><strong><?php echo $this->__('Skip to Main Content') ?> &raquo;</strong></a></p>
         <?php //echo $this->getChildHtml('topSearch') ?>
         <div class="quick-access">
-    			<!-- Un giorno, molto lontano, forse, chissà, ci andrà il messaggio di benvenuto. Se l'uomo del monte dice si. -->
-               <!--<?php //echo $this->getWelcome() ?><br />-->
+    			<!--<?php //echo $this->getWelcome() ?><br />-->
                 <!--div class="shop-access">
     					<?php //echo $this->getChildHtml('topLinks') ?>
     			</div-->
     			
     			<!--  Div con le aree di accesso stile "bottoni" -->
+				<!--<div class="header-cblock userLink">
+			      
+    			</div>-->
     			<div class="mini_login">
+					<?php if ( !$this->helper('customer')->isLoggedIn() ): ?>
+    				<?php echo $this->getLayout()->getBlock("top.links.nouser")->toHtml(); ?>
+			      <?php else: ?>
+				<?php echo $this->getLayout()->getBlock("top.links.user")->toHtml(); ?>
+			      <?php endif; ?>
+				  <div class="formMiniLogin">
         			<?php echo $this->getChildHtml('mini.login') ?>
+				  </div>
     			</div>
-    			<div class="header-cblock">
+    			<div class="header-cblock topCart">
     				<!-- amministrazione -->
     				<?php echo $this->getLayout()->getBlock("top.links.cart")->toHtml(); ?>
     			</div>
@@ -57,14 +66,6 @@
     				</div>
     				<a href="/how_to_shop">GUIDA ALL'ACQUISTO</a>
     			</div>
-    			<div class="header-cblock">
-			      <?php if ( !$this->helper('customer')->isLoggedIn() ): ?>
-    				<?php echo $this->getLayout()->getBlock("top.links.nouser")->toHtml(); ?>
-			      <?php else: ?>
-				<?php echo $this->getLayout()->getBlock("top.links.user")->toHtml(); ?>
-			      <?php endif; ?>
-    			</div>
-			
             <?php echo $this->getChildHtml('store_language') ?>
         </div>
     </div>
