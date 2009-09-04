@@ -89,39 +89,70 @@ class Coolision_Catalog_Block_Navigation extends Mage_Catalog_Block_Navigation
 	*/
 	
 	function initSubMenu($html, $level, $category){
-	
-		$maxRowNum=8; //Maximum number of row per submenu
-		$htmlChildrenSub='';
-		$subElements=10; //Elements number
-		
-		//Measures calculation
-		$columnNum=(int)($subElements/$maxRowNum);
-		if($subElements%$maxRowNum){
-			$columnNum=$columnNum+1;
-		}
-		$houndred=100;
-		$percWidth=$houndred / $columnNum;
-		
-		//Generate submenu item
-// 		echo 'DIOCANattributo= '.$category->_getAttribute('topologia_capo')->getFrontend()->getLabel();
+		/* recupero la model della categoria corrente (cioè relativa a questa voce) */
+		$categoryModel = Mage::getModel('catalog/category')->load($category->getData('entity_id'));
 
-		for($i=0; $i<$subElements; $i++){
-			$htmlChildrenSub=$htmlChildrenSub.'<li style="display:inline !important; width:' . $percWidth . '%;" class="level';
+		/* recupero la model dell'attributo tipologia_capo */
+		$productModel = Mage::getModel('catalog/product');
+		$attributes = Mage::getResourceModel('eav/entity_attribute_collection')
+			      ->setEntityTypeFilter($productModel->getResource()->getTypeId())
+			      ->addFieldToFilter('attribute_code', 'tipologia_capo')
+			      ->load(false);
+		$attributeModel = $attributes->getFirstItem()->setEntity($productModel->getResource());
 
-			$htmlChildrenSub.= $level+1 . ' nav-' . str_replace('/', '-', Mage::helper('catalog/category')->getCategoryUrlPath($category->getRequestPath())) . ' sub-menu-top">' . "\n";
-			$htmlChildrenSub.= '<a href="attributo='.$category->getName().'"><span>Test menu ' . $i . '</span></a>' . "\n"; //Menu item content - Per Andrea: inserisci qua il contenuto della singola voce di men�. Il resto dovrebbe essere ok senza bisogno di intervento.  Puoi anche rasare via la stringa e rimpiazzarla con quello che vuoi, basta che lasci intatto quella che c'è sopra e sotto.
-			$htmlChildrenSub.= '</li>' . "\n";
-			//foreach($category->getData() as $label => $value)
-			//{
-			//  $htmlChildrenSub.= '<p>'.$label.'='.$value.'</p><br/>';
-			//}
+		/* recupero le opzioni disponibili per quel filtro */
+		$options = $attributeModel->getFrontend()->getSelectOptions();
+
+		/* recupero il count per ogni opzione disponibile */
+		$optionsCount = Mage::getSingleton('catalogindex/attribute')->getCount($attributeModel, $categoryModel->getProductCollection()->getSelect());
+
+		/* costruisco la lista di opzioni disponibili */
+		$data = array();
+		foreach ($options as $option) { /* per ogni opzione */
+		  if (!empty($optionsCount[$option['value']])) { /* se l'opzione ha valori possibili */
+		    $data[] = array(
+                                'label' => $option['label'],
+                                'value' => $option['value'],
+                                'count' => $optionsCount[$option['value']],
+                            );
+                  }
+                } /* data è un array che contiene tutte le opzioni per il filtro tipologia_capo */
+
+
+// 		$atributeLabel = $categoryModel->getAttribute('topologia_capo')->getFrontend()->getLabel();
+		$maxRowNum = 4; //Maximum number of row per submenu
+		$htmlChildrenSub = '';
+		$subElements = count($data); //Elements number
+		if ($subElements != 0) /* SISTEMARE */
+		{
+		  //Measures calculation
+		  $columnNum=(int)( $subElements/$maxRowNum );
+		  if($subElements%$maxRowNum){
+			  $columnNum=$columnNum+1;
+		  }
+		  $houndred=100;
+		  $percWidth=$houndred / $columnNum;
+
+	    
+		  /* ciclo che genera il sub menu (per ora senza senzo) */
+		  foreach($data as $d){
+			  $htmlChildrenSub=$htmlChildrenSub.'<li style="display:inline !important; width:' . $percWidth . '%;" class="level';
+			  $htmlChildrenSub.= $level+1 . ' nav-' . str_replace('/', '-', Mage::helper('catalog/category')->getCategoryUrlPath($category->getRequestPath())) . ' sub-menu-top">' . "\n";
+			  $htmlChildrenSub.= '<a href="'. $categoryModel->getUrl().'?tipologia_capo='.$d['value'] .'"><span>' . $d['label'] . '</span></a>' . "\n"; //Menu item content - Per Andrea: inserisci qua il contenuto della singola voce di men�. Il resto dovrebbe essere ok senza bisogno di intervento.  Puoi anche rasare via la stringa e rimpiazzarla con quello che vuoi, basta che lasci intatto quella che c'è sopra e sotto.
+			  $htmlChildrenSub.= '</li>' . "\n";
+			  
+			  //foreach($category->getData() as $label => $value)
+			  //{
+			  //  $htmlChildrenSub.= '<p>'.$label.'='.$value.'</p><br/>';
+			  //}
+		  }
+		  
+		  $width=($columnNum+1)*8;
+		  //Adding submenu item to ul list
+		  $html.='<ul class="level'. $level . '" style="width:'. $width . 'em !important;">'."\n"
+				  .$htmlChildrenSub
+				  .'</ul>'."\n";
 		}
-		
-		$width=($columnNum+1)*8;
-		//Adding submenu item to ul list
-		$html.='<ul class="level'. $level . '" style="width:'. $width . 'em !important;">'."\n"
-				.$htmlChildrenSub
-				.'</ul>'."\n";
 		return $html;
 	}
 }
