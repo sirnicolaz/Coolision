@@ -36,10 +36,10 @@
 		<!-- Product image -->
 		<div class="product-img"><a href="<?php echo $this->getProductUrl() ?>"><img src="<?php echo $this->getProductThumbnail()->resize(100); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /></a></div>
         <div class="product-title"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->getProductName() ?></a></div> <!-- link per tornare alla pagina prodotti-->
-		<div class="come-back"><a href="<?php echo $this->getProductUrl() ?>"><div class="back-to-product" id="backToProductButton"><?php echo $this->__('Back to product')?></div></a></div>
+		<a class="back-to-product" href="<?php echo $this->getProductUrl() ?>"><div><?php echo $this->__('Back to product')?></div></a>
 	    <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
-	    <div class="addToWishList">
-			<a href="#"><input type="button" class="wishlist-button" onClick="document.getElementById('ws<?php echo $_item->getId() ?>').checked='checked'; document.getElementById('formButtonAlt').click();" id="wishListButton" value="<?php echo $this->__('Add to wishlist')?>" name="cart[<?php echo $_item->getId() ?>][wishlist]" /></a>
+	    <div class="add-to-wishList">
+			<input type="button" class="wishlist-button" onClick="document.getElementById('ws<?php echo $_item->getId() ?>').checked='checked'; document.getElementById('formButtonAlt').click();" id="wishListButton" value="<?php echo $this->__('Add to wishlist')?>" name="cart[<?php echo $_item->getId() ?>][wishlist]" />
 			<input type="checkbox" value="1" id="ws<?php echo $_item->getId() ?>" name="cart[<?php echo $_item->getId() ?>][wishlist]" style="display:none"/>
 		</div>
 	    <?php endif ?>
