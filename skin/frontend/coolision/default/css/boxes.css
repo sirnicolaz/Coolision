@@ -1044,7 +1044,7 @@ table.recently-list td { width:20%; }
 /* Grid Type */
 /*.listing-type-grid { background:url(../images/bkg_products-grid3.gif) 0 0 repeat; }*/
 /*.listing-type-grid .grid-row { border-bottom:1px solid #d9dde3; }*/
-.listing-type-grid li.item { float:left; width:138px; padding:12px 10px; line-height:1.6em; overflow:hidden; }
+.listing-type-grid li.item { float:left; width:23%; /*padding:12px 10px;*/ padding: 1%; line-height:1.6em; overflow:hidden; cursor: pointer;}
 .listing-type-grid .last { border-bottom:0; }
 .listing-type-grid .product-image { text-align:center; }
 .listing-type-grid .rating-box { float:left; margin-left:0; margin-right:5px; }
@@ -1055,7 +1055,7 @@ table.recently-list td { width:20%; }
 /*.col-2-left-layout .listing-type-grid,*/
 /*.col-2-right-layout .listing-type-grid { background-image:url(../images/bkg_products-grid2.gif); }*/
 .col-2-left-layout .listing-type-grid li.item,
-.col-2-right-layout .listing-type-grid li.item { width:208px; }
+.col-2-right-layout .listing-type-grid li.item {  }
 
 
 
