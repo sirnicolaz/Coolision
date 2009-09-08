@@ -35,6 +35,7 @@
 		<!--<span class="category-name"><?php //echo $this->getProduct()->getCategory()->getName();?></span>-->
 		<!-- Product image -->
 		<div class="product-img"><a href="<?php echo $this->getProductUrl() ?>"><img src="<?php echo $this->getProductThumbnail()->resize(100); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /></a></div>
+		<?php echo $_product->getResource()->getAttribute('tipologia_capo')->getFrontend()->getValue($_product) ?>
         <div class="product-title"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->getProductName() ?></a></div> <!-- link per tornare alla pagina prodotti-->
 		<a class="back-to-product" href="<?php echo $this->getProductUrl() ?>"><div><?php echo $this->__('Back to product')?></div></a>
 	    <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
