@@ -56,12 +56,14 @@
 						<div class="product-category"><?php echo $item->getResource()->getAttribute('tipologia_capo')->getFrontend()->getValue($item); ?></div>
 						<div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 133); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
 						<div class="product-description"><?php echo $item->getShortDescription();?></div>
-						<?php echo $item->getResource()->getAttribute('color')->getFrontend()->getValue($item) ?>
 					</div>
 					<div class="wishlist-right">
-						<div class="price-head"><span>Price</span></div>
-	                    <div><?php echo $this->getPriceHtml($item) ?></div>
-						<div><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
+						<div class="color-head"><div><?php $this->__("Color")?></div></div>
+						<div class="info color" id="<?php echo strtolower($item->getResource()->getAttribute('color')->getFrontend()->getValue($item))?>"><?php echo $item->getResource()->getAttribute('color')->getFrontend()->getValue($item) ?></div>
+						<div class="color-head"><div><?php $this->__("Date")?></div></div>
+						<div class="info"><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
+						<div class="price-head"><div><?php echo $this->__("Price")?></div></div>
+	                    <div class="info"><?php echo $this->getPriceHtml($item) ?></div>
 						<div class="view-button"><a href="<?php echo $item->getProductUrl() ?>">View</a></div>
 						<div class="remove-button"><a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove') ?></a>
 						</div>
@@ -78,12 +80,14 @@
 						<div class="product-category"><?php echo $item->getResource()->getAttribute('tipologia_capo')->getFrontend()->getValue($item); ?></div>
 						<div><a href="<?php echo $item->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(113, 113); ?>" alt="<?php echo $this->htmlEscape($item->getName()) ?>" width="113" /></a></div>
 						<div class="product-description"><?php echo $item->getShortDescription();?></div>
-						<?php echo $item->getResource()->getAttribute('color')->getFrontend()->getValue($item) ?>
 					</div>
 					<div class="wishlist-right">
-						<div class="price-head"><span>Price</span></div>
-	                    <div><?php echo $this->getPriceHtml($item) ?></div>
-						<div><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
+						<div class="color-head"><div><?php echo $this->__("Color")?></div></div>
+						<div class="info color" id="<?php echo strtolower($item->getResource()->getAttribute('color')->getFrontend()->getValue($item))?>"><?php echo $item->getResource()->getAttribute('color')->getFrontend()->getValue($item) ?></div>
+	                    <div class="color-head"><div><?php echo $this->__("Date")?></div></div>
+						<div class="info"><?php echo $this->getFormatedDate($item->getAddedAt()) ?></div>
+						<div class="price-head"><div><?php echo $this->__("Price")?></div></div>
+						<div class="info"><?php echo $this->getPriceHtml($item) ?></div>
 						<div class="view-button"><a href="<?php echo $item->getProductUrl() ?>">View</a></div>
 						<div class="remove-button"><a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove') ?></a>
 						</div>

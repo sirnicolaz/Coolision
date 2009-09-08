@@ -28,14 +28,78 @@ font-size:11px;
 }
 
 .wishlist-right .price-head{
+border-bottom:2px solid #FCCA21;
+float:right;
+margin-bottom:0;
+margin-left:23%;
+padding-bottom:0;
 text-align:right;
-background: url(../images/wishlist-price_box.png) no-repeat top right;
+width:39%;
 }
 
-.wishlist-right .price-head span{
-padding:5px 5px 5px 4px;
+.wishlist-right .price-head div{
+background-color:#FCCA21;
 color:black;
+font-weight:bold;
+width:75%;
+text-align:right;
+padding-right:4px;
 text-transform:uppercase;
+font-size:12px;
+float:right;
+}
+
+.wishlist-right .color-head{
+border-bottom:2px solid #4D4D4D;
+float:right;
+margin-bottom:0;
+margin-left:23%;
+padding-bottom:0;
+text-align:left;
+width:39%;
+}
+
+.wishlist-right .color-head div{
+background-color:#4D4D4D;
+color:white;
+font-weight:bold;
+width:75%;
+text-align:left;
+padding-left:4px;
+text-transform:uppercase;
+}
+
+.wishlist-right .info{
+margin-bottom:8px;
+}
+
+.wishlist-right .color {
+background-position:bottom right;
+background-repeat:no-repeat;
+margin-bottom:8px;
+padding-right:35px;
+}
+
+/*Aggiungere il colore desiderato dopo aver uploadato l'immagine con il cerchio colorato richiesta*/
+
+.wishlist-right #red{
+background-image:url(../images/circle-red.jpg);
+}
+
+.wishlist-right #blue{
+background-image:url(../images/circle-blue.jpg);
+}
+
+.wishlist-right #green{
+background-image:url(../images/circle-green.jpg);
+}
+
+.wishlist-right #yellow{
+background-image:url(../images/circle-yellow.jpg);
+}
+
+.wishlist-right #black{
+background-image:url(../images/circle-black.jpg);
 }
 
 #wishlist-table td{
