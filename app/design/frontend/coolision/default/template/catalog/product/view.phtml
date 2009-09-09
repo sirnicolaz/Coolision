@@ -40,7 +40,11 @@
     $_product = $this->getProduct();
     /* recupera l'url per tornare alla pagina precedente (settato nella pagina precedente) */
     $_url = explode( "?urlBack=" ,$_SERVER["REQUEST_URI"]);
-    $_urlBack = 'http://'.$_SERVER["HTTP_HOST"].$_url[1];
+    $_show = true;
+    if ( count($_url) == 2 )
+      $_urlBack = 'http://'.$_SERVER["HTTP_HOST"].$_url[1];
+    else
+      $show = false;
 ?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
@@ -158,11 +162,13 @@
 				<br/>
 				<div class="sum-link"><?php //echo $_product->getTierPriceHtml() ?></div>
 				<div class="sum-link"><?php echo $this->getChildHtml('alert_urls') ?></div>
-				<div class="back-to-shop-container">
-					<div class="back-to-shop">
-						<a href="<?php echo $_urlBack ?>"><?php echo $this->__('Back') ?></a>
-					</div>
-				</div>
+				<?php if ($show): ?>
+				  <div class="back-to-shop-container">
+					  <div class="back-to-shop">
+						  <a href="<?php echo $_urlBack ?>"><?php echo $this->__('Back') ?></a>
+					  </div>
+				  </div>
+				<?php endif; ?>
 	            <!--<div class="sum-link"><?php //echo $this->getChildHtml('product_type_data') ?></div>-->
 				<?php if (!$this->hasOptions()):?>
                 <div class="add-to-holder">
