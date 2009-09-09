@@ -46,6 +46,7 @@
         <!-- end header -->
 
         <!-- start middle -->
+		<div class="no-item-back"></div>
         <div class="middle-container">
             <?php echo $this->getChildHtml('breadcrumbs') ?>
             <div class="middle col-1-layout">
@@ -55,14 +56,12 @@
                 <!-- start content -->
                     <?php echo $this->getChildHtml('content') ?>
                 <!-- end content -->
-
                 </div>
             <!-- end center -->
 
             </div>
         </div>
         <!-- end middle -->
-
         <?php echo $this->getChildHtml('before_body_end') ?>
 		<div class="push"></div>
 </div>

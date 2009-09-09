@@ -28,20 +28,31 @@
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
 <script type="text/javascript">countryRegions = <?php echo $this->helper('directory')->getRegionJson() ?></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/checkout.css');?>" media="all" />
+<!--<span class="checkout-title"><span><?php echo $this->__("Checkout") ?></span></span><span class="checkout-thanks"><?php echo $this->__("Thank you for shopping here!") ?></span><span class="checkout-rule"><?php echo $this->__("Now complete your shopping in few simple steps.") ?></span>-->
 <ol id="checkoutSteps" class="one-page-checkout">
 <!-- scorre i vari step del checkout -->
 <?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
 <?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?> <!-- guarda se ha senso mostrare lo step corrente -->
     <!-- an seconda di come è lo step cambia la class e l'id -->
     <li id="opc-<?php echo $_stepId ?>" class="section <?php echo !empty($_stepInfo['allow'])?'allow':'' ?> <?php echo !empty($_stepInfo['complete'])?'saved':'' ?>">
-        <div class="head">
-	    <!-- head dello step, cioè id e titolo (cliccabile per andare a quello step) -->
-            <h3><span class="step-count"><?php echo $i ?></span> &nbsp;<?php echo $_stepInfo['label'] ?></h3><a href="#"><?php echo $this->__('Edit') ?></a>
-        </div>
-        <div id="checkout-step-<?php echo $_stepId ?>" class="box<?php if($_stepId=='shipping_method'): ?>-no-padding<?php endif; ?> a-item" style="display:none;">
-	    <!-- va a prendere l'html dello step identificato da un certo step_id (ad esempio shipping_method) -->
-            <?php echo $this->getChildHtml($_stepId) ?>
-        </div>
+        <div class="ro">
+			<div class="lo">
+				<div class="ru">
+					<div class="lu">
+						<div class="inhalt">
+							<div class="head">
+						    <!-- head dello step, cioè id e titolo (cliccabile per andare a quello step) -->
+					            <h3><span class="step-count"><?php echo $i ?></span> &nbsp;<?php echo $_stepInfo['label'] ?></h3><a href="#"><?php echo $this->__('Edit') ?></a>
+					        </div>
+					        <div id="checkout-step-<?php echo $_stepId ?>" class="box<?php if($_stepId=='shipping_method'): ?>-no-padding<?php endif; ?> a-item" style="display:none;">
+						    <!-- va a prendere l'html dello step identificato da un certo step_id (ad esempio shipping_method) -->
+					            <?php echo $this->getChildHtml($_stepId) ?>
+					        </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     </li>
 <?php endforeach ?>
 </ol>

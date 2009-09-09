@@ -2,10 +2,6 @@ li.item:hover {
 background: url(../images/product-grid_over-back.png) top left;
 }
 
-.listing-type-grid li.item {
-width:151px !important;
-}
-
 .catalog-listing .listing-item:hover{
 background: url(../images/product-list_over-back.png) top left;
 }

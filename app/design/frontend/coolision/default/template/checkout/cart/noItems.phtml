@@ -24,9 +24,12 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/noItem.css');?>" media="all" />
 <div class="page-head">
-    <h3><?php echo $this->__('Shopping Cart is Empty') ?></h3>
+    <?php echo $this->__('Shopping Cart is Empty') ?>
 </div>
+<div class="no-item-content">
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<p><?php echo $this->__('You have no items in your shopping cart.') ?></p>
-<p><?php echo $this->__('Please <a href="%s">continue shopping</a>.', $this->getContinueShoppingUrl()) ?></p>
+<!--<p><?php echo $this->__('You have no items in your shopping cart.') ?></p>-->
+<div class="no-item-continue"><span><?php echo $this->__('<a href="%s">continue shopping</a>.', $this->getContinueShoppingUrl()) ?><span></div>
+</div>
