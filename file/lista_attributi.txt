@@ -1,0 +1,209 @@
+sku:
+  Type: text
+  Req: yes
+  code: sku
+  label: SKU
+  label ita: SKU
+  label eng: SKU
+
+CodiceUnivocoTipologiaProdotto:
+  Type: text
+  Req: yes
+  code: type_id
+  label: TypeId
+  label ita: CodiceUnivocoTipologiaProdotto
+  label eng:
+
+Categoria
+  Type: dropdown
+  Values: 'uomo', 'donna', 'bambino'
+  Req: yes
+  code: category
+  label: Category
+  label ita: Categoria
+  label eng: Category
+
+Tipologia
+  Type: dropdown
+  Values: 'pantalone', 'accessorio', 't-shirt'
+  Req: yes
+  code: type
+  label: Type
+  label ita: Tipologia
+  label eng: 
+
+SottoTipologia
+  Type: dropdown
+  Values: 'jeans', 'pantalone classico', 'bermuda'
+  Req: yes
+  code: subtype
+  label: SubType
+  label ita: SottoTipologia
+  label eng:
+
+Designer
+  Type: dropdown
+  Values: ???
+  Req: yes
+  code: manufacturer
+  label: Manufacturer
+  label ita: Designer
+  label eng: Designer
+
+Taglia
+  Type: dropdown
+  Values: ??? (adattabile alla categoria e alla tipologia)
+  Req: yes
+  code: size
+  label: Size
+  label ita: Taglia
+  label eng: Size
+
+TaglieSpeciali
+  Type: ???
+  Values: ??? (adattabile alla sottotipologia)
+  Req: no
+  code: special_size
+  label: SpecialSize
+  label ita: TaglieSpeciali
+  label eng: 
+
+Indicazione di colore principale
+  Type: dropdown
+  Values: ???
+  Req: yes
+  code: 
+  label:
+  label ita:
+  label eng: 
+
+Descrizione generica
+  Type: text
+  Values: #
+  Req: yes
+  code: short_description
+  label: Short Description
+  label ita: Descrizione generica
+  label eng: 
+
+Descrizione lunga
+  Type: text
+  Values: #
+  Req: yes
+  code: description
+  label: Description
+  label ita: Descrizione lunga
+  label eng:
+
+Materiale 1
+  Type: dropdown
+  Values: ???
+  Req: no
+  code: material_1
+  label: Material 1
+  label ita: Materiale 1
+  label eng:
+
+Materiale 2
+  Type: dropdown
+  Values: ???
+  Req: no
+  code:	material_2
+  label: Material 2
+  label ita: Materiale 2
+  label eng:
+
+Materiale 3
+  Type: dropdown
+  Values: ???
+  Req: no
+  code: material_3
+  label: Material 3
+  label ita: Materiale 3
+  label eng:
+
+% Materiale 1
+  Type: dropdown
+  Values: ???
+  Req: no
+  code: per_material_1
+  label: Per Material 1
+  lebel ita: % Materiale 1
+  label eng: 
+
+% Materiale 2
+  Type: dropdown
+  Values: ???
+  Req: no
+  code: per_material_2
+  label: Per Material 2
+  lebel ita: % Materiale 2
+  label eng: 
+
+% Materiale 3
+  Type: dropdown
+  Values: ???
+  Req: no
+  code: per_material_3
+  label: Per Material 3
+  lebel ita: % Materiale 3
+  label eng: 
+
+Costo ???
+  Type: float
+  Values: #
+  Req: yes
+  code: 
+  label: 
+  label ita: 
+
+Prezzo
+  Type: float
+  Values: #
+  Req: yes
+  code: price
+  label: Price
+  label ita: Prezzo
+  label eng: Price
+
+Stagione
+  Type: dropdown
+  Values: 'tutto l'anno', 'primavera/estate', 'autunno/inverno'
+  Req: no
+  code:
+  label:
+
+Fornitore
+  Type: dropdown
+  Values: ???
+  Req: yes
+  code:
+  label:
+
+Localizzazione Magazzino
+  Type: dropdown
+  Values: ???
+  Req: yes
+  code:
+  label:
+
+Quantità
+  Type: integer
+  Values: #
+  Req: yes
+  code:
+  label:
+
+Posizionamento Magazzino
+  Type: dropdown
+  Values: ??? (in seguito a studio logistica)
+  Req: no
+  code:
+  label:
+
+Packaging proprio del prodotto
+  Type: checkbox (?)
+  Values: ???
+  Req: no (?)
+  code:
+  label:
