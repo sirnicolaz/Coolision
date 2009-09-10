@@ -3,6 +3,9 @@ Type indica il tipo dell'attributo; values indica i possibili valori che può av
 
 sku:
   type: text
+  scope: global
+  unique value: yes
+  apply to: all
   req: yes
   code: sku
   label: SKU
@@ -11,6 +14,9 @@ sku:
 
 CodiceUnivocoTipologiaProdotto:
   type: text
+  scope: website
+  unique value: no
+  apply to: all
   req: yes
   code: type_id
   label: TypeId
