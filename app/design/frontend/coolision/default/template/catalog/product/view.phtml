@@ -44,7 +44,7 @@
     if ( count($_url) == 2 )
       $_urlBack = 'http://'.$_SERVER["HTTP_HOST"].$_url[1];
     else
-      $show = false;
+      $_show = false;
 ?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
@@ -162,7 +162,7 @@
 				<br/>
 				<div class="sum-link"><?php //echo $_product->getTierPriceHtml() ?></div>
 				<div class="sum-link"><?php echo $this->getChildHtml('alert_urls') ?></div>
-				<?php if ($show): ?>
+				<?php if ($_show): ?>
 				  <div class="back-to-shop-container">
 					  <div class="back-to-shop">
 						  <a href="<?php echo $_urlBack ?>"><?php echo $this->__('Back') ?></a>
