@@ -159,17 +159,14 @@
 					<div class="price-label"><?php echo $this->__('Price')?></div>
 					<div class="sum-link" id="priceBox"><span><?php echo $this->getPriceHtml($_product) ?><span></div>
 				</div>
-				<br/>
-				<div class="sum-link"><?php //echo $_product->getTierPriceHtml() ?></div>
 				<div class="sum-link"><?php echo $this->getChildHtml('alert_urls') ?></div>
-				<?php if ($_show): ?>
-				  <div class="back-to-shop-container">
-					  <div class="back-to-shop">
-						  <a href="<?php echo $_urlBack ?>"><?php echo $this->__('Back') ?></a>
-					  </div>
-				  </div>
-				<?php endif; ?>
 	            <!--<div class="sum-link"><?php //echo $this->getChildHtml('product_type_data') ?></div>-->
+								
+				<fieldset class="add-to-cart-box">
+				<?php if($_product->isSaleable()): ?>
+					<div class="form-button" onclick="productAddToCartForm.submit()" style="cursor:pointer"><div><span class="little"><?php echo $this->__('Add to')?></span><br/><span><?php echo $this->__('Cart') ?></span></div></button>
+				<?php endif; ?>
+				</fieldset>
 				<?php if (!$this->hasOptions()):?>
                 <div class="add-to-holder">
                     <?php if($_product->isSaleable()): ?>
@@ -183,11 +180,14 @@
 				<?php else:?>
 					<?php echo $this->getChildHtml('addto') ?>
 				<?php endif; ?>
-				<?php if($_product->isSaleable()): ?>
-				<fieldset class="add-to-cart-box">
-					<div class="form-button" onclick="productAddToCartForm.submit()" style="cursor:pointer"><div><?php echo $this->__('Add to Cart') ?></div></button>
+				<br/>
+				<?php if ($_show): ?>
+				  <div class="back-to-shop-container">
+					  <div class="back-to-shop">
+						  <a href="<?php echo $_urlBack ?>"><?php echo $this->__('Back') ?></a>
+					  </div>
+				  </div>
 				<?php endif; ?>
-    </fieldset>
 			</div>
             <!--<?php //if ($_product->getShortDescription()):?>
                 <h4><?php //echo $this->__('Quick Overview') ?></h4>
