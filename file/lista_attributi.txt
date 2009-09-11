@@ -1,23 +1,32 @@
+Lista degli attributi dei prodotti. 
+Type indica il tipo dell'attributo; values indica i possibili valori che può avere l'attributo (se è di tipo dropdown, altrimenti non ha senso); Req indica se è obbligatorio o no; code indica l'attribute code usato da magento per utilizzare l'attributo (una volta inserito in fase di creazione dell'attributo non può più cambiare); label indica il label usato da magento (una volta inserito in fase di creazione dell'attributo non può più cambiare); label ita indica il label usato nel frontend italiano (cioè nel sito italiano), label eng indica il label usato nel frontend inglese.
+
 sku:
-  Type: text
-  Req: yes
+  type: text
+  scope: global
+  unique value: yes
+  apply to: all
+  req: yes
   code: sku
   label: SKU
   label ita: SKU
   label eng: SKU
 
 CodiceUnivocoTipologiaProdotto:
-  Type: text
-  Req: yes
+  type: text
+  scope: website
+  unique value: no
+  apply to: all
+  req: yes
   code: type_id
   label: TypeId
   label ita: CodiceUnivocoTipologiaProdotto
   label eng:
 
 Categoria
-  Type: dropdown
-  Values: 'uomo', 'donna', 'bambino'
-  Req: yes
+  type: dropdown
+  values: 'uomo', 'donna', 'bambino'
+  req: yes
   code: category
   label: Category
   label ita: Categoria
@@ -25,7 +34,7 @@ Categoria
 
 Tipologia
   Type: dropdown
-  Values: 'pantalone', 'accessorio', 't-shirt'
+  values: 'pantalone', 'accessorio', 't-shirt'
   Req: yes
   code: type
   label: Type
@@ -33,8 +42,8 @@ Tipologia
   label eng: 
 
 SottoTipologia
-  Type: dropdown
-  Values: 'jeans', 'pantalone classico', 'bermuda'
+  type: dropdown
+  values: 'jeans', 'pantalone classico', 'bermuda'
   Req: yes
   code: subtype
   label: SubType
@@ -42,8 +51,8 @@ SottoTipologia
   label eng:
 
 Designer
-  Type: dropdown
-  Values: ???
+  type: dropdown
+  values: ???
   Req: yes
   code: manufacturer
   label: Manufacturer
@@ -60,150 +69,160 @@ Taglia
   label eng: Size
 
 TaglieSpeciali
-  Type: ???
-  Values: ??? (adattabile alla sottotipologia)
-  Req: no
+  type: ???
+  values: ??? (adattabile alla sottotipologia)
+  req: no
   code: special_size
   label: SpecialSize
   label ita: TaglieSpeciali
   label eng: 
 
 Indicazione di colore principale
-  Type: dropdown
-  Values: ???
-  Req: yes
+  type: dropdown
+  values: ???
+  req: yes
   code: 
   label:
   label ita:
   label eng: 
 
 Descrizione generica
-  Type: text
-  Values: #
-  Req: yes
+  type: text
+  values: #
+  req: yes
   code: short_description
   label: Short Description
   label ita: Descrizione generica
   label eng: 
 
 Descrizione lunga
-  Type: text
-  Values: #
-  Req: yes
+  type: text
+  values: #
+  req: yes
   code: description
   label: Description
   label ita: Descrizione lunga
   label eng:
 
 Materiale 1
-  Type: dropdown
-  Values: ???
-  Req: no
+  type: dropdown
+  values: ???
+  req: no
   code: material_1
   label: Material 1
   label ita: Materiale 1
   label eng:
 
 Materiale 2
-  Type: dropdown
-  Values: ???
-  Req: no
+  type: dropdown
+  values: ???
+  req: no
   code:	material_2
   label: Material 2
   label ita: Materiale 2
   label eng:
 
 Materiale 3
-  Type: dropdown
-  Values: ???
-  Req: no
+  type: dropdown
+  values: ???
+  req: no
   code: material_3
   label: Material 3
   label ita: Materiale 3
   label eng:
 
 % Materiale 1
-  Type: dropdown
-  Values: ???
-  Req: no
+  type: dropdown
+  values: ???
+  req: no
   code: per_material_1
   label: Per Material 1
   lebel ita: % Materiale 1
   label eng: 
 
 % Materiale 2
-  Type: dropdown
-  Values: ???
-  Req: no
+  type: dropdown
+  values: ???
+  req: no
   code: per_material_2
   label: Per Material 2
   lebel ita: % Materiale 2
   label eng: 
 
 % Materiale 3
-  Type: dropdown
-  Values: ???
-  Req: no
+  type: dropdown
+  values: ???
+  req: no
   code: per_material_3
   label: Per Material 3
   lebel ita: % Materiale 3
   label eng: 
 
 Costo ???
-  Type: float
-  Values: #
-  Req: yes
+  type: float
+  values: #
+  req: yes
   code: 
   label: 
   label ita: 
 
 Prezzo
-  Type: float
-  Values: #
-  Req: yes
+  type: float
+  values: #
+  req: yes
   code: price
   label: Price
   label ita: Prezzo
   label eng: Price
 
 Stagione
-  Type: dropdown
-  Values: 'tutto l'anno', 'primavera/estate', 'autunno/inverno'
-  Req: no
-  code:
-  label:
+  type: dropdown
+  values: 'tutto l'anno', 'primavera/estate', 'autunno/inverno'
+  req: no
+  code: season
+  label: Season
+  label ita: Stagione
+  label eng:
 
 Fornitore
-  Type: dropdown
-  Values: ???
-  Req: yes
-  code:
-  label:
+  type: dropdown
+  values: ???
+  req: yes
+  code: vendor
+  label: Vendor
+  label ita: Fornitore
+  label eng:
 
 Localizzazione Magazzino
-  Type: dropdown
-  Values: ???
-  Req: yes
-  code:
-  label:
+  type: dropdown
+  values: ???
+  req: yes
+  code: stock_location
+  label: Stock Location
+  label ita: Localizzazione Magazzino
+  label eng: 
 
-Quantità
-  Type: integer
-  Values: #
-  Req: yes
-  code:
+Quantità (magento non gestisce la quantità come un attributo del prodotto!)
+  type: integer
+  values: #
+  req: yes
+  code: 
   label:
 
 Posizionamento Magazzino
   Type: dropdown
   Values: ??? (in seguito a studio logistica)
   Req: no
-  code:
-  label:
+  code: stock_placement
+  label: Stock Placement
+  label ita: Posizionamento Magazzino
+  label eng:
 
 Packaging proprio del prodotto
-  Type: checkbox (?)
-  Values: ???
-  Req: no (?)
-  code:
-  label:
+  type: checkbox (?)
+  values: ???
+  req: no (?)
+  code: packaging
+  label: Packaging
+  label ita: Packaging proprio del prodotto
+  label eng:
