@@ -1,7 +1,7 @@
 .product-img-box{
 height:500px;
 border-right:solid 1.5px;
-width:50%;
+width:40%;
 padding-top:10px;
 }
 
@@ -44,7 +44,7 @@ margin-left:15px;
 
 .product-essential .product-shop{
 float:left;
-width:49.8%;
+width:59.8%;
 }
 
 .description-tab-menu-container ul{
@@ -173,13 +173,13 @@ margin-top:2em;
 margin-left:2em;
 }
 .add-to-cart-box {
-width:35%;
+width:25%;
 height:30px;
 border:none;
-float:left;
+float:right;
 padding:0px;
 margin:0px;
-margin-left:3%;
+margin-right:3%;
 }
 
 .add-to-cart-box .form-button{
@@ -204,7 +204,9 @@ background:url(../images/add-to-cart_button_r.jpg) top right no-repeat;
 float:left;
 width:100%;
 height:30px;
-padding-top:6px;
+line-height:12px;
+margin-top:0;
+padding-bottom:6px;
 }
 
 .ship-info-sum span {
@@ -229,7 +231,7 @@ padding-right:0px;
 }
 
 .product-sum-link .price-label{
-width:30%;
+width:22%;
 height:1.4em;
 color:#262626;
 background:#FCCA21;
@@ -239,7 +241,7 @@ text-transform:uppercase;
 
 .product-sum-link #priceBox{
 background:url(../images/price-box-frame.png) top right no-repeat;
-width:50%;
+width:32%;
 height:1.4em;
 float:left;
 line-height:1px;
@@ -247,23 +249,20 @@ color:#262626;
 text-align:right;
 padding:1px;
 padding-right:5px;
-margin-bottom:13px;
-margin-right:100%;
 }
 
 .price-container{
-margin-left:30%;
+margin-left:3%;
 }
 
 ul.add-to-box{
-width:35%;
+width:25%;
 height:30px;
 border:none;
-float:left;
+float:right;
 padding:0px;
 margin:0px;
-margin-top:8px;
-margin-left:3%;
+margin-right:2%;
 }
 .add-to-box .wishlist-li{
 background:none;
@@ -285,11 +284,12 @@ display:block;
 background:url(../images/add-to-wishlist_button_r.jpg) no-repeat top right;
 float:left;
 width:100%;
-height:30px;
+height:19px;
 text-transform:uppercase;
 text-decoration:none;
 color:white;
 font-weight:bold;
+line-height:4px
 }
 
 .back-to-shop-container{
@@ -298,7 +298,8 @@ float:left;
 height:20px;
 padding-top:8px;
 font-weight:bold;
-margin-left:4%;
+margin-left:3%;
+margin-top:10px;
 }
 
 .back-to-shop{
@@ -318,4 +319,14 @@ text-decoration:none;
 text-transform:uppercase;
 color:white;
 background:url(../images/back-to-shop_button_r.jpg) no-repeat top right;
+}
+
+span.little{
+font-size:7px;
+line-height:1px;
+margin-top:0;
+}
+
+span.medium{
+line-height:16px;
 }

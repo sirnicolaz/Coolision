@@ -1,11 +1,46 @@
 .mini-product-view{
 border:none;
-/*background:url(../images/related-product-box-small.png) top left no-repeat;*/
-height:408px;
-padding-top:0.1em;
-border: solid;
+height:510px;
 text-align:center;
-background:white;
+background:url(../images/latest-viewed-prod_back_lo.jpg) top left no-repeat;
+margin:0;
+padding:0;
+float:left;
+}
+
+.col-right {
+background:url(../images/latest-viewed-prod_back_ro.jpg) top right no-repeat;
+margin:0;
+padding:0;
+height: 100%;
+height:510px;
+float:right;
+}
+
+.mini-product-view .ru {
+background:url(../images/latest-viewed-prod_back_ru.jpg) bottom right no-repeat;
+margin:0;
+padding:0;
+float:left;
+height:510px;
+}
+
+.mini-product-view .lu {
+background:url(../images/latest-viewed-prod_back_lu.jpg) bottom left no-repeat;
+margin:0;
+padding:0;
+float:left;
+height:510px;
+}
+
+ 
+
+.mini-product-view .inhalt {
+margin:0;
+float:left;
+padding-left: 19px;
+padding-right:16px;
+height: auto;
 }
 
 .mini-product-view .head{
@@ -23,11 +58,12 @@ text-align:center;
 .mini-product-view .related-up-arrow{
 position:relative;
 border:none;
-width:10em;
-height:2em;
-/*background:url(../images/related-left-arrow-small.png) top left no-repeat;*/
-background:black;
-margin:0em;
+background:url(../images/related-left-arrow-small.png) top left no-repeat;
+margin:0;
+float:left;
+width:6%;
+height:65px;
+margin-top:220px;
 }
 
 .mini-product-view .content{
@@ -35,21 +71,20 @@ background:none;
 float:left;
 position:relative;
 height:320px;
-width:150px;
+width:75%;
 white-space: nowrap;
 overflow:hidden;
-/*float:left;*/
-padding-bottom:0em;
-margin-left:10px;
+margin:0;
 }
 
 .mini-product-view .related-down-arrow{
-width:10em;
-height:2em;
 border:none;
-/*background:url(../images/related-right-arrow-small.png) top left no-repeat;*/
-background:black;
-margin-top:4px;
+background:url(../images/related-right-arrow-small.png) top left no-repeat;
+float:left;
+width:6%;
+height:65px;
+margin:0;
+margin-top:220px;
 }
 
 .mini-product-view ol{
@@ -60,10 +95,11 @@ display: block;
 list-style:none;
 }
 
+
+
 .mini-product-view li { 
 list-style-type: none;
 padding:0px;
-border:solid;
 margin:0px;
 margin-top:8px;
 margin-bottom:8px;
@@ -89,9 +125,7 @@ margin-bottom:0px;
 padding-bottom:0px;
 }
 
-.mini-product-view{
-float:left;
-}
+
 
 .mini-product-view .price-box{
 display:block;
@@ -99,6 +133,8 @@ float:right;
 padding:0px;
 margin:0px;
 }
+
+
 .mini-product-view .price{
 font-weight:normal;
 font-size:0.8em;
@@ -121,3 +157,4 @@ display:block;
 text-align:left;
 padding-left:0.5em;
 }
+/**/

@@ -26,29 +26,35 @@
 ?>
 <?php if ($_products = $this->getRecentlyViewedProducts()): ?>
 <div class="box base-mini mini-product-view recently-viewed">
-    <div class="head">
-        <?php echo $this->__('Recently Viewed Products') ?>
-    </div>
-	<input type="button" class="related-up-arrow" id="relatedUpArrow" onclick="slideSet('up','recViewedIndex','recentlyViewedMenu');" text="Sù"/>
-	<input type="hidden" id="recViewedIndex" value="0"/>
-	<div class="content"  id="contentRecViewed">
-    <ul id="recentlyViewedMenu" class="recently-viewed-menu">
-    <?php foreach ($_products as $_item): ?>
-        <li <?php if($_item->isComposite() || !$_item->isSaleable()): ?> class="super-products"<?php endif; ?> style="background:url(<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(100)?>) no-repeat center;" >
-		<a href="<?php echo $_item->getProductUrl() ?>" style="text-decoration:none; color:#FCCA21;">
-			<div class="product-details-container">
-				<div class="product-details">
-					<span class="manufacturer"><?php echo $_item->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($_item); ?></span><br/>
-					<span class="category"><?php echo $_item->getResource()->getAttribute('tipologia_capo')->getFrontend()->getValue($_item); ?></span><br/>
-					<div class="price-box"><?php echo $_item->getFormatedPrice();?></div>
+	<div class="ru">
+		<div class="lu">
+				<div class="inhalt">
+				    <div class="head">
+				        <?php echo $this->__('Recently Viewed Products') ?>
+				    </div>
+					<input type="button" class="related-up-arrow" id="relatedUpArrow" onclick="slideSet('up','recViewedIndex','recentlyViewedMenu');" text="Sù"/>
+					<input type="hidden" id="recViewedIndex" value="0"/>
+					<div class="content"  id="contentRecViewed">
+					    <ul id="recentlyViewedMenu" class="recently-viewed-menu">
+					    <?php foreach ($_products as $_item): ?>
+					        <li <?php if($_item->isComposite() || !$_item->isSaleable()): ?> class="super-products"<?php endif; ?> style="background:url(<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(100)?>) no-repeat center;" >
+							<a href="<?php echo $_item->getProductUrl() ?>" style="text-decoration:none; color:#FCCA21;">
+								<div class="product-details-container">
+									<div class="product-details">
+										<span class="manufacturer"><?php echo $_item->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($_item); ?></span><br/>
+										<span class="category"><?php echo $_item->getResource()->getAttribute('tipologia_capo')->getFrontend()->getValue($_item); ?></span><br/>
+										<div class="price-box"><?php echo $_item->getFormatedPrice();?></div>
+									</div>
+								</div>
+							</a>
+							</li>
+					    <?php endforeach; ?>
+					    </ul>
+					</div>
+					<input type="button" class="related-down-arrow" value="" id="relatedDownArrow" onclick="slideSet('down','recViewedIndex','recentlyViewedMenu');" text="Giù"/>
+				    <script type="text/javascript">decorateList('recently-viewed-items')</script>
 				</div>
-			</div>
-		</a>
-		</li>
-    <?php endforeach; ?>
-    </ul>
+		</div>
 	</div>
-	<input type="button" class="related-down-arrow" value="" id="relatedDownArrow" onclick="slideSet('down','recViewedIndex','recentlyViewedMenu');" text="Giù"/>
-    <script type="text/javascript">decorateList('recently-viewed-items')</script>
 </div>
 <?php endif; ?>
