@@ -1,7 +1,6 @@
 Lista degli attributi dei prodotti. 
-Type indica il tipo dell'attributo; values indica i possibili valori che può avere l'attributo (se è di tipo dropdown, altrimenti non ha senso); Req indica se è obbligatorio o no; code indica l'attribute code usato da magento per utilizzare l'attributo (una volta inserito in fase di creazione dell'attributo non può più cambiare); label indica il label usato da magento (una volta inserito in fase di creazione dell'attributo non può più cambiare); label ita indica il label usato nel frontend italiano (cioè nel sito italiano), label eng indica il label usato nel frontend inglese.
 
-sku:
+sku (obbligatorio per magento, è il codice univoco che identifica il prodotto) :
   type: text
   scope: global
   unique value: yes
@@ -25,15 +24,29 @@ CodiceUnivocoTipologiaProdotto:
 
 Categoria
   type: dropdown
+  scope: store view
+  unique value: no
+  apply to: all
+  use in layered navigation: filterable (with results)
+  Use In Search Results Layered Navigation: yes
+  Visible on Product View Page on Front-end: yes
+  Used in product listing: yes
   values: 'uomo', 'donna', 'bambino'
   req: yes
-  code: category
+  code: category_
   label: Category
   label ita: Categoria
   label eng: Category
 
 Tipologia
   Type: dropdown
+  Scope: store view
+  Unique Value: no
+  Apply To: all
+  Use In Layered Navigation: filterable (with results)
+  Use In Search Results Layered Navigation: yes
+  Visible on Product View Page on Front-end: yes
+  Used in product listing: yes
   values: 'pantalone', 'accessorio', 't-shirt'
   Req: yes
   code: type
@@ -41,17 +54,29 @@ Tipologia
   label ita: Tipologia
   label eng: 
 
-SottoTipologia
+SottoTipologia (uno per ogni tipologia, per ora c'è solo per i pantaloni)
   type: dropdown
+  Scope: store view
+  Unique Value: no
+  Apply To: all
+  Use In Layered Navigation: filterable (with results)
+  Use In Search Results Layered Navigation: yes
   values: 'jeans', 'pantalone classico', 'bermuda'
   Req: yes
-  code: subtype
-  label: SubType
+  code: subtype_trousers
+  label: SubTypetTrousers
   label ita: SottoTipologia
   label eng:
 
 Designer
   type: dropdown
+  Scope:
+  Unique Value:
+  Apply To:
+  Use In Layered Navigation: filterable (with results)
+  Use In Search Results Layered Navigation: yes
+  Visible on Product View Page on Front-end: yes
+  Used in product listing: yes
   values: ???
   Req: yes
   code: manufacturer
@@ -61,6 +86,14 @@ Designer
 
 Taglia
   Type: dropdown
+  Scope: global
+  Unique Value: no
+  Apply To: all
+  Use To Create Configurable Product: yes
+  Use In Layered Navigation: filterable (with results)
+  Use In Search Results Layered Navigation: yes
+  Visible on Product View Page on Front-end: yes
+  Used in product listing: yes
   Values: ??? (adattabile alla categoria e alla tipologia)
   Req: yes
   code: size
@@ -88,6 +121,9 @@ Indicazione di colore principale
 
 Descrizione generica
   type: text
+  Scope: store view
+  Apply To: all
+  Used in product listing: yes
   values: #
   req: yes
   code: short_description
@@ -97,6 +133,8 @@ Descrizione generica
 
 Descrizione lunga
   type: text
+  Scope: store view
+  Apply To: all
   values: #
   req: yes
   code: description
@@ -106,6 +144,8 @@ Descrizione lunga
 
 Materiale 1
   type: dropdown
+  Scope: store view
+  Apply To: all
   values: ???
   req: no
   code: material_1
@@ -115,6 +155,8 @@ Materiale 1
 
 Materiale 2
   type: dropdown
+  Scope: store view
+  Apply To: all
   values: ???
   req: no
   code:	material_2
@@ -124,6 +166,8 @@ Materiale 2
 
 Materiale 3
   type: dropdown
+  Scope: store view
+  Apply To: all
   values: ???
   req: no
   code: material_3
@@ -133,6 +177,8 @@ Materiale 3
 
 % Materiale 1
   type: dropdown
+  Scope: store view
+  Apply To: all
   values: ???
   req: no
   code: per_material_1
@@ -142,6 +188,8 @@ Materiale 3
 
 % Materiale 2
   type: dropdown
+  Scope: store view
+  Apply To: all
   values: ???
   req: no
   code: per_material_2
@@ -151,6 +199,8 @@ Materiale 3
 
 % Materiale 3
   type: dropdown
+  Scope: store view
+  Apply To: all
   values: ???
   req: no
   code: per_material_3
@@ -158,16 +208,21 @@ Materiale 3
   lebel ita: % Materiale 3
   label eng: 
 
-Costo ???
-  type: float
+Costo (???)
+  type: PRICE (è il tipo prezzo gestito da magento)
+  Scope: # (non è indicato per questo tipo)
+  apply to: tutti tranne i grouped product
   values: #
   req: yes
-  code: 
-  label: 
-  label ita: 
+  code: cost
+  label: Cost
+  label ita: Costo
+  label eng:
 
 Prezzo
-  type: float
+  type: PRICE (è il tipo prezzo gestito da magento)
+  Scope: # (non è indicato per questo tipo)
+  Apply To: tutti tranne i grouped product 
   values: #
   req: yes
   code: price
@@ -177,6 +232,8 @@ Prezzo
 
 Stagione
   type: dropdown
+  Scope: store view
+  Apply To: all
   values: 'tutto l'anno', 'primavera/estate', 'autunno/inverno'
   req: no
   code: season
@@ -186,6 +243,8 @@ Stagione
 
 Fornitore
   type: dropdown
+  scope: website
+  apply to: all
   values: ???
   req: yes
   code: vendor
@@ -195,6 +254,8 @@ Fornitore
 
 Localizzazione Magazzino
   type: dropdown
+  scope: website
+  apply to: all
   values: ???
   req: yes
   code: stock_location
@@ -202,7 +263,7 @@ Localizzazione Magazzino
   label ita: Localizzazione Magazzino
   label eng: 
 
-Quantità (magento non gestisce la quantità come un attributo del prodotto!)
+Quantità (magento non gestisce la quantità come un attributo del prodotto)
   type: integer
   values: #
   req: yes
@@ -211,6 +272,8 @@ Quantità (magento non gestisce la quantità come un attributo del prodotto!)
 
 Posizionamento Magazzino
   Type: dropdown
+  scope: website
+  apply to: all
   Values: ??? (in seguito a studio logistica)
   Req: no
   code: stock_placement
@@ -219,9 +282,11 @@ Posizionamento Magazzino
   label eng:
 
 Packaging proprio del prodotto
-  type: checkbox (?)
-  values: ???
-  req: no (?)
+  type: yes/no (?)
+  scope: website
+  apply to: all
+  values: yes , no
+  req: no
   code: packaging
   label: Packaging
   label ita: Packaging proprio del prodotto
