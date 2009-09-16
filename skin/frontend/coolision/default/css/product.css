@@ -24,10 +24,6 @@ padding-top:70px;
 border:solid 1px;
 }
 
-.product-shop{
-padding-top:10px;
-}
-
 .product-essential{
 background:none;
 border:1.5px #262626 solid;
@@ -39,6 +35,7 @@ border:none;
 }
 
 .product-name{
+margin-top:30px;
 margin-left:15px;
 }
 
@@ -46,6 +43,40 @@ margin-left:15px;
 float:left;
 width:59.8%;
 }
+
+.product-shop-header{
+width:100%;
+text-transform:uppercase;
+font-weight:bold;
+text-align:center;
+}
+
+.product-shop-header .product-zoom{
+width:50%;
+background-color:#262626;
+float:left;
+color:white;
+font-size:9px;
+}
+
+.product-shop-header .product-zoom span{
+background:url(../images/zoom.png) top left no-repeat;
+padding-left:16px;
+}
+
+.product-shop-header .email-to-friend{
+float:left;
+background-color:#FCCA21;
+color:black;
+width:50%;
+text-decoration:none;
+}
+
+.product-shop-header .email-to-friend span{
+background:url(../images/mail.png) center left no-repeat;
+padding-left:16px;
+}
+
 
 .description-tab-menu-container ul{
 margin:0em;
@@ -107,7 +138,7 @@ display:none;
 .product-collateral{
 background: none;
 padding:0.2em;
-height:18em;
+height:200px;
 margin-left:20px;
 }
 

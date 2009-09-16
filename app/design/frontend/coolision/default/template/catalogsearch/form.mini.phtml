@@ -29,8 +29,9 @@
         <legend><?php echo $this->__('Search Site') ?></legend>
         <div class="mini-search">
             <input id="search" type="text" class="input-text" name="<?php echo $this->helper('catalogSearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogSearch')->getEscapedQueryText() ?>" />
-            <input type="command" class="input-btn" text="<?php echo $this->__("Search")?>" name="<?php echo $this->__("Search")?>" value="<?php echo $this->__("Search")?>" alt="<?php echo $this->__('Search') ?>" />
-            <div id="search_autocomplete" class="search-autocomplete"></div>
+            <input type="submit" class="input-btn" text="<?php echo $this->__("Search")?>" name="<?php echo $this->__("Search")?>" value="<?php echo $this->__("Search")?>"  alt="<?php echo $this->__('Search') ?>" />
+            <!--<input type="image" src="<?php echo $this->getSkinUrl('images/btn_mini_search.gif') ?>" alt="<?php echo $this->__('Search') ?>" />-->
+			<div id="search_autocomplete" class="search-autocomplete"></div>
             <script type="text/javascript">
             //<![CDATA[
                 var searchForm = new Varien.searchForm('search_mini_form', 'search', '<?php echo $this->__('Search entire store here...') ?>');

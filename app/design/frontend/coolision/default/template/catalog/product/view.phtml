@@ -51,6 +51,7 @@
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-info-box">
+			
     <div class="product-essential">
     <form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
 
@@ -59,7 +60,17 @@
         </div>
 
         <div class="product-shop">
-            <h3 class="product-name">
+
+			<div class="product-shop-header">
+				<div class="product-zoom">
+					<span><?php echo $this->__('Click on the image to zoom product') ?></span>
+				</div>
+	            <?php if ($this->canEmailToFriend()): ?>
+	                <a class="email-to-friend" href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span><?php echo $this->__('Email to a Friend') ?></span></a>
+	            <?php endif;?>
+			</div>
+ 
+			<h3 class="product-name">
                 <?php echo $_helper->productAttribute($_product, $this->htmlEscape($_product->getName()), 'name') ?>
             </h3>
 			
@@ -136,10 +147,6 @@
 				
 				
 			</div>
-				
-            <?php if ($this->canEmailToFriend()): ?>
-                <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a><br />
-            <?php endif; ?>
 
             <?php //echo $this->getReviewsSummaryHtml($_product, false, true)?>
 
