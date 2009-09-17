@@ -49,7 +49,20 @@ $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 	</div>
 	<?php if(!$_product->isGrouped()): ?>
         <span class="qty-box">
-        <input name="qty" type="text" class="input-text qty" id="qty" maxlength="12" value="<?php echo $this->getMinimalQty($_product) ?>" /></span>
+        <input type="button" class="adder" onclick="addQty('qty')" value="+"/>
+		<input name="qty" type="text" readonly="readonly" class="input-text qty" id="qty" maxlength="12" value="<?php echo $this->getMinimalQty($_product) ?>" />
+		<input type="button" class="adder" onclick="subQty('qty')" value="-"/>
+		<script type="text/javascript">
+			function addQty(inputName){
+				document.getElementById(inputName).value = (document.getElementById(inputName).value * 1) + 1;
+			}
+			function subQty(inputName){
+				if(document.getElementById(inputName).value > 1){
+					document.getElementById(inputName).value = document.getElementById(inputName).value - 1;
+				}
+			}
+		</script>
+		</span>
     <?php endif; ?>
 	</div>
 	</dl>

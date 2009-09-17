@@ -179,8 +179,8 @@ text-transform:uppercase;
 
 .configurable-attribute .border-bottom{
 padding-top:0px;
+margin-bottom:10px;
 margin-top:0px;
-width:134px;
 height:1.85em;
 border-bottom:1.5px;
 border-bottom-style:solid;
@@ -199,10 +199,21 @@ border:none;
 margin-left:2em;
 }
 
-.qty-box #qty{
-margin-top:2em;
-margin-left:2em;
+.adder {
+background:none;
+border:none;
+background-color:#FCCA21;
+color:#262626;
+font-weight:bold;
+width:18px;
+padding:0;
 }
+
+.qty-box{
+margin-top:0px;
+margin-left:20px;
+}
+
 .add-to-cart-box {
 width:25%;
 height:30px;
