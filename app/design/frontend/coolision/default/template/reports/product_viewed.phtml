@@ -42,7 +42,7 @@
 								<div class="product-details-container">
 									<div class="product-details">
 										<span class="manufacturer"><?php echo $_item->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($_item); ?></span><br/>
-										<span class="category"><?php echo $_item->getResource()->getAttribute('tipologia_capo')->getFrontend()->getValue($_item); ?></span><br/>
+										<span class="category"><?php echo $_item->getResource()->getAttribute('type')->getFrontend()->getValue($_item); ?></span><br/>
 										<div class="price-box"><?php echo $_item->getFormatedPrice();?></div>
 									</div>
 								</div>

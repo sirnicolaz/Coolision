@@ -523,7 +523,8 @@
                 </totals>
                 <item>
                     <product_attributes>
-			<tipologia_capo/>
+			<type/>
+			<size/>
 			<color/>
                         <sku/>
                         <type_id/>

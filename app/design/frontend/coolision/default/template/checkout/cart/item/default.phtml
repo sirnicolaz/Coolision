@@ -37,7 +37,7 @@
 		<div class="product-img"><a href="<?php echo $this->getProductUrl() ?>"><img src="<?php echo $this->getProductThumbnail()->resize(100); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /></a></div>
 
         <div class="product-title"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->getProductName() ?></a></div> <!-- link per tornare alla pagina prodotti-->
-		<?php echo $_product->getResource()->getAttribute('tipologia_capo')->getFrontend()->getValue($_product) ?>
+		<?php echo $_product->getResource()->getAttribute('type')->getFrontend()->getValue($_product) ?>
 		<a class="back-to-product" href="<?php echo $this->getProductUrl() ?>"><div><?php echo $this->__('Back to product')?></div></a>
 	    <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
 	    <div class="add-to-wishList">
@@ -84,6 +84,7 @@
 	</td>
 	
 	<td class="size-col">
+	  <?php echo $_product->getResource()->getAttribute('size')->getFrontend()->getValue($_product) ?>
 	        <!-- item custom options -->
         <?php if ($_options = $this->getOptionList()):?> <!-- lista delle opzioni per il prodotto -->
         <dl class="item-options">
