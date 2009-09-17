@@ -12,6 +12,7 @@
 
 			    	<!-- tolgo lo stato della layer navigation perchè non ci serve -->
 			        <?php /*echo $this->getStateHtml() */ ?>
+				<?php /* _filter->getName() ritorna l'Admin Label dell'attributo a cui si riferisce il filtro */ ?>
 
 			        <?php if($this->canShowOptions()): ?> <!-- guarda se può visualizzare il menu e cioè se almeno un filtro ha degli idems -->
 			            <div class="narrow-by">
@@ -19,8 +20,8 @@
 					        <dl id="narrow-by-list">
 					            <?php $_filters = $this->getFilters() ?> <!-- recupera i filtri principali (ex: categoria, tipologia capo, designer) -->
 					            <?php foreach ($_filters as $_filter): ?> 
-			            		    <?php if($_filter->getName() == 'Manufacturer' || $_filter->getName() == 'Categoria'): ?> <!-- se il filtro ha un qualche risultato -->
-					                    <dt><?php echo $this->__($_filter->getName()) ?></dt> <!-- visualizza il nome del filtro -->
+			            		    <?php if($_filter->getAttributeCode() == 'manufacturer' || $_filter->getAttributeCode() == 'type'): ?> <!-- se il filtro ha un qualche risultato -->
+					                    <dt><?php echo $this->__($_filter->getName()) ?></dt> <!-- MODIFICARE -->
 						                <dd>  
 						                <!-- per ognuno di questi filtri deve far vedere una dropdown list che fa vedere i possibili valori da selezionare -->
 						                    <?php $_filter->setTemplate('catalog/layer/homeFilter.phtml') ?> <!-- cambia il template che senno sarebbe quello per i filtri normali -->

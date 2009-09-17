@@ -62,7 +62,7 @@
         <td class="name">
 			<h5><?php echo $this->htmlEscape($_product->getName()) ?></h5>
 			<!--<h3><?php /*echo $_product->getAttributeText('manufacturer').'<br/>'*/ ?></h4>-->
-			<?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?>
+			<?php echo $_product->getAttributeText('type').'<br/>' ?>
 			<?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
 			<?php /* visualizza le taglie disponibili per il prodotto */ ?>
 			<?php if ($_product->isConfigurable()): ?>
@@ -124,7 +124,7 @@
                     <?php echo $this->htmlEscape($_product->getName()) ?>
                 </h5>
 		<?php /* info aggiuntive sul prodotto */ ?>
-		<?php echo $_product->getAttributeText('tipologia_capo').'<br/>' ?>
+		<?php echo $_product->getAttributeText('type').'<br/>' ?>
 		<?php echo 'Designer: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
 		<?php /* taglie disponibili (così funziona solo se il prodott non è configurabile!) */ ?>
 		<?php /* visualizza le taglie disponibili per il prodotto */ ?>
