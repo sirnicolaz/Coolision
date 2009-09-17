@@ -1,6 +1,6 @@
 Lista degli attributi dei prodotti. 
 
-sku (obbligatorio per magento, è il codice univoco che identifica il prodotto) :
+sku 
   type: text
   scope: global
   unique value: yes
@@ -11,18 +11,7 @@ sku (obbligatorio per magento, è il codice univoco che identifica il prodotto) 
   label ita: SKU
   label eng: SKU
 
-CodiceUnivocoTipologiaProdotto:
-  type: text
-  scope: website
-  unique value: no
-  apply to: all
-  req: yes
-  code: type_id
-  label: TypeId
-  label ita: CodiceUnivocoTipologiaProdotto
-  label eng:
-
-Categoria
+Categoria (usiamo l'attributo di distema di magento, quindi non serve crearlo lato admin)
   type: dropdown
   scope: store view
   unique value: no
@@ -31,12 +20,12 @@ Categoria
   Use In Search Results Layered Navigation: yes
   Visible on Product View Page on Front-end: yes
   Used in product listing: yes
-  values: 'uomo', 'donna', 'bambino'
+  values: 'uomo', 'donna', 'bambino',
   req: yes
-  code: category_
+  code: cat
   label: Category
-  label ita: Categoria
-  label eng: Category
+  label ita: ?
+  label eng: ?
 
 Tipologia
   Type: dropdown
@@ -54,7 +43,7 @@ Tipologia
   label ita: Tipologia
   label eng: 
 
-SottoTipologia (uno per ogni tipologia, per ora c'è solo per i pantaloni)
+SottoTipologia
   type: dropdown
   Scope: store view
   Unique Value: no
@@ -63,8 +52,8 @@ SottoTipologia (uno per ogni tipologia, per ora c'è solo per i pantaloni)
   Use In Search Results Layered Navigation: yes
   values: 'jeans', 'pantalone classico', 'bermuda'
   Req: yes
-  code: subtype_trousers
-  label: SubTypetTrousers
+  code: subtype
+  label: SubType
   label ita: SottoTipologia
   label eng:
 
@@ -107,17 +96,17 @@ TaglieSpeciali
   req: no
   code: special_size
   label: SpecialSize
-  label ita: TaglieSpeciali
+  label ita: Taglie Speciali
   label eng: 
 
 Indicazione di colore principale
   type: dropdown
   values: ???
   req: yes
-  code: 
-  label:
-  label ita:
-  label eng: 
+  code: color
+  label: Color
+  label ita: Colore
+  label eng: Color
 
 Descrizione generica
   type: text
@@ -263,7 +252,7 @@ Localizzazione Magazzino
   label ita: Localizzazione Magazzino
   label eng: 
 
-Quantità (magento non gestisce la quantità come un attributo del prodotto)
+Quantità (gestitia da magento)
   type: integer
   values: #
   req: yes

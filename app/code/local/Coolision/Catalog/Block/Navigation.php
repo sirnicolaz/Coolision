@@ -92,11 +92,11 @@ class Coolision_Catalog_Block_Navigation extends Mage_Catalog_Block_Navigation
 		/* recupero la model della categoria corrente (cioè relativa a questa voce) */
 		$categoryModel = Mage::getModel('catalog/category')->load($category->getData('entity_id'));
 
-		/* recupero la model dell'attributo tipologia_capo */
+		/* recupero la model dell'attributo type */
 		$productModel = Mage::getModel('catalog/product');
 		$attributes = Mage::getResourceModel('eav/entity_attribute_collection')
 			      ->setEntityTypeFilter($productModel->getResource()->getTypeId())
-			      ->addFieldToFilter('attribute_code', 'tipologia_capo')
+			      ->addFieldToFilter('attribute_code', 'type')
 			      ->load(false);
 		$attributeModel = $attributes->getFirstItem()->setEntity($productModel->getResource());
 
@@ -116,10 +116,10 @@ class Coolision_Catalog_Block_Navigation extends Mage_Catalog_Block_Navigation
                                 'count' => $optionsCount[$option['value']],
                             );
                   }
-                } /* data è un array che contiene tutte le opzioni per il filtro tipologia_capo */
+                } /* data è un array che contiene tutte le opzioni per il filtro relativo all'attributo type */
 
 
-// 		$atributeLabel = $categoryModel->getAttribute('topologia_capo')->getFrontend()->getLabel();
+// 		$atributeLabel = $categoryModel->getAttribute('type')->getFrontend()->getLabel();
 		$maxRowNum = 4; //Maximum number of row per submenu
 		$htmlChildrenSub = '';
 		$subElements = count($data); //Elements number
@@ -138,7 +138,7 @@ class Coolision_Catalog_Block_Navigation extends Mage_Catalog_Block_Navigation
 		  foreach($data as $d){
 			  $htmlChildrenSub=$htmlChildrenSub.'<li style="display:inline !important; width:' . $percWidth . '%;" class="level';
 			  $htmlChildrenSub.= $level+1 . ' nav-' . str_replace('/', '-', Mage::helper('catalog/category')->getCategoryUrlPath($category->getRequestPath())) . ' sub-menu-top">' . "\n";
-			  $htmlChildrenSub.= '<a href="'. $categoryModel->getUrl().'?tipologia_capo='.$d['value'] .'"><span>' . $d['label'] . '</span></a>' . "\n"; //Menu item content - Per Andrea: inserisci qua il contenuto della singola voce di men�. Il resto dovrebbe essere ok senza bisogno di intervento.  Puoi anche rasare via la stringa e rimpiazzarla con quello che vuoi, basta che lasci intatto quella che c'è sopra e sotto.
+			  $htmlChildrenSub.= '<a href="'. $categoryModel->getUrl().'?type='.$d['value'] .'"><span>' . $d['label'] . '</span></a>' . "\n"; //Menu item content - Per Andrea: inserisci qua il contenuto della singola voce di men�. Il resto dovrebbe essere ok senza bisogno di intervento.  Puoi anche rasare via la stringa e rimpiazzarla con quello che vuoi, basta che lasci intatto quella che c'è sopra e sotto.
 			  $htmlChildrenSub.= '</li>' . "\n";
 			  
 			  //foreach($category->getData() as $label => $value)
