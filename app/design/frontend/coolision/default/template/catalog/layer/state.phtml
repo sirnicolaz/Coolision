@@ -33,9 +33,15 @@
 ?>
 <?php $_filters = $this->getActiveFilters() ?>
 <?php if(!empty($_filters)): ?>
+  <?php /* se l'unico filtro attivo è quello di categoria non mostra lo stato */ ?>
+  <?php if ( !(count($_filters) == 1 && $_filters[0]->getFilter()->getAttributeCode() == 'cat') ) : ?>
     <h4><?php echo $this->__('Currently Shopping by') ?></h4>
     <ol class="narrowed-category">
     <?php foreach ($_filters as $_filter): ?>
+	<?php /* nel nostro caso è sbagliato includere nello stato il filro di categoria, quindi se è quello non lo visualizzo */ ?>
+	<?php if ($_filter->getFilter()->getAttributeCode() == 'cat'): ?>
+	  <?php continue; ?>
+	<?php endif; ?>
         <li>
             <a href="<?php echo $_filter->getRemoveUrl() ?>" class="widget-btn"><img src="<?php echo $this->getSkinUrl('images/list_remove_btn.gif') ?>" alt="<?php echo $this->__('Remove This Item') ?>" /></a>
             <span class="label"><?php echo $this->__($_filter->getName()) ?>: </span><?php echo $_filter->getLabel() ?>
@@ -43,4 +49,5 @@
     <?php endforeach; ?>
     </ol>
         <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All Items') ?></a></div>
+  <?php endif; ?>
 <?php endif; ?>
