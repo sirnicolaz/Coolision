@@ -32,19 +32,8 @@
  */
 ?>
 <?php //if($this->canShowBlock()): ?>
-    
         <?php echo $this->getStateHtml() ?>
         <?php //if($this->canShowOptions()): ?>   
-	    <!--<div class="box mini-product-list-box">
-	      <select id="select-manufacturer" onchange="window.location=this.value">
-		<?php //foreach (Mage::helper('catalog/navigation')->getStoreCategories() as $_category): ?> 
-		  <?php //foreach ($_category->getChildren() as $_subCategory): ?> 
-		    <option value="<?php //$_subCategory->getUrl()?>"><?php //$_subCategory->getName() ?></option>
-		  <?php //endforeach; ?>
-		<?php //endforeach; ?>
-	      </select>
-	    <div/>-->
-
 <!-- codice mio per implementare il clear all. Attualmente con lo stato della layered navigation non serve -->
 <!--<script language="JavaScript">  
   function clearAll() {
@@ -61,30 +50,40 @@
     document.location = url;
   }
 </script>-->
-
 	    <!--<form id="clearForm" name="clearForm">
 	      <input type="button" name="clear" value="<?php //echo $this->__('Clear All') ?>" OnClick="clearAll()">
 	    </form>-->
             <?php $_filters = $this->getFilters() ?> <!-- recupera i filtri disponibili -->
             <?php foreach ($_filters as $_filter): ?>
-	      <?php //if($_filter->getItemsCount()): ?> <!-- se il filtro ha item lo visualizzi, altrimenti no (A NOI NON SERVE PERCHE' LI VISUALIZZIAMO TUTTI) -->
-		<?php if ($_filter->getAttributeCode() == 'cat'): ?> <!-- se stiamo esaminando il filtro categoria -->
-		  <?php if ($_filter->getItemsCount() == 0): ?>
-		    <?php continue ?>
-		  <?php endif; ?> <!-- se non ci sono categorie non far niente (???) -->
-		  <?php $_filter->setTemplate('catalog/layer/categoryFilter.phtml') ?> <!-- se ci sono categorie cambia il template -->
+	      <?php if($_filter->getItemsCount()): ?>
+		<?php $text = $_filter->getName() ?> <?php /* $text contiene il nome del filtro o 'Cerca in' se il filtro è cat */ ?>
+		<?php if ($_filter->getAttributeCode() == 'cat'): ?> <!-- se stiamo esaminando il filtro categoria cambia template del filtro-->
+		  <?php $_filter->setTemplate('catalog/layer/categoryFilter.phtml') ?>
+		  <?php $text = $this->__('Cerca in') ?>
+		<?php endif; ?>
+		<?php /* se il filtro è subtype */ ?>
+		<?php if ($_filter->getAttributeCode() == 'subtype'): ?>
+		  <?php $ok = false; ?>
+		  <?php /* se il filtro type è attivo (cioè se l'utente ha selezionato una tipologia) visualizzo il filtro altrimenti no */ ?>
+		  <?php $active_filters = $_filter->getState()->getFilters() ?>
+		  <?php if(!empty($active_filters)): ?> <?php /* se non ci sono filtri attivi posso saltare il controllo direttamente (lasciando $ok=false) */ ?>
+		    <?php foreach ($active_filters as $active_filter): ?>
+		      <?php if ($active_filter->getFilter()->getAttributeCode() == 'type'): ?>
+			<?php $ok = true; ?>
+		      <?php endif; ?>
+		    <?php endforeach; ?> <?php /* se esce dal ciclo e non ha trovato il type tra i filtri attivi $ok è rimasto false */ ?>
+		  <?php endif; ?>
+		  <?php if (!$ok): ?>
+		    <?php continue; ?> <?php /* se $ok non è settato esce salta l'iterazione così non visualizza il filtro subtype */ ?>
+		  <?php endif; ?>
 		<?php endif; ?>
 		<div class="box mini-product-list-box">
-		  <?php if ($_filter->getAttributeCode() == 'cat'): ?> <!-- se stiamo esaminando il filtro categoria visualizza "Cerca in" -->
-		    <div class="head"><?php echo $this->__('Cerca in') ?></div>
-		  <?php else: ?> <!-- altrimenti visualizza il nome del filtro come al solito -->
-		    <div class="head"><?php echo $_filter->getName() ?></div>
-		  <?php endif; ?>
+		  <div class="head"><?php echo $text ?></div>		 
 		  <div class="content"> <!-- filtro vero e proprio (i vari item) -->
 		    <?php echo $_filter->getHtml() ?>
 		  </div>
 		</div>
-	      <?php //endif; ?>
+	      <?php endif; ?>
             <?php endforeach; ?>     
         <?php //endif; ?>
 
