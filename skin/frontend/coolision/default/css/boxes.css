@@ -1943,3 +1943,20 @@ table.print .price-incl-tax .price { display:inline; }
 
 .mini-search {background: none; padding-top:0; margin-top:0;}
 .mini-search input.input-btn {background: url(../images/mini-search_btn.png) top left no-repeat; color:white;}
+
+/* qty box in cart and product */
+.adder {
+background:none;
+border:none;
+background-color:#FCCA21;
+color:#262626;
+font-weight:bold;
+width:18px;
+padding:0;
+float:left;
+}
+
+.qty-box{
+margin-top:0px;
+margin-left:20px;
+}

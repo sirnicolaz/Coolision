@@ -214,6 +214,10 @@ margin-top:0px;
 margin-left:20px;
 }
 
+.qty-box .input-text{
+float:left;
+}
+
 .add-to-cart-box {
 width:25%;
 height:30px;

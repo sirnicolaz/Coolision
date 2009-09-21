@@ -212,18 +212,22 @@
 	
     <td class="a-center">
 		
-        <input id="qty<?php echo $_item->getId() ?>" name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4" class="input-text qty" maxlength="8" style="display:none"/>
-		<select class="dd-qty" id="dd-qty<?php echo $_item->getId() ?>" onchange="document.getElementById('qty<?php echo $_item->getId() ?>').value=document.getElementById('dd-qty<?php echo $_item->getId() ?>').options[document.getElementById('dd-qty<?php echo $_item->getId() ?>').selectedIndex].value;">
-			<?php $num=$this->getQty();
-				for($j=0; $j<$num+10; $j++){
-					echo "<option value='".$j."'";
-					if($j==$num){
-					echo " selected='selected'";
-					}
-					echo ">".$j."</option>";
+		
+		<span class="qty-box">
+		<input type="button" class="adder" onclick="addQty('qty<?php echo $_item->getId() ?>')" value="+"/>
+		<input name="cart[<?php echo $_item->getId() ?>][qty]" type="text" readonly="readonly" class="input-text qty" id="qty<?php echo $_item->getId() ?>" maxlength="12" value="<?php echo $this->getQty() ?>" />
+		<input type="button" class="adder" onclick="subQty('qty<?php echo $_item->getId() ?>')" value="-"/>
+		<script type="text/javascript">
+			function addQty(inputName){
+				document.getElementById(inputName).value = (document.getElementById(inputName).value * 1) + 1;
+			}
+			function subQty(inputName){
+				if(document.getElementById(inputName).value > 1){
+					document.getElementById(inputName).value = document.getElementById(inputName).value - 1;
 				}
-			?>
-		</select>
+			}
+		</script>
+		</span>
     </td>
     <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
     <td class="a-right">
