@@ -58,6 +58,9 @@
 	      <?php if($_filter->getItemsCount()): ?>
 		<?php $text = $_filter->getName() ?> <?php /* $text contiene il nome del filtro o 'Cerca in' se il filtro è cat */ ?>
 		<?php if ($_filter->getAttributeCode() == 'cat'): ?> <!-- se stiamo esaminando il filtro categoria cambia template del filtro-->
+		  <?php if ( strchr($_SERVER["REQUEST_URI"], 'catalogsearch') != FALSE ): /* se siamo nella pagina dei risultati di ricerca non va visualizzato */?> 
+		    <?php continue; /* passo al filtro successivo */ ?>
+		  <?php endif; ?>
 		  <?php $_filter->setTemplate('catalog/layer/categoryFilter.phtml') ?>
 		  <?php $text = $this->__('Cerca in') ?>
 		<?php endif; ?>
