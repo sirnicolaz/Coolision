@@ -1,0 +1,113 @@
+<form id="co-heared4us-form" action="">
+
+<?php 
+
+$_options = array(
+	$this->__('Standard package'),
+	$this->__('Coolision package'),
+	$this->__('Golden package')
+);
+
+?>
+
+	<select id="getvoice" name="getvoice" style="display:none">
+		<?php foreach($_options as $_option): ?>
+			<option id ="<?php echo $_option ?>" value="<?php echo $_option ?>"><?php echo $_option ?></option>
+		<?php endforeach; ?>
+	</select>
+
+	<?php $count=1; ?>
+	<?php foreach($_options as $_option): ?>
+			<input type="radio" <?php if($count==1){echo "checked='checked'"; $count++;}?> name="package" onclick="changeOption('<?php echo $_option ?>')" value="<?php echo $_option ?>"><?php echo $_option ?><br>
+	<?php endforeach; ?>
+	
+</form>
+
+<div class="button-set">
+    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+    <div id="heared4us-buttons-container">
+        <button type="button" class="form-button right" onclick="heared4us.save();"><span><?php echo $this->__('Continue') ?></span></button>
+        <span id="heared4us-please-wait" style="display:none;" class="opc-please-wait">
+            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" class="v-middle" alt="" /> &nbsp; <?php echo $this->__('Loading next step...') ?> &nbsp;
+        </span>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Heared4us = Class.create();
+Heared4us.prototype = {
+    initialize: function(form, saveUrl){
+        this.form = form;
+        if ($(this.form)) {
+            $(this.form).observe('submit', function(event){this.save();Event.stop(event);}.bind(this));
+        }
+        this.saveUrl = saveUrl;
+        this.onSave = this.nextStep.bindAsEventListener(this);
+        this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
+    },
+
+    save: function(){
+        if (checkout.loadWaiting!=false) return;
+
+        var validator = new Validation(this.form);
+        if (validator.validate()) {
+
+            checkout.setLoadWaiting('heared4us');
+
+
+            var request = new Ajax.Request(
+                this.saveUrl,
+                {
+                    method: 'post',
+                    onComplete: this.onComplete,
+                    onSuccess: this.onSave,
+                    onFailure: checkout.ajaxFailure.bind(checkout),
+                    parameters: Form.serialize(this.form)
+                }
+            );
+        }
+    },
+
+    resetLoadWaiting: function(transport){
+        checkout.setLoadWaiting(false);
+    },
+
+    nextStep: function(transport){
+        if (transport && transport.responseText){
+            try{
+                response = eval('(' + transport.responseText + ')');
+            }
+            catch (e) {
+                response = {};
+            }
+        }
+
+        if (response.error){
+            if ((typeof response.message) == 'string') {
+                alert(response.message);
+            } else {
+                if (window.billingRegionUpdater) {
+                    billingRegionUpdater.update();
+                }
+
+                alert(response.message.join("\n"));
+            }
+
+            return false;
+        }
+
+        checkout.setStepResponse(response);
+    }    
+}
+
+var heared4us = new Heared4us('co-heared4us-form', '<?php echo $this->getUrl('checkout/onepage/saveHeared4us') ?>');
+
+function changeOption(option){
+	document.getElementById(option).selected="selected";
+}
+
+//]]>
+</script>
