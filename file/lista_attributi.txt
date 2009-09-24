@@ -73,16 +73,16 @@ Designer
   label ita: Designer
   label eng: Designer
 
-Taglia
+Taglia (quella usata nella scheda prodotto)
   Type: dropdown
   Scope: global
   Unique Value: no
   Apply To: all
   Use To Create Configurable Product: yes
-  Use In Layered Navigation: filterable (with results)
-  Use In Search Results Layered Navigation: yes
+  Use In Layered Navigation: no
+  Use In Search Results Layered Navigation: no
   Visible on Product View Page on Front-end: yes
-  Used in product listing: yes
+  Used in product listing: no
   Values: ??? (adattabile alla categoria e alla tipologia)
   Req: yes
   code: size
@@ -90,7 +90,39 @@ Taglia
   label ita: Taglia
   label eng: Size
 
-TaglieSpeciali
+Taglia generale
+Type: dropdown
+  Scope: global
+  Unique Value: no
+  Apply To: all
+  Use To Create Configurable Product: yes
+  Use In Layered Navigation: filterable (with results)
+  Use In Search Results Layered Navigation: yes
+  Visible on Product View Page on Front-end: no
+  Used in product listing: yes
+  Values: ??? (adattabile alla categoria e alla tipologia) (sono le taglie generali tipo 45-56-87)
+  Req: no (non è obbligatorio perchè non tutti i prodotti hanno la doppia taglia)
+  code: main_size
+  label: Main Size
+  label ita: Taglia
+  label eng: Size
+
+Descrizione Taglia
+  Type: text area
+  Scope: store view
+  Unique Value: no
+  Apply To: tutto tranne configurable products !!!
+  Use To Create Configurable Product: no
+  Use In Layered Navigation: filterable no
+  Use In Search Results Layered Navigation: no
+  Visible on Product View Page on Front-end: yes
+  Req: no? (non è obbligatorio perchè non tutti i prodotti hanno la doppia taglia)
+  code: size_description
+  label: Size Description
+  label ita: Descrizione Taglia
+  label eng: Size Description
+
+Taglie Speciali
   type: ???
   values: ??? (adattabile alla sottotipologia)
   req: no

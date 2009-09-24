@@ -71,12 +71,12 @@
 			  <?php $_subproducts = $helper->getUsedProducts(null, $_product); ?>
 			  <?php foreach ($_subproducts as $_subproduct): ?>
 			    <?php if ($_subproduct->isSalable()): ?>
-			      <?php echo $_subproduct->getAttributeText('size')." "; ?>
+			      <?php echo $_subproduct->getAttributeText('main_size')." "; ?>
 			    <?php endif; ?>
 			  <?php endforeach; ?>
 			<?php else: ?>
 			  <?php /* se non è configurabile fa vedere la taglia impostata */ ?>
-			  <?php echo 'Taglie disponibili: '.$_product->getAttributeText('size').'<br/>' ?>
+			  <?php echo 'Taglie disponibili: '.$_product->getAttributeText('main_size').'<br/>' ?>
 			<?php endif; ?>
         </td>
         <!--div class="clear"></div-->
@@ -134,12 +134,12 @@
 		  <?php $_subproducts = $helper->getUsedProducts(null, $_product); ?>
 		  <?php foreach ($_subproducts as $_subproduct): ?>
 		    <?php if ($_subproduct->isSalable()): ?>
-		      <?php echo $_subproduct->getAttributeText('size'); ?>
+		      <?php echo $_subproduct->getAttributeText('main_size'); ?>
 		    <?php endif; ?>
 		  <?php endforeach; ?>
 		<?php else: ?>
 		  <?php /* se non è configurabile fa vedere la taglia impostata */ ?>
-		  <?php echo 'Taglie disponibili: '.$_product->getAttributeText('size').'<br/>' ?>
+		  <?php echo 'Taglie disponibili: '.$_product->getAttributeText('main_size').'<br/>' ?>
 		<?php endif; ?>
                 <?php if($_product->getRatingSummary()): ?>
                     <?php //echo $this->getReviewsSummaryHtml($_product, 'short') ?>

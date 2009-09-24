@@ -102,14 +102,26 @@
 				</div>
 				
 				<!--Measures tab-->
-				<div id="measTab" class="tabInactive">
-				<?php if ($_measures = $this->getChildHtml('measures')):?>
-		            <div class="collateral-box">
-		           <?php echo $_measures ?>
-		            </div>
-		        <?php endif;?>
-				</div>
-				
+			<div id="measTab" class="tabInactive">
+			  <?php //if ($_measures = $this->getChildHtml('measures')): ?>	
+		          <div class="collateral-box">
+			    <?php if ( $_product->isConfigurable() ): ?>
+			      <?php /* il prodotto è configurabile quindi devo recuperare i sotto prodotti e far vedere le loro misure */ ?>
+			      <?php $helper = Mage::getModel('catalog/product_type_configurable'); ?>
+			      <?php $_subproducts = $helper->getUsedProducts(null, $_product); ?>
+			      <?php foreach ($_subproducts as $_subproduct): ?>
+				<?php if ($_subproduct->isSalable()): ?>
+				  <?php echo 'Descrizione taglia '.$_subproduct->getAttributeText('size').':<br/>' ?>
+				  <?php echo $_subproduct->getSizeDescription().'<br/>' ?>
+				<?php endif; ?>
+			      <?php endforeach; ?>
+			    <?php else: ?>
+			      <?php /* se non è configurabile fa vedere la taglia impostata */ ?>
+			      <?php echo 'Descrizione taglia '.$_product->getAttributeText('size').':<br/>' ?>
+			      <?php echo $_product->getSizeDescription().'<br/>' ?>
+			    <?php endif; ?>
+			  </div>
+			</div>
 				<!-- Shipping info tab--><!-- Il contenuto di questo blocco andrebbe inserito in un file di template separato per rendere il codice un po' più pulito. Chi avesse voglia faccia pure perchè al momento non mi sovviene come fare-->
 				<script>
 					function changeCost(){

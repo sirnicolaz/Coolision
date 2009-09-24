@@ -30,8 +30,10 @@ $_product    = $this->getProduct();
 $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 ?>
 <?php if ($_product->isSaleable() && count($_attributes)):?>
+    <?php $count = 0 ?>
     <?php foreach($_attributes as $_attribute): ?>
-	<div class="configurable-attribute">
+	<?php //echo $_attribute->getAttributeId() ?>
+	<div class="configurable-attribute" <?php if ($count == 1): ?> style="display:none" <?php endif; ?>>
         <div class="border-bottom">
 		<dt><?php echo $_attribute->getLabel() ?></dt>
 		</div>
@@ -41,6 +43,7 @@ $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
           </div>
         </dd>
 	</div>
+	<?php $count++ ?>
     <?php endforeach; ?>
     
 	<div class="configurable-attribute">
