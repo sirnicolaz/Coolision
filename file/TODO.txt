@@ -1,0 +1,5 @@
+-Rewrite del controller per il checkout-
+E' necessario trovare un modo di ridefinire una componente del checkout. Il nuovo modulo Inchoo Heared4Us infatti ridefinisce due funzioni di 
+Mage/Checkout/controllers/OnepageController.php
+Per come viene ridefinito ora nel config.xml il layout della pagina viene modificato in un 3columns.
+Quindi sono state modificate le funzioni necessarie direttamente nel Core per evitare il problema.
