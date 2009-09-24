@@ -289,6 +289,10 @@ One page checkout main layout
                     <block type="checkout/agreements" name="checkout.onepage.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
                 </block>
             </block>
+			<reference name="checkout.onepage">
+				<!-- Extra step added to OnePage Checkout -->
+				<block type="heared4us/onepage_heared4us" name="checkout.onepage.heared4us" as="heared4us" after="checkout.onepage.billing" template="checkout/onepage/heared4us.phtml"/>		
+			</reference>
         </reference>
     </checkout_onepage_index>
 
@@ -362,7 +366,7 @@ One page checkout order review block
 
     <checkout_onepage_success>
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="checkout/onepage_success" name="checkout.success" template="checkout/success.phtml"/>
@@ -370,7 +374,7 @@ One page checkout order review block
     </checkout_onepage_success>
     <checkout_onepage_failure>
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="checkout/onepage_failure" name="checkout.failure" template="checkout/onepage/failure.phtml"/>
