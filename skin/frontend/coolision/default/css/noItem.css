@@ -1,8 +1,18 @@
 .no-item-back{
 position:absolute;
 width:100%;
-background:url(../images/no-item_cart.jpg) top left no-repeat;
+background-color:#FCCA21;
 margin-top:230px;
+height:34px;
+}
+
+.no-item-back .black-lines{
+background:url(../images/no-item_lines.png) repeat top left;
+height:34px;
+}
+
+.no-item-back .logo{
+background:url(../images/no-item_logo.png) repeat-x center left;
 height:34px;
 }
 
@@ -25,7 +35,7 @@ margin-top:34px;
 background:url(../images/back-to-shop_back_l.jpg) top left no-repeat;
 float:right;
 height:30px;
-padding-left:1px;
+/*padding-left:1px;*/
 width:20%;
 margin-top:8px;
 }
