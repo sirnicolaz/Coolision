@@ -44,6 +44,7 @@
     			<div class="header-cblock topCart">
     				<!-- amministrazione -->
     				<?php echo $this->getLayout()->getBlock("top.links.cart")->toHtml(); ?>
+				<?php echo $this->getChildHtml('store_language') ?>
     			</div>
 				<div class="mini_login">
 					<?php if ( !$this->helper('customer')->isLoggedIn() ): ?>
@@ -54,6 +55,7 @@
 				  <div class="formMiniLogin">
         			<?php echo $this->getChildHtml('mini.login') ?>
 				  </div>
+			      
     			</div>
     			<!--<div class="header-cblock">
     				<!-- Guida all'acquisto 
@@ -67,7 +69,7 @@
     				</div>
     				<a href="/how_to_shop">GUIDA ALL'ACQUISTO</a>
     			</div>-->
-            <?php echo $this->getChildHtml('store_language') ?>
+            
         </div>
     </div>
 </div>
