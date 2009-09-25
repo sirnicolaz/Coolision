@@ -24,12 +24,10 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php if(!$crumbs || !is_array($crumbs)): ?>
-<?php $crumbs=array("home" => array("link" => "", "title" => "Home", "label" => "Home", "last" => true)) ?>
-<?php endif; ?>
-<h4 class="no-display"><?php echo $this->__("You're currently on:") ?></h4>
 <div class="under-menu">
 <div class="under-menu-aligner">
+<?php if($crumbs && is_array($crumbs)): ?>
+<h4 class="no-display"><?php echo $this->__("You're currently on:") ?></h4>
 <ul class="breadcrumbs">
     <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
       <?php if ($_crumbInfo['label'] !== "categories"): ?> <!-- non visualizza la root -->
@@ -48,6 +46,7 @@
       <?php endif; ?>
     <?php endforeach; ?>
 </ul>
+<?php endif; ?>
 	<?php //echo $this->getLayout()->getBlock("top.search")->toHtml(); ?> 
 	<?php echo $this->getChildHtml('topSearch') ?> 
 	</div>
