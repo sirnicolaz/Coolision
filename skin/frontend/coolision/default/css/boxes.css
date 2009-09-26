@@ -448,7 +448,7 @@ html { height: 100%; }
 	background-image:url(../images/header_lines.png);
 	padding-top: 10px;
 	padding-bottom: 10px;
-	background-position: left;}
+	background-position: center;}
 .header-top { /*padding:10px;*/ }
 .header-nav-container { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
 .middle-container { /*background:url(../images/main_container_bg.gif)*/ background-color:white; }
