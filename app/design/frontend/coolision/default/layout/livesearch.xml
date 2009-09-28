@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Paytype Livesearch Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the PayType EULA (End-user license
+ * agreement) that is bundled with this package in the file license.txt.
+ * You may not give, sell, distribute, sub-license, rent, lease or lend
+ * any portion of the Software or Documentation to anyone. 
+ *
+ * @category   Paytype
+ * @package    Paytype_Livesearch 1.0
+ * @author     M.Rivas
+ * @copyright  Copyright (c) 2009 Paytype SL (http://magentomodules.paytype.com)
+ * @license    End-user license Agreement
+ */
+-->
+<layout version="0.1.0">
+
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>livesearch/Livesearch.js</script></action>
+        </reference>
+    </default>
+
+
+</layout>
