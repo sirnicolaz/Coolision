@@ -2,14 +2,12 @@
 
 /* CSS class for zoomed area */
 .MagicZoomBigImageCont {
-	border:			1px solid #91b817;
-	left:455px !important;
-	height:400px !important;
-	width:436px !important;
-	background:black;
+	border:			1px solid #000000;
+	margin-left:14px;
+	margin-top:-11px;
 }
 
-.MagicZoomBigImageCont div + div + div{
+.MagicZoomBigImageCont div + div{
 display:none !important;
 }
 
@@ -27,7 +25,7 @@ display:none !important;
 .MagicZoomPup {
 	border: 		1px solid #aaa;
 	background: 	#ffffff;
-	cursor:			pointer;
+	cursor:			hand;
 }
 
 /* CSS style for loading animation box */
@@ -44,4 +42,8 @@ display:none !important;
 /* CSS style for gif image in the loading animation box */
 .MagicZoomLoading img {
 	padding-top:	3px !important;
+}
+
+.MagicZoom {
+margin:0 auto;
 }
