@@ -432,12 +432,12 @@ html { height: 100%; }
 .header-top { width:80%; margin:0 auto; position:relative; z-index:100; min-width: 950px; }
 .header-nav { width:80%; margin:0 auto; min-width: 950px; }
 .middle { width:80%; min-height:400px; margin:0 auto; text-align:left; min-width: 950px; }
-.side-col { width:23%; }/*modified*/
+.side-col { width:20%; }/*modified*/
 .col-left { float:left; }
 .col-main { float:left; }
 .col-right { float:right; }
 .col-1-layout .col-main { float:none; margin:0; }
-.col-2-right-layout .col-main { float:left; width:76%;  }
+.col-2-right-layout .col-main { float:left; width:79%;  }
 .col-2-left-layout .col-main { float:right; width:76%; }/*modified*/
 .col-3-layout .col-main { width:475px; margin-left:17px; }
 
@@ -700,8 +700,8 @@ html { height: 100%; }
 
 /********************** Footer */
 .push { height: 80px; }
-.footer-container { height: 80px; background-color: #000000; }
-.footer { width:80%; margin: auto; background-color:black; min-width: 950px; }
+.footer-container { height: 80px; background-color: #000000; background-image:url(../images/header_lines.png); background-position: center;}
+.footer { width:80%; margin: auto; min-width: 950px; }
 .footer .store-switcher { display:inline; padding:0 10px 0 0; vertical-align:middle; }
 .footer-container .informational div { background:url(../images/main-menu_bg.png) repeat-y 50% 0 #0a263d; background-color: #fcca20; }
 .footer-container .informational label { color:#fff; font-weight:bold; padding-right:3px; }
