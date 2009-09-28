@@ -54,7 +54,7 @@
 #nav ul li a span:hover { color:yellow; }
 
 /************ 2ND LEVEL ************/
-#nav ul { position:absolute; width:15em; top:25px; left:-10000px; border:1px solid #899ba5; }
+#nav ul { position:absolute; width:15em; top:25px; left:-10000px; border:1px solid #000000; }
 
 /* Show menu */
 #nav li.over > ul { left:0; }
