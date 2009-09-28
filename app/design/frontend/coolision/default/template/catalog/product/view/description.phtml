@@ -30,6 +30,30 @@
  * @see Mage_Catalog_Block_Product_View_Description
  */
 ?>
+<?php $_product = $this->getProduct() ?>
+<?php $helper = Mage::getModel('catalog/product_type_configurable'); ?>
 <div class="product-specs">
-<?php echo $this->helper('catalog/output')->productAttribute($this->getProduct(), nl2br($this->getProduct()->getDescription()), 'description') ?>
+<?php echo '<br/>' ?>
+<?php //echo $this->helper('catalog/output')->productAttribute($this->getProduct(), nl2br($this->getProduct()->getDescription()), 'description').'<br/>' ?>
+<?php echo 'DESCRIPTION: '.$_product->getDescription().'<br/>' ?>
+<?php echo 'DESIGNER: '.$_product->getAttributeText('manufacturer').'<br/>' ?>
+<?php echo 'TYPE: '.$_product->getAttributeText('type').'<br/>' ?>
+<?php echo 'SUBTYPE: '.$_product->getAttributeText('subtype').'<br/>' ?>
+<?php if ($_product->isConfigurable()): ?>
+  <?php /* se il prodotto è configurabile fa vedere tutte le taglie impostate */ ?>
+  <?php echo 'SIZE: ' ?>
+  <?php $_subproducts = $helper->getUsedProducts(null, $_product); ?>
+  <?php foreach ($_subproducts as $_subproduct): ?>
+    <?php echo $_subproduct->getAttributeText('size').' '; ?>
+  <?php endforeach; ?>
+  <?php echo '<br/>' ?>
+<?php else: ?>
+  <?php /* se non è configurabile fa vedere la taglia impostata */ ?>
+  <?php echo 'SIZE: '.$_product->getAttributeText('size').'<br/>' ?>
+<?php endif; ?>
+<?php echo 'COLOR: '.$_product->getAttributeText('color').'<br/>' ?>
+<?php if ($material_1 = $_product->getResource()->getAttribute('material_1')->getFrontend()->getValue($_product)): echo 'MAT 1: '.$material_1.' ('.$_product->getResource()->getAttribute('per_material_1')->getFrontend()->getValue($_product).'%)'.'<br/>'; endif; ?>
+<?php if ($material_2 = $_product->getResource()->getAttribute('material_2')->getFrontend()->getValue($_product)): echo 'MAT 2: '.$material_2.' ('.$_product->getResource()->getAttribute('per_material_2')->getFrontend()->getValue($_product).'%)'.'<br/>'; endif; ?>
+<?php if ($material_3 = $_product->getResource()->getAttribute('material_3')->getFrontend()->getValue($_product)): echo 'MAT 3: '.$material_3.' ('.$_product->getResource()->getAttribute('per_material_3')->getFrontend()->getValue($_product).'%)'.'<br/>'; endif; ?>
+
 </div>

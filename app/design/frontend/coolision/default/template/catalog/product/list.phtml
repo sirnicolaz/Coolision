@@ -21,14 +21,13 @@ ob_end_clean();
 if($_productCollection->count() && $tool->params->checkValue('use_effect_on_category_page', 'Yes')) {
 
     foreach ($_productCollection as $_product) {
-        /* carica un oggetto catalog/product e lo popola */
+        
         $_product = Mage::getModel('catalog/product')->load($_product->getId());
         
         if($_product->getImage() && $_product->getImage() != 'no_selection') {
             $title = $this->htmlEscape($_product->getName());
             $description = $this->htmlEscape($_product->getDescription());
             $shortDescription = $this->htmlEscape($_product->getShortDescription());
-	    
             if($tool->params->checkValue("caption_source", "Short description")) {
                 $description = $shortDescription;
                 $tool->params->set("caption_source", "Description");
@@ -39,7 +38,7 @@ if($_productCollection->count() && $tool->params->checkValue('use_effect_on_cate
             $id = $_product->getId();
             $html = $tool->template(compact("id", "title", "description", "img", "thumb"));
             $html = preg_replace('/^<a /is', '<a ' . $onclick, $html);
-	    echo "diocan";
+
             if ($tool->params->checkValue('show_selectors_on_category_page', 'Yes')) {
                 $gallery = Mage::getModel('catalog/product')->load($id)->getMediaGalleryImages();
                 foreach($gallery  as $_image) {
@@ -66,6 +65,7 @@ if($_productCollection->count() && $tool->params->checkValue('use_effect_on_cate
         }
     }
 }
+
 echo $contents;
 
 ?>

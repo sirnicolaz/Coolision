@@ -465,7 +465,8 @@ html { height: 100%; }
 
 /* Quick Access*/
 .quick-access {
-    width: 720px;
+    min-width:610px;
+	width: 75%;
     float:right;
 /*    margin-top:28px;*/
     text-align:left;
@@ -515,7 +516,7 @@ html { height: 100%; }
 .language-switcher .flag option { background-repeat:no-repeat; background-position:left center; padding-left:20px; margin-left:2px; }
 
 /* Stile dell'area di login */
-.mini_login { float:right; clear: left;  margin-right: 10px;}
+.mini_login { float:right; clear: left;  margin-right: 30px;}
 .mini_login #submit_image_cell { padding-top:1em; }
 .mini_login #submit_image { width:21px; height:21px; background:url(../images/button_submit.png); float: left;}
 .mini_login .description_field { text-align:right; }
@@ -1068,14 +1069,14 @@ table.recently-list td { width:20%; }
 .image-zoom #handle { position:absolute; left:0; top:-1px; width:9px; height:22px;background:url(../images/magnifier_handle.gif) 0 0 no-repeat; }
 .image-zoom .btn-zoom-out { position:absolute; left:2px; top:1px; }
 .image-zoom .btn-zoom-in { position:absolute; right:2px; top:1px; }
-.product-img-box .more-views h4 { border-bottom:1px solid #ccc; margin-bottom:.8em; font-size:.95em; text-transform:uppercase; }
+.product-img-box .more-views h4 { border-bottom:1px solid #ccc; margin-bottom:.8em; font-size:.95em; text-transform:uppercase; text-align:center;}
 .product-img-box .more-views ul { margin-left:-9px; }
 .product-img-box .more-views li { float:left; margin:0 0 9px 9px; }
 .product-img-box .more-views li a { float:left; width:56px; height:56px; border:2px solid #ddd; overflow:hidden; }
 
-.product-info-box { margin-top:10px; margin-top:0; }
+.product-info-box { margin-top:10px; border:1px solid #c4c6c8; margin-top:0; }
 .product-info-box .product-name { margin-bottom:.3em; color:#0a263c; font-size:1.2em; }
-.product-info-box .price-box {  }
+.product-info-box .price-box { margin:10px 0; }
 .product-info-box .data-table .price-box { margin:0; padding:0; }
 .product-info-box .availability { margin:10px 0; padding:0; font-size:0.92em; }
 
