@@ -26,12 +26,39 @@ border:solid 1px;
 
 .product-essential{
 background:none;
-border:1.5px #262626 solid;
 padding:0px;
 }
 
 .product-info-box{
 border:none;
+}
+
+.product-info-boxRo
+{
+	background:url(../images/catalog/product/box/productRo.jpg) top right no-repeat; 
+	margin:0; 
+	padding:0;
+}
+
+.product-info-boxLo
+{
+	background:url(../images/catalog/product/box/productLo.jpg) top left no-repeat; 
+	margin:0; 
+	padding:0;
+}
+
+.product-info-boxRu
+{
+	background:url(../images/catalog/product/box/productRu.jpg) bottom right no-repeat; 
+	margin:0; 
+	padding:0;
+}
+
+.product-info-boxLu
+{
+	background:url(../images/catalog/product/box/productLu.jpg) bottom left no-repeat; 
+	margin:0; 
+	padding:0;
 }
 
 .product-name{
@@ -277,28 +304,34 @@ padding-right:0px;
 }
 
 .product-sum-link .price-label{
-width:22%;
-height:1.4em;
+background:url(../images/price-box-frame.png) top right no-repeat;
+width: 145px;
+height: 40px;
 color:#262626;
-background:#FCCA21;
 text-align:center;
-text-transform:uppercase;
+text-tran
+sform:uppercase;
+}
+
+.product-sum-link .price-label .price-label-title{
+	float: left;
+	height: 15px;
+	width: 30px;
 }
 
 .product-sum-link #priceBox{
-background:url(../images/price-box-frame.png) top right no-repeat;
-width:32%;
-height:1.4em;
-float:left;
-line-height:1px;
+float: right;
+clear: left;
+width: 120px;
+margin-top: 5px;
 color:#262626;
 text-align:right;
-padding:1px;
 padding-right:5px;
+padding-top: 0px;
 }
 
 .price-container{
-margin-left:3%;
+float: left;
 }
 
 ul.add-to-box{

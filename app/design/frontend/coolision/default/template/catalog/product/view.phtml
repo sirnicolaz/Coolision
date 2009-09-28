@@ -51,7 +51,10 @@
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-info-box">
-			
+	<div class="product-info-boxRo">
+	<div class="product-info-boxLo">	
+	<div class="product-info-boxRu">
+	<div class="product-info-boxLu">
     <div class="product-essential">
     <form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
 
@@ -175,8 +178,13 @@
             <div class="divider"></div>
 			<div class="product-sum-link">
 				<div class="price-container">
-					<div class="price-label"><?php echo $this->__('Price')?></div>
-					<div class="sum-link" id="priceBox"><span><?php echo $this->getPriceHtml($_product) ?><span></div>
+					<div class="price-label">
+						<div class="price-label-title"><?php echo $this->__('Price')?></div>
+							<div class="sum-link" id="priceBox">
+								<?php echo $this->getPriceHtml($_product) ?>
+							</div>
+						</div>
+					
 				</div>
 				<div class="sum-link"><?php echo $this->getChildHtml('alert_urls') ?></div>
 	            <!--<div class="sum-link"><?php //echo $this->getChildHtml('product_type_data') ?></div>-->
@@ -344,4 +352,8 @@
 	
 		
 	</div>-->
+	</div>
+	</div>
+	</div>
+	</div>
 </div>
