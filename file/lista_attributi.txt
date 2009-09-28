@@ -91,7 +91,7 @@ Taglia (quella usata nella scheda prodotto)
   label eng: Size
 
 Taglia generale
-Type: dropdown
+  Type: dropdown
   Scope: global
   Unique Value: no
   Apply To: all
