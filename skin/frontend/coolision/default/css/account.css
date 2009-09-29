@@ -1,0 +1,86 @@
+.account-nav{
+float:left;
+width:100%;
+background:#4D4D4D url(../images/customer-account-head_back.png) top left;
+border:none;
+}
+
+.account-nav .head{
+background:none;
+text-transform:uppercase;
+font-size:42px;
+font-weight:bold;
+padding-bottom:0px;
+padding-top:0px;
+}
+
+.account-nav ul{
+margin-left:20%;
+background:none;
+}
+
+.account-nav li{
+float:left;
+background:none;
+background-color:#FCCA21;
+text-transform:uppercase;
+font-size:7px; /* temporaneo */
+margin-right:2px;
+}
+
+
+.account-nav li a, .account-nav li a:visited, .account-nav li.on{
+color:#212121;
+}
+
+.account-nav li.on {
+background-color:white;
+}
+
+.customer-account-header + .side-col{
+padding-top:10px;
+background:url(../images/customer-account-left_back.png) top left;
+padding-bottom:100%;
+}
+
+.customer-account-header + .side-col + .col-main{
+padding-top:10px;
+width:78%;
+}
+
+.col-2-left-customer{
+border:1px solid black;
+margin-top:10px;
+padding-top:0;
+}
+
+.user-info{
+margin:0 auto;
+width:80%;
+}
+
+.user-info .head{
+background-color:#FCCA21;
+font-weight:bold;
+text-transform:uppercase;
+}
+
+.user-info .head span{
+margin-left:3px;
+vertical-align:middle;
+}
+
+.user-info ul{
+}
+
+.user-info li{
+font-weight:bold;
+margin-top:5px;
+font-size:10px;
+background-color:white;
+text-align:right;
+}
+
+.user-info li span{
+margin-right:3px;
+}

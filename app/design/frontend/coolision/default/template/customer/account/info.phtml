@@ -1,5 +1,11 @@
-<?php echo $this->__('Dati Utente').'<br/>' ?>
-<?php echo $this->htmlEscape($this->getCustomer()->getFirstname()).' '.$this->htmlEscape($this->getCustomer()->getLastname()).'<br/>' ?>
-<?php echo $this->htmlEscape($this->getCustomer()->getSex()).'<br/>' ?>
-<?php echo $this->htmlEscape($this->getCustomer()->getDob()).'<br/>' ?>
-<?php echo $this->htmlEscape($this->getCustomer()->getEmail()).'<br/>' ?>
+<div class="user-info">
+<div class="head">
+<span><?php echo $this->__('User info').'<br/>' ?></span>
+</div>
+<ul>
+<li><span><?php echo $this->htmlEscape($this->getCustomer()->getFirstname()).' '.$this->htmlEscape($this->getCustomer()->getLastname()).'<br/>' ?></span></li>
+<li><span><?php echo $this->htmlEscape($this->getCustomer()->getSex()).'<br/>' ?></span></li>
+<li><span><?php echo $this->htmlEscape($this->getCustomer()->getDob()).'<br/>' ?></span></li>
+<li><span><?php echo $this->htmlEscape($this->getCustomer()->getEmail()).'<br/>' ?></span></li>
+</ul>
+</div>
