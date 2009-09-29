@@ -7,5 +7,6 @@
 <li><span><?php echo $this->htmlEscape($this->getCustomer()->getSex()).'<br/>' ?></span></li>
 <li><span><?php echo $this->htmlEscape($this->getCustomer()->getDob()).'<br/>' ?></span></li>
 <li><span><?php echo $this->htmlEscape($this->getCustomer()->getEmail()).'<br/>' ?></span></li>
+<a href="<?php echo $this->helper('customer/data')->getLogoutUrl() ?>"><?php echo __('Log Out') ?></a>
 </ul>
 </div>
