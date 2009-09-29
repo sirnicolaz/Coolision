@@ -34,11 +34,10 @@
                 <?php $_index = 1; ?>
                 <?php $_count = count($_links); ?>
                 <?php foreach ($_links as $_link): ?>
-                    <?php $_last = ($_index++ >= $_count); ?>
                     <?php if ($this->isActive($_link)): ?>
-                        <li class="on<?php echo ($_last ? ' last' : '') ?>"><?php echo $_link->getLabel() ?></li>
+                        <li class="on"><?php echo $_link->getLabel() ?></li>
                     <?php else: ?>
-                        <li<?php echo ($_last ? ' class="last"' : '') ?>><a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
+                        <li><a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </ul>

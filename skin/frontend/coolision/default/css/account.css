@@ -24,17 +24,24 @@ float:left;
 background:none;
 background-color:#FCCA21;
 text-transform:uppercase;
-font-size:7px; /* temporaneo */
+font-size:10px; /* temporaneo */
 margin-right:2px;
+padding-left:5px;
+padding-right:5px;
+font-weight:bold;
 }
 
 
 .account-nav li a, .account-nav li a:visited, .account-nav li.on{
 color:#212121;
+border:none;
 }
 
 .account-nav li.on {
 background-color:white;
+padding-left:5px;
+padding-right:5px;
+border:none;
 }
 
 .customer-account-header + .side-col{
@@ -68,6 +75,22 @@ text-transform:uppercase;
 .user-info .head span{
 margin-left:3px;
 vertical-align:middle;
+}
+
+.user-info .logout{
+text-decoration:none;
+text-transform:uppercase;
+}
+
+.user-info .logout div{
+background:#FCCA21;
+color:#212121;
+text-transform:uppercase;
+margin:0 auto;
+margin-top:10px;
+text-align:center;
+vertical-align:middle;
+font-weight:bold;
 }
 
 .user-info ul{
