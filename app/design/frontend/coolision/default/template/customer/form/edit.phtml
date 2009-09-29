@@ -27,6 +27,7 @@
 <!--<div class="page-head">
     <h3><?php echo $this->__('Edit Account Information') ?></h3>
 </div>-->
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/password-meter.js');?>"></script>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" id="form-validate" class="account-form-container">
 <fieldset class="group-select account-info-edit">
@@ -80,9 +81,11 @@
         <li>
             <div class="input-box">
                 <label for="password"><?php echo $this->__('New Password') ?></label>
-				<input type="password" class="validate-password input-text" name="password" id="password" /><br/>
+				<input onkeypress="testPassword(this.value,'verdict')" type="password" class="validate-password input-text" name="password" id="password" />
+				<label id="verdict" class="vweak">very weak</label>
+				<br/>
 				<div class="pass-descr">
-				La Password deve essere di almeno 6 caratteri (gli spazi non vengono considerati). Per aumentare la sicurezza, ti consigliamo di utilizzare numeri, lettere e almeno un carattere speciale. Accanto alla Password che stai inserendo, verr&agrave;  indicato il livello di sicurezza: non sicura, medio, molto sicura	
+				<?php echo $this->__('La Password deve essere di almeno 6 caratteri (gli spazi non vengono considerati). Per aumentare la sicurezza, ti consigliamo di utilizzare numeri, lettere e almeno un carattere speciale. Accanto alla Password che stai inserendo, verr&agrave;  indicato il livello di sicurezza: non sicura, medio, molto sicura.') ?>
 				</div>
             </div>
             <div class="input-box">

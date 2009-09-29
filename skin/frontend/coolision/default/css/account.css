@@ -122,6 +122,10 @@ width:25%;
 float:left;
 }
 
+.account-info-edit #verdict{
+margin-left:8px;
+}
+
 .account-info-edit li .input-box .input-text, .account-info-edit li .input-box textarea {
 float:left;
 }
@@ -133,4 +137,20 @@ float:left;
 .account-info-edit .customer-dob div{
 margin:0;
 padding:0;
+}
+
+.input-box .vweak{
+color:#ff0000;
+}
+
+.input-box .weak{
+}
+
+.input-box .mediocre{
+}
+
+.input-box .strong{
+}
+
+.input-box .stronger{
 }
