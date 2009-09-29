@@ -1,7 +1,7 @@
 .account-nav{
 float:left;
 width:100%;
-background-color:#4D4D4D;
+background:#4D4D4D url(../images/customer-account-head_back.png) top left;
 border:none;
 }
 
@@ -10,6 +10,8 @@ background:none;
 text-transform:uppercase;
 font-size:42px;
 font-weight:bold;
+padding-bottom:0px;
+padding-top:0px;
 }
 
 .account-nav ul{
