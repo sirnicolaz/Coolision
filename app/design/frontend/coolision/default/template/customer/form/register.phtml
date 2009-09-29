@@ -79,14 +79,14 @@ almeno un carattere speciale.
                     <td><input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="required-entry validate-cpassword input-text" /></td>
                 </tr>
         	    <tr>
-            	    <div class="input-box" style="display:none">
+            	    <div class="input-box" style="">
             		    <label for="sex"><?php echo $this->__('Sex') ?></label>
-            		    <input type="text" name="sex" id="sex" class="input-text" />
+            		    <input value="<?php echo $this->htmlEscape($this->getFormData()->getSex()) ?>" type="text" name="sex" id="sex" class="input-text" />
         	        </div>
             	    <td><label for="sex"><?php echo $this->__('Sex') ?></label></td>
                 	<td>
-                	    <input type="radio" name="sex_radio" id="sex_radio_m" value="M" checked="checked">Maschio</input>
-            		    <input type="radio" name="sex_radio" id="sex_radio_f" value="F" >Femmina</input>
+                	    <input type="radio" name="sex_radio" id="sex_radio_m" onclick="changeSex('M')" checked="checked">Maschio</input>
+            		    <input type="radio" name="sex_radio" id="sex_radio_f" onclick="changeSex('F')" >Femmina</input>
         	        </td>
         	    </tr>
                 <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->toHtml() ?>
@@ -226,13 +226,9 @@ almeno un carattere speciale.
     {
       document.getElementById("form-validate").reset();
     }
-    function submitForm()
+    function changeSex(sex)
     {
-      if (document.getElementById("sex_radio_m").checked == true) 
-      {
-	document.getElementById("sex").value="M";
-      } else {document.getElementById("sex").value="F";}
-//       document.getElementById("form-validate").submit();
+      document.getElementById("sex").value = sex;
     }
     function fakeSubmitForm()
     {
