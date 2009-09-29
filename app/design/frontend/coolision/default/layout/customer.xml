@@ -214,20 +214,21 @@ Customer account home dashboard layout
             <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
         </reference>
         <reference name="content">
-            <block type="customer/account_dashboard" name="customer_account_dashboard" template="customer/account/dashboard.phtml">
+			<block type="core/template" name="customer_account_home" template="customer/account/home.phtml"/>
+            <!--<block type="customer/account_dashboard" name="customer_account_dashboard" template="customer/account/dashboard.phtml">
                 <block type="customer/account_dashboard_hello" name="customer_account_dashboard_hello" as="hello" template="customer/account/dashboard/hello.phtml"/>
                 <block type="core/template" name="customer_account_dashboard_top" as="top" />
                 <block type="customer/account_dashboard_info" name="customer_account_dashboard_info" as="info" template="customer/account/dashboard/info.phtml"/>
                 <block type="customer/account_dashboard_newsletter" name="customer_account_dashboard_newsletter" as="newsletter" template="customer/account/dashboard/newsletter.phtml"/>
                 <block type="customer/account_dashboard_address" name="customer_account_dashboard_address" as="address" template="customer/account/dashboard/address.phtml">
-<!--                     <block type="customer/address_edit" name="customer_address_edit" template="customer/address/edit.phtml"/> -->
+                     <block type="customer/address_edit" name="customer_address_edit" template="customer/address/edit.phtml"/> 
                 </block>
 		<block type="customer/address_edit" name="customer_address_edit" template="customer/address/edit.phtml"/>
                 <block type="core/template" name="customer_account_dashboard_info1" as="info1" />
                 <block type="core/template" name="customer_account_dashboard_info2" as="info2" />
 		<block type="customer/account_dashboard_info" name="customer_account_dashboard_link" as="link" template="customer/account/dashboard/link.phtml"/> 
 		<block type="newsletter/subscribe" name="newsletter" as="newsletter" template="customer/account/dashboard/my_newsletter.phtml"/>
-            </block>
+            </block>-->
         </reference>
     
     </customer_account_index>

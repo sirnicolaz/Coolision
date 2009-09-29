@@ -24,65 +24,76 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="page-head">
+<!--<div class="page-head">
     <h3><?php echo $this->__('Edit Account Information') ?></h3>
-</div>
+</div>-->
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" id="form-validate">
-<fieldset class="group-select">
+<form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" id="form-validate" class="account-form-container">
+<fieldset class="group-select account-info-edit">
     <?php echo $this->getBlockHtml('formkey')?>
-    <h4 class="legend"><?php echo $this->__('Account Information') ?></h4>
+    <!--<h4 class="legend"><?php echo $this->__('Account Information') ?></h4>-->
     <ul>
         <li>
             <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?></li>
         <li>
 	<li>
 	    <div class="input-box">
-            <label for="sex"><?php echo $this->__('Sex') ?> <span class="required">*</span></label><br />
+            <label for="sex"><?php echo $this->__('Sex') ?> <span class="required">*</span></label>
             <input type="text" name="sex" id="sex" value="<?php echo $this->htmlEscape($this->getCustomer()->getSex()) ?>" title="<?php echo $this->__('Sex') ?>" class="required-entry input-text" />
             </div>
 	</li>
 	<li>
             <div class="input-box">
-            <label for="email"><?php echo $this->__('Email Address') ?> <span class="required">*</span></label><br />
+            <label for="email"><?php echo $this->__('Email Address') ?> <span class="required">*</span></label>
             <input type="text" name="email" id="email" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="required-entry validate-email input-text" />
             </div>
         </li>
 <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
 <?php if ($_dob->isEnabled()): ?>
-        <li><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
+        <li>
+			<div class="input-box">
+			<label for="birthday-date"><?php echo $this->__('Birthdaty Date') ?></label>
+			<?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?>
+			</div>
+		</li>
 <?php endif ?>
 <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
 <?php if ($_taxvat->isEnabled()): ?>
         <li><?php echo $_taxvat->setTaxvat($this->getCustomer()->getTaxvat())->toHtml() ?></li>
 <?php endif ?>
-    </ul>
-</fieldset>
-<p><input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> /> <label for="change_password"><?php echo $this->__('Change Password') ?></label>
-</p>
-<fieldset class="group-select" style="display:none">
-    <h4 class="legend"><?php echo $this->__('Change Password') ?></h4>
-    <ul>
+<!--    </ul> -->
+<!--</fieldset>-->
+<!--<p><input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> /> <label for="change_password"><?php echo $this->__('Change Password') ?></label>
+</p>-->
+<!--<fieldset class="group-select account-info-edit">-->
+    <!---->
+    <!--<ul>-->
         <li>
+		<br/>
+		<br/>
+		<h4 class="legend"><?php echo $this->__('Change Password') ?></h4>
             <div class="input-box">
-                <label for="current_password"><?php echo $this->__('Current Password') ?></label><br/>
+                <label for="current_password"><?php echo $this->__('Current Password') ?></label>
                 <input type="password" class="input-text" name="current_password" id="current_password" />
             </div>
         </li>
         <li>
             <div class="input-box">
-                <label for="password"><?php echo $this->__('New Password') ?></label><br/>
-                <input type="password" class="validate-password input-text" name="password" id="password" />
+                <label for="password"><?php echo $this->__('New Password') ?></label>
+				<input type="password" class="validate-password input-text" name="password" id="password" /><br/>
+				<div class="pass-descr">
+				La Password deve essere di almeno 6 caratteri (gli spazi non vengono considerati). Per aumentare la sicurezza, ti consigliamo di utilizzare numeri, lettere e almeno un carattere speciale. Accanto alla Password che stai inserendo, verr&agrave;  indicato il livello di sicurezza: non sicura, medio, molto sicura	
+				</div>
             </div>
             <div class="input-box">
-                <label for="confirmation"><?php echo $this->__('Confirm New Password') ?></label><br/>
+                <label for="confirmation"><?php echo $this->__('Confirm New Password') ?></label>
                 <input type="password" class="validate-cpassword input-text" name="confirmation" id="confirmation" />
             </div>
         </li>
     </ul>
 </fieldset>
-<div class="button-set">
-    <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>
+<div class="button-set customer-button-set">
+    <!--<a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>-->
     <p class="required"><?php echo $this->__('* Required Fields') ?></p>
     <button type="submit" class="form-button"><span><?php echo $this->__('Save') ?></span></button>
 </div>

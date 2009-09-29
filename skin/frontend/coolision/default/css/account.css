@@ -84,3 +84,53 @@ text-align:right;
 .user-info li span{
 margin-right:3px;
 }
+
+.account-info-edit{
+border:none;
+margin:0;
+padding:0;
+}
+
+.account-form-container{
+width:98%;
+}
+
+.customer-button-set{
+width:95%;
+text-align:left;
+}
+
+.customer-button-set .required{
+text-align:left;
+color:black;
+}
+
+.account-info-edit li .input-box {
+width:70%;
+}
+
+.account-info-edit li .input-box .password-area{
+width:50%;
+}
+.account-info-edit .pass-descr{
+margin-left:25%;
+float:left;
+}
+
+.account-info-edit li .input-box label{
+width:25%;
+float:left;
+}
+
+.account-info-edit li .input-box .input-text, .account-info-edit li .input-box textarea {
+float:left;
+}
+
+.account-info-edit .customer-dob{
+float:left;
+}
+
+.account-info-edit .customer-dob div{
+margin:0;
+padding:0;
+}
