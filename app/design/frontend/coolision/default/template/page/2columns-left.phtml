@@ -46,7 +46,7 @@
     <!-- start middle -->
     <div class="middle-container">
         <?php echo $this->getChildHtml('breadcrumbs') ?>
-        <div class="middle col-2-left-layout">
+        <div class="middle col-2-left-layout <?php if($this->getChildHtml('customer-header')!=""):?>col-2-left-customer<?php endif;?>">
             
 			<!-- Customer account header -->
 			<div class="customer-account-header">
