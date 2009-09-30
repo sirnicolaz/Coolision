@@ -31,10 +31,9 @@ font-size:11px;
 border-bottom:2px solid #FCCA21;
 float:right;
 margin-bottom:0;
-margin-left:23%;
 padding-bottom:0;
 text-align:right;
-width:39%;
+width:65%;
 }
 
 .wishlist-right .price-head div{
@@ -53,10 +52,14 @@ float:right;
 border-bottom:2px solid #4D4D4D;
 float:right;
 margin-bottom:0;
-margin-left:23%;
 padding-bottom:0;
 text-align:left;
-width:39%;
+width:65%;
+}
+
+.wishlist-right{
+float:right;
+width:55%;
 }
 
 .wishlist-right .color-head div{
@@ -73,11 +76,10 @@ text-transform:uppercase;
 margin-bottom:8px;
 }
 
-.wishlist-right .color {
+.wishlist-right .info {
 background-position:bottom right;
 background-repeat:no-repeat;
-margin-bottom:8px;
-padding-right:35px;
+margin-left:40px;
 }
 
 /*Aggiungere il colore desiderato dopo aver uploadato l'immagine con il cerchio colorato richiesta*/
@@ -109,6 +111,7 @@ height:27em;
 .wishlist-right .view-button{
 margin-top:10px;
 margin-bottom:12px;
+float:right;
 }
 
 .wishlist-right .view-button a{
@@ -123,6 +126,7 @@ font-weight:bold;
 
 .wishlist-right .remove-button {
 margin-bottom:12px;
+float:right;
 }
 
 .wishlist-right .remove-button a{
