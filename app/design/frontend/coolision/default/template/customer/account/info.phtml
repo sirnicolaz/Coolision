@@ -1,0 +1,20 @@
+<div class="user-info">
+<div class="head">
+<span><?php echo $this->__('User info').'<br/>' ?></span>
+</div>
+<ul>
+<li><span><?php echo $this->htmlEscape($this->getCustomer()->getFirstname()).' '.$this->htmlEscape($this->getCustomer()->getLastname()) ?></span></li>
+<li><span><?php echo $this->htmlEscape($this->getCustomer()->getSex()) ?></span></li>
+<li><span id="dob">undefined</span></li>
+<li><span><?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?></span></li>
+</ul>
+<a class="logout" href="<?php echo $this->helper('customer/data')->getLogoutUrl() ?>"><div><?php echo __('Log Out') ?></div></a>
+</div>
+<script>
+function renderDob(dob){
+var newDobArray = dob.split("-",3);
+var newDob = newDobArray[0] + "/" + newDobArray[1] + "/" + newDobArray[2].split(" ",1);
+document.getElementById('dob').firstChild.data=newDob;
+}
+renderDob('<?php echo $this->htmlEscape($this->getCustomer()->getDob()) ?>');
+</script>
