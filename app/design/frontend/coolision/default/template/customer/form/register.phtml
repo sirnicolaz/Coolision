@@ -82,7 +82,7 @@ almeno un carattere speciale.
             	    <div class="input-box" style="">
             		    <label for="sex"><?php echo $this->__('Sex') ?></label>
             		    <input value="<?php echo $this->htmlEscape($this->getFormData()->getSex()) ?>" type="text" name="sex" id="sex" class="input-text" />
-        	        </div>
+        	    </div>
             	    <td><label for="sex"><?php echo $this->__('Sex') ?></label></td>
                 	<td>
                 	    <input type="radio" name="sex_radio" id="sex_radio_m" onclick="changeSex('M')" checked="checked">Maschio</input>
@@ -101,7 +101,7 @@ almeno un carattere speciale.
     	    <?php endif ?>
     	    <tr>
                 <td></td>
-                <td><button style="display:none" id="real-button" class="form-button" onClick="submitForm()" value="<?php echo $this->__('Submit')?>"><?php echo $this->__('Submit')?></button></td>
+                <td><button style="" id="real-button" class="form-button" value="<?php echo $this->__('Submit')?>"><?php echo $this->__('Submit')?></button></td>
             </tr>
             </table>
         </td>
@@ -222,14 +222,17 @@ almeno un carattere speciale.
     <?php if($this->getShowAddressFields()): ?>
     new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>);
     <?php endif; ?>
+
     function resetForm()
     {
       document.getElementById("form-validate").reset();
     }
+
     function changeSex(sex)
     {
       document.getElementById("sex").value = sex;
     }
+
     function fakeSubmitForm()
     {
       if (document.getElementById("privacy").checked==false)
