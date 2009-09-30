@@ -79,9 +79,9 @@ almeno un carattere speciale.
                     <td><input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="required-entry validate-cpassword input-text" /></td>
                 </tr>
         	    <tr>
-            	    <div class="input-box" style="">
+            	    <div class="input-box" style="display:none">
             		    <label for="sex"><?php echo $this->__('Sex') ?></label>
-            		    <input value="<?php echo $this->htmlEscape($this->getFormData()->getSex()) ?>" type="text" name="sex" id="sex" class="input-text" />
+            		    <input value="M" type="text" name="sex" id="sex" class="input-text" />
         	    </div>
             	    <td><label for="sex"><?php echo $this->__('Sex') ?></label></td>
                 	<td>
@@ -99,9 +99,15 @@ almeno un carattere speciale.
     	    <?php if ($_taxvat->isEnabled()): ?>
     	      <tr><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></tr>
     	    <?php endif ?>
+	    <div class="input-box">
+	      <tr>
+		<td><label for="country"><?php echo $this->__('Country') ?></label><br /></td>
+		<td><input type="text" name="country" id="country" value="<?php echo $this->htmlEscape($this->getFormData()->getCountry()) ?>" title="<?php echo $this->__('Country') ?>" class="input-text" /></td>
+	      </tr>
+	    </div>
     	    <tr>
                 <td></td>
-                <td><button style="" id="real-button" class="form-button" value="<?php echo $this->__('Submit')?>"><?php echo $this->__('Submit')?></button></td>
+                <td><button style="display:none" id="real-button" class="form-button" value="<?php echo $this->__('Submit')?>"><?php echo $this->__('Submit')?></button></td>
             </tr>
             </table>
         </td>
