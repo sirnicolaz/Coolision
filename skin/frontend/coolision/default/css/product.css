@@ -94,6 +94,8 @@ padding-left:16px;
 .product-shop-header .email-to-friend{
 float:left;
 background-color:#FCCA21;
+background: url(../images/backgroundButtonEmail.png);
+background-position: right;
 color:black;
 width:50%;
 text-decoration:none;
