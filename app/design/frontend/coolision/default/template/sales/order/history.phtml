@@ -475,7 +475,7 @@
     	        </tr>
 	        </thead>
 	        <tr>
-	            <td>Tipologia spedizione: </td>
+	            <td>Tipologia spedizione: <?php echo $this->__($_order->getShippingDescription()).' '.$_order->formatPrice($_order->getShippingAmount()) ?> </td>
 	            <td>Tipologia pagamento: <?php echo $this->__($_order->getPayment()->getMethodInstance()->getTitle()) ?></td>	        
 	        </tr>
 	        <tr>
