@@ -34,8 +34,7 @@
 -->
 
 <?php if($_orders->getSize()): ?>
-
-    <?php foreach ($_orders as $_order): ?>  <!-- cicla e costruisce la tabella degli ordini -->
+    <?php foreach ($_orders as $_order): /* cicla e costruisce la tabella degli ordini */?>
 	<!-- HEADER DELL'ORDINE -->
 	  <p class="order-header-summary">ORDINE EFFETTUATO IN DATA <?php echo $this->formatDate($_order->getCreatedAtStoreDate()) ?> <!--ALLE ... --> (COD. ORDINE <?php echo $_order->getRealOrderId() ?>)</p>
 	<!-- TABELLA DEGLI ITEMS DELL'ORDINE -->
@@ -57,7 +56,7 @@
 		<th class="a-center"><span class="table-th-text"><?php echo $this->__('Quantity') ?></span></th>
 		<th class="a-right th-subtotal"><span class="table-th-text table-th-text-subtotal"><?php echo $this->__('Price') ?></span></th>
 	      </tr>
-	      <!-- tr>
+	      <!-- tr> 
 	      <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
 		<th class="a-center"><?php //echo $this->__('Excl. Tax') ?></th>
 	      <?php //endif; ?>
@@ -75,7 +74,7 @@
 	      <?php //endif; ?>
 	      </tr -->
 	    </thead>
-	    <?php $colspan = 4; ?>
+	    <?php //$colspan = 4; ?>
 	    <tfoot>
 	      <!--<tr>
 		<td colspan="<?php //echo $colspan; ?>" class="a-right"><?php //echo $this->__('Order Subtotal') ?></td>
@@ -89,14 +88,14 @@
 	      <?php //endif; ?>
 	      <?php //if ($_order->getTaxAmount() > 0): ?>
 	      <?php //if (($_order->getTaxAmount() > 0) || (Mage::helper('tax')->displayZeroTax())): ?>
-		<?php //echo $this->getChildHtml('tax'); ?> <!-- NOOOOOOOOOOOOOOO bisognerà incollare anche questo phtml :S -->
+		<?php //echo $this->getChildHtml('tax'); NOOOOOOOOOOOOOOO bisognerà incollare anche questo phtml :S  ?>
 	      <?php //endif; ?>
-	      <?php if ($_order->getShippingAmount() || $_order->getShippingDescription()): ?>
+	      <?php //if ($_order->getShippingAmount() || $_order->getShippingDescription()): ?>
 		<!--<tr>
 		  <td colspan="<?php //echo $colspan; ?>" class="a-right"><?php //echo $this->__('Shipping & Handling') ?></td>
 		  <td class="last a-right"><?php //echo $_order->formatPrice($_order->getShippingAmount()) ?></td>
 		</tr>-->
-	      <?php endif; ?>
+	      <?php //endif; ?>
 	      <?php //if ($_order->isCurrencyDifferent()): ?>
 		<!--<tr>
 		  <td colspan="<?php //echo $colspan; ?>" class="a-right"><?php //echo $this->__('Grand Total to be charged') ?></td>
@@ -104,10 +103,10 @@
 		</tr>-->
 	      <?php //endif; ?>
 	    </tfoot>
-	    <?php $_items = $_order->getItemsCollection(); ?>
+	    <?php $_items = $_order->getItemsCollection(); /* recupera i prodotti dell'ordine */ ?> 
 	    <?php $_index = 0; ?>
             <?php $_count = $_items->count(); ?>
-	    <?php foreach ($_items as $_item): ?> <!-- scorre le items dell'ordine -->
+	    <?php foreach ($_items as $_item): ?> <!-- scorre i prodotti dell'ordine -->
 	      <?php if ($_item->getParentItem()) continue; ?>
 	      <tbody>
 
@@ -117,7 +116,7 @@
 		<?php //$_item = $this->getItem() ?> <!-- questo non ci serve perchè l'item ce l'abbiamo già-->
 		<tr class="border" id="order-item-row-<?php echo $_item->getId() ?>">
 		  <td><h5 class="title"><?php echo $this->htmlEscape($_item->getName()) ?> </h5>
-		    <?php 
+		    <?php /* costruisce l'array contenente le opzioni del prodotto (per noi gli attributi configurabili) */
 		      $_options = array();
 		      if ($options = $_item->getProductOptions()) {
 			if (isset($options['options'])) {
@@ -131,12 +130,12 @@
 			}
 		      }
 		      ?>
-		  
 		  <td>
-		    <?php //echo Mage::getModel('catalog/product')->load($_item->getId())->getAttributeText('color'); ?>
-		    <?php echo $_item->getId()  ?>
+		    <?php /* recupera il colore del prodotto */?>
+		    <?php echo Mage::getModel('catalog/product')->load($_item->getData('product_id'))->getAttributeText('color'); ?>
 		  </td>
 		  <td> 
+		    <?php /* recupera la taglia del prodotto */?>
 		    <?php foreach ($_options as $_option) : ?>
 		      <?php if ($_option['label'] == 'Size'): ?>
 			<?php echo $_option['value'] ?>
@@ -144,323 +143,326 @@
 		    <?php endforeach; ?>
 		  </td>
 		  <td>
+		    <?php /* recupera la quantità ordinata per il prodotto */ ?>
 		    <?php echo $this->__('X'); ?> <strong><?php echo $_item->getQtyOrdered()*1 ?>
 		  </td>
 		  <td>
-		   <?php echo $_order->formatPrice($_item->getPrice()) ?>
+		    <?php /* recupera il prezzo per il prodotto */ ?>
+		    <?php echo $_order->formatPrice($_item->getPrice()) ?>
 		  </td>
-
-		    <?php if(!empty($_options)): ?> <!-- NOOOOOOOOOOOOOOOOOO -->
-		      <!-- CODICE PER ORA COMMENTATO
+		  </tbody>
+		</table>
+		<br/>
+		    <?php //if(!empty($_options)): CODICE PER ORA COMMENTATO, recupera le altre opzioni del prodotto (a noi non interessano.. O NO??) ?> 
+		      <!--
 		      <dl class="item-options">
-			<?php foreach ($_options as $_option) : ?>  scorre le opzioni dell'item 
-			  <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
+			<?php //foreach ($_options as $_option) : ?>  scorre le opzioni dell'item 
+			  <dt><?php //echo $this->htmlEscape($_option['label']) ?></dt>
 			  <?php //if (!$default->getPrintStatus()): ?>
 			    <?php //$_formatedOptionValue = $default->getFormatedOptionValue($_option) ?> 
-			    <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>>
+			    <dd<?php //if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php //endif; ?>>
 			      <?php //echo $_formatedOptionValue['value'] ?>
-			      <?php echo $_option['value'] ?>
-			      <?php if (isset($_formatedOptionValue['full_view'])): ?>
+			      <?php //echo $_option['value'] ?>
+			      <?php //if (isset($_formatedOptionValue['full_view'])): ?>
 				<div class="truncated_full_value">
 				  <dl class="item-options">
-				    <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
-				    <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
+				    <dt><?php //echo $this->htmlEscape($_option['label']) ?></dt>
+				    <dd><?php //echo $_formatedOptionValue['full_view'] ?></dd>
 				  </dl>
 				</div>
-			      <?php endif; ?>
+			      <?php //endif; ?>
 			    </dd>
 			  <?php //else: ?>
  			    <dd><?php //echo $this->htmlEscape( (isset($_option['print_value']) ? $_option['print_value'] : $_option['value']) ) ?></dd> 
 			  <?php //endif; ?>
-			<?php endforeach; ?>
+			<?php //endforeach; ?>
 		      </dl>
-		    <?php endif; ?>
+		    <?php //endif; ?>
 		    <?php //echo $_item->getDescription() ?>
-		    <?php if($this->helper('giftmessage/message')->getIsMessagesAvailable('order_item', $_item) && $_item->getGiftMessageId()): ?>
-		      <br /><a href="#" id="order-item-gift-message-link-<?php echo $_item->getId() ?>" class="giftmessage-preview-link expand" onclick="return giftMessageToogle('<?php echo $_item->getId() ?>')"><?php echo $this->__('Gift Message') ?></a>
-		    <?php endif; ?>
+		    <?php //if($this->helper('giftmessage/message')->getIsMessagesAvailable('order_item', $_item) && $_item->getGiftMessageId()): ?>
+		      <br /><a href="#" id="order-item-gift-message-link-<?php //echo $_item->getId() ?>" class="giftmessage-preview-link expand" onclick="return giftMessageToogle('<?php //echo $_item->getId() ?>')"><?php //echo $this->__('Gift Message') ?></a>
+		    <?php //endif; ?>
 		  </td>
-		  <td><?php echo Mage::helper('core/string')->splitInjection($_item->getSku()) ?></td>
+		  <td><?php //echo Mage::helper('core/string')->splitInjection($_item->getSku()) ?></td>
 		  <td class="a-right nowrap">
-		    <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
+		    <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
 		      <span class="price-excl-tax">
-			<?php if ($this->helper('tax')->displayCartBothPrices()): ?>
-			  <?php if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+			<?php //if ($this->helper('tax')->displayCartBothPrices()): ?>
+			  <?php //if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
 			    <div class="cart-price">
-			  <?php endif; ?>
-			  <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-			  <?php if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+			  <?php //endif; ?>
+			  <span class="label"><?php //echo $this->__('Excl. Tax'); ?>:</span>
+			  <?php //if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
 			    </div>
-			  <?php endif; ?>
-			<?php endif; ?>
-			<?php if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-			  <div class="cart-tax-total" onclick="taxToggle('eunit-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
-			    <?php else: ?>
+			  <?php //endif; ?>
+			<?php //endif; ?>
+			<?php //if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+			  <div class="cart-tax-total" onclick="taxToggle('eunit-item-tax-details<?php //echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
+			    <?php //else: ?>
 			      <div class="cart-price">
-			    <?php endif; ?>
+			    <?php //endif; ?>
 
-			    <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-			      <?php echo $_order->formatPrice($_item->getPrice()+$_item->getWeeeTaxAppliedAmount()+$_item->getWeeeTaxDisposition()); ?>
-			    <?php else: ?>
-			      <?php echo $_order->formatPrice($_item->getPrice()) ?>
-			    <?php endif; ?>
+			    <?php //if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+			      <?php //echo $_order->formatPrice($_item->getPrice()+$_item->getWeeeTaxAppliedAmount()+$_item->getWeeeTaxDisposition()); ?>
+			    <?php //else: ?>
+			      <?php //echo $_order->formatPrice($_item->getPrice()) ?>
+			    <?php //endif; ?>
 
 			  </div>
 
 
-			  <?php if (Mage::helper('weee')->getApplied($_item)): ?>
+			  <?php //if (Mage::helper('weee')->getApplied($_item)): ?>
 
-			    <div class="cart-tax-info" id="eunit-item-tax-details<?php echo $_item->getId(); ?>" style="display: none;">
-			      <?php if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+			    <div class="cart-tax-info" id="eunit-item-tax-details<?php //echo $_item->getId(); ?>" style="display: none;">
+			      <?php //if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
 				<small>
-				  <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-				    <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['amount']); ?></span>
-				  <?php endforeach; ?>
+				  <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+				    <span class="nobr"><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['amount']); ?></span>
+				  <?php //endforeach; ?>
 				</small>
-				<?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-				  <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-				    <span class="nobr"><small><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['amount_incl_tax']); ?></small></span>
-				  <?php endforeach; ?>
-				<?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+				<?php //elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+				  <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+				    <span class="nobr"><small><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['amount_incl_tax']); ?></small></span>
+				  <?php //endforeach; ?>
+				<?php //elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
 				  <small>
-				    <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-				      <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['amount_incl_tax']); ?></span>
-				    <?php endforeach; ?>
+				    <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+				      <span class="nobr"><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['amount_incl_tax']); ?></span>
+				    <?php //endforeach; ?>
 				  </small>
-                        <?php endif; ?>
+                        <?php //endif; ?>
                     </div>
 
-                    <?php if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                        <div class="cart-tax-total" onclick="taxToggle('eunit-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
-                            <span class="nobr"><?php echo Mage::helper('weee')->__('Total'); ?>:<br /> <?php echo $_order->formatPrice($_item->getPrice()+$_item->getWeeeTaxAppliedAmount()+$_item->getWeeeTaxDisposition()); ?></span>
+                    <?php //if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <div class="cart-tax-total" onclick="taxToggle('eunit-item-tax-details<?php //echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
+                            <span class="nobr"><?php //echo Mage::helper('weee')->__('Total'); ?>:<br /> <?php //echo $_order->formatPrice($_item->getPrice()+$_item->getWeeeTaxAppliedAmount()+$_item->getWeeeTaxDisposition()); ?></span>
                         </div>
-                    <?php endif; ?>
-                <?php endif; ?>
+                    <?php //endif; ?>
+                <?php //endif; ?>
             </span>
             <br />
-        <?php endif; ?>
-        <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
+        <?php //endif; ?>
+        <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
             <span class="price-incl-tax">
-                <?php if ($default->helper('tax')->displayCartBothPrices()): ?>
-                   <?php if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                <?php //if ($default->helper('tax')->displayCartBothPrices()): ?>
+                   <?php //if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                         <div class="cart-price">
-                    <?php endif; ?>
-                        <span class="label"><?php echo $default->__('Incl. Tax'); ?>:</span>
-                    <?php if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <?php //endif; ?>
+                        <span class="label"><?php //echo $default->__('Incl. Tax'); ?>:</span>
+                    <?php //if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                         </div>
-                    <?php endif; ?>
-                <?php endif; ?>
-                <?php $_incl = $default->helper('checkout')->getPriceInclTax($_item); ?>
-                <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                    <div class="cart-tax-total" onclick="taxToggle('unit-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
-                <?php else: ?>
+                    <?php //endif; ?>
+                <?php //endif; ?>
+                <?php //$_incl = $default->helper('checkout')->getPriceInclTax($_item); ?>
+                <?php //if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <div class="cart-tax-total" onclick="taxToggle('unit-item-tax-details<?php //echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
+                <?php //else: ?>
                     <div class="cart-price">
-                <?php endif; ?>
+                <?php //endif; ?>
 
-                    <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                        <?php echo $_order->formatPrice($_incl+$_item->getWeeeTaxAppliedAmount()); ?>
-                    <?php else: ?>
-                        <?php echo $_order->formatPrice($_incl-$_item->getWeeeTaxDisposition()) ?>
-                    <?php endif; ?>
+                    <?php //if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <?php //echo $_order->formatPrice($_incl+$_item->getWeeeTaxAppliedAmount()); ?>
+                    <?php //else: ?>
+                        <?php //echo $_order->formatPrice($_incl-$_item->getWeeeTaxDisposition()) ?>
+                    <?php //endif; ?>
 
                 </div>
 
 
-                <?php if (Mage::helper('weee')->getApplied($_item)): ?>
+                <?php //if (Mage::helper('weee')->getApplied($_item)): ?>
 
-                    <div class="cart-tax-info" id="unit-item-tax-details<?php echo $_item->getId(); ?>" style="display: none;">
-                        <?php if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <div class="cart-tax-info" id="unit-item-tax-details<?php //echo $_item->getId(); ?>" style="display: none;">
+                        <?php //if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                             <small>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['amount']); ?></span>
-                            <?php endforeach; ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['amount']); ?></span>
+                            <?php //endforeach; ?>
                             </small>
-                        <?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><small><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['amount_incl_tax']); ?></small></span>
-                            <?php endforeach; ?>
-                        <?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <?php //elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><small><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['amount_incl_tax']); ?></small></span>
+                            <?php //endforeach; ?>
+                        <?php //elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                             <small>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['amount_incl_tax']); ?></span>
-                            <?php endforeach; ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['amount_incl_tax']); ?></span>
+                            <?php //endforeach; ?>
                             </small>
-                        <?php endif; ?>
+                        <?php // endif; ?>
                     </div>
 
-                    <?php if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                        <div class="cart-tax-total" onclick="taxToggle('unit-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
-                            <span class="nobr"><?php echo Mage::helper('weee')->__('Total incl. tax'); ?>:<br /> <?php echo $_order->formatPrice($_incl+$_item->getWeeeTaxAppliedAmount()); ?></span>
+                    <?php //if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <div class="cart-tax-total" onclick="taxToggle('unit-item-tax-details<?php //echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
+                            <span class="nobr"><?php //echo Mage::helper('weee')->__('Total incl. tax'); ?>:<br /> <?php //echo $_order->formatPrice($_incl+$_item->getWeeeTaxAppliedAmount()); ?></span>
                         </div>
-                    <?php endif; ?>
-                <?php endif; ?>
+                    <?php //endif; ?>
+                <?php //endif; ?>
             </span>
-        <?php endif; ?>
+        <?php //endif; ?>
     </td>
     <td class="a-right nowrap">
         <span class="nobr">
-                <?php if ($_item->getQtyOrdered() > 0): ?>
-            <?php echo $this->__('X'); ?> <strong><?php echo $_item->getQtyOrdered()*1 ?></strong><br />
-        <?php endif; ?>
-        <?php if ($_item->getQtyShipped() > 0): ?>
-            <?php echo $default->__('Shipped'); ?>: <strong><?php echo $_item->getQtyShipped()*1 ?></strong><br />
-        <?php endif; ?>
-        <?php if ($_item->getQtyCanceled() > 0): ?>
-            <?php echo $this->__('Canceled'); ?>: <strong><?php echo $_item->getQtyCanceled()*1 ?></strong><br />
-        <?php endif; ?>
-        <?php if ($_item->getQtyRefunded() > 0): ?>
-            <?php echo $default->__('Refunded'); ?>: <strong><?php echo $_item->getQtyRefunded()*1 ?></strong><br />
-        <?php endif; ?>
+                <?php //if ($_item->getQtyOrdered() > 0): ?>
+            <?php //echo $this->__('X'); ?> <strong><?php //echo $_item->getQtyOrdered()*1 ?></strong><br />
+        <?php //endif; ?>
+        <?php //if ($_item->getQtyShipped() > 0): ?>
+            <?php //echo $default->__('Shipped'); ?>: <strong><?php //echo $_item->getQtyShipped()*1 ?></strong><br />
+        <?php //endif; ?>
+        <?php //if ($_item->getQtyCanceled() > 0): ?>
+            <?php //echo $this->__('Canceled'); ?>: <strong><?php //echo $_item->getQtyCanceled()*1 ?></strong><br />
+        <?php //endif; ?>
+        <?php //if ($_item->getQtyRefunded() > 0): ?>
+            <?php //echo $default->__('Refunded'); ?>: <strong><?php // echo $_item->getQtyRefunded()*1 ?></strong><br />
+        <?php //endif; ?>
         </span>
     </td>
     <td class="a-right nowrap">
-        <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
+        <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
             <span class="price-excl-tax">
-                <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
-                    <?php if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                <?php //if ($this->helper('tax')->displayCartBothPrices()): ?>
+                    <?php //if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                         <div class="cart-price">
-                    <?php endif; ?>
-                        <span class="label"><?php echo $default->__('Excl. Tax'); ?>:</span>
-                    <?php if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <?php //endif; ?>
+                        <span class="label"><?php //echo $default->__('Excl. Tax'); ?>:</span>
+                    <?php //if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                         </div>
-                    <?php endif; ?>
-                <?php endif; ?>
-                <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                    <div class="cart-tax-total" onclick="taxToggle('esubtotal-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
-                <?php else: ?>
+                    <?php //endif; ?>
+                <?php //endif; ?>
+                <?php //if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <div class="cart-tax-total" onclick="taxToggle('esubtotal-item-tax-details<?php //echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
+                <?php //else: ?>
                     <div class="cart-price">
-                <?php endif; ?>
+                <?php //endif; ?>
 
-                    <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                        <?php echo $_order->formatPrice($_item->getRowTotal()+$_item->getWeeeTaxAppliedRowAmount()+$_item->getWeeeTaxRowDisposition()); ?>
-                    <?php else: ?>
-                        <?php echo $_order->formatPrice($_item->getRowTotal()) ?>
-                    <?php endif; ?>
+                    <?php //if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <?php //echo $_order->formatPrice($_item->getRowTotal()+$_item->getWeeeTaxAppliedRowAmount()+$_item->getWeeeTaxRowDisposition()); ?>
+                    <?php //else: ?>
+                        <?php //echo $_order->formatPrice($_item->getRowTotal()) ?>
+                    <?php //endif; ?>
 
                 </div>
 
 
-                <?php if (Mage::helper('weee')->getApplied($_item)): ?>
+                <?php //if (Mage::helper('weee')->getApplied($_item)): ?>
 
-                    <div class="cart-tax-info" id="esubtotal-item-tax-details<?php echo $_item->getId(); ?>" style="display: none;">
-                        <?php if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <div class="cart-tax-info" id="esubtotal-item-tax-details<?php //echo $_item->getId(); ?>" style="display: none;">
+                        <?php //if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                             <small>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['row_amount']); ?></span>
-                            <?php endforeach; ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><?php // echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['row_amount']); ?></span>
+                            <?php //endforeach; ?>
                             </small>
-                        <?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><small><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['row_amount_incl_tax']); ?></small></span>
-                            <?php endforeach; ?>
-                        <?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <?php //elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><small><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['row_amount_incl_tax']); ?></small></span>
+                            <?php //endforeach; ?>
+                        <?php //elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                             <small>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['row_amount_incl_tax']); ?></span>
-                            <?php endforeach; ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['row_amount_incl_tax']); ?></span>
+                            <?php //endforeach; ?>
                             </small>
-                        <?php endif; ?>
+                        <?php //endif; ?>
                     </div>
 
-                    <?php if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                        <div class="cart-tax-total" onclick="taxToggle('esubtotal-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
-                            <span class="nobr"><?php echo Mage::helper('weee')->__('Total'); ?>:<br /> <?php echo $_order->formatPrice($_item->getRowTotal()+$_item->getWeeeTaxAppliedRowAmount()+$_item->getWeeeTaxRowDisposition()); ?></span>
+                    <?php //if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <div class="cart-tax-total" onclick="taxToggle('esubtotal-item-tax-details<?php //echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
+                            <span class="nobr"><?php echo Mage::helper('weee')->__('Total'); ?>:<br /> <?php //echo $_order->formatPrice($_item->getRowTotal()+$_item->getWeeeTaxAppliedRowAmount()+$_item->getWeeeTaxRowDisposition()); ?></span>
                         </div>
-                    <?php endif; ?>
-                <?php endif; ?>
+                    <?php //endif; ?>
+                <?php //endif; ?>
             </span>
             <br />
-        <?php endif; ?>
-        <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
+        <?php //endif; ?>
+        <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
             <span class="price-incl-tax">
-                <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
-                   <?php if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                <?php //if ($this->helper('tax')->displayCartBothPrices()): ?>
+                   <?php //if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                         <div class="cart-price">
-                    <?php endif; ?>
-                        <span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-                    <?php if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <?php //endif; ?>
+                        <span class="label"><?php //echo $this->__('Incl. Tax'); ?>:</span>
+                    <?php //if (!Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                         </div>
-                    <?php endif; ?>
-                <?php endif; ?>
-                <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
-                <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                    <div class="cart-tax-total" onclick="taxToggle('subtotal-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
-                <?php else: ?>
+                    <?php //endif; ?>
+                <?php //endif; ?>
+                <?php //$_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
+                <?php //if (Mage::helper('weee')->typeOfDisplay($_item, array(1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <div class="cart-tax-total" onclick="taxToggle('subtotal-item-tax-details<?php //echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
+                <?php //else: ?>
                     <div class="cart-price">
-                <?php endif; ?>
-                    <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                        <?php echo $_order->formatPrice($_incl+$_item->getWeeeTaxAppliedRowAmount()); ?>
-                    <?php else: ?>
-                        <?php echo $_order->formatPrice($_incl-$_item->getWeeeTaxRowDisposition()) ?>
-                    <?php endif; ?>
+                <?php //endif; ?>
+                    <?php //if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <?php //echo $_order->formatPrice($_incl+$_item->getWeeeTaxAppliedRowAmount()); ?>
+                    <?php //else: ?>
+                        <?php //echo $_order->formatPrice($_incl-$_item->getWeeeTaxRowDisposition()) ?>
+                    <?php //endif; ?>
 
                 </div>
 
 
-                <?php if (Mage::helper('weee')->getApplied($_item)): ?>
+                <?php //if (Mage::helper('weee')->getApplied($_item)): ?>
 
-                    <div class="cart-tax-info" id="subtotal-item-tax-details<?php echo $_item->getId(); ?>" style="display: none;">
-                        <?php if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                    <div class="cart-tax-info" id="subtotal-item-tax-details<?php //echo $_item->getId(); ?>" style="display: none;">
+                        <?php //if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                             <small>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['row_amount']); ?></span>
-                            <?php endforeach; ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['row_amount']); ?></span>
+                            <?php //endforeach; ?>
                             </small>
-                        <?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><small><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['row_amount_incl_tax']); ?></small></span>
-                            <?php endforeach; ?>
-                        <?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <?php //elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><small><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['row_amount_incl_tax']); ?></small></span>
+                            <?php //endforeach; ?>
+                        <?php //elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
                             <small>
-                            <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                                <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $_order->formatPrice($tax['row_amount_incl_tax']); ?></span>
-                            <?php endforeach; ?>
+                            <?php //foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
+                                <span class="nobr"><?php //echo $tax['title']; ?>: <?php //echo $_order->formatPrice($tax['row_amount_incl_tax']); ?></span>
+                            <?php //endforeach; ?>
                             </small>
-                        <?php endif; ?>
+                        <?php //endif; ?>
                     </div>
 
-                    <?php if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
-                        <div class="cart-tax-total" onclick="taxToggle('subtotal-item-tax-details<?php echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
-                            <span class="nobr"><?php echo Mage::helper('weee')->__('Total incl. tax'); ?>:<br /> <?php echo $_order->formatPrice($_incl+$_item->getWeeeTaxAppliedRowAmount()); ?></span>
+                    <?php //if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales') && (float)$_item->getWeeeTaxAppliedAmount()): ?>
+                        <div class="cart-tax-total" onclick="taxToggle('subtotal-item-tax-details<?php //echo $_item->getId(); ?>', this, 'cart-tax-total-expanded');">
+                            <span class="nobr"><?php //echo Mage::helper('weee')->__('Total incl. tax'); ?>:<br /> <?php //echo $_order->formatPrice($_incl+$_item->getWeeeTaxAppliedRowAmount()); ?></span>
                         </div>
-                    <?php endif; ?>
-                <?php endif; ?>
+                    <?php //endif; ?>
+                <?php //endif; ?>
 
 
 
             </span>
-        <?php endif; ?>
+        <?php //endif; ?>
     </td>
     
-    <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
-    <th class="nowrap a-right"><?php echo $_order->formatPrice($_item->getRowTotal()) ?></th>
-    <?php endif; ?>
-    <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
-    <th class="nowrap a-right"><?php echo $_order->formatPrice($this->helper('checkout')->getSubtotalInclTax($_item)); ?></th>
-    <?php endif; ?>
+    <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceExclTax()): ?>
+    <th class="nowrap a-right"><?php //echo $_order->formatPrice($_item->getRowTotal()) ?></th>
+    <?php //endif; ?>
+    <?php //if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
+    <th class="nowrap a-right"><?php // echo $_order->formatPrice($this->helper('checkout')->getSubtotalInclTax($_item)); ?></th>
+    <?php //endif; ?>
     
 </tr>
-		fine codice incollato da sales/order/items/renderer/defaults.phtml -->
-		<?php if($this->helper('giftmessage/message')->getIsMessagesAvailable('order_item', $_item) && $_item->getGiftMessageId()): ?>
-		  <tr class="border<?php echo ($_index++ > $_count ?' last':'') ?>" id="order-item-gift-message-<?php echo $_item->getId() ?>" style="display:none;">
-		    <?php $_giftMessage=$this->helper('giftmessage/message')->getGiftMessageForEntity($_item); ?>
+		fine codice incollato da sales/order/items/renderer/defaults.phtml 
+		<?php //if($this->helper('giftmessage/message')->getIsMessagesAvailable('order_item', $_item) && $_item->getGiftMessageId()): ?>
+		  <tr class="border<?php //echo ($_index++ > $_count ?' last':'') ?>" id="order-item-gift-message-<?php //echo $_item->getId() ?>" style="display:none;">
+		    <?php //$_giftMessage=$this->helper('giftmessage/message')->getGiftMessageForEntity($_item); ?>
 		    <td class="giftmessage-row last" colspan="7">
 		      <ul class="giftmessage-content">
-			<li><label><?php echo $this->__('From') ?></label> <?php echo $this->htmlEscape($_giftMessage->getRecipient()) ?></li>
-			<li><label><?php echo $this->__('To') ?></label> <?php echo $this->htmlEscape($_giftMessage->getSender()) ?></li>
-			<li><?php echo $this->helper('giftmessage/message')->getEscapedGiftMessage($_item) ?></li>
+			<li><label><?php //echo $this->__('From') ?></label> <?php //echo $this->htmlEscape($_giftMessage->getRecipient()) ?></li>
+			<li><label><?php //echo $this->__('To') ?></label> <?php //echo $this->htmlEscape($_giftMessage->getSender()) ?></li>
+			<li><?php //echo $this->helper('giftmessage/message')->getEscapedGiftMessage($_item) ?></li>
 		      </ul>
-		      <div class="giftmessage-close"><a href="#" onclick="return giftMessageToogle('<?php echo $_item->getId() ?>');"><img src="<?php echo $this->getSkinUrl('images/gift-message-close.gif') ?>" alt="" /></a></div>
+		      <div class="giftmessage-close"><a href="#" onclick="return giftMessageToogle('<?php //echo $_item->getId() ?>');"><img src="<?php //echo $this->getSkinUrl('images/gift-message-close.gif') ?>" alt="" /></a></div>
 		    </td>
 		  </tr>
-		<?php endif ?>
+		<?php //endif ?>
 	      </tbody>
 	    <?php endforeach; ?>
 	  </table>
 	<script type="text/javascript">decorateTable('my-orders-table', {'tbody' : ['odd', 'even'], 'tbody tr' : ['first', 'last']})</script>
 
-	<!-- fine codice copiato da items.phtml -->
-
+	fine codice copiato da items.phtml -->
 	<!-- FOOTER DELL'ORDINE -->
 	  <!--
 	  <a href="<?php //echo $this->getViewUrl($_order) ?>"><?php //echo $this->__('View Order') ?></a>
@@ -473,7 +475,7 @@
     	        </tr>
 	        </thead>
 	        <tr>
-	            <td>Tipologia spedizione: TODO</td>
+	            <td>Tipologia spedizione: </td>
 	            <td>Tipologia pagamento: <?php echo $this->__($_order->getPayment()->getMethodInstance()->getTitle()) ?></td>	        
 	        </tr>
 	        <tr>
