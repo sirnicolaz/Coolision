@@ -78,6 +78,19 @@ Wishlist pages
         <update handle="customer_account"/>
         <reference name="content">
             <block type="wishlist/customer_wishlist" name="customer.wishlist" template="wishlist/view.phtml"/>
+<!--	    <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                         The following code shows how to set your own pager increments
+                        
+                            <action method="setDefaultListPerPage"><limit>4</limit></action>
+                            <action method="setDefaultGridPerPage"><limit>9</limit></action>
+                            <action method="addPagerLimit"><mode>list</mode><limit>2</limit></action>
+                            <action method="addPagerLimit"><mode>list</mode><limit>4</limit></action>
+                            <action method="addPagerLimit"><mode>list</mode><limit>6</limit></action>
+                            <action method="addPagerLimit"><mode>list</mode><limit>8</limit></action>
+                            <action method="addPagerLimit" translate="label"><mode>list</mode><limit>all</limit><label>All</label></action>
+                        
+            </block>
+            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action> -->
         </reference>
         <reference name="right">
             <action method="unsetChild"><name>wishlist_customer_sidebar</name></action>

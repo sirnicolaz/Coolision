@@ -51,7 +51,7 @@ hr{ visibility:visible; height:1px; margin:20px 0; }
 .quick-access { float:none; display:none; }
 .side-col { float:none !important; }
 .side-col .box { display:none; }
-.col-main { width:auto !important;  float:none !important; margin:0 !important; }
+.col-main { float:none !important; margin:0 !important; }
 .footer-container { border:0; }
 .footer { margin-top:2em; border-top:1px solid #ccc; }
 .footer .informational { display:none; border:0; }

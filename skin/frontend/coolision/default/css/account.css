@@ -1,7 +1,7 @@
 .account-nav{
 float:left;
 width:100%;
-background:#4D4D4D url(../images/customer-account-head_back.png) top left;
+background:#4D4D4D url(../images/customer-account-head_back.png) top right;
 border:none;
 }
 
@@ -16,7 +16,10 @@ padding-top:0px;
 
 .account-nav ul{
 margin-left:20%;
+height: 26px;
+width: 600px;
 background:none;
+padding: 0px;
 }
 
 .account-nav li{
@@ -44,24 +47,34 @@ padding-right:5px;
 border:none;
 }
 
-.customer-account-header + .side-col{
-padding-top:10px;
-background:url(../images/customer-account-left_back.png) top left;
-padding-bottom:100%;
+.col-2-left-customer .side-col{
+margin-top:20px;
+height: 250px;
+display: block;
 }
 
-.customer-account-header + .side-col + .col-main{
+.customer-account-header .side-col .col-main{
 padding-top:10px;
-width:78%;
-padding-right:10px;
+width:80%;
+}
+
+.col-main
+{
+	min-height: 400px;
+	display: block;
+	width: 80% !important;
+	margin: 0px;
+	background-color: #FFFFFF;
 }
 
 .col-2-left-customer{
-border:1px solid black;
+border:1px solid #b2b2b2;
+background:url(../images/customer-account-left_back.png) top left;
 margin-top:10px;
 padding-top:0;
 padding-bottom:0;
 margin-bottom:10px;
+overflow: visibile;
 }
 
 .user-info{
@@ -73,6 +86,18 @@ width:80%;
 background-color:#FCCA21;
 font-weight:bold;
 text-transform:uppercase;
+}
+
+.head h3
+{
+	font-size: 30px;
+	height: 50px;
+	margin-top: 10px;
+	display: block;
+	width: 300px;
+	text-align: left;
+	color: #FFFFFF;
+	
 }
 
 .user-info .head span{
