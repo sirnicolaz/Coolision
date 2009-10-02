@@ -28,6 +28,7 @@
 <?php if(true): ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <?php if($this->getWishlist()->getSize()): ?>
+<?php //echo $this->getChildHtml('toolbar'); /* toolbar della wishlist */?>
 <form action="<?php echo $this->getUrl('*/*/update') ?>" method="post">
     <?php echo $this->getBlockHtml('formkey')?>
     <table cellspacing="0" width="100%" class="data-table box-table" id="wishlist-table">
