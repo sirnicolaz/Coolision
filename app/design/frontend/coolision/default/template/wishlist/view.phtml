@@ -25,7 +25,7 @@
  */
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/wishlist.css');?>" media="all" />
-<?php if(true): ?>
+<?php if(false): ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <?php if($this->getWishlist()->getSize()): ?>
 <form action="<?php echo $this->getUrl('*/*/update') ?>" method="post">
@@ -145,10 +145,14 @@
                     <?php echo $this->getFormatedDate($item->getAddedAt()) ?>
                 </td>
                 <td class="a-center">
-                <?php if($item->isSaleable()): ?>
-                    <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Add to Cart') ?></a><br />
-                <?php endif; ?>
-                    <a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove Item') ?></a>
+	                <div class="remove-button">
+						<a href="<?php echo $this->getItemRemoveUrl($item) ?>" onclick="return confirmRemoveWishlistItem();" class="link-remove" ><?php echo $this->__('Remove') ?></a>
+					</div>
+					<div class="cart-button">
+					<?php if($item->isSaleable()): ?>
+		                <a href="<?php echo $this->getItemAddToCartUrl($item) ?>" class="link-cart"><?php echo $this->__('Cart') ?></a><br />
+					<?php endif; ?>
+					</div>
                 </td>
             </tr>
         <?php endforeach ?>

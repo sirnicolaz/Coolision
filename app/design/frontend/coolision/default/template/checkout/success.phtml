@@ -24,13 +24,14 @@
  * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/checkout.css');?>" media="all" />
+<div class="checkout-success">
 <div class="page-head">
-    <h3><?php echo $this->__('Your order has been received') ?></h3>
+    <h3><?php echo $this->__('Congratulation!') ?></h3>
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <p><strong><?php echo $this->__('Thank you for your purchase!') ?></strong></p>
-<p>
+<p><strong>
  <?php if ($this->canPrint()) :?>
   <?php echo $this->__('Your order # is: <a href="%s">%s</a>', $this->getViewOrderUrl(), $this->getOrderId()) ?>.<br/>
   <?php  else :?>
@@ -42,7 +43,11 @@
     <?php echo $this->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
     <?php endif;?>
     <?php echo $this->getChildHtml() ?>
+</strong>
 </p>
+<div class="back">
+</div>
 <div class="button-set">
-    <button type="button" class="form-button" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><?php echo $this->__('Continue Shopping') ?></span></button>
+   <div class="no-item-continue"><span><?php echo $this->__('<a href="%s">continue shopping</a>.', $this->getContinueShoppingUrl()) ?><span></div>
+</div>
 </div>

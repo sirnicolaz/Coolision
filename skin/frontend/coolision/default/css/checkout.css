@@ -148,139 +148,57 @@ text-transform:uppercase;
 background:#FCCA21;
 color:#333333;
 text-transform:uppercase;
+font-size:12px;
 }
 
-/*
-.one-page-checkout .active .box a{
-color:black;
+.checkout-success .page-head h3, .checkout-success .page-head-alt h3 {
+font-size:35px !important;
+height:89px;
+color:white;
+padding-left:20px;
+padding-top:10px;
+text-transform:uppercase !important;
 }
 
-.one-page-checkout .active .box button{
-background:#4D4D4D;
+.checkout-success .page-head,.checkout-success .page-head-alt {
+background:#1A1A1A url(../images/success_head.png) left top;
+height:89px;
+text-align:right;
+}
+
+.checkout-success .back{
+background:url(../images/success_back.jpg) left top no-repeat;
+height:200px;
+width:700px;
+float:left;
+}
+
+.checkout-success .button-set {
+text-align:right;
 border:none;
-color:#FCCA20;
+margin-top:none;
+clear:none;
 }
 
-.one-page-checkout .active .inner-box a{
+.checkout-success .button-set .no-item-continue{
+background:url(../images/back-to-shop_back_l.jpg) top left no-repeat;
+float:right;
+height:30px;
+/*padding-left:1px;*/
+width:20%;
+margin-top:8px;
+}
+
+.checkout-success .button-set .no-item-continue a, .no-item-continue a:hover{
+background:url(../images/back-to-shop_back_r.jpg) top right no-repeat;
+float:left;
+height:30px;
+width:100%;
+text-decoration:none;
 color:black;
-}
-
-.one-page-checkout .active .inner-box button{
-background:#4D4D4D;
-border:none;
-color:#FCCA20;
-}
-
-.one-page-checkout .allow .head{
-background:#CCCCCC;
-}
-
-.one-page-checkout .allow .head h3{
-color:#4D4D4D;
-}
-
-.one-page-checkout .allow .head span{
-color:#4D4D4D;
-}
-
-.one-page-checkout .active .head{
-background:#FCCA20;
-}
-
-.one-page-checkout .active .head h3{
-color:black;
-}
-
-.one-page-checkout .active .head h3 span{
-color:black;
-}
-
-.one-page-checkout .head{
-background:#4D4D4D;
-}
-
-.one-page-checkout .head h3{
-color:#FCCA20;
-}
-
-.one-page-checkout .head h3 span{
-color:#FCCA20;
-background:black;
-}
-
-.one-page-checkout-progress li h4{
-background:#4D4D4D;
-color:#FCCA21;
-}
-
-
-.one-page-checkout-progress li .complete{
-background:#FCCA21;
-color:#4D4D4D;
-}
-
-.one-page-checkout-progress li a{
-color:#4D4D4D;
-}
-
-.one-page-checkout .default-box .data-table tr{
-background:none;
-}
-
-
-.one-page-checkout .default-box .data-table tr th{
-background:none;
-}
-
-
-.one-page-checkout-progress li{
-background:none;
-color:#4D4D4D;
-}
-
-.one-page-checkout .default-box .data-table thead th{
-background:none;
-border:none;
-border-left:solid 0.3px #BBAFA0;
-border-right:solid 0.3px #BBAFA0;
-color:black;
-}
-
-.one-page-checkout .default-box .data-table tbody td{
-background:none;
-border:none;
-border-left:solid 0.3px #BBAFA0;
-border-top:solid 0.3px #BBAFA0;
-border-right:solid 0.3px #BBAFA0;
-color:black;
-}
-
-.one-page-checkout .default-box .data-table tfoot td{
-background:none;
-background-color:#FCC908;
-border:none;
-color:black;
-}
-
-.one-page-checkout .default-box .data-table tfoot td.last{
-border-left:solid 0.3px #BBAFA0;
-}
-
-
-.data-table tfoot tr{
-background-color:#FFFFFF !important;
-color:black;
-}
-
-.one-page-checkout #review-buttons-container input{
-background:none;
-border:none;
-background:black;
-color:#FCCA21;
 text-transform:uppercase;
+padding-top:4px;
 font-weight:bold;
-width:15em;
-height:4em;
-cursor:pointer;
-}*/
-
+font-size:15px;
+text-align:center;
+}

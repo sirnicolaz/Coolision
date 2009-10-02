@@ -108,13 +108,13 @@ background-image:url(../images/circle-black.jpg);
 height:27em;
 }
 
-.wishlist-right .view-button{
+.view-button{
 margin-top:10px;
 margin-bottom:12px;
 float:right;
 }
 
-.wishlist-right .view-button a{
+.view-button a{
 background: url(../images/wishlist-view_button.png) no-repeat top left;
 padding:0.25em 4.1em 0.5em 1em;
 text-align:left;
@@ -124,12 +124,12 @@ text-transform:uppercase;
 font-weight:bold;
 }
 
-.wishlist-right .remove-button {
+.remove-button {
 margin-bottom:12px;
 float:right;
 }
 
-.wishlist-right .remove-button a{
+.remove-button a{
 background:url(../images/wishlist-remove_button.png) no-repeat top left;
 padding:0.3em 2.5em 0.2em 1em;
 text-align:left;
@@ -139,11 +139,11 @@ text-decoration:none;
 color:white !important;
 }
 
-.wishlist-right .cart-button{
+.cart-button{
 margin-bottom:12px;
 }
 
-.wishlist-right .link-cart{
+.link-cart{
 background:url(../images/wishlist-add2cart_button.png) no-repeat top left;
 padding:0.25em 5.4em 0.3em 0.55em;
 text-align:left;
