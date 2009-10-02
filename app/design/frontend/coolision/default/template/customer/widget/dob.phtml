@@ -48,7 +48,7 @@ NOTE: Regarding styles - if we leave it this way, we'll move it to boxes.css
 <div class="customer-dob">
     <label for="<?php echo $this->getFieldId('day')?>">
         <?php //echo $this->__('Date of Birth') ?>
-        <?php if ($this->isRequired()):?><span class="required">*</span><?php endif ?>
+        <?php //if ($this->isRequired()):?><!--<span class="required">*</span>--><?php //endif non serve perchè lo mettiamo nel register.phtml il *?> 
     </label>
 
     <div class="input-box dob-day">

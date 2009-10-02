@@ -28,25 +28,26 @@
 <tr>
     <td class="attributes-col"><h4 class="title"><?php echo $this->htmlEscape($this->getProductName()) ?></h4>
         <!-- item custom options -->
-        <?php if ($_options = $this->getOptionList()):?>
+	<!-- COMMENTATO PERCHÈ NOI NON VISUALIZZIAMO LE OPZIONI DEL PRODOTTO QUÌ
+        <?php //if ($_options = $this->getOptionList()):?>
         <dl class="item-options">
-            <?php foreach ($_options as $_option) : ?>
-            <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
-            <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
-            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?>
-                <?php if (isset($_formatedOptionValue['full_view'])): ?>
+            <?php //foreach ($_options as $_option) : ?>
+            <?php //$_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
+            <dt><?php //echo $this->htmlEscape($_option['label']) ?></dt>
+            <dd<?php //if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php //endif; ?>><?php //echo $_formatedOptionValue['value'] ?>
+                <?php //if (isset($_formatedOptionValue['full_view'])): ?>
                 <div class="truncated_full_value">
                     <dl class="item-options">
-                        <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
-                        <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
+                        <dt><?php //echo $this->htmlEscape($_option['label']) ?></dt>
+                        <dd><?php //echo $_formatedOptionValue['full_view'] ?></dd>
                     </dl>
                 </div>
-                <?php endif; ?>
+                <?php //endif; ?>
             </dd>
-            <?php endforeach; ?>
+            <?php //endforeach; ?>
         </dl>
-        <?php endif;?>
-        <!-- / -->
+        <?php //endif;?>
+        -->
     </td>
     <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
     <td class="a-right">
@@ -141,6 +142,16 @@
         <?php endif; ?>
     </td>
     <?php endif; ?>
+    <td class="a-center"><?php echo Mage::getModel('catalog/product')->load($_item->getData('product_id'))->getAttributeText('color'); ?></td>
+    <td class="a-center">
+      <?php if ($_options = $this->getOptionList()):?>
+	<?php foreach ($_options as $_option) : ?>
+	  <?php if ($_option['label'] == 'Size'): ?>
+	    <?php echo $_option['value'] ?>
+	  <?php endif; ?>
+	<?php endforeach; ?>
+      <?php endif; ?>
+    </td>
     <td class="a-center"><?php echo $_item->getQty() ?></td>
     <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
     <td class="a-right">
