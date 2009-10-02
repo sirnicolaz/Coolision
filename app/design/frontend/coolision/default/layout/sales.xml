@@ -76,7 +76,6 @@ Customer account home dashboard layout
         </reference>
     </sales_order_history>
 
-
     <sales_order_view>
         <update handle="customer_account"/>
         <reference name="content">

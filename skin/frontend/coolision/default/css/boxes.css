@@ -778,7 +778,7 @@ html { height: 100%; }
 
 
 /************************** Prices */
-.price { white-space:nowrap !important; }
+#my-orders-table .price { white-space:nowrap !important; float:right;}
 
 /*.price-box { padding:5px 0; }*/
 .price-box .price { font-weight:bold; color:black; color:#c76200; }
@@ -1797,10 +1797,17 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .address-list .actions { float:right; margin:0 0 10px 10px; }
 
 /* Account Order History */
+
+#my-orders-table td{
+padding-top:15px;
+padding-left:10px;
+padding-right:10px;
+}
+
 .sales-order-view .checkmo-mailing-address { display:block; padding-left:20px; }
 .sales-order-history .middle { padding-bottom:1em; }
 
-.sales-order-history p.order-header-summary { font-weight:bold; }
+.sales-order-history p.order-header-summary { font-weight:bold; background-color:lightgrey;}
 
 .sales-order-history table { border:none; width:100% }
 .sales-order-history table h5 { text-align:left; }
@@ -1817,13 +1824,40 @@ tr.grand_total td, p.grand_total { padding-top:5px; padding-bottom:5px; }
 .sales-order-history table .first-cell { text-align:left; }
 .sales-order-history table .cart-price { text-align:right; }
 .sales-order-history .table-th-text { background-color:#444; padding:0.3em 1em; }
-.sales-order-history th.th-subtotal { border-bottom:2px solid #fcca20 !important; }
+.sales-order-history th.th-subtotal { border-bottom:2px solid #fcca20 !important; text-align:right;}
 .sales-order-history tr .table-th-text-subtotal { background-color:#fcca20; }
 
-.sales-order-history table.info-table { margin-bottom:6em; }
+.sales-order-history table.info-table { border-bottom:3px solid black; padding-bottom:10px }
 .sales-order-history table.info-table td { text-align:left; }
-
+.sales-order-history table.info-table th{text-align:left; width:50%;}
 .sales-order-history .sales-history-p { color:#bbb; font-size:90%; }
+
+.total-container{
+width:100%;
+margin-bottom:50px;
+}
+
+.total{
+float:right;
+text-transform:lowercase;
+padding-top:5px;
+width:28%;
+height:35px;
+background:url(../images/total_frame.jpg) top left no-repeat;
+}
+
+.total .title{
+margin-right:80px;
+font-weight:bold;
+margin-left:20px;
+vertical-align:middle;
+}
+
+.total .value{
+font-size:20px;
+font-weight:bold;
+vertical-align:middle;
+}
 
 /* Compare Products */
 .compare-products { margin:30px 0 50px 0; }

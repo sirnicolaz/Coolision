@@ -26,12 +26,7 @@
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/wishlist.css');?>" media="all" />
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<div class="page-head">
-    <?php if($this->helper('wishlist')->isRssAllow() && $this->getWishlist()->getSize()): ?>
-        <a href="<?php echo $this->helper('wishlist')->getRssUrl(); ?>" class="link-feed"><?php echo $this->__('RSS Feed') ?></a>
-    <?php endif; ?>
-    <h3><?php echo $this->__('My Wishlist') ?></h3>
-</div>
+
 
 <?php if($this->getWishlist()->getSize()): ?>
 <form action="<?php echo $this->getUrl('*/*/update') ?>" method="post">
