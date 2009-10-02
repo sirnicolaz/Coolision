@@ -44,3 +44,10 @@ color:#3B3B3B;
 .pager td.visualization img{
 vertical-align:middle;
 }
+
+.list-price
+{
+	text-align: right;
+	margin: 0px;
+	padding: 0px;
+}
