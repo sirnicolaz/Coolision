@@ -13,11 +13,16 @@ height:90px;
 
 .client-service-header .lines span{
 vertical-align:middle;
-font-size:47px;
+font-size:46px;
 font-weight:bold;
 text-transform:uppercase;
-padding-top:22px;
-padding-left:8px;
+line-height: 40px;
+display: block;
+width: 300px;
+padding: 0px;
+margin: 0px;
+margin-top: 5px;
+margin-left: 10px;
 }
 
 .client-service-header .lines br{

@@ -1,8 +1,6 @@
 .product-img-box{
 height:500px;
-border-right:solid 1.5px;
-width:40%;
-padding-top:10px;
+width: 300px;
 }
 
 .product-img-box p{
@@ -10,8 +8,8 @@ height:300px;
 }
 
 .product-img-box #image{
+margin-auto;
 margin-top:50px;
-margin-left:90px;
 }
 
 .product-img-box ul{
@@ -21,7 +19,7 @@ padding-top:10px;
 }
 
 .product-img-box ul li{
-border:solid 1px;
+border: 1px solid #B2B2B2;
 }
 
 .product-essential{
@@ -31,6 +29,8 @@ padding:0px;
 
 .product-info-box{
 border:none;
+height: 500px;
+width: 852px;
 }
 
 .product-info-boxRo
@@ -62,17 +62,51 @@ border:none;
 }
 
 .product-name{
-margin-top:30px;
-margin-left:15px;
+	margin-top:15px;
+	margin-left:15px;
+	width: 200px;
+	height: 20px;
+	padding: 0px;
+}
+
+.product-category
+{
+	margin-left: 15px;
+	width: 200px;
+	height: 20px;
+	color: #999999;	
+}
+
+.img-brand-top
+{
+	float: right;
+	height: 50px;
+	width: 180px;
+	border: 1px solid red;
+	margin-right: 15px;
+	margin-top: 15px;
 }
 
 .product-essential .product-shop{
-float:left;
-width:59.8%;
+float:right;
+width: 550px;
+padding: 0px;
+border-left: 1px solid #B2B2B2;
+}
+
+.product-shop-description
+{
+	margin: 0px;
+	display: block;
+	height: 420px;
+	padding: 0px;
+	width: 100%;
 }
 
 .product-shop-header{
 width:100%;
+height: 20px;
+margin: 0px;
 text-transform:uppercase;
 font-weight:bold;
 text-align:center;
@@ -151,8 +185,9 @@ color:white;
 
 .description-tab-menu-container {
 /*background:url(../images/product-separator.png) no-repeat bottom left;*/
-border-bottom:solid 1.5px #262626;
-width:95%;
+border-bottom:solid 1px #262626;
+width: 100%;
+margin: 0px;
 height:22px;
 }
 
@@ -166,13 +201,15 @@ display:none;
 
 .product-collateral{
 background: none;
-padding:0.2em;
+margin-left: 15px;
+margin-right: 15px;
+margin-top: 15px;
+padding: 0px;
 height:200px;
-margin-left:20px;
 }
 
 .configurable-attributes{
-height:12em;
+height:100px;
 margin-left:20px;
 }
 
@@ -181,10 +218,6 @@ float:left;
 margin-left:15px;
 margin-right:0px;
 width:40%;
-}
-
-.product-sum-link{
-height:6em;;
 }
 
 .configurable-attribute input#Red{
@@ -291,6 +324,10 @@ margin-top:1.5em;
 .product-sum-link{
 margin-left:0px;
 text-align:center;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-top: 20px;
+height: 40px;
 }
 
 .product-sum-link .sum-link{
@@ -299,7 +336,8 @@ text-align:center;
 
 .divider{
 height:1.5px;/* #262626 solid;*/
-background:#262626;
+margin: 0px;
+background:#B2B2B2;
 width:100%;
 margin-right:0px;
 padding-right:0px;
@@ -324,20 +362,36 @@ sform:uppercase;
 .product-sum-link #priceBox{
 float: right;
 clear: left;
-width: 120px;
-margin-top: 5px;
+width: 130px;
 color:#262626;
 text-align:right;
-padding-right:5px;
-padding-top: 0px;
+margin-top: 3px;
+margin-right: 3px;
+line-height: normal;
+padding: 0px;
+height: 30px;
+}
+
+.price-box
+{
+	margin: 0px;
 }
 
 .price-container{
 float: left;
 }
 
+.add-to-holder
+{
+	height: 60px;
+	margin-right: 30px;
+	width: 25%;
+	display: block;
+	float: right;
+}
+
 ul.add-to-box{
-width:25%;
+width: 100%;
 height:30px;
 border:none;
 float:right;

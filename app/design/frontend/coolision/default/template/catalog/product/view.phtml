@@ -57,13 +57,12 @@
 	<div class="product-info-boxLu">
     <div class="product-essential">
     <form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
-
         <div class="product-img-box">
             <?php echo $this->getChildHtml('media') ?>
         </div>
 
         <div class="product-shop">
-
+			<div class="product-shop-description">
 			<div class="product-shop-header">
 				<div class="product-zoom">
 					<span><?php echo $this->__('Click on the image to zoom product') ?></span>
@@ -72,10 +71,15 @@
 	                <a class="email-to-friend" href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span><?php echo $this->__('Email to a Friend') ?></span></a>
 	            <?php endif;?>
 			</div>
- 
+			
+			<div class="img-brand-top"><?php echo $_product->getAttributeText('type') ?></div>
+			
 			<h3 class="product-name">
                 <?php echo $_helper->productAttribute($_product, $this->htmlEscape($_product->getName()), 'name') ?>
             </h3>
+			<h4 class="product-category">
+				<?php echo $_product->getAttributeText('type') ?>
+			</h4>
 			
 			<div id="tabsArea" class="tabs-area">
 				<div class="product-collateral">
@@ -175,6 +179,7 @@
 						<?php echo $this->getChildChildHtml('container2', '', true, true) ?>
 					<?php endif;?>
 			</div>
+			</div>
             <div class="divider"></div>
 			<div class="product-sum-link">
 				<div class="price-container">
@@ -208,13 +213,13 @@
 					<?php echo $this->getChildHtml('addto') ?>
 				<?php endif; ?>
 				<br/>
-				<?php if ($_show): ?>
+				<!--<?php if ($_show): ?>
 				  <div class="back-to-shop-container">
 					  <div class="back-to-shop">
 						  <a href="<?php echo $_urlBack ?>"><?php echo $this->__('Back') ?></a>
 					  </div>
 				  </div>
-				<?php endif; ?>
+				<?php endif; ?>-->
 			</div>
             <!--<?php //if ($_product->getShortDescription()):?>
                 <h4><?php //echo $this->__('Quick Overview') ?></h4>
