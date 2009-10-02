@@ -53,6 +53,7 @@ padding-bottom:100%;
 .customer-account-header + .side-col + .col-main{
 padding-top:10px;
 width:78%;
+padding-right:10px;
 }
 
 .col-2-left-customer{
